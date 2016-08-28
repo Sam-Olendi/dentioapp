@@ -1,0 +1,355 @@
+<template name="appointments">
+    <div class="body-content">
+        <header class="body-header">
+            <h1 class="body-header-title">
+                {{> appointmentHeaderTitle }}
+            </h1>
+            <div class="body-header-button">
+                {{> appointmentNewButton}}
+            </div>
+        </header>
+        <section class="body-flesh">
+            {{> appointmentContent }}
+        </section>
+    </div>
+</template>
+
+<template name="appointmentHeaderTitle">
+    {{selectedDay}} <small class="body-header-subtitle">{{selectedDate}}</small>
+    <input type="hidden" class="appointment-calendar js-appointment-calendar" placeholder="Select a date">
+</template>
+
+<template name="appointmentNewButton">
+    <a href="#" class="button mod-button-okay js-appointment-new-trigger"><span class="icon-add"></span>New appointment</a>
+    {{> appointmentNewModal }}
+</template>
+
+<template name="appointmentNewModal">
+    <div id="appointment-new-modal" class="modal appointment-new-modal" role="dialog" aria-hidden="true">
+        <div class="modal-dialog appointment-new-modal-dialog">
+            <div class="modal-content appointment-new-modal-content">
+                <a href="#" class="modal-close"><span class="icon-cancel"></span></a>
+                <h2 class="modal-content-title">New Appointment</h2>
+
+                <div class="appointment-group">
+                    {{> appointmentNewPatientSearch }}
+                </div>
+
+                <div class="appointment-group">
+                    <p class="appointment-label">Patient Name:</p>
+                    <p class="body-error js-patient-status"><span class="icon-cancel"></span></p>
+                    {{> appointmentNewPatientName }}
+                </div>
+
+                <form class="appointment-form" id="appointment-new-form">
+                    <div class="appointment-group">
+                        <div>
+                            <p class="appointment-label">Status:</p>
+                            <p class="body-error js-error-status"><span class="icon-cancel"></span></p>
+
+                            <input type="radio" id="appointment-status-waiting" class="appointment-radio js-appointment-new-radio" value="Waiting" name="appointment-new-radio">
+                            <label for="appointment-status-waiting" class="appointment-radio-label">Waiting</label>
+
+                            <input type="radio" id="appointment-status-in-session" class="appointment-radio js-appointment-new-radio" value="In-Session" name="appointment-new-radio">
+                            <label for="appointment-status-in-session" class="appointment-radio-label">In-Session</label>
+
+                            <input type="radio" id="appointment-status-completed" class="appointment-radio js-appointment-new-radio" value="Completed" name="appointment-new-radio">
+                            <label for="appointment-status-completed" class="appointment-radio-label">Completed</label>
+                        </div>
+
+                    </div>
+
+                    <div class="appointment-group">
+                        <div class="appointment-booked">
+                            <p class="appointment-booked-text">Did they book an appointment?</p>
+                            <div class="appointment-new-booked-toggle appointment-new-booked-slide">
+                                <input type="checkbox" id="appointment-new-booked-checkbox" class="appointment-new-booked-checkbox" checked>
+                                <label for="appointment-new-booked-checkbox" class="appointment-new-booked-label">
+                                    <div class="appointment-new-booked-card appointment-new-booked-slide"></div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-button-group">
+                        <button class="button mod-button-okay" type="submit">Add appointment</button>
+                        <button class="button mod-button-cancel js-cancel-appointment-new" type="button">Cancel</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="appointmentNewPatientSearch">
+    <div class="body-search-form">
+        <span class="icon-search"></span>
+        <input type="search" placeholder="Search for a patient" id="appointment-new-search-box" class="body-search-box js-show-patient-results" autocomplete="off">
+    </div>
+    <ul class="appointment-search-results">
+        {{#if searching }}
+            <li class="body-search-loading"></li>
+            <li class="body-search-result-helper">Searching...</li>
+        {{else}}
+            {{#each patients}}
+                <li class="body-search-result">
+                    <a href="#" class="body-search-result-link js-get-appointment-patient" data-id="{{_id}}">{{profile.surname}}, {{profile.first_name}} {{profile.middle_name}}</a>
+                </li>
+            {{else}}
+                <li class="body-search-result-helper">Sorry. No results found for {{query}}</li>
+            {{/each}}
+        {{/if}}
+    </ul>
+</template>
+
+<template name="appointmentNewPatientName">
+    {{#if selectedPatient}}
+        {{#with selectedPatient}}
+            <p class="appointment-patient">{{profile.surname}}, {{profile.first_name}} {{profile.middle_name}} <a href="#" class="appointment-new-patient-remove js-appointment-new-patient-remove"><span class="icon-cancel"></span></a></p>
+        {{/with}}
+    {{else}}
+        <p class="appointment-patient"><span class="appointment-new-helper">Please select a patient first</span></p>
+    {{/if}}
+</template>
+
+<template name="appointmentContent">
+    {{> appointmentStatusModal }}
+    {{> confirmDeleteAppointmentModal}}
+    <nav class="appointment-navigation">
+        <ul class="appointment-tabs">
+            {{> appointmentContentTabs }}
+        </ul>
+    </nav>
+
+    <ul class="appointment-tabs-content">
+        {{> appointmentContentTabSections }}
+    </ul>
+</template>
+
+<template name="appointmentContentTabs">
+    <li class="appointment-tabs-tab">
+        <a href="#" class="appointment-tabs-link appointment-tabs-link-is-selected" data-content="waiting">
+            Waiting
+        </a>
+    </li>
+
+    <li class="appointment-tabs-tab">
+        <a href="#" class="appointment-tabs-link" data-content="in-session">
+            In-Session
+        </a>
+    </li>
+
+    <li class="appointment-tabs-tab">
+        <a href="#" class="appointment-tabs-link" data-content="completed">
+            Completed
+        </a>
+    </li>
+</template>
+
+<template name="appointmentContentTabSections">
+    <li class="appointment-tabs-content-section appointment-tabs-content-section-is-selected" data-content="waiting">
+        <div class="appointment-tabs-content-wrapper">
+            {{> appointmentContentWaiting }}
+        </div>
+    </li>
+    <li class="appointment-tabs-content-section" data-content="in-session">
+        <div class="appointment-tabs-content-wrapper">
+            {{> appointmentContentInSession }}
+        </div>
+    </li>
+    <li class="appointment-tabs-content-section" data-content="completed">
+        <div class="appointment-tabs-content-wrapper">
+            {{> appointmentContentCompleted }}
+        </div>
+    </li>
+</template>
+
+<template name="appointmentContentWaiting">
+    {{> appointmentWaitingSearch}}
+
+    <div class="appointment-content-waiting">
+        <table class="appointment-content-table">
+            {{> appointmentWaitingRow}}
+        </table>
+    </div>
+</template>
+
+<template name="appointmentWaitingSearch">
+    <form class="body-search-form">
+        <span class="icon-search"></span>
+        <input type="search" placeholder="Search for a patient" class="body-search-box">
+    </form>
+</template>
+
+<template name="appointmentWaitingRow">
+    {{#each appointments}}
+        <tr class="appointment-content-row" data-id="{{patient_id}}" data-appointment="{{_id}}">
+            <td class="appointment-content-row-name">
+                <a href="#" class="appointment-content-table-patient">
+                    {{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}}
+                </a>
+            </td>
+            <td class="appointment-content-row-status">
+                <a href="#" class="appointment-content-table-status js-appointment-content-table-status">
+                    <span class="icon-toggles"></span> Change status
+                </a>
+            </td>
+            <td class="appointment-content-row-booked">
+                {{#if booked}}
+                    <span class="appointment-content-table-booked">Booked</span>
+                {{/if}}
+            </td>
+        </tr>
+    {{/each}}
+</template>
+
+<template name="appointmentStatusModal">
+    <div id="change-status-modal" class="modal change-status-modal" role="dialog" aria-hidden="true">
+        <div class="modal-dialog change-status-modal-dialog">
+            <div class="modal-content change-status-modal-content">
+                <a href="#" class="modal-close"><span class="icon-cancel"></span></a>
+                <h2 class="modal-content-title">Change Status</h2>
+
+                <div class="appointment-group">
+                    <p class="appointment-label">Patient Name:</p>
+                    <p class="appointment-patient">{{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}}</p>
+                </div>
+
+                <form class="appointment-form" id="appointment-change-status-form">
+                    <div class="appointment-group">
+                        <p class="appointment-label">Status:</p>
+                        <p class="body-error js-error-status"><span class="icon-cancel"></span></p>
+
+                        <input type="radio" id="change-status-waiting" class="appointment-radio js-appointment-change-status-radio" value="Waiting" name="change-status-radio">
+                        <label for="change-status-waiting" class="appointment-radio-label">Waiting</label>
+
+                        <input type="radio" id="change-status-in-session" class="appointment-radio js-appointment-change-status-radio" value="In-Session" name="change-status-radio">
+                        <label for="change-status-in-session" class="appointment-radio-label">In-Session</label>
+
+                        <input type="radio" id="change-status-completed" class="appointment-radio js-appointment-change-status-radio" value="Completed" name="change-status-radio">
+                        <label for="change-status-completed" class="appointment-radio-label">Completed</label>
+                    </div>
+
+
+                    <div class="appointment-group">
+                        <div class="appointment-booked">
+                            <p class="appointment-booked-text">Did they book an appointment?</p>
+                            <div class="appointment-booked-toggle appointment-booked-slide">
+                                <input type="checkbox" id="appointment-booked-checkbox" class="appointment-booked-checkbox js-appointment-change-status-booked-checkbox" checked>
+                                <label for="appointment-booked-checkbox" class="appointment-booked-label">
+                                    <div class="appointment-booked-card appointment-booked-slide"></div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-button-group">
+                        <button class="button mod-button-okay" type="submit">Change status</button>
+                        <button class="button mod-button-cancel js-cancel-change-status" type="button">Cancel</button>
+                    </div>
+
+                    <a href="#" class="button mod-button-delete-text js-appointment-delete">or delete this appointment?</a>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="confirmDeleteAppointmentModal">
+    <div id="confirm-delete-appointment-modal" class="modal confirm-delete-appointment-modal" role="dialog" aria-hidden="true">
+        <div class="modal-dialog confirm-delete-appointment-modal-dialog">
+            <div class="modal-content confirm-delete-appointment-modal-content">
+                <a href="#" class="modal-close"><span class="icon-cancel"></span></a>
+                <h2 class="modal-content-title">Delete appointment</h2>
+
+                <p class="modal-content-text">Are you sure you want to delete this appointment?</p>
+
+                <div class="modal-button-group">
+                    <a href="#" class="button mod-button-no js-appointment-delete-confirmed">Yes. Delete this appointment</a>
+                    <a href="#" class="button mod-button-cancel js-appointment-delete-cancelled">Cancel</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="appointmentContentInSession">
+    {{> appointmentInSessionSearch}}
+
+    <div class="appointment-content-in-session">
+        <table class="appointment-content-table">
+            {{> appointmentInSessionRow}}
+        </table>
+    </div>
+</template>
+
+<template name="appointmentInSessionSearch">
+    <form class="body-search-form">
+        <span class="icon-search"></span>
+        <input type="search" placeholder="Search for a patient" class="body-search-box">
+    </form>
+</template>
+
+<template name="appointmentInSessionRow">
+    {{#each appointments}}
+        <tr class="appointment-content-row" data-id="{{patient_id}}" data-appointment="{{_id}}">
+            <td class="appointment-content-row-name">
+                <a href="#" class="appointment-content-table-patient">
+                    {{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}}
+                </a>
+            </td>
+            <td class="appointment-content-row-status">
+                <a href="#" class="appointment-content-table-status js-appointment-content-table-status">
+                    <span class="icon-toggles"></span> Change status
+                </a>
+            </td>
+            <td class="appointment-content-row-booked">
+                {{#if booked}}
+                    <span class="appointment-content-table-booked">Booked</span>
+                {{/if}}
+            </td>
+        </tr>
+    {{/each}}
+</template>
+
+<template name="appointmentContentCompleted">
+    {{> appointmentCompletedSearch}}
+
+    <div class="appointment-content-completed">
+        <table class="appointment-content-table">
+            {{> appointmentCompletedRow}}
+        </table>
+    </div>
+</template>
+
+<template name="appointmentCompletedSearch">
+    <form class="body-search-form">
+        <span class="icon-search"></span>
+        <input type="search" placeholder="Search for a patient" class="body-search-box">
+    </form>
+</template>
+
+<template name="appointmentCompletedRow">
+    {{#each appointments}}
+        <tr class="appointment-content-row" data-id="{{patient_id}}" data-appointment="{{_id}}">
+            <td class="appointment-content-row-name">
+                <a href="#" class="appointment-content-table-patient">
+                    {{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}}
+                </a>
+            </td>
+            <td class="appointment-content-row-status">
+                <a href="#" class="appointment-content-table-status js-appointment-content-table-status">
+                    <span class="icon-toggles"></span> Change status
+                </a>
+            </td>
+            <td class="appointment-content-row-booked">
+                {{#if booked}}
+                    <span class="appointment-content-table-booked">Booked</span>
+                {{/if}}
+            </td>
+        </tr>
+    {{/each}}
+</template>

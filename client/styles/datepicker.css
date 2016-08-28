@@ -1,0 +1,105 @@
+.ui-datepicker-trigger {
+    background-color: hsl(0, 0%, 96%);
+    border: 1px solid hsl(0, 0%, 93%);
+    border-radius: 3px;
+    color: hsl(0, 0%, 64%);
+    display: inline-block;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.4em;
+    font-weight: 400;
+    margin-top: 15px;
+    max-width: 135px;
+    padding: 7px 13px 7px;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.ui-datepicker-trigger:hover {
+    background-color: #F0F0F0;
+}
+
+.ui-datepicker-trigger:active {
+    background-color: #EBEBEB;
+}
+
+@media only screen and (min-width: 26.875em) {
+    .ui-datepicker-trigger {
+        display: block;
+        width: inherit;
+        margin: 15px auto 0;
+    }
+}
+
+@media only screen and (min-width: 46.875em) {
+    .ui-datepicker-trigger {
+        display: inline-block;
+    }
+}
+
+.ui-datepicker {
+    border: 2px solid hsl(0, 0%, 93%);
+    box-shadow: 0 2px 10px rgba(24, 24, 24, .2);
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 33px;
+    padding: .9em .8em 0.5em;
+    width: 19em;
+}
+
+.ui-datepicker-header {
+    background: transparent;
+    border: 0;
+}
+
+.ui-datepicker .ui-datepicker-title {
+    color: hsl(210, 92%, 65%);
+    letter-spacing: -.7px;
+    text-transform: uppercase;
+}
+
+.ui-datepicker th {
+    color: hsl(0, 0%, 64%);
+    font-size: 0.7em;
+    padding: 2em 0 1.3em;
+    text-transform: uppercase;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+    background: transparent;
+    border: 0;
+    font-size: 0.8em;
+}
+
+.ui-state-highlight,
+.ui-widget-content .ui-state-highlight,
+.ui-widget-header .ui-state-highlight {
+    background-color: hsl(210, 92%, 65%);
+    color: hsl(0, 0%, 100%);
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
+    background: hsl(0, 0%, 96%);
+    color: hsl(210, 92%, 65%);
+}
+
+.ui-datepicker td span,
+.ui-datepicker td a {
+    font-size: 0.85em;
+    font-weight: 700 !important;
+    padding: 0.5em;
+    text-align: center;
+}
+
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus, .ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+    background: hsl(0, 0%, 96%);
+    border-color: hsl(0, 0%, 64%);
+    border-radius: 2px;
+    color: hsl(194, 16%, 16%);
+}
