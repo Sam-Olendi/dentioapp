@@ -1,0 +1,100 @@
+<template name="patientContentMedicalHistory">
+    <div class="single-patient-medical-section">
+        <div class="single-patient-medical-row">
+            <div class="single-patient-medical-group">
+                <header class="single-patient-medical-header">
+                    <p class="single-patient-medical-title">Significant Illnesses</p>
+                </header>
+                <div class="single-patient-medical-content">
+                    <div class="single-patient-medical-content-illness">
+                        {{#if medical_history}}
+                            {{#with medical_history}}
+                                {{#each significant_illnesses}}
+                                    <p class="single-patient-medical-text js-single-patient-medical-illness-text">
+                                        <span class="js-single-patient-medical-dblclick-illness">{{this}}</span>
+                                    </p>
+                                {{/each}}
+                            {{/with}}
+                        {{/if}}
+                    </div>
+                    <a href="#" class="single-patient-medical-add-link js-single-patient-medical-add-illness"><span class="icon-add"></span> Add a significant illness</a>
+                </div>
+            </div>
+
+            <div class="single-patient-medical-group">
+                <header class="single-patient-medical-header">
+                    <p class="single-patient-medical-title">Significant Surgeries</p>
+                </header>
+                <div class="single-patient-medical-content">
+                    <div class="single-patient-medical-content-surgery">
+                        {{#if medical_history}}
+                            {{#with medical_history}}
+                                {{#each significant_surgeries}}
+                                    <p class="single-patient-medical-text js-single-patient-medical-dblclick-surgeries">{{this}}</p>
+                                {{/each}}
+                            {{/with}}
+                        {{/if}}
+                    </div>
+                    <a href="#" class="single-patient-medical-add-link js-single-patient-medical-add-surgery"><span class="icon-add"></span> Add a surgery</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="single-patient-medical-row">
+            <div class="single-patient-medical-group">
+                <header class="single-patient-medical-header">
+                    <p class="single-patient-medical-title">Allergies</p>
+                </header>
+                <div class="single-patient-medical-content">
+                    <div class="single-patient-medical-content-allergy">
+                        {{#if medical_history}}
+                            {{#with medical_history}}
+                                {{#each allergies}}
+                                    <p class="single-patient-medical-text">{{this}}</p>
+                                {{/each}}
+                            {{/with}}
+                        {{/if}}
+                    </div>
+                    <!--Append an input field here-->
+                    <a href="#" class="single-patient-medical-add-link js-single-patient-medical-add-allergy"><span class="icon-add"></span> Add an allergy</a>
+                </div>
+            </div>
+
+            <div class="single-patient-medical-group">
+                <header class="single-patient-medical-header">
+                    <p class="single-patient-medical-title">Present Conditions</p>
+                </header>
+                <div class="single-patient-medical-content">
+                    <div class="single-patient-medical-content-condition">
+                        {{#if medical_history}}
+                            {{#with medical_history}}
+                                {{#each present_conditions}}
+                                    <p class="single-patient-medical-text">{{this}}</p>
+                                {{/each}}
+                            {{/with}}
+                        {{/if}}
+                    </div>
+                    <a href="#" class="single-patient-medical-add-link js-single-patient-medical-add-condition"><span class="icon-add"></span> Add a present condition</a>
+                </div>
+            </div>
+
+            <div class="single-patient-medical-group">
+                <header class="single-patient-medical-header">
+                    <p class="single-patient-medical-title">Current Medication</p>
+                </header>
+                <div class="single-patient-medical-content">
+                    <div class="single-patient-medical-content-medication">
+                        {{#if medical_history}}
+                            {{#with medical_history}}
+                                {{#each current_medication}}
+                                    <p class="single-patient-medical-text">{{this}}</p>
+                                {{/each}}
+                            {{/with}}
+                        {{/if}}
+                    </div>
+                    <a href="#" class="single-patient-medical-add-link js-single-patient-medical-add-medication"><span class="icon-add"></span> Add current medication</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

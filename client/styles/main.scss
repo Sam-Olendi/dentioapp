@@ -380,14 +380,7 @@ input, select {
   border-radius: 3px;
   font-size: 0.85em;
   padding: 10px 15px;
-
-  &:focus {
-    outline: {
-      color: $brandon-blue;
-      style: solid;
-      width: 1px;
-    }
-  }
+  position: relative;
 }
 
 table {
@@ -413,10 +406,15 @@ tr {
   &:nth-child(even) {
     background-color: $lightest-gray;
   }
+
+  &:hover {
+    background: $light-blue-gray;
+  }
 }
 
-td {
+td, th {
   padding:15px;
+  text-align: left;
 }
 
 .button {
@@ -458,6 +456,23 @@ td {
   }
 }
 
+.button.mod-button-edit {
+  background: $brandon-blue;
+  color: $ordinary-white;
+
+  &:hover {
+    background: #4597E9;
+  }
+
+  &:active {
+    background: #2E80D2;
+  }
+}
+
+.button.mod-button-small {
+  padding: 5px 13px;
+}
+
 .button.mod-button-cancel {
   background: #dddddd;
   border: 1px solid $border-gray;
@@ -478,6 +493,38 @@ td {
   text-decoration: underline;
 }
 
+.button.mod-button-helper {
+  color: $deepest-gray;
+  padding: 10px 0;
+  text-decoration: underline;
+}
+
+.button.mod-button-hide {
+  color: $deeper-gray;
+  float: right;
+  font-size: 0.75em;
+  padding: 10px 0;
+  text-decoration: underline;
+
+  &:after {
+    clear: both;
+  }
+}
+
+.button.mod-button-dotted {
+  background: $lightest-gray;
+  border: 2px dashed $deeper-gray;
+  color: $deepest-gray;
+  display: block;
+  font-size: 0.85em;
+  text-align: center;
+  width: 100%;
+
+  .icon-file3 {
+    margin-right: 5px;
+  }
+}
+
 .body-content {
   padding-top: 65px;
   position: relative;
@@ -495,7 +542,7 @@ td {
 
 @media only screen and (min-width: 48em) {
   .body-header {
-    padding: 20px 0 20px 35px;
+    padding: 20px 35px 20px 35px;
   }
 }
 
@@ -538,6 +585,7 @@ td {
     size: 0.4em;
     weight: 400;
   }
+  text-transform: none;
 }
 
 .body-header-button {
@@ -570,6 +618,7 @@ td {
     left: 15px;
     position: absolute;
     top: 30%;
+    z-index: 1;
   }
 
   .body-search-box {
@@ -638,6 +687,38 @@ td {
   .icon-cancel {
     margin-right: 10px;
   }
+}
+
+.body-error-icon {
+  display: none;
+  left: 5px;
+  position: absolute;
+  top: 18px;
+
+  .icon-cancel {
+    color: $danger-red;
+  }
+}
+
+.body-bottom-buttons {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.body-form-label {
+  color: $damien-light;
+  font: {
+    size: 0.8em;
+    weight: 700;
+  }
+  display: block;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.body-form-input {
+  font-size: 0.8em;
+  width: 100%;
 }
 
 
@@ -712,7 +793,14 @@ td {
 
 .modal-content-text {
   font-size: 0.85em;
+}
 
+.modal-attach-group {
+  margin: 20px 0;
+}
+
+.modal-attach-button {
+  margin-bottom: 15px;
 }
 
 .modal-button-group {
@@ -1165,3 +1253,606 @@ td {
   padding: 5px 10px;
   text-transform: uppercase;
 }
+
+
+/* ------------------------------
+
+    Patients
+
+-------------------------------- */
+
+.patient-table-link {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.body-flesh.mod-body-flesh-patients {
+  background-color: $light-blue-gray;
+  border-top: 1px solid $border-gray;
+  margin: 1.4em 0;
+  min-height: 400px;
+  padding: 20px 35px;
+}
+
+.patient-new-modal-content {
+  width: 600px;
+}
+
+.patient-group {
+  margin-bottom: 20px;
+}
+
+.patient-form-group {
+  position: relative;
+}
+
+.patient-form-group.mod-patient-form-group-name {
+  display: inline-block;
+  width: 32.6%;
+}
+
+.patient-form-group.mod-patient-form-group-contacts {
+  margin-bottom: 20px;
+}
+
+
+/* ------------------------------
+
+    Patients (Single)
+
+-------------------------------- */
+
+.body-flesh.mod-body-flesh-patients-single {
+  margin: 2.8em auto 0;
+}
+
+.single-patient-name-edit-input {
+  display: none;
+  width: 600px;
+}
+
+.single-patient-settings {
+  display: inline;
+  font-size: 0.5em;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+}
+
+.single-patient-settings-gear {
+  border-radius: 3px 3px 0 0;
+  color: $deeper-gray;
+  padding: 6px 8px 2px 7px;
+  text-decoration: none;
+
+  &:hover {
+    color: $deepest-gray;
+  }
+}
+
+.single-patient-settings-gear-is-active {
+  background-color: $damien-light;
+  color: $deepest-gray;
+}
+
+.single-patient-settings-options {
+  background-color: $damien-dark;
+  border-radius: 0 3px 3px 3px;
+  display: none;
+  font-family: 'Open Sans', sans-serif;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.single-patient-settings-delete {
+  color: $lightest-gray;
+  font: {
+    size: 0.75em;
+    weight: 400;
+  }
+  text-decoration: none;
+  text-transform: none;
+}
+
+.single-patient-settings-delete-text {
+  border-radius: 0 0 3px 3px;
+  padding: 10px 20px;
+
+  &:hover {
+    background-color: $danger-red;
+
+    .icon-cancel {
+      color: $ordinary-white;
+    }
+  }
+
+  .icon-cancel {
+    color: $deeper-gray;
+    font-size: 0.85em;
+    margin-right: 7px;
+  }
+}
+
+.single-patient-navigation {
+  box-shadow: inset 0 -2px 3px rgba(203, 196, 130, 0.06);
+  margin-top: -50px;
+  overflow: auto;
+  padding-top: 20px;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+.single-patient-tabs {
+  font-weight: 600;
+  margin: 0 0 0 40px;
+  list-style-type: none;
+  padding-left: 0;
+
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+.single-patient-tab {
+  float: left;
+}
+
+.single-patient-tab-item {
+  border-radius: 3px 3px 0 0;
+  color: $deeper-gray;
+  display: block;
+  font: {
+    size: 0.75em;
+    weight: 600;
+  }
+  height: 50px;
+  line-height: 50px;
+  margin-right: 5px;
+  padding: 0 30px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  @extend %antialiasing;
+
+  &:not(.single-patient-tab-item-is-selected) {
+    background-color: $lightest-gray;
+  }
+}
+
+.single-patient-tab-item-is-selected {
+  background-color: $light-blue-gray;
+  border: {
+    top: 0;
+    left: 1px solid $border-gray;
+    right: 1px solid $border-gray;
+  }
+  box-shadow: inset 0 3px 0 $brandon-blue;
+  color: $deepest-gray;
+
+  &::before {
+    left: 38px;
+    margin-left: 0;
+    margin-top: -10px;
+    top: 50%;
+  }
+}
+
+.single-patient-details {
+  background-color: $light-blue-gray;
+  border-top: 1px solid $lightest-gray;
+  margin: 0;
+  min-height: 900px;
+  padding-left: 0;
+}
+
+.single-patient-details-tab {
+  display: none;
+  padding: 1.4em 0;
+}
+
+.single-patient-details-tab-is-selected {
+  display: block;
+
+  @include animation(fade-in 0.5s);
+}
+
+.single-patient-details-wrapper {
+  padding: 10px 40px;
+}
+
+.single-patient-general-row {
+  float: left;
+  width: 33%;
+}
+
+.single-patient-general-section {
+  background-color: $ordinary-white;
+  border: 1px solid $border-gray;
+  border-radius: 3px;
+  margin: 0 15px 15px 0;
+  padding: 5px 20px;
+}
+
+.single-patient-general-group {
+  margin-bottom: 20px;
+}
+
+.single-patient-general-header {
+  border-bottom: 1px solid $border-gray;
+  color: $deeper-gray;
+  font: {
+    size: 0.75em;
+    weight: 700;
+  }
+  letter-spacing: 0.1px;
+  text-transform: uppercase;
+}
+
+.single-patient-general-title {
+  padding: 5px 0 5px 7px;
+}
+
+.single-patient-general-content {
+  padding: 8px 0 5px 8px;
+}
+
+.single-patient-general-text {
+  color: $deeper-gray;
+  font-size: 0.78em;
+  line-height: 2;
+  margin: 10px 0;
+}
+
+.single-patient-general-context {
+  color: $damien-light;
+  font: {
+    size: 0.93em;
+    weight: 700;
+  }
+  letter-spacing: 0.1px;
+  text-transform: uppercase;
+}
+
+.input.mod-input-edit-patient {
+  //border: {
+  //  bottom: 1.5px solid $deeper-gray;
+  //  left: 0;
+  //  right: 0;
+  //  top: 0;
+  //}
+  border: 1.5px solid $deeper-gray;
+  border-radius: 0;
+  display: none;
+  padding: 7px 10px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.single-patient-medical-section {
+  background-color: $ordinary-white;
+  border: 1px solid $border-gray;
+  border-radius: 3px;
+  margin: 0 15px 15px 0;
+  overflow: auto;
+  padding: 30px 50px;
+}
+
+.single-patient-medical-row {
+  float: left;
+  width: 50%;
+}
+
+.single-patient-medical-group {
+  margin-bottom: 40px;
+  width: 70%;
+}
+
+.single-patient-medical-header {
+  border-bottom: 1px solid $border-gray;
+  color: $deeper-gray;
+  font: {
+    size: 0.75em;
+    weight: 700;
+  }
+  letter-spacing: 0.1px;
+  text-transform: uppercase;
+}
+
+.single-patient-medical-title {
+  padding: 5px 0 5px 7px;
+}
+
+.single-patient-medical-content {
+  padding: 8px 0 5px 8px;
+}
+
+.single-patient-medical-text {
+  font-size: 0.8em;
+  line-height: 1.7;
+  margin: 10px 0;
+}
+
+.single-patient-medical-add-link {
+  background-color: $lightest-gray;
+  border: 1px solid $border-gray;
+  border-radius: 3px;
+  color: $deeper-gray;
+  font-size: 0.8em;
+  line-height: 1.7;
+  margin: 10px 0;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+
+.single-patient-medical-input {
+  font-size: 0.8em;
+  margin-bottom: 15px;
+  padding: 8px 15px;
+  width: 100%;
+}
+
+
+
+/* ----------------------------------------
+
+    Single Patient (Treatment section)
+
+------------------------------------------ */
+
+.single-patient-treatment-right {
+  border-right: 1px dashed $deeper-gray;
+  padding-right: 4px;
+}
+
+.single-patient-treatment-right,
+.single-patient-treatment-left {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.single-patient-treatment-right-side {
+  color: $deeper-gray;
+  font: {
+    size: 0.7em;
+    weight: 700;
+  }
+  margin: 5px 0 5px 125px;
+  text-transform: uppercase;
+}
+
+.single-patient-treatment-left-side {
+  color: $deeper-gray;
+  text-align: right;
+  font: {
+    size: 0.7em;
+    weight: 700;
+  }
+  margin: 5px 20px 5px 0;
+  text-transform: uppercase;
+}
+
+.single-patient-treatment-right-label {
+  font: {
+    size: 0.7em;
+    weight: 700;
+  }
+  display: inline-block;
+  padding-right: 10px;
+  text-align: right;
+  text-transform: uppercase;
+  width: 120px;
+}
+
+.single-patient-treatment-left-label {
+  font: {
+    size: 0.7em;
+    weight: 700;
+  }
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+.single-patient-treatment-right-numbering-R {
+  display: inline;
+
+  a {
+    color: $deeper-gray;
+    display: inline-block;
+    font: {
+      size: 0.8em;
+      weight: 700;
+    }
+    text-align: center;
+    text-decoration: none;
+    width: 50px;
+  }
+}
+
+.single-patient-treatment-svg-wrapper {
+  display: inline;
+  position: relative;
+}
+
+.tooth:hover {
+  cursor: pointer;
+  fill: #E8ECF1;
+}
+
+.tooth:active {
+  fill: #283739;
+}
+
+.svg-tooltip {
+  background: $damien-light;
+  border-radius: 3px;
+  color: $ordinary-white;
+  display: none;
+  font-size: 0.75em;
+  left: 0;
+  padding: .3em;
+  position: absolute;
+  top: -55px;
+}
+
+.modal-content.patient-treatments-modal-content,
+.modal-content.patient-findings-modal-content {
+  width: 600px;
+}
+
+.modal-content-title.mod-modal-content-title-treatments-modal,
+.modal-content-title.mod-modal-content-title-findings-modal {
+  margin-bottom: 10px;
+}
+
+.patient-treatments-previous-title,
+.patient-findings-previous-title {
+  color: $deepest-gray;
+  font-size: 0.95em;
+  letter-spacing: -.5px;
+  margin: 6px 0 0;
+  text-transform: uppercase;
+}
+
+.patient-treatments-previous,
+.patient-findings-previous {
+  background: $light-blue-gray;
+  border: 1px solid $border-gray;
+  border-radius: 3px;
+  display: none;
+  max-height: 200px;
+  margin: 30px 0;
+  overflow: auto;
+  padding: 15px;
+}
+
+.patient-treatments-previous-table,
+.patient-findings-previous-table {
+  font-size: 0.8em;
+}
+
+.patient-treatments-form,
+.patient-findings-form {
+  margin-bottom: 25px;
+}
+
+.patient-treatments-form-group,
+.patient-findings-form-group {
+  margin-bottom: 10px;
+}
+
+.patient-treatments-form-select,
+.patient-findings-form-select {
+  width: 200px;
+}
+
+.patient-treatments-form-description ,
+.patient-findings-form-description {
+  width: 290px;
+}
+
+.patient-treatments-form-select-remove,
+.patient-findings-form-select-remove {
+  color: $danger-red;
+  font-size: 0.8em;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+.patient-treatment-bottom-buttons {
+  margin-top: 30px;
+  text-align: right;
+}
+
+.modal-dialog.confirm-invoice-modal-dialog {
+  max-width: 1000px;
+}
+
+.modal-content.confirm-invoice-modal-content {
+  min-width: 800px;
+}
+
+.confirm-invoice-table {
+  border: 0;
+  font-size: 0.8em;
+}
+
+.confirm-invoice-table-head {
+  color: $deeper-gray;
+  text-transform: uppercase;
+}
+
+.confirm-invoice-input {
+  display: none;
+  font-size: 1em;
+}
+
+.confirm-invoice-save {
+  display: none;
+}
+
+
+
+/* ------------------------------
+
+    Services
+
+-------------------------------- */
+
+.body-flesh.mod-body-flesh-services {
+  background-color: $light-blue-gray;
+  border-top: 1px solid $border-gray;
+  margin: 1.4em auto 0;
+  min-height: 400px;
+  padding: 20px 35px 40px;
+}
+
+.modal-content.services-new-modal-content,
+.modal-content.services-edit-modal-content {
+  width: 400px;
+}
+
+.services-form-group {
+  margin-bottom: 20px;
+}
+
+.services-table-services-column {
+  width: 50%;
+}
+
+.services-table-prices-column {
+  width: 25%;
+}
+
+.services-table-actions {
+  display: none;
+  margin-right: 15px;
+  text-decoration: none;
+
+  .icon-write,
+  .icon-cancel {
+    margin-right: 5px;
+  }
+}
+
+.services-table-row {
+  &:hover {
+    .services-table-actions {
+      display: inline-block;
+    }
+  }
+}
+
+.services-table-actions.mod-services-table-actions-edit {
+  color: $brandon-blue;
+}
+
+.services-table-actions.mod-services-table-actions-delete {
+  color: $danger-red
+}
+

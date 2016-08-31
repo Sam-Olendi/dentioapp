@@ -1,0 +1,63 @@
+<template name="invoices">
+    <div class="body-content">
+        <header class="body-header">
+            <h1 class="body-header-title">
+                {{> invoicesHeaderTitle }}
+            </h1>
+            <div class="body-header-button">
+                {{> invoiceGeneratorButton}}
+            </div>
+            <div class="body-search-form">
+                <span class="icon-search"></span>
+                <input type="search" placeholder="Search for a patient..." class="body-search-box">
+            </div>
+        </header>
+        <section class="body-flesh mod-body-flesh-patients">
+            {{> invoicesContent }}
+        </section>
+    </div>
+</template>
+
+<template name="invoicesHeaderTitle">
+    Invoices <small class="body-header-subtitle">Showing all your invoices</small>
+</template>
+
+<template name="invoiceGeneratorButton">
+    <a href="/generator" class="button mod-button-okay"><span class="icon-wallet"></span> Go to Invoice Generator <span class="icon-arrow-right"></span></a>
+</template>
+
+<template name="invoicesContent">
+    {{#if invoicesFound}}
+        <table>
+            <tr>
+                <th>Invoice Number</th>
+                <th>Patient Name</th>
+                <th>Company</th>
+                <th>Insurance Provider</th>
+                <th>Date Issued</th>
+            </tr>
+
+            {{> invoicesContentTableRow }}
+        </table>
+        <div class="body-bottom-buttons">
+            <a href="#" class="button mod-button-cancel js-show-more-invoices">Show more...</a>
+        </div>
+    {{else}}
+
+        <p class="body-search-result-helper">Seems like you do not yet have any invoices.</p>
+        <p class="body-search-result-helper">Invoices are automatically generated when an appointment is completed.
+        You could also generate one using the invoice generator by clicking on the button on the top right of your screen.</p>
+    {{/if}}
+</template>
+
+<template name="invoicesContentTableRow">
+    {{#each invoices }}
+        <tr>
+            <td>{{invoice_no}}</td>
+            <td>{{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}}</td>
+            <td>{{company.company_name}}</td>
+            <td>{{insurance.insurance_name}}</td>
+            <td>{{convertToMoment date_issued}}</td>
+        </tr>
+    {{/each}}
+</template>

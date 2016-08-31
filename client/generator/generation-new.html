@@ -1,0 +1,108 @@
+<template name="generationNew">
+    <div class="generator-generation">
+
+        <div class="generator-generation-top">
+            <a href="/generator" class="button mod-button-generator-back"><span class="icon-arrow-left"></span>Back to Invoice List</a>
+        </div>
+
+        <div class="generator-invoice">
+            <header class="generator-invoice-header">
+                {{> generationNewHeader }}
+
+            </header>
+
+            <div class="generator-invoice-address">
+                <div class="generator-invoice-address-from">
+                    <p class="generator-invoice-address-title">From:</p>
+                    <p class="generator-invoice-address-gdc">Gentle Dental Care</p>
+                    <address class="generator-invoice-address-information">
+                        Dr. Jane Okong'o Oloo <br>
+                        P.O Box 33764 - 00600 <br>
+                        Nairobi, Kenya <br>
+                    </address>
+                    <p class="generator-invoice-address-text">Tel: 020 2219 054 / 020 2227 052 / 0722 403 340</p>
+                    <p class="generator-invoice-address-text">Email: oloojane@gmail.com</p>
+                    <p class="generator-invoice-address-text">Website: www.gentle-dentalcare.org</p>
+                </div>
+                <div class="generator-invoice-address-to">
+                    <p class="generator-invoice-address-title">To:</p>
+                    <address class="generator-invoice-address-information">
+                        {{patient.profile.surname}} {{patient.profile.middle_name}} {{patient.profile.first_name}} <br>
+                        {{{patient.contacts.postal_address}}}
+                    </address>
+                    <a href="#" class="generator-invoice-address-edit">Add an address</a>
+                    <!--<textarea name="" id="" cols="30" rows="10" placeholder="Enter the address"></textarea>-->
+                </div>
+
+            </div>
+
+            <div>
+                <table class="generator-table">
+                    <thead class="generator-table-head">
+                    <tr class="generator-table-head-row">
+                        <th class="generator-table-head-cell">Description</th>
+                        <th class="generator-table-head-cell">Quantity</th>
+                        <th class="generator-table-head-cell">Unit Price</th>
+                        <th class="generator-table-head-cell">Amount</th>
+                    </tr>
+                    </thead>
+
+                    <tr class="generator-table-row">
+                        <td class="generator-table-cell"><input type="text" placeholder="Select a service" class="generator-table-cell-input-description"></td>
+                        <td class="generator-table-cell"><input type="text" placeholder="Quantity" class="generator-table-cell-input"></td>
+                        <td class="generator-table-cell"><input type="text" placeholder="Unit price" class="generator-table-cell-input"></td>
+                        <td class="generator-table-cell"><input type="text" placeholder="Amount" class="generator-table-cell-input"></td>
+                    </tr>
+
+                    <tr class="generator-table-row generator-table-row-tally">
+                        <td class="generator-table-cell"></td>
+                        <td class="generator-table-cell"></td>
+                        <td class="generator-table-cell"><p class="generator-table-cell-text">Subtotal</p></td>
+                        <td class="generator-table-cell"><p class="generator-table-cell-text"></p></td>
+                    </tr>
+
+                    <tr class="generator-table-row generator-table-row-tally">
+                        <td class="generator-table-cell"></td>
+                        <td class="generator-table-cell"></td>
+                        <td class="generator-table-cell"><p class="generator-table-cell-text">VAT</p></td>
+                        <td class="generator-table-cell"><input type="number" value="0" placeholder="VAT" class="generator-table-cell-input-vat">%</td>
+                    </tr>
+
+                    <tr class="generator-table-row generator-table-row-tally">
+                        <td class="generator-table-cell"></td>
+                        <td class="generator-table-cell"></td>
+                        <td class="generator-table-cell generator-table-cell-total"><p class="generator-table-cell-text">Total</p></td>
+                        <td class="generator-table-cell generator-table-cell-total"><p class="generator-table-cell-text"></p></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="generator-generation-bottom">
+                <a href="#" class="button mod-button-generator-go">Preview & Print</a>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="generationNewHeader">
+    <h1 class="generator-invoice-title">
+        <span class="generator-invoice-title-text">Invoice #</span>
+        <input type="text" placeholder="Invoice number" class="generator-generation-input" value="{{ invoiceNumber }}">
+    </h1>
+    <div class="generator-invoice-field">
+        <p class="generator-invoice-field-text">Date Issued</p>
+        <input type="text" placeholder="Date issued" id="datepicker" class="generator-generation-input generator-generation-datepicker">
+    </div>
+    <div class="generator-invoice-field">
+        <p class="generator-invoice-field-text">Patient Name</p>
+        <input type="text" placeholder="Patient name" class="generator-generation-input">
+    </div>
+    <div class="generator-invoice-field">
+        <p class="generator-invoice-field-text">Company</p>
+        <input type="text" placeholder="Company name" class="generator-generation-input">
+    </div>
+    <div class="generator-invoice-field">
+        <p class="generator-invoice-field-text">Staff Number</p>
+        <input type="text" placeholder="Staff number" class="generator-generation-input">
+    </div>
+</template>

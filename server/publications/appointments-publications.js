@@ -8,7 +8,7 @@ Meteor.publish('appointments.waiting', function () {
             self.added('appointments', document._id, transformAppointments (document));
         },
         changed: function (newDocument, oldDocument) {
-            self.changed('appointments', oldDocument._id, transform(newDocument));
+            self.changed('appointments', oldDocument._id, transformAppointments (newDocument));
         },
         removed: function (oldDocument) {
             self.removed('appointments', oldDocument._id);
@@ -29,7 +29,7 @@ Meteor.publish('appointments.inSession', function () {
             self.added('appointments', document._id, transformAppointments (document));
         },
         changed: function (newDocument, oldDocument) {
-            self.changed('appointments', oldDocument._id, transform(newDocument));
+            self.changed('appointments', oldDocument._id, transformAppointments (newDocument));
         },
         removed: function (oldDocument) {
             self.removed('appointments', oldDocument._id);
@@ -50,7 +50,7 @@ Meteor.publish('appointments.completed', function () {
             self.added('appointments', document._id, transformAppointments (document));
         },
         changed: function (newDocument, oldDocument) {
-            self.changed('appointments', oldDocument._id, transform(newDocument));
+            self.changed('appointments', oldDocument._id, transformAppointments (newDocument));
         },
         removed: function (oldDocument) {
             self.removed('appointments', oldDocument._id);
@@ -62,6 +62,10 @@ Meteor.publish('appointments.completed', function () {
     });
 
     self.ready();
+});
+
+Meteor.publish('appointments.check', function () {
+   return Appointments.find({}, { fields: { patient_id: 1, status: 1, date_created: 1 } }) ;
 });
 
 function transformAppointments (doc) {

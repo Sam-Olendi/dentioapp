@@ -1,5 +1,8 @@
 Meteor.methods({
     'AddAppointment': function (data) {
+        // add new appointment
+
+        // use check to verify data type
         check(data, {
             patient_id: String,
             status: String,
@@ -11,6 +14,9 @@ Meteor.methods({
     },
 
     'UpdateAppointment': function (data) {
+        // edit appointment
+
+        // use check to verify data type
         check(data, {
             _id: String,
             patient_id: String,
@@ -27,7 +33,25 @@ Meteor.methods({
         });
     },
 
+    'UpdateAppointmentOnStart': function (data) {
+        // update appointment when the user chooses to begin the appointment
+
+        check (data, {
+            _id: String,
+            status: String
+        });
+
+        return Appointments.update(data._id, {
+            $set: {
+                status: data.status
+            }
+        });
+    },
+
     'DeleteAppointment': function (appointmentId) {
+        // delete appointment
+
+        // use check to verify data type
         check(appointmentId, String);
 
         return Appointments.remove(appointmentId);

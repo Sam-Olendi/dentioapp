@@ -13,6 +13,7 @@ Tracker.autorun(function () {
     Session.set('momentDay', momentDay);
 });
 
+// set default sessions
 Session.setDefault('selectedPatientId', undefined);
 Session.setDefault('searchedPatientId', undefined);
 Session.setDefault('selectedAppointmentId', undefined);
@@ -25,8 +26,6 @@ function openCloseModal (modalClass, modalContentClass, modalCloseClass) {
 
     $('.modal-close,' + modalCloseClass).click(function () {
         $('.body-error').hide();
-        Session.set('selectedPatientId', undefined);
-        $('input').val('');
 
         $(modalClass).removeClass('modal-is-active');
         $(modalContentClass).removeClass('modal-content-is-active');
@@ -40,11 +39,11 @@ function openModal (modalClass, modalContentClass) {
 
 function closeModal (modalClass, modalContentClass) {
     $('.body-error').hide();
-    Session.set('selectedPatientId', undefined);
-    $('input').val('');
     $(modalClass).removeClass('modal-is-active');
     $(modalContentClass).removeClass('modal-content-is-active');
 }
+
+
 
 Template.appointmentHeaderTitle.rendered = function () {
     $('.js-appointment-calendar').datepicker({
@@ -57,6 +56,7 @@ Template.appointmentHeaderTitle.rendered = function () {
 };
 
 Template.appointmentHeaderTitle.helpers({
+    // these helpers change the date in the title according to the selected date
     selectedDate: function () {
         return Session.get('momentDate');
     },
@@ -118,6 +118,10 @@ Template.appointmentContent.events({
             });
 
         });
+    },
+
+    'click .js-show-start-appointment-modal': function () {
+        openCloseModal('.appointment-start-modal', '.appointment-start-modal-content', '.js-cancel-appointment-start');
     }
 });
 
@@ -139,7 +143,9 @@ Template.appointmentNewModal.events({
         var patientId = Session.get('searchedPatientId'),
             status = $('.js-appointment-new-radio:checked').val(),
             booked = !$('.appointment-new-booked-checkbox').prop("checked"),
-            date = moment().format("Do MMM YYYY, h:mm a");
+            date = moment().format("Do MMM YYYY, h:mm a"),
+            regExpression = new RegExp(moment().format('Do MMM YYYY')),
+            appointmentExists = Appointments.find({patient_id: patientId, status: { $regex: /(Waiting)|(In-Session)/ }, date_created: { $regex: regExpression }}).fetch().length;
 
         // show error text if the user submits without filling these fields
         if (!patientId) {
@@ -151,17 +157,23 @@ Template.appointmentNewModal.events({
 
         // iff they have selected a patient and a status, call the AddAppointment method
         // which should enter the data into DB
-        if (patientId && status) {
-            Meteor.call('AddAppointment', {
-                patient_id: patientId,
-                status: status,
-                booked: booked,
-                date_created: date
-            }, function (error, result) {
-                if (error) return alert('Error: ' + error.error);
-            });
 
+        if (!appointmentExists) { // must add the patient only if they don't already exist in the list of waiting/in-session patients of the given day
+            if (patientId && status) {
+                Meteor.call('AddAppointment', {
+                    patient_id: patientId,
+                    status: status,
+                    booked: booked,
+                    date_created: date
+                }, function (error, result) {
+                    if (error) return alert('Error: ' + error.error);
+                });
+
+                closeModal('.appointment-new-modal, .appointment-new-modal-content');
+            }
+        } else {
             closeModal('.appointment-new-modal, .appointment-new-modal-content');
+            alert('The appointment already exists');
         }
 
     }
@@ -257,8 +269,8 @@ Template.appointmentContentTabSections.events({
         // set it when the user hovers over on the table
         var patientId = $(event.target).data('id'),
             appointmentId = $(event.target).data('appointment');
-        Session.set('selectedPatientId', patientId);
-        Session.set('selectedAppointmentId', appointmentId);
+        Session.setPersistent('selectedPatientId', patientId);
+        Session.setPersistent('selectedAppointmentId', appointmentId);
     },
     'click .js-appointment-content-table-status': function () {
         // open and close modal functionality
@@ -268,6 +280,7 @@ Template.appointmentContentTabSections.events({
 
 Template.appointmentStatusModal.helpers({
    patient: function () {
+       // return the name of the patient to be displayed in the change status modal
        var patient = Patients.findOne({_id: Session.get('selectedPatientId')});
        return patient ? patient : false;
    }
@@ -275,12 +288,15 @@ Template.appointmentStatusModal.helpers({
 
 Template.appointmentStatusModal.events({
     'submit #appointment-change-status-form': function (event) {
+        // submit the change status form
         event.preventDefault();
 
         var appointmentId = Session.get('selectedAppointmentId'),
             patientId = Session.get('selectedPatientId'),
             status = $('.js-appointment-change-status-radio:checked').val(),
             booked = !$('.js-appointment-change-status-booked-checkbox').prop("checked");
+
+        console.log(status);
 
         // show error text if the user submits without filling this field
         // else, call the UpdateAppointment method
@@ -301,29 +317,57 @@ Template.appointmentStatusModal.events({
     },
 
     'click .js-appointment-delete': function (event) {
+        // when user presses this delete appointment button, show confirmation dialog box (modal)
         event.preventDefault();
-        closeModal('.change-status-modal', '.change-status-modal-content');
-        openCloseModal('.confirm-delete-appointment-modal', '.confirm-delete-appointment-modal-content');
+        closeModal('.change-status-modal', '.change-status-modal-content'); // close status modal first
+        openCloseModal('.confirm-delete-appointment-modal', '.confirm-delete-appointment-modal-content'); // then open the confirmation modal
     }
 });
 
 Template.confirmDeleteAppointmentModal.events({
-   'click .js-appointment-delete-confirmed': function (event) {
-       event.preventDefault();
-       var appointmentId = Session.get('selectedAppointmentId');
+    'click .js-appointment-delete-confirmed': function (event) {
+       // when patient confirms that they really do want to delete the patient
+        event.preventDefault();
+        var appointmentId = Session.get('selectedAppointmentId');
 
-       if (appointmentId) {
-           Meteor.call('DeleteAppointment', appointmentId);
-           closeModal('.confirm-delete-appointment-modal', '.confirm-delete-appointment-modal');
-       } else {
-           closeModal('.confirm-delete-appointment-modal', '.confirm-delete-appointment-modal');
-           alert('Oops. Something went wrong. Please try again later');
-       }
-   },
+        // check if session is set
+        if (appointmentId) {
+            Meteor.call('DeleteAppointment', appointmentId); // call delete
+            closeModal('.confirm-delete-appointment-modal', '.confirm-delete-appointment-modal');
+        } else {
+            closeModal('.confirm-delete-appointment-modal', '.confirm-delete-appointment-modal');
+            alert('Oops. Something went wrong. Please try again later');
+        }
+    },
 
     'click .js-appointment-delete-cancelled': function (event) {
+        // patient chooses to cancel deletion. so close the modal
         event.preventDefault();
         closeModal('.confirm-delete-appointment-modal', '.confirm-delete-appointment-modal');
+    }
+});
+
+Template.appointmentStartModal.helpers({
+   patient: function () {
+       return Patients.findOne({_id: Session.get('selectedPatientId')});
+   }
+});
+
+Template.appointmentStartModal.events({
+    'click .js-appointment-delete': function (event) {
+        // when user presses this delete appointment button, show confirmation dialog box (modal)
+        event.preventDefault();
+        closeModal('.appointment-start-modal', '.appointment-start-modal-content'); // close appointment start modal first
+        openCloseModal('.confirm-delete-appointment-modal', '.confirm-delete-appointment-modal-content'); // then open the confirmation modal
+    },
+
+    'click .js-appointment-start': function () {
+        Meteor.call('UpdateAppointmentOnStart', {
+            _id: Session.get('selectedAppointmentId'),
+            status: 'In-Session'
+        });
+        closeModal('.appointment-start-modal', '.appointment-start-modal-content'); // close appointment start modal
+        Router.go('/patients/' + Session.get('selectedPatientId'));
     }
 });
 

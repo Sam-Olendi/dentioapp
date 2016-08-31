@@ -115,7 +115,8 @@
 
 <template name="appointmentContent">
     {{> appointmentStatusModal }}
-    {{> confirmDeleteAppointmentModal}}
+    {{> confirmDeleteAppointmentModal }}
+    {{> appointmentStartModal }}
     <nav class="appointment-navigation">
         <ul class="appointment-tabs">
             {{> appointmentContentTabs }}
@@ -166,7 +167,7 @@
 </template>
 
 <template name="appointmentContentWaiting">
-    {{> appointmentWaitingSearch}}
+    <!--{> appointmentWaitingSearch}-->
 
     <div class="appointment-content-waiting">
         <table class="appointment-content-table">
@@ -176,17 +177,18 @@
 </template>
 
 <template name="appointmentWaitingSearch">
-    <form class="body-search-form">
+    <div class="body-search-form">
         <span class="icon-search"></span>
-        <input type="search" placeholder="Search for a patient" class="body-search-box">
-    </form>
+        <input type="search" placeholder="Search for a patient" class="body-search-box" id="appointment-search-box">
+    </div>
+
 </template>
 
 <template name="appointmentWaitingRow">
     {{#each appointments}}
         <tr class="appointment-content-row" data-id="{{patient_id}}" data-appointment="{{_id}}">
             <td class="appointment-content-row-name">
-                <a href="#" class="appointment-content-table-patient">
+                <a href="#" class="appointment-content-table-patient js-show-start-appointment-modal">
                     {{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}}
                 </a>
             </td>
@@ -257,6 +259,28 @@
     </div>
 </template>
 
+<template name="appointmentStartModal">
+    <div id="appointment-start-modal" class="modal appointment-start-modal" role="dialog" aria-hidden="true">
+        <div class="modal-dialog appointment-start-modal-dialog">
+            <div class="modal-content appointment-start-modal-content">
+                <a href="#" class="modal-close"><span class="icon-cancel"></span></a>
+                <h2 class="modal-content-title">Start Appointment</h2>
+
+                <p class="modal-content-text">You are about to start <b>{{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}}</b>'s appointment. Do you want to continue?</p>
+
+                <div class="modal-button-group">
+                    <button class="button mod-button-okay js-appointment-start" type="submit">Yes. Start Appointment</button>
+                    <button class="button mod-button-cancel js-cancel-appointment-start" type="button">Cancel</button>
+                </div>
+
+                <a href="/patients/{{patient._id}}" class="button mod-button-helper">View profile instead</a>
+                <a href="#" class="button mod-button-delete-text js-appointment-delete" style="float: right;">Delete appointment</a>
+
+            </div>
+        </div>
+    </div>
+</template>
+
 <template name="confirmDeleteAppointmentModal">
     <div id="confirm-delete-appointment-modal" class="modal confirm-delete-appointment-modal" role="dialog" aria-hidden="true">
         <div class="modal-dialog confirm-delete-appointment-modal-dialog">
@@ -277,7 +301,7 @@
 </template>
 
 <template name="appointmentContentInSession">
-    {{> appointmentInSessionSearch}}
+    <!--{> appointmentInSessionSearch}-->
 
     <div class="appointment-content-in-session">
         <table class="appointment-content-table">
@@ -297,7 +321,7 @@
     {{#each appointments}}
         <tr class="appointment-content-row" data-id="{{patient_id}}" data-appointment="{{_id}}">
             <td class="appointment-content-row-name">
-                <a href="#" class="appointment-content-table-patient">
+                <a href="/patients/{{patient_id}}" class="appointment-content-table-patient">
                     {{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}}
                 </a>
             </td>
@@ -316,7 +340,7 @@
 </template>
 
 <template name="appointmentContentCompleted">
-    {{> appointmentCompletedSearch}}
+    <!--{> appointmentCompletedSearch}-->
 
     <div class="appointment-content-completed">
         <table class="appointment-content-table">
@@ -336,7 +360,7 @@
     {{#each appointments}}
         <tr class="appointment-content-row" data-id="{{patient_id}}" data-appointment="{{_id}}">
             <td class="appointment-content-row-name">
-                <a href="#" class="appointment-content-table-patient">
+                <a href="/patients/{{patient_id}}" class="appointment-content-table-patient">
                     {{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}}
                 </a>
             </td>

@@ -1,0 +1,87 @@
+<template name="generations">
+    <div class="generator-top">
+        <h1 class="generator-top-title">
+            {{> generatorTitle}}
+        </h1>
+        <div class="generator-top-button">
+            {{> generatorNewButton}}
+        </div>
+    </div>
+
+    <div class="generator-content">
+        <form class="generator-search">
+            {{> generatorSearch}}
+        </form>
+
+        {{> generatorTable}}
+
+    </div>
+</template>
+
+<template name="generatorTitle">
+    Invoice List <small class="generator-top-subtitle">These are all the invoices that have been generated using the invoice generator</small>
+</template>
+
+<template name="generatorNewButton">
+    <a href="/generator/invoice/new" class="button mod-button-generator-go">+ New invoice</a>
+</template>
+
+<template name="generatorSearch">
+    <span class="icon-search"></span>
+    <input type="search" placeholder="Search for an invoice" class="generator-search-bar">
+</template>
+
+<template name="generatorTable">
+
+    {{#if generationsFound}}
+        <table class="generator-table">
+            <tr class="generator-table-head-row">
+                <th class="generator-table-head-cell">Invoice Number</th>
+                <th class="generator-table-head-cell">Patient Name</th>
+                <th class="generator-table-head-cell">Company</th>
+                <th class="generator-table-head-cell">Staff Number</th>
+                <th class="generator-table-head-cell">Total Amount</th>
+                <th class="generator-table-head-cell">Date Issued</th>
+            </tr>
+
+            {{> generatorRows}}
+
+        </table>
+        <div class="body-bottom-buttons">
+            <a href="#" class="button mod-button-cancel js-show-more-generations">Show more...</a>
+        </div>
+    {{else}}
+        <p class="body-search-result-helper">Seems like you do not yet have any invoices.</p>
+        <p class="body-search-result-helper">Invoices are automatically generated when an appointment is completed.
+            You could also generate one by clicking on the button on the top right of your screen.</p>
+    {{/if}}
+</template>
+
+<template name="generatorRows">
+
+        {{#each generations}}
+            <tr>
+                <td>{{generation_no}}</td>
+                <td>
+                    <a href="/generator/invoice/{{_id}}" class="generator-table-cell-link">{{patient.profile.first_name}}</a>
+                </td>
+                <td>
+                    {{#if company}}
+                        {{company.company_name}}
+                    {{else}}
+                        <span class="body-search-result-helper">-</span>
+                    {{/if}}
+                </td>
+                <td>
+                    {{#if insurance}}
+                        {{insurance.insurance_name}}
+                    {{else}}
+                        <span class="body-search-result-helper">-</span>
+                    {{/if}}
+                </td>
+                <td>{{final_amount}}</td>
+                <td>{{convertToMoment date_generated}}</td>
+            </tr>
+        {{/each}}
+
+</template>

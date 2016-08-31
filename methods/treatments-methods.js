@@ -1,0 +1,47 @@
+Meteor.methods({
+    'AddTreatment': function (data) {
+        check(data, {
+            patient_id: String,
+            service_id: String,
+            amount: Number,
+            tooth_number: Number,
+            tooth_part: String,
+            description: String,
+            date_performed: String,
+            regex: String
+        });
+
+        var appointmentId = Appointments.find({patient_id: data.patient_id, status: { $regex: /(Waiting)|(In-Session)/ }, date_created: { $regex: data.regex }}).fetch()[0]._id;
+
+        return Treatments.insert({
+            patient_id: data.patient_id,
+            appointment_id: appointmentId,
+            service_id: data.service_id,
+            amount: data.amount,
+            tooth_number: data.tooth_number,
+            tooth_part: data.tooth_part,
+            description: data.description,
+            date_performed: data.date_performed
+        });
+    },
+
+    'UpdateTreatment': function (data) {
+
+        check (data, {
+            _id: String,
+            patient_id: String,
+            service_id: String,
+            amount: Number,
+            description: String
+        });
+
+        return Treatments.update(data._id, {
+            $set: {
+                service_id: data.service_id,
+                amount: data.amount,
+                description: data.description
+            }
+        });
+
+    }
+});

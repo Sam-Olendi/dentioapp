@@ -1,0 +1,47 @@
+<template name="singlePatientInvoices">
+
+    {{#if patientInvoicesFound}}
+        <table>
+            <tr>
+                <th>Invoice Number</th>
+                <th>Company</th>
+                <th>Insurance Provider</th>
+                <th>Date Issued</th>
+                <th>Total Amount</th>
+            </tr>
+
+            {{> singlePatientInvoicesRow }}
+
+        </table>
+        <div class="body-bottom-buttons">
+            <a href="#" class="button mod-button-cancel js-show-more-patient-invoices">Show more...</a>
+        </div>
+    {{else}}
+        <p class="body-search-result-helper">Seems like the patient does not yet have any invoices.
+            Invoices are automatically generated when the patient's appointment is completed.</p>
+    {{/if}}
+</template>
+
+<template name="singlePatientInvoicesRow">
+    {{#each patientInvoices}}
+        <tr>
+            <td>{{invoice_no}}</td>
+            <td>
+                {{#if company}}
+                    {{company.company_name}}
+                {{else}}
+                    None
+                {{/if}}
+            </td>
+            <td>
+                {{#if insurance}}
+                    {{insurance.insurance_name}}
+                {{else}}
+                    None
+                {{/if}}
+            </td>
+            <td>{{convertToMoment date_issued}}</td>
+            <td>{{amount}}</td>
+        </tr>
+    {{/each}}
+</template>

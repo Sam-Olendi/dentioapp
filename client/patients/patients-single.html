@@ -1,0 +1,105 @@
+<template name="patientsSingle">
+    <div class="body-content">
+        {{> patientDeleteModal }}
+        <header class="body-header">
+            <h1 class="body-header-title">
+                {{> patientHeaderTitle }}
+            </h1>
+            <div class="body-header-button">
+                {{> patientFilesButton }}
+            </div>
+        </header>
+        <section class="body-flesh mod-body-flesh-patients-single js-body-flesh-patients-single">
+            {{> patientContent }}
+        </section>
+    </div>
+</template>
+
+<template name="patientHeaderTitle">
+    <span class="js-single-patient-name-edit" data-id="{{_id}}">{{ profile.surname }}, {{ profile.first_name }} {{ profile.middle_name }}</span>
+    <input type="text" placeholder="Enter the patient's name" class="single-patient-name-edit-input js-single-patient-name-edit-input" value="{{ profile.surname }}, {{ profile.first_name }} {{ profile.middle_name }}">
+    <div class="single-patient-settings">
+        <a href="#" class="single-patient-settings-gear"><span class="icon-gear"></span></a>
+        <ul class="single-patient-settings-options">
+            <a href="#" class="single-patient-settings-delete js-single-patient-settings-delete">
+                <li class="single-patient-settings-delete-text"><span class="icon-cancel"></span>Delete patient</li>
+            </a>
+        </ul>
+    </div>
+
+</template>
+
+<template name="patientDeleteModal">
+    <div id="patient-delete-modal" class="modal patient-delete-modal" role="dialog" aria-hidden="true">
+        <div class="modal-dialog patient-delete-modal-dialog">
+            <div class="modal-content patient-delete-modal-content">
+                <a href="#" class="modal-close"><span class="icon-cancel"></span></a>
+                <h2 class="modal-content-title">Delete a Patient</h2>
+
+                <p class="modal-content-text">You are about to delete {{ profile.surname }}, {{ profile.first_name }} {{ profile.middle_name }} completely. It will be like they never existed. </p>
+                <p class="modal-content-text">Are you sure you want to continue?</p>
+
+                <div class="modal-button-group">
+                    <button class="button mod-button-no js-patient-delete" data-id="{{_id}}">Yes. Delete this patient</button>
+                    <button class="button mod-button-cancel js-cancel-patient-delete" type="button">Cancel</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="patientFilesButton">
+    <a href="#" class="button mod-button-okay"><span class="icon-add"></span>Attach files</a>
+</template>
+
+<template name="patientContent">
+    <nav class="single-patient-navigation">
+        <ul class="single-patient-tabs">
+            <li class="single-patient-tab">
+                <a href="#" class="single-patient-tab-item single-patient-tab-item-is-selected"
+                   data-content="general">General</a>
+            </li>
+            <li class="single-patient-tab">
+                <a href="#" class="single-patient-tab-item" data-content="medical-history">Medical History</a>
+            </li>
+            <li class="single-patient-tab">
+                <a href="#" class="single-patient-tab-item" data-content="treatment-plan">Treatment</a>
+            </li>
+            <li class="single-patient-tab">
+                <a href="#" class="single-patient-tab-item" data-content="files">Files</a>
+            </li>
+            <li class="single-patient-tab">
+                <a href="#" class="single-patient-tab-item" data-content="invoices">Invoices</a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="single-patient-details">
+        <li class="single-patient-details-tab single-patient-details-tab-is-selected" data-content="general">
+            <div class="single-patient-details-wrapper">
+                {{> patientContentGeneral }}
+            </div>
+        </li>
+
+        <li class="single-patient-details-tab" data-content="medical-history">
+            <div class="single-patient-details-wrapper">
+                {{> patientContentMedicalHistory }}
+            </div>
+        </li>
+        <li class="single-patient-details-tab" data-content="treatment-plan">
+            <div class="single-patient-details-wrapper">
+                {{> patientContentTreatment }}
+            </div>
+        </li>
+        <li class="single-patient-details-tab" data-content="files">
+            <div class="single-patient-details-wrapper">
+                Files
+            </div>
+        </li>
+        <li class="single-patient-details-tab" data-content="invoices">
+            <div class="single-patient-details-wrapper">
+                {{> singlePatientInvoices }}
+            </div>
+        </li>
+    </ul>
+</template>

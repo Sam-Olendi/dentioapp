@@ -1,0 +1,207 @@
+/* ------------------------------
+
+    LoginLayout Template
+
+-------------------------------- */
+
+$brandon-blue: hsl(210, 92, 65);
+$damien-dark: hsl(193, 14, 12);
+$damien-light: hsl(194, 16, 16);
+$danger-red: hsl(0, 84, 61);
+$gracious-green: hsl(122, 47, 57);
+$ordinary-white: hsl(0, 0, 100);
+
+/* Shades of Gray */
+$deepest-gray: hsl(195, 2, 37);
+$deeper-gray: hsl(0, 0, 64); // great for grayed out text
+$lightest-gray: hsl(0, 0, 96);
+$light-blue-gray: hsl(240, 100, 99);
+
+@mixin transition($transition...) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  transition: $transition;
+}
+
+@mixin transformation($transformation...) {
+  -webkit-transform: $transformation;
+  -moz-transform: $transformation;
+  -ms-transform: $transformation;
+  -o-transform: $transformation;
+  transform: $transformation;
+}
+
+@mixin transform-origin($transforms...) {
+  -webkit-transform-origin: $transforms;
+  -moz-transform-origin: $transforms;
+  -ms-transform-origin: $transforms;
+  -o-transform-origin: $transforms;
+  transform-origin: $transforms;
+}
+
+@mixin animation($animation...) {
+  -webkit-animation: $animation;
+  -moz-animation: $animation;
+  animation: $animation;
+}
+
+// text antialiasing
+%antialiasing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.login {
+  border-left: none;
+  border-right: none;
+  position: relative;
+}
+
+.no-video .login-video video,
+.touch .login-video video {
+  display: none;
+}
+
+.no-video .login-video .poster,
+.touch .login-video .poster {
+  display: block !important;
+}
+
+.login-video {
+  background: #000;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.login-video .poster img {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.login-video .login-filter {
+  background: rgba(0, 0, 0, 0.1);
+  height: 100vh;
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+}
+
+.login-video video {
+  bottom: 0;
+  position: absolute;
+  z-index: 0;
+}
+
+.login-video video.login-video-fullwidth {
+  width: 100%;
+}
+
+.login-text {
+  color: $ordinary-white;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.login-form {
+  align-items: center;
+  background-color: hsla(193, 14, 12, 0.85);
+  border-radius: 3px;
+  color: $ordinary-white;
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  padding: 20px 0;
+  width: 30%;
+}
+
+.at-form {
+  width: 70%;
+
+  input {
+    border-radius: 3px;
+    border: 1px solid #eeeeee;
+    color: initial;
+    font-size: 0.8em;
+    margin-bottom: 5px;
+    padding: 10px 15px;
+    width: 100%;
+  }
+
+  label {
+    display: block;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+  }
+
+  span {
+    font-size: 0.85em;
+  }
+}
+
+.at-input {
+  margin-bottom: 10px;
+}
+
+.at-input.icon-accept {
+  color: $gracious-green;
+}
+
+.at-input.icon-cancel {
+  color: $danger-red;
+}
+
+.at-btn {
+  background-color: $brandon-blue;
+  border: none;
+  border-radius: 3px;
+  font: {
+    size: 0.8em;
+    weight: 600;
+  }
+  padding: 10px 17px;
+  text-decoration: none;
+  width: 100%;
+}
+
+.at-signup-link,
+.at-signin-link,
+.at-pwd-link {
+  font-size: 0.8em;
+  margin-top: 20px;
+}
+
+.at-form a {
+  color: $brandon-blue;
+  text-decoration: none;
+}
+
+#at-nav-button {
+  align-items: center;
+  background-color: $damien-light;
+  color: $ordinary-white;
+  cursor: pointer;
+  display: flex;
+  font-size: 0.85em;
+  float: right;
+  height: 100%;
+  justify-content: center;
+  padding: 0 20px;
+  vertical-align: middle;
+
+  @include transition(all 0.1s ease);
+
+  &:hover {
+    background-color: $danger-red;
+  }
+}

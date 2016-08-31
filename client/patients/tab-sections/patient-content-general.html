@@ -1,0 +1,259 @@
+<template name="patientContentGeneral">
+    <div class="single-patient-general-row">
+        <div class="single-patient-general-section">
+            <div class="single-patient-general-group">
+                <header class="single-patient-general-header">
+                    <p class="single-patient-general-title">Patient Details</p>
+                </header>
+                {{#with profile}}
+                    <div class="single-patient-general-content">
+                        <p class="single-patient-general-text">
+                            <span class="single-patient-general-context">Sex: </span>
+                            {{> singlePatientSex }}
+                        </p>
+
+                        <p class="single-patient-general-text"><span class="single-patient-general-context">Age: </span>
+                            {{> singlePatientAge }}
+                        </p>
+
+                        <p class="single-patient-general-text"><span class="single-patient-general-context">Date of Birth: </span>
+                            {{> singlePatientDOB }}
+                        </p>
+                    </div>
+                {{/with}}
+            </div>
+            <div class="single-patient-general-group">
+                <header class="single-patient-general-header">
+                    <p class="single-patient-general-title">Contact Details</p>
+                </header>
+                <div class="single-patient-general-content">
+                    {{#with contacts}}
+                        <p class="single-patient-general-text"><span class="single-patient-general-context">Mobile Number: </span>
+                            {{> singlePatientMobile }}
+                        </p>
+
+                        <p class="single-patient-general-text"><span class="single-patient-general-context">Phone (Office/House): </span>
+                            {{> singlePatientPhone }}
+                        </p>
+
+                        <p class="single-patient-general-text"><span class="single-patient-general-context">Email: </span>
+                            {{> singlePatientEmail }}
+                        </p>
+
+                        <p class="single-patient-general-text"><span class="single-patient-general-context">Physical Location: </span>
+                            {{> singlePatientPhysicalAddress }}
+                        </p>
+
+                        <p class="single-patient-general-text"><span class="single-patient-general-context">Postal Address:<br> </span>
+                            {{> singlePatientPostalAddress }}
+                        </p>
+                    {{/with}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="single-patient-general-row">
+        <div class="single-patient-general-section">
+            <div class="single-patient-general-group">
+                <header class="single-patient-general-header">
+                    <p class="single-patient-general-title">Work Details</p>
+                </header>
+                <div class="single-patient-general-content">
+                    <p class="single-patient-general-text"><span class="single-patient-general-context">Company: </span>
+                        {{> singlePatientCompany }}
+                    </p>
+
+                    <p class="single-patient-general-text"><span class="single-patient-general-context">Staff Number: </span>
+                        {{> singlePatientStaffNumber }}
+                    </p>
+                </div>
+            </div>
+            <div class="single-patient-general-group">
+                <header class="single-patient-general-header">
+                    <p class="single-patient-general-title">Insurance Details</p>
+                </header>
+                <div class="single-patient-general-content">
+                    <p class="single-patient-general-text"><span class="single-patient-general-context">Insurance: </span>
+                        {{> singlePatientInsurance }}
+
+                    </p>
+                    <p class="single-patient-general-text"><span class="single-patient-general-context">Dental Cover Balance: </span>
+                        {{> singlePatientInsuranceCover }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="single-patient-general-section">
+            <div class="single-patient-general-group">
+                <header class="single-patient-general-header">
+                    <p class="single-patient-general-title">Next of Kin</p>
+                </header>
+                <div class="single-patient-general-content">
+                    <p class="single-patient-general-text"><span class="single-patient-general-context">Full name: </span>
+                        {{> singlePatientKinName }}
+                    </p>
+
+                    <p class="single-patient-general-text"><span class="single-patient-general-context">Phone: </span>
+                        {{> singlePatientKinPhone }}
+                    </p>
+
+                    <p class="single-patient-general-text"><span class="single-patient-general-context">Physical location: </span>
+                        {{> singlePatientKinLocation }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="single-patient-general-row">
+        <div class="single-patient-general-section">
+            <div class="single-patient-general-group">
+                <header class="single-patient-general-header">
+                    <p class="single-patient-general-title">Recent Files</p>
+                </header>
+                <div class="single-patient-general-content">
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="singlePatientSex">
+    {{#if this.sex}}
+        <span class="single-patient-dblclick js-single-patient-dblclick-sex">{{sex}}</span>
+    {{else}}
+        <a href="#" class="single-patient-general-link js-patient-add-sex">Add sex</a>
+    {{/if}}
+    <select id="patient-add-sex-input" class="input mod-input-edit-patient js-patient-add-sex-input" data-id="{{../_id}}">
+        <option value="Female">Female</option>
+        <option value="Male">Male</option>
+    </select>
+</template>
+
+<template name="singlePatientAge">
+    {{#if this.age}}
+        <span class="single-patient-dblclick js-single-patient-dblclick-age">{{age}}</span>
+    {{else}}
+        <a href="#" class="single-patient-general-link js-patient-add-age">Add age</a>
+    {{/if}}
+    <input type="number" placeholder="How old is {{first_name}}?" class="input mod-input-edit-patient js-patient-add-age-input" value="{{age}}">
+</template>
+
+<template name="singlePatientDOB">
+    {{#if this.dob}}
+        <span class="single-patient-dblclick js-single-patient-dblclick-dob">{{dob}}</span>
+    {{else}}
+        <a href="#" class="single-patient-general-link js-patient-add-dob">Add their date of birth</a>
+    {{/if}}
+    <input type="text" placeholder="What is their date of birth?" class="input mod-input-edit-patient js-patient-add-dob-input" value="{{dob}}">
+</template>
+
+<template name="singlePatientMobile">
+    {{#if this.mobile}}
+        <span class="single-patient-dblclick js-single-patient-dblclick-mobile">{{mobile}}</span>
+    {{else}}
+        <a href="#" class="single-patient-general-link js-patient-add-mobile">Add mobile number</a>
+    {{/if}}
+    <input type="tel" placeholder="Mobile number" class="input mod-input-edit-patient js-patient-add-mobile-input" value="{{mobile}}">
+</template>
+
+<template name="singlePatientPhone">
+    {{#if this.phone}}
+        <span class="single-patient-dblclick js-single-patient-dblclick-phone">{{phone}}</span>
+    {{else}}
+        <a href="#" class="single-patient-general-link js-patient-add-phone">Add phone number</a>
+    {{/if}}
+    <input type="text" placeholder="e.g 0723873263, 0208372615" class="input mod-input-edit-patient js-patient-add-phone-input" value="{{phone}}">
+</template>
+
+<template name="singlePatientEmail">
+    {{#if this.email}}
+        <span class="single-patient-dblclick js-single-patient-dblclick-email">{{email}}</span>
+    {{else}}
+        <a href="#" class="single-patient-general-link js-patient-add-email">Add email address</a>
+    {{/if}}
+    <input type="email" placeholder="Email address" class="input mod-input-edit-patient js-patient-add-email-input" value="{{email}}">
+</template>
+
+<template name="singlePatientPhysicalAddress">
+    {{#if this.physical_location}}
+        <span class="single-patient-dblclick js-single-patient-dblclick-address">{{{physical_location}}}</span>
+    {{else}}
+        <a href="#" class="single-patient-general-link js-patient-add-address">Add a physical address</a>
+    {{/if}}
+    <textarea placeholder="Physical address" class="input mod-input-edit-patient js-patient-add-address-input">{{{physical_location}}}</textarea>
+</template>
+
+<template name="singlePatientPostalAddress">
+    {{#if this.postal_address}}
+        <span class="single-patient-dblclick js-single-patient-dblclick-postal">{{{postal_address}}}</span>
+    {{else}}
+        <a href="#" class="single-patient-general-link js-patient-add-postal">Add a physical address</a>
+    {{/if}}
+    <textarea placeholder="Postal address" class="input mod-input-edit-patient js-patient-add-postal-input">{{{postal_address}}}</textarea>
+</template>
+
+<template name="singlePatientCompany">
+    {{#if work.company_id}}
+        <span class="single-patient-dblclick js-single-patient-dblclick-workplace">{{company.company_name}}</span>
+    {{else}}
+        <a href="#" class="single-patient-general-link js-patient-add-workplace"><span class="icon-add"></span>Add their place of work</a>
+    {{/if}}
+    <input type="text" placeholder="Where do they work?" class="input mod-input-edit-patient js-patient-add-workplace-input" value="{{company.company_name}}">
+</template>
+
+<template name="singlePatientStaffNumber">
+    {{#if work.staff_number}}
+        <span class="single-patient-dblclick js-single-patient-dblclick-staffno">{{work.staff_number}}</span>
+    {{else}}
+        <a href="#" class="single-patient-general-link js-patient-add-staffno"><span class="icon-add"></span>Add their staff number</a>
+    {{/if}}
+    <input type="text" placeholder="Enter their staff number" class="input mod-input-edit-patient js-patient-add-staffno-input" value="{{work.staff_number}}">
+</template>
+
+<template name="singlePatientInsurance">
+    {{#if insurance.insurance_id}}
+        <span class="single-patient-dblclick js-single-patient-dblclick-insurance">{{patient_insurance.insurance_name}}</span>
+    {{else}}
+        <a href="#" class="single-patient-general-link js-patient-add-insurance"><span class="icon-add"></span>Add their insurance provider</a>
+    {{/if}}
+    <input type="text" placeholder="Enter their insurance provider" class="input mod-input-edit-patient js-patient-add-insurance-input" value="{{patient_insurance.insurance_name}}">
+</template>
+
+<template name="singlePatientInsuranceCover">
+    {{#if insurance.cover_balance}}
+        <span class="single-patient-dblclick js-single-patient-dblclick-cover">Kshs. {{insurance.cover_balance}}</span>
+    {{else}}
+        <a href="#" class="single-patient-general-link js-patient-add-cover"><span class="icon-add"></span>Add their cover balance</a>
+    {{/if}}
+    <input type="text" placeholder="Enter cover balance" class="input mod-input-edit-patient js-patient-add-cover-input" value="{{insurance.cover_balance}}">
+</template>
+
+<template name="singlePatientKinName">
+    {{#if next_of_kin.name}}
+        <span class="single-patient-dblclick js-single-patient-dblclick-kin-name">{{next_of_kin.name}}</span>
+    {{else}}
+        <a href="#" class="single-patient-general-link js-patient-add-kin-name"><span class="icon-add"></span>Add a name</a>
+    {{/if}}
+    <input type="text" placeholder="Enter a name" class="input mod-input-edit-patient js-patient-add-kin-name-input" value="{{next_of_kin.name}}">
+</template>
+
+<template name="singlePatientKinPhone">
+    {{#if next_of_kin.phone}}
+        <span class="single-patient-dblclick js-single-patient-dblclick-kin-phone">{{next_of_kin.phone}}</span>
+    {{else}}
+        <a href="#" class="single-patient-general-link js-patient-add-kin-phone"><span class="icon-add"></span>Add their phone number</a>
+    {{/if}}
+    <input type="text" placeholder="Enter their phone number" class="input mod-input-edit-patient js-patient-add-kin-phone-input" value="{{next_of_kin.phone}}">
+</template>
+
+<template name="singlePatientKinLocation">
+    {{#if next_of_kin.physical_location}}
+        <span class="single-patient-dblclick js-single-patient-dblclick-kin-location">{{next_of_kin.physical_location}}</span>
+    {{else}}
+        <a href="#" class="single-patient-general-link js-patient-add-kin-location"><span class="icon-add"></span>Add their physical location</a>
+    {{/if}}
+    <input type="text" placeholder="Enter their physical location" class="input mod-input-edit-patient js-patient-add-kin-location-input" value="{{next_of_kin.physical_location}}">
+</template>

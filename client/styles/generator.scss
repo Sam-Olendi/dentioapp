@@ -1,0 +1,417 @@
+$brandon-blue: hsl(210, 92, 65);
+$damien-dark: hsl(193, 14, 12);
+$damien-light: hsl(194, 16, 16);
+$danger-red: hsl(0, 84, 61);
+$gracious-green: hsl(122, 47, 57);
+$ordinary-white: hsl(0, 0, 100);
+
+/* Shades of Gray */
+$border-gray: hsl(0, 0, 93);
+$deepest-gray: hsl(195, 2, 37);
+$deeper-gray: hsl(0, 0, 64); // great for grayed out text
+$lightest-gray: hsl(0, 0, 96);
+$light-blue-gray: hsl(240, 100, 99);
+
+
+
+@mixin transition($transition...) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  transition: $transition;
+}
+
+@mixin transformation($transformation...) {
+  -webkit-transform: $transformation;
+  -moz-transform: $transformation;
+  -ms-transform: $transformation;
+  -o-transform: $transformation;
+  transform: $transformation;
+}
+
+@mixin transform-origin($transforms...) {
+  -webkit-transform-origin: $transforms;
+  -moz-transform-origin: $transforms;
+  -ms-transform-origin: $transforms;
+  -o-transform-origin: $transforms;
+  transform-origin: $transforms;
+}
+
+@mixin animation($animation...) {
+  -webkit-animation: $animation;
+  -moz-animation: $animation;
+  animation: $animation;
+}
+
+// text antialiasing
+%antialiasing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+address {
+  font: {
+    size: 0.85em;
+    style: normal;
+  }
+  line-height: 1.7;
+  //white-space: pre-wrap;
+}
+
+
+.button.mod-button-generator-go {
+  background: $gracious-green;
+  color: $ordinary-white;
+
+  &:hover {
+    background-color: hsl(121, 39%, 51%);
+  }
+}
+
+.button.mod-button-generator-back {
+  background-color: $damien-light;
+  color: $ordinary-white;
+
+  .icon-arrow-left {
+    margin-right: 10px;
+  }
+
+  &:hover {
+    background-color: $brandon-blue;
+    //color: $gracious-green;
+  }
+}
+
+.button.mod-button-generator-no {
+  background-color: $danger-red;
+  color: $ordinary-white;
+
+  &:hover {
+    background-color: hsl(0, 70%, 56%);
+  }
+}
+
+
+
+
+.generator-header {
+  background-color: $damien-dark;
+  height: 65px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+
+  @extend %antialiasing;
+
+  &::after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+}
+
+.generator-logo {
+  display: block;
+  float: left;
+  height: 100%;
+  width: 250px;
+}
+
+@media only screen and (min-width: 64em) {
+  .generator-logo {
+    align-items: center;
+    background-color: $gracious-green;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.generator-logo-image {
+  display: block;
+  height: auto;
+  width: 180px;
+}
+
+.generator-back {
+  align-items: center;
+  color: $deeper-gray;
+  display: flex;
+  font-size: 0.8em;
+  float: left;
+  height: 100%;
+  justify-content: center;
+  padding: 0 15px;
+  position: relative;
+  vertical-align: middle;
+  text-decoration: none;
+
+  .icon-arrow-left {
+    margin-right: 5px;
+  }
+
+  &:hover {
+    background: $damien-light;
+    color: $ordinary-white;
+  }
+}
+
+.generator-body {
+  margin-top: 65px;
+}
+
+.generator-top {
+  border-bottom: 1px solid $border-gray;
+  padding: 20px;
+}
+
+.generator-top-title {
+  color: $damien-light;
+  font-family: 'OrkneyLight', sans-serif;
+  text-transform: uppercase;
+}
+
+.generator-top-subtitle {
+  color: $deeper-gray;
+  display: block;
+  font: {
+    family: 'Open Sans', sans-serif;
+    size: 0.4em;
+    weight: 400;
+  }
+  text-transform: none;
+}
+
+@media only screen and (min-width: 48em) {
+  .generator-top-button {
+    position: absolute;
+    right: 20px;
+    top: 115px;
+  }
+}
+
+.generator-content {
+  background: $light-blue-gray;
+  min-height: 500px;
+  padding: 30px 20px;
+}
+
+.generator-search {
+  font-size: 0.9em;
+  letter-spacing: -0.5px;
+  margin-bottom: 30px;
+  position: relative;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  .icon-search {
+    color: $deeper-gray;
+    font-size: 0.95em;
+    left: 10px;
+    position: absolute;
+    top: 15px;
+  }
+
+  .generator-search-bar {
+    width: 100%;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
+
+.generator-table {
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.generator-table-head {
+  background: $lightest-gray;
+  border: 1px solid $border-gray ;
+  color: $deepest-gray;
+  font: {
+    size: 0.85em;
+    weight: 700;
+  }
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.generator-table-head-cell {
+  padding: 15px;
+}
+
+.generator-table-row {
+  border: 1px solid $border-gray;
+
+  &:nth-child(odd) {
+    background-color: $lightest-gray;
+  }
+
+  &:nth-child(even) {
+    background-color: $ordinary-white;
+  }
+}
+
+.generator-table-row.generator-table-row-tally {
+  background-color: $ordinary-white;
+  border: none;
+}
+
+.generator-table-cell {
+  font-size: 0.85em;
+  padding: 15px;
+}
+
+.generator-table-cell-name {
+  font-weight: 700;
+}
+
+.generator-table-cell-link {
+  color: $damien-light;
+  text-decoration: none;
+}
+
+
+
+.generator-generation-top {
+  margin: 10px 0 30px 250px;
+}
+
+.generator-generation {
+  background: #ececec;
+  padding: 20px 0;
+}
+
+.generator-invoice {
+  background: $ordinary-white;
+  border: 1px solid $border-gray;
+  box-shadow: 0 3px 12px rgba(177, 182, 186, 0.3);
+  margin: 0 250px;
+  padding: 40px 60px 100px;
+}
+
+.generator-invoice-title {
+  font-family: 'OrkneyRegular', sans-serif;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+
+.generator-invoice-field {
+  margin-bottom: 10px;
+}
+
+.generator-invoice-field-text {
+  font: {
+    size: 0.8em;
+    weight: 700;
+  }
+  color: $deepest-gray;
+  display: inline-block;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+  width: 150px;
+}
+
+.generator-generation-input {
+  border: none;
+  border-bottom: 2px solid #dddddd;
+  border-radius: 0;
+  width: 300px;
+
+  &:hover {
+    border-bottom-color: #cccccc;
+  }
+
+  &:focus {
+    border-bottom-color: $brandon-blue;
+  }
+}
+
+.generator-invoice-address {
+  background-color: $lightest-gray;
+  padding: 10px 30px;
+  margin: 50px 0;
+}
+
+.generator-invoice-address-title {
+  color: $deeper-gray;
+  font: {
+    size: 0.8em;
+    weight: 700;
+  }
+  margin: 0 0 15px;
+  text-transform: uppercase;
+}
+
+.generator-invoice-address-gdc {
+  font: {
+    size: 1.2em;
+    weight: 700;
+  }
+  margin: 0;
+}
+
+.generator-invoice-address-information {
+  margin-bottom: 20px;
+}
+
+.generator-invoice-address-text {
+  color: $deepest-gray;
+  font-size: 0.75em;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.generator-invoice-address-to {
+  display: inline-block;
+  padding: 10px 0 10px 30px;
+  vertical-align: top;
+  width: 45%;
+}
+
+.generator-invoice-address-from {
+  border-right: 1px dotted $border-gray;
+  display: inline-block;
+  padding: 10px 40px 10px 10px;
+  width: 45%;
+}
+
+.generator-invoice-address-edit {
+  color: $brandon-blue;
+  font-size: 0.8em;
+  text-decoration: none;
+}
+
+.generator-table-cell-input {
+  width: 100px;
+}
+
+.generator-table-cell-text {
+  font: {
+    size: 0.85em;
+    weight: 700;
+  }
+  letter-spacing: -0.3px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.generator-table-cell-total {
+  border: {
+    bottom: 2px solid $border-gray;
+    top: 2px solid $border-gray;
+  }
+}
+
+.generator-table-cell-input-vat {
+  margin-right: 10px;
+  width: 70px;
+}
+
+.generator-generation-bottom {
+  float: right;
+}

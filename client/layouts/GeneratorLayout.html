@@ -1,0 +1,14 @@
+<template name="GeneratorLayout">
+    <!-- CSS Module: Header -->
+    <header class="generator-header">
+        <a href="/generator" class="generator-logo">
+            <img src="/img/generator-logo-white.png" alt="Dentio" class="generator-logo-image">
+        </a>
+        <a href="/invoices" class="generator-back"><span class="icon-arrow-left"></span> Go back to Dentio</a>
+    </header>
+    <!--/ CSS Module: Header -->
+
+    <main class="generator-body">
+        {{> yield "generator"}}
+    </main>
+</template>

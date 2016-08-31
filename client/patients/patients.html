@@ -1,0 +1,113 @@
+<template name="patients">
+    <div class="body-content">
+        <header class="body-header">
+            <h1 class="body-header-title">
+                {{> patientsHeaderTitle }}
+            </h1>
+            <div class="body-header-button">
+                {{> patientsNewButton}}
+            </div>
+            <div class="body-search-form">
+                <span class="icon-search"></span>
+                <input type="search" placeholder="Search for a patient..." class="body-search-box">
+            </div>
+        </header>
+        <section class="body-flesh mod-body-flesh-patients">
+            {{> patientsContent }}
+        </section>
+    </div>
+</template>
+
+<template name="patientsHeaderTitle">
+    Patients <small class="body-header-subtitle">This is a list of all your patients</small>
+</template>
+
+<template name="patientsNewButton">
+    <a href="#" class="button mod-button-okay js-patient-new-trigger"><span class="icon-add"></span>New patient</a>
+    {{> patientsNewModal }}
+</template>
+
+<template name="patientsNewModal">
+    <div id="patient-new-modal" class="modal patient-new-modal" role="dialog" aria-hidden="true">
+        <div class="modal-dialog patient-new-modal-dialog">
+            <div class="modal-content patient-new-modal-content">
+                <a href="#" class="modal-close"><span class="icon-cancel"></span></a>
+                <h2 class="modal-content-title">Add a New Patient</h2>
+
+                <form class="patient-form" id="patient-new-form">
+
+                    <div class="patient-group">
+                        <div class="patient-form-group mod-patient-form-group-name">
+                            <label for="patient-form-first-name" class="body-form-label">First name*:</label>
+                            <input type="text" class="body-form-input" id="patient-form-first-name" placeholder="Enter first name" required>
+                            <p class="body-error-icon js-error-fname"><span class="icon-cancel"></span></p>
+                        </div>
+                        <div class="patient-form-group mod-patient-form-group-name">
+                            <label for="patient-form-middle-name"  class="body-form-label">Middle name:</label>
+                            <input type="text"  class="body-form-input" id="patient-form-middle-name" placeholder="Enter middle name">
+                            <p class="body-error-icon js-error-mname"><span class="icon-cancel"></span></p>
+                        </div>
+                        <div class="patient-form-group mod-patient-form-group-name">
+                            <label for="patient-form-surname"  class="body-form-label">Surname*:</label>
+                            <input type="text"  class="body-form-input" id="patient-form-surname" placeholder="Enter surname" required>
+                            <p class="body-error-icon js-error-sname"><span class="icon-cancel"></span></p>
+                        </div>
+                    </div>
+                    <div class="patient-group">
+                        <div class="patient-form-group mod-patient-form-group-contacts">
+                            <label for="patient-form-email"  class="body-form-label">Email address:</label>
+                            <input type="email"  class="body-form-input" id="patient-form-email" placeholder="Enter email address">
+                            <p class="body-error-icon js-error-email"><span class="icon-cancel"></span></p>
+                        </div>
+                        <div class="patient-form-group mod-patient-form-group-contacts">
+                            <label for="patient-form-mobile"  class="body-form-label">Mobile number:</label>
+                            <input type="tel"  class="body-form-input" id="patient-form-mobile" placeholder="Enter phone number">
+                            <p class="body-error-icon js-error-mobile"><span class="icon-cancel"></span></p>
+                        </div>
+                    </div>
+
+                    <div class="modal-button-group">
+                        <button class="button mod-button-okay" type="submit">Add patient</button>
+                        <button class="button mod-button-cancel js-cancel-patient-new" type="button">Cancel</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="patientsContent">
+
+    {{#if patientsFound}}
+    <table>
+        <tr>
+            <th>Patient Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Company</th>
+            <th>Staff Number</th>
+        </tr>
+        {{> patientsTableRow }}
+    </table>
+    <div class="body-bottom-buttons">
+        <a href="#" class="button mod-button-cancel js-show-more-patients">Show more...</a>
+    </div>
+
+    {{else}}
+        <p class="body-search-result-helper">Seems like you have not yet added your patients.</p>
+        <p class="body-search-result-helper">You can add one by clicking on the '+ New patient' button on the top right of the screen</p>
+    {{/if}}
+</template>
+
+<template name="patientsTableRow">
+    {{#each patients}}
+    <tr>
+        <td><a href="/patients/{{_id}}" class="patient-table-link">{{ profile.surname}}, {{profile.middle_name}} {{profile.first_name}}</a></td>
+        <td>{{contacts.email}}</td>
+        <td>{{contacts.mobile}}</td>
+        <td>{{company.company_name}}</td>
+        <td>{{work.staff_number}}</td>
+    </tr>
+    {{/each}}
+</template>

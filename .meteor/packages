@@ -27,3 +27,7 @@ session
 u2622:persistent-session
 check
 audit-argument-checks
+useraccounts:unstyled
+npm-bcrypt@0.8.7
+accounts-password
+useraccounts:iron-routing

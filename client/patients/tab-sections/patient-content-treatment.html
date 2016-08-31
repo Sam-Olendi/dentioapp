@@ -1,0 +1,686 @@
+<template name="patientContentTreatment">
+
+    {{> patientContentTreatmentModal }}
+    {{> patientContentFindingsModal }}
+
+    <div class="single-patient-treatment-right">
+        <p class="single-patient-treatment-right-side">UR</p>
+        <div class="single-patient-treatment-grid mod-single-patient-treatment-grid-right">
+
+            {{#with findings}}
+            <div class="single-patient-treatment-right-pending">
+                <p class="single-patient-treatment-right-label">Findings</p>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-18"></p>
+                    <!--generate individual tooltips with class name appended with the tooth number-->
+                    <svg width="50" height="50" viewBox="0 0 50 50" id="18" data-id="18" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 18">
+                        {{> ur_back_tooth}}
+                    </svg>
+                </div>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-17"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" id="17" data-id="17" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 17">
+                        {{> ur_back_tooth}}
+                    </svg>
+                </div>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-16"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" id="16" data-id="16" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 16">
+                        {{> ur_back_tooth}}
+                    </svg>
+                </div>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-15"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" id="15" data-id="15" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 15">
+                        {{> ur_back_tooth}}
+                    </svg>
+                </div>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-14"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" id="14" data-id="14" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 14">
+                        {{> ur_back_tooth}}
+                    </svg>
+                </div>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-13"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" id="13" data-id="13" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 13">
+                        {{> ur_front_tooth}}
+                    </svg>
+                </div>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-12"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" id="12" data-id="12" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 12">
+                        {{> ur_front_tooth}}
+                    </svg>
+                </div>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-11"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" id="11" data-id="11" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 11">
+                        {{> ur_front_tooth}}
+                    </svg>
+                </div>
+            </div>
+            {{/with}}
+
+            {{#with treatments}}
+            <div class="single-patient-treatment-right-done">
+                <p class="single-patient-treatment-right-label">Completed</p>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" id="18" data-id="18" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 18">
+                    {{> ur_back_tooth}}
+                </svg>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" id="17" data-id="17" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 17">
+                    {{> ur_back_tooth}}
+                </svg>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" id="16" data-id="16" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 16">
+                    {{> ur_back_tooth}}
+                </svg>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" id="15" data-id="15" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 15">
+                    {{> ur_back_tooth}}
+                </svg>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" id="14" data-id="14" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 14">
+                    {{> ur_back_tooth}}
+                </svg>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" id="13" data-id="13" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 13">
+                    {{> ur_front_tooth}}
+                </svg>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" id="12" data-id="12" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 12">
+                    {{> ur_front_tooth}}
+                </svg>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" id="11" data-id="11" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 11">
+                    {{> ur_front_tooth}}
+                </svg>
+            </div>
+            {{/with}}
+
+            <div class="single-patient-treatment-right-numbering">
+                <p class="single-patient-treatment-right-label">UR</p>
+                <nav class="single-patient-treatment-right-numbering-R" style="border-bottom: 1px dashed #a3a3a3; padding-bottom: 10px;;">
+                    <a href="#18">18</a>
+                    <a href="#17">17</a>
+                    <a href="#16">16</a>
+                    <a href="#15">15</a>
+                    <a href="#14">14</a>
+                    <a href="#13">13</a>
+                    <a href="#12">12</a>
+                    <a href="#11">11</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="single-patient-treatment-grid mod-single-patient-treatment-grid-right">
+            <div class="single-patient-treatment-right-numbering">
+                <p class="single-patient-treatment-right-label">LR</p>
+                <nav class="single-patient-treatment-right-numbering-R">
+                    <a href="#48">48</a>
+                    <a href="#47">47</a>
+                    <a href="#46">46</a>
+                    <a href="#45">45</a>
+                    <a href="#44">44</a>
+                    <a href="#43">43</a>
+                    <a href="#42">42</a>
+                    <a href="#41">41</a>
+                </nav>
+            </div>
+
+            {{#with findings}}
+            <div class="single-patient-treatment-right-pending">
+                <p class="single-patient-treatment-right-label">Findings</p>
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-48"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" id="48" data-id="48" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 48">
+                        {{> lr_back_tooth}}
+                    </svg>
+                </div>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-47"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" id="47" data-id="47" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 47">
+                        {{> lr_back_tooth}}
+                    </svg>
+                </div>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-46"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" id="46" data-id="46" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 46">
+                        {{> lr_back_tooth}}
+                    </svg>
+                </div>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-45"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" id="45" data-id="45" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 45">
+                        {{> lr_back_tooth}}
+                    </svg>
+                </div>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-44"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" id="44" data-id="44" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 44">
+                        {{> lr_back_tooth}}
+                    </svg>
+                </div>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-43"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" id="43" data-id="43" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 43">
+                        {{> lr_front_tooth}}
+                    </svg>
+                </div>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-42"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" id="42" data-id="42" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 42">
+                        {{> lr_front_tooth}}
+                    </svg>
+                </div>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-41"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" id="41" data-id="41" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 41">
+                        {{> lr_front_tooth}}
+                    </svg>
+                </div>
+            </div>
+            {{/with}}
+
+            {{#with treatments}}
+            <div  class="single-patient-treatment-right-done">
+                <p class="single-patient-treatment-right-label">Completed</p>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" id="48" data-id="48" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 48">
+                    {{> lr_back_tooth}}
+                </svg>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" id="47" data-id="47" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 47">
+                    {{> lr_back_tooth}}
+                </svg>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" id="46" data-id="46" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 46">
+                    {{> lr_back_tooth}}
+                </svg>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" id="45" data-id="45" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 45">
+                    {{> lr_back_tooth}}
+                </svg>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" id="44" data-id="44" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 44">
+                    {{> lr_back_tooth}}
+                </svg>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" id="43" data-id="43" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 43">
+                    {{> lr_front_tooth}}
+                </svg>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" id="42" data-id="42" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 42">
+                    {{> lr_front_tooth}}
+                </svg>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" id="41" data-id="41" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 41">
+                    {{> lr_front_tooth}}
+                </svg>
+            </div>
+            {{/with}}
+        </div>
+        <p class="single-patient-treatment-right-side">LR</p>
+    </div>
+    <div class="single-patient-treatment-left">
+        <p class="single-patient-treatment-left-side">UL</p>
+        <div class="single-patient-treatment-grid mod-single-patient-treatment-grid-left">
+
+            {{#with findings}}
+            <div class="single-patient-treatment-left-pending">
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-21"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" id="21" data-id="21" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 21">
+                        {{> ul_front_tooth}}
+                    </svg>
+                </div>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-22"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" id="22" data-id="22" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 22">
+                        {{> ul_front_tooth}}
+                    </svg>
+                </div>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-23"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" id="23" data-id="23" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 23">
+                        {{> ul_front_tooth}}
+                    </svg>
+                </div>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-24"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" id="24" data-id="24" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 24">
+                        {{> ul_back_tooth}}
+                    </svg>
+                </div>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-25"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" id="25" data-id="25" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 25">
+                        {{> ul_back_tooth}}
+                    </svg>
+                </div>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-26"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" id="26" data-id="26" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 26">
+                        {{> ul_back_tooth}}
+                    </svg>
+                </div>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-27"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" id="27" data-id="27" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 27">
+                        {{> ul_back_tooth}}
+                    </svg>
+                </div>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-28"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" id="28" data-id="28" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 28">
+                        {{> ul_back_tooth}}
+                    </svg>
+                </div>
+            </div>
+            {{/with}}
+
+            {{#with treatments}}
+            <div  class="tooth-parts single-patient-treatment-left-done">
+
+                <svg width="50" height="50" viewBox="0 0 50 50" id="21" data-id="21" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 21">
+                    {{> ul_front_tooth}}
+                </svg>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" id="22" data-id="22" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 22">
+                    {{> ul_front_tooth}}
+                </svg>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" id="23" data-id="23" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 23">
+                    {{> ul_front_tooth}}
+                </svg>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" id="24" data-id="24" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 24">
+                    {{> ul_back_tooth}}
+                </svg>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" id="25" data-id="25" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 25">
+                    {{> ul_back_tooth}}
+                </svg>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" id="26" data-id="26" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 26">
+                    {{> ul_back_tooth}}
+                </svg>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" id="27" data-id="27" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 27">
+                    {{> ul_back_tooth}}
+                </svg>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" id="28" data-id="28" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 28">
+                    {{> ul_back_tooth}}
+                </svg>
+            </div>
+            {{/with}}
+
+            <div class="single-patient-treatment-left-numbering">
+                <nav class="single-patient-treatment-right-numbering-R" style="border-bottom: 1px dashed #a3a3a3; padding-bottom: 10px;;">
+                    <a href="#21">21</a>
+                    <a href="#22">22</a>
+                    <a href="#23">23</a>
+                    <a href="#24">24</a>
+                    <a href="#25">25</a>
+                    <a href="#26">26</a>
+                    <a href="#27">27</a>
+                    <a href="#28">28</a>
+                </nav>
+                <p class="single-patient-treatment-left-label">UL</p>
+            </div>
+        </div>
+        <div class="single-patient-treatment-grid mod-single-patient-treatment-grid-left">
+            <div class="single-patient-treatment-right-numbering">
+                <nav class="single-patient-treatment-right-numbering-R">
+                    <a href="#31">31</a>
+                    <a href="#32">32</a>
+                    <a href="#33">33</a>
+                    <a href="#34">34</a>
+                    <a href="#35">35</a>
+                    <a href="#36">36</a>
+                    <a href="#37">37</a>
+                    <a href="#38">38</a>
+                </nav>
+                <p class="single-patient-treatment-left-label">LL</p>
+            </div>
+
+            {{#with findings}}
+            <div class="single-patient-treatment-right-pending">
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-31"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" data-id="31" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 31" id="31">
+                        {{> ll_front_tooth}}
+                    </svg>
+                </div>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-32"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" data-id="32" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 32" id="32">
+                        {{> ll_front_tooth}}
+                    </svg>
+                </div>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-33"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" data-id="33" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 33" id="33">
+                        {{> ll_front_tooth}}
+                    </svg>
+                </div>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-34"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" data-id="34" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 34" id="34">
+                        {{> ll_back_tooth}}
+                    </svg>
+                </div>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-35"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" data-id="35" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 35" id="35">
+                        {{> ll_back_tooth}}
+                    </svg>
+                </div>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-36"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" data-id="36" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 36" id="36">
+                        {{> ll_back_tooth}}
+                    </svg>
+                </div>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-37"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" data-id="37" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 37" id="37">
+                        {{> ll_back_tooth}}
+                    </svg>
+                </div>
+
+                <div class="single-patient-treatment-svg-wrapper">
+                    <p class="svg-tooltip svg-tooltip-38"></p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" data-id="38" data-patient="{{_id}}" class="svg-tooth svg-tooth-pending 38" id="38">
+                        {{> ll_back_tooth}}
+                    </svg>
+                </div>
+            </div>
+            {{/with}}
+
+            {{#with treatments}}
+            <div  class="single-patient-treatment-right-done">
+                <svg width="50" height="50" viewBox="0 0 50 50" data-id="31" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 31" id="31">
+                    {{> ll_front_tooth}}
+                </svg>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" data-id="32" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 32" id="32">
+                    {{> ll_front_tooth}}
+                </svg>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" data-id="33" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 33" id="33">
+                    {{> ll_front_tooth}}
+                </svg>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" data-id="34" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 34" id="34">
+                    {{> ll_back_tooth}}
+                </svg>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" data-id="35" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 35" id="35">
+                    {{> ll_back_tooth}}
+                </svg>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" data-id="36" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 36" id="36">
+                    {{> ll_back_tooth}}
+                </svg>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" data-id="37" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 37" id="37">
+                    {{> ll_back_tooth}}
+                </svg>
+
+                <svg width="50" height="50" viewBox="0 0 50 50" data-id="38" data-patient="{{_id}}" class="svg-tooth svg-tooth-completed 38" id="38">
+                    {{> ll_back_tooth}}
+                </svg>
+            </div>
+            {{/with}}
+        </div>
+        <p class="single-patient-treatment-left-side">LL</p>
+    </div>
+
+    {{> patientContentCompleteAppointment }}
+
+</template>
+
+<template name="patientContentTreatmentModal">
+    <div id="patient-treatments-modal" class="modal patient-treatments-modal" role="dialog" aria-hidden="true">
+        <div class="modal-dialog patient-treatments-modal-dialog">
+            <div class="modal-content patient-treatments-modal-content">
+                <a href="#" class="modal-close"><span class="icon-cancel"></span></a>
+                <h2 class="modal-content-title mod-modal-content-title-treatments-modal"><b> Tooth {{ toothNumber }}:</b> {{ toothPart }}</h2>
+
+                <div class="patient-treatments-previous">
+                    {{#if oldTreatmentsLength }}
+                        <a href="#" class="button mod-button-hide js-patient-treatments-hide-previous">Hide (X)</a>
+                        <h3 class="patient-treatments-previous-title">Previous procedures</h3>
+                        <table class="patient-treatments-previous-table">
+                            {{#each oldTreatments}}
+                                <tr>
+                                    <td>{{service.service_name}}</td>
+                                    <td>{{date_performed}}</td>
+                                    <td>{{description}}</td>
+                                </tr>
+                            {{/each}}
+                        </table>
+                    {{else}}
+                        <a href="#" class="button mod-button-hide js-patient-treatments-hide-previous">Hide (X)</a>
+                        <p class="body-search-result-helper">No previous procedures performed on the {{ toothPart }} of tooth {{ toothNumber }}.</p>
+                    {{/if}}
+
+                </div>
+
+                <a href="#" class="button mod-button-helper js-patient-treatments-show-previous">View all previous procedures</a>
+
+                <p class="modal-content-text">Please select the procedures that you have completed on the {{ toothPart }} of tooth {{ toothNumber }}</p>
+
+                <form class="patient-treatments-form js-patient-treatments-form" id="patient-treatments-form">
+                    <div class="patient-treatments-form-group">
+                        <select title="patient-treatments-form-select" class="patient-treatments-form-select" id="patient-treatments-form-select-0" data-id="0">
+                            <option value="None" class="patient-treatments-form-option">Select a service</option>
+                            {{#each services}}
+                                <option value="{{_id}}" class="patient-treatments-form-option">{{service_name}}</option>
+                            {{/each}}
+                        </select>
+                        <input type="text" placeholder="Description" class="patient-treatments-form-description" id="patient-treatments-form-description-0" data-id="0">
+                    </div>
+                </form>
+
+                <a href="#" class="button mod-button-cancel js-patient-treatments-add-service">Add another service</a>
+
+                <div class="modal-attach-group">
+                    <p class="modal-attach-button"><a href="#" class="button mod-button-dotted"><span class="icon-file3"></span>Attach files</a></p>
+                </div>
+
+                <div class="modal-button-group">
+                    <button class="button mod-button-okay" type="submit" form="patient-treatments-form">Save changes</button>
+                    <button class="button mod-button-cancel js-close-patient-treatments" type="button">Cancel</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="patientContentFindingsModal">
+    <div id="patient-findings-modal" class="modal patient-findings-modal" role="dialog" aria-hidden="true">
+        <div class="modal-dialog patient-findings-modal-dialog">
+            <div class="modal-content patient-findings-modal-content">
+                <a href="#" class="modal-close"><span class="icon-cancel"></span></a>
+                <h2 class="modal-content-title mod-modal-content-title-treatments-modal"><b> Tooth {{ toothNumber }}:</b> {{ toothPart }}</h2>
+
+                <div class="patient-findings-previous">
+                    {{#if oldFindingsLength }}
+                        <a href="#" class="button mod-button-hide js-patient-findings-hide-previous">Hide (X)</a>
+                        <h3 class="patient-findings-previous-title">Previous findings</h3>
+                        <table class="patient-findings-previous-table">
+                            {{#each oldFindings }}
+                                <tr>
+                                    <td>{{finding_type}}</td>
+                                    <td>{{date_added}}</td>
+                                    <td>{{description}}</td>
+                                </tr>
+                            {{/each}}
+                        </table>
+                    {{else}}
+                        <a href="#" class="button mod-button-hide js-patient-findings-hide-previous">Hide (X)</a>
+                        <p class="body-search-result-helper">No previous findings observed on the {{ toothPart }} of tooth {{ toothNumber }}.</p>
+                    {{/if}}
+
+                </div>
+
+                <a href="#" class="button mod-button-helper js-patient-findings-show-previous">View all previous findings</a>
+
+                <p class="modal-content-text">Please select your findings on the {{ toothPart }} of tooth {{ toothNumber }}</p>
+
+                <form class="patient-findings-form js-patient-findings-form" id="patient-findings-form">
+                    <div class="patient-findings-form-group">
+                        <select title="patient-findings-form-select" class="patient-findings-form-select" id="patient-findings-form-select-0" data-id="0">
+                            <option value="None" class="patient-findings-form-option" selected>-- Select a finding --</option>
+                            <option value="Preventive" class="patient-findings-form-option">Preventive</option>
+                            <option value="Extractions" class="patient-findings-form-option">Extractions</option>
+                            <option value="Restorations" class="patient-findings-form-option">Restorations</option>
+                            <option value="Dentures" class="patient-findings-form-option">Dentures</option>
+                            <option value="Crowns and Bridges" class="patient-findings-form-option">Crowns and Bridges</option>
+                            <option value="Orthodontics" class="patient-findings-form-option">Orthodontics</option>
+                            <option value="Surgical Extractions" class="patient-findings-form-option">Surgical Extractions</option>
+                            <option value="Others" class="patient-findings-form-option">Others</option>
+                        </select>
+                        <input type="text" placeholder="Description" class="patient-findings-form-description" id="patient-findings-form-description-0" data-id="0">
+                    </div>
+                </form>
+
+                <a href="#" class="button mod-button-cancel js-patient-findings-add-service">Add another finding</a>
+
+                <div class="modal-attach-group">
+                    <p class="modal-attach-button"><a href="#" class="button mod-button-dotted"><span class="icon-file3"></span>Attach files</a></p>
+                </div>
+
+                <div class="modal-button-group">
+                    <button class="button mod-button-okay" form="patient-findings-form" type="submit">Save changes</button>
+                    <button class="button mod-button-cancel js-close-patient-findings" type="button">Cancel</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="patientContentCompleteAppointment">
+    {{#if appointmentExists }}
+        {{> patientContentCompleteAppointmentModal }}
+        {{> patientContentConfirmInvoiceModal }}
+        <div class="patient-treatment-bottom-buttons">
+            <a href="#" class="button mod-button-okay js-complete-appointment">Complete appointment</a>
+        </div>
+    {{/if}}
+</template>
+
+<template name="patientContentCompleteAppointmentModal">
+    <div id="complete-appointment-modal" class="modal complete-appointment-modal" role="dialog" aria-hidden="true">
+        <div class="modal-dialog complete-appointment-modal-dialog">
+            <div class="modal-content complete-appointment-modal-content">
+                <a href="#" class="modal-close"><span class="icon-cancel"></span></a>
+                <h2 class="modal-content-title">Complete Appointment</h2>
+
+                <p class="modal-content-text">You are about to complete this appointment. Do you want to continue?</p>
+
+                <div class="modal-button-group">
+                    <button class="button mod-button-okay js-complete-appointment-confirmation">Yes. Complete appointment.</button>
+                    <button class="button mod-button-cancel js-cancel-complete-appointment" >Cancel</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="patientContentConfirmInvoiceModal">
+    <div id="confirm-invoice-modal" class="modal confirm-invoice-modal" role="dialog" aria-hidden="true">
+        <div class="modal-dialog confirm-invoice-modal-dialog">
+            <div class="modal-content confirm-invoice-modal-content">
+                <a href="#" class="modal-close"><span class="icon-cancel"></span></a>
+                <h2 class="modal-content-title">An appointment has just ended!</h2>
+
+                <p class="modal-content-text">An appointment with <b>{{profile.surname}}, {{profile.first_name}} {{profile.middle_name}}</b> has just ended. Are these the procedures that you performed today?</p>
+
+                <table class="confirm-invoice-table">
+                    <thead class="confirm-invoice-table-head">
+                        <tr class="confirm-invoice-table-row">
+                            <th class="confirm-invoice-table-head-cell">Procedure</th>
+                            <th class="confirm-invoice-table-head-cell">Description</th>
+                            <th class="confirm-invoice-table-head-cell">Price</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    {{#each treatments}}
+                        <tr class="confirm-invoice-table-row">
+                            <td class="confirm-invoice-table-cell">
+                                <span class="confirm-invoice-text"><b>{{service.service_name}}</b></span>
+
+                                <select class="confirm-invoice-input confirm-invoice-select">
+                                    <option value="None">--Select a service--</option>
+                                    {{#each services}}
+                                        <option value="{{_id}}">{{service_name}}</option>
+                                    {{/each}}
+                                </select>
+
+                            </td>
+                            <td class="confirm-invoice-table-cell">
+                                <span class="confirm-invoice-text">{{description}}</span>
+
+                                <input type="text" value="{{description}}" placeholder="Description" class="confirm-invoice-input confirm-invoice-description">
+                            </td>
+                            <td class="confirm-invoice-table-cell">
+                                <span class="confirm-invoice-text">Kshs. {{amount}}</span>
+
+                                <input type="number" value="{{amount}}" placeholder="Amount" class="confirm-invoice-input confirm-invoice-amount">
+                            </td>
+                            <td class="confirm-invoice-table-cell">
+                                <a href="#" class="button mod-button-edit mod-button-small js-confirm-invoice-edit">Edit</a>
+                                <a href="#" class="button mod-button-okay mod-button-small confirm-invoice-save js-confirm-invoice-save">Save</a>
+                            </td>
+                        </tr>
+                    {{/each}}
+                </table>
+
+                <div class="modal-button-group">
+                    <button class="button mod-button-okay js-confirm-invoice">Confirm & Save</button>
+                    <button class="button mod-button-cancel js-cancel-confirm-invoice" >Cancel</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>
