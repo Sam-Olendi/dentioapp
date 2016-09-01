@@ -519,7 +519,7 @@
                 <a href="#" class="button mod-button-cancel js-patient-treatments-add-service">Add another service</a>
 
                 <div class="modal-attach-group">
-                    <p class="modal-attach-button"><a href="#" class="button mod-button-dotted"><span class="icon-file3"></span>Attach files</a></p>
+                    {{> patientContentTreatmentsUpload }}
                 </div>
 
                 <div class="modal-button-group">
@@ -530,6 +530,41 @@
             </div>
         </div>
     </div>
+</template>
+
+<template name="patientContentTreatmentsUpload">
+
+    <div class="modal-content-uploading-message modal-content-success">
+        <p class="modal-content-uploading-text"><span class="modal-content-uploading-filename">Filename</span> has successfully been uploaded</p>
+        <p class="modal-content-uploading-progress"><span class="icon-checkmark"></span></p>
+    </div>
+
+    <div class="modal-content-uploading-message modal-content-error">
+        <p class="modal-content-uploading-text modal-content-uploading-text-error">Something went wrong. Please try again later.</p>
+        <p class="modal-content-uploading-progress"><span class="icon-info"></span></p>
+    </div>
+
+    {{#with currentUpload }}
+        <div class="modal-content-uploading-message modal-content-uploading">
+            <p class="modal-content-uploading-text">Uploading: <span class="modal-content-uploading-filename">{{file.name}}</span> </p>
+            <p class="modal-content-uploading-progress">{{progress.get}}%</p>
+        </div>
+
+        <div class="modal-content-upload-controls">
+            <a href="#" class="modal-content-controls modal-content-upload-pause">
+                {{#if pauseUpload}}
+                    Resume
+                {{else}}
+                    Pause upload
+                {{/if}}
+            </a>
+            <a href="#" class="modal-content-controls modal-content-upload-cancel">Stop upload</a>
+        </div>
+    {{else}}
+        <!--<p class="modal-attach-button"><a href="#" class="button mod-button-dotted"><span class="icon-file3"></span>Attach files</a></p>-->
+        <label for="patients-treatment-upload-file" class="button mod-button-dotted patients-treatment-upload-file-label"><span class="icon-file3"></span>Select the file to upload</label>
+        <input type="file" id="patients-treatment-upload-file" class="patients-treatment-upload-file-input">
+    {{/with}}
 </template>
 
 <template name="patientContentFindingsModal">

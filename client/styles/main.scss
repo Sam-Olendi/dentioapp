@@ -788,11 +788,93 @@ td, th {
 }
 
 .modal-content-text {
-  font-size: 0.85em;
+  font-size: 0.8em;
+}
+
+.modal-content-uploading-message {
+  border-radius: 3px;
+  color: $ordinary-white;
+  font-size: 0.8em;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  position: relative;
+}
+
+.modal-content-uploading {
+  background-color: #F08A5D;
+}
+
+.modal-content-success {
+  background-color: #00B8A9;
+  display: none;
+}
+
+.modal-content-error {
+  background-color: $danger-red;
+  display: none;
+}
+
+.modal-content-uploading-text {
+  margin: 0;
+}
+
+.modal-content-uploading-filename {
+  font: {
+    size: 1.3em;
+    weight: 600;
+  }
+}
+
+.modal-content-uploading-progress {
+  font: {
+    size: 2em;
+    weight: 600;
+  }
+  letter-spacing: -.7px;
+  margin: 0;
+  position: absolute;
+  right: 20px;
+  top: 5px;
+}
+
+.modal-content-upload-controls {
+  background-color: $damien-light;
+  border-radius: 0 0 3px 3px;
+  font-size: 0.8em;
+  margin-top: -13px;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+}
+
+.modal-content-upload-pause {
+  color: $lightest-gray;
+
+  &:hover {
+    color: $ordinary-white
+  }
+
+  &:active {
+    color: $brandon-blue;
+    text-decoration: none;
+  }
+}
+
+.modal-content-upload-cancel {
+  color: $deepest-gray;
+  float: right;
+
+  &:hover {
+    color: $deeper-gray;
+  }
+
+  &:active {
+    color: $danger-red;
+    text-decoration: none;
+  }
 }
 
 .modal-attach-group {
-  margin: 20px 0;
+  margin: 30px 0;
 }
 
 .modal-attach-button {
@@ -800,7 +882,7 @@ td, th {
 }
 
 .modal-button-group {
-  margin: 30px 0 10px;
+  margin: 20px 0 10px;
 
   .button {
     width: 49%;
@@ -1758,6 +1840,27 @@ td, th {
   font-size: 0.8em;
   margin-left: 10px;
   text-decoration: none;
+}
+
+.patients-treatment-upload-file-input {
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 0.1px;
+  z-index: -1;
+}
+
+.patients-treatment-upload-file-label {
+
+  &:hover {
+    background-color: #DDDDDD;
+    cursor: pointer;
+  }
+
+  &:active {
+    background-color: $deeper-gray;
+  }
 }
 
 .patient-treatment-bottom-buttons {

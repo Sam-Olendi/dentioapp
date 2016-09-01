@@ -291,6 +291,67 @@ Template.patientContentTreatmentModal.events({
     }
 });
 
+Template.patientContentTreatmentsUpload.onCreated(function () {
+    this.currentUpload = new ReactiveVar(false);
+    this.pauseUpload = new ReactiveVar(false);
+});
+
+Template.patientContentTreatmentsUpload.helpers({
+    currentUpload: function () {
+        return Template.instance().currentUpload.get();
+    },
+
+    pauseUpload: function () {
+      return Template.instance().pauseUpload.get();
+    }
+});
+
+Template.patientContentTreatmentsUpload.events({
+    'change #patients-treatment-upload-file': function (event, template) {
+        if ( event.currentTarget.files && event.currentTarget.files[0] ) {
+
+            var upload = Images.insert({
+                file: event.currentTarget.files[0],
+                meta: {
+                    patient_id: Session.get('currentPatient'),
+                    tooth_number: Session.get('currentToothNumber'),
+                    tooth_part: Session.get('currentToothPart'),
+                    date_uploaded: new Date().toISOString()
+                },
+                streams: 'dynamic'
+            }, false);
+
+            upload.on('start', function () {
+                template.currentUpload.set(this);
+            });
+
+            upload.on('pause', function () {
+                template.pauseUpload.set(this);
+            });
+
+            upload.on('end', function (error, fileObj) {
+                if (error) {
+                    $('.modal-content-uploading-text-error').text(error);
+                    $('.modal-content-error').show().delay(7000).fadeOut();
+                } else {
+                    $('.modal-content-success').show().delay(5000).fadeOut();
+                }
+                template.currentUpload.set(false);
+            });
+
+            upload.start();
+
+        }
+    },
+
+    'click .modal-content-upload-pause': function (event) {
+        event.preventDefault();
+        this.toggle();
+        return false;
+
+    }
+});
+
 Template.patientContentFindingsModal.onCreated(function () {
     this.subscribe('findings.patient');
     this.subscribe('appointments.check');
