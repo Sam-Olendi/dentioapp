@@ -31,3 +31,4 @@ useraccounts:unstyled
 npm-bcrypt@0.8.7
 accounts-password
 useraccounts:iron-routing
+ostrio:files

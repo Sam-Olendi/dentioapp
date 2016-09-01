@@ -8,73 +8,14 @@
         <div class="generator-invoice">
             <header class="generator-invoice-header">
                 {{> generationNewHeader }}
-
             </header>
 
             <div class="generator-invoice-address">
-                <div class="generator-invoice-address-from">
-                    <p class="generator-invoice-address-title">From:</p>
-                    <p class="generator-invoice-address-gdc">Gentle Dental Care</p>
-                    <address class="generator-invoice-address-information">
-                        Dr. Jane Okong'o Oloo <br>
-                        P.O Box 33764 - 00600 <br>
-                        Nairobi, Kenya <br>
-                    </address>
-                    <p class="generator-invoice-address-text">Tel: 020 2219 054 / 020 2227 052 / 0722 403 340</p>
-                    <p class="generator-invoice-address-text">Email: oloojane@gmail.com</p>
-                    <p class="generator-invoice-address-text">Website: www.gentle-dentalcare.org</p>
-                </div>
-                <div class="generator-invoice-address-to">
-                    <p class="generator-invoice-address-title">To:</p>
-                    <address class="generator-invoice-address-information">
-                        {{patient.profile.surname}} {{patient.profile.middle_name}} {{patient.profile.first_name}} <br>
-                        {{{patient.contacts.postal_address}}}
-                    </address>
-                    <a href="#" class="generator-invoice-address-edit">Add an address</a>
-                    <!--<textarea name="" id="" cols="30" rows="10" placeholder="Enter the address"></textarea>-->
-                </div>
-
+                {{> generationNewAddress }}
             </div>
 
             <div>
-                <table class="generator-table">
-                    <thead class="generator-table-head">
-                    <tr class="generator-table-head-row">
-                        <th class="generator-table-head-cell">Description</th>
-                        <th class="generator-table-head-cell">Quantity</th>
-                        <th class="generator-table-head-cell">Unit Price</th>
-                        <th class="generator-table-head-cell">Amount</th>
-                    </tr>
-                    </thead>
-
-                    <tr class="generator-table-row">
-                        <td class="generator-table-cell"><input type="text" placeholder="Select a service" class="generator-table-cell-input-description"></td>
-                        <td class="generator-table-cell"><input type="text" placeholder="Quantity" class="generator-table-cell-input"></td>
-                        <td class="generator-table-cell"><input type="text" placeholder="Unit price" class="generator-table-cell-input"></td>
-                        <td class="generator-table-cell"><input type="text" placeholder="Amount" class="generator-table-cell-input"></td>
-                    </tr>
-
-                    <tr class="generator-table-row generator-table-row-tally">
-                        <td class="generator-table-cell"></td>
-                        <td class="generator-table-cell"></td>
-                        <td class="generator-table-cell"><p class="generator-table-cell-text">Subtotal</p></td>
-                        <td class="generator-table-cell"><p class="generator-table-cell-text"></p></td>
-                    </tr>
-
-                    <tr class="generator-table-row generator-table-row-tally">
-                        <td class="generator-table-cell"></td>
-                        <td class="generator-table-cell"></td>
-                        <td class="generator-table-cell"><p class="generator-table-cell-text">VAT</p></td>
-                        <td class="generator-table-cell"><input type="number" value="0" placeholder="VAT" class="generator-table-cell-input-vat">%</td>
-                    </tr>
-
-                    <tr class="generator-table-row generator-table-row-tally">
-                        <td class="generator-table-cell"></td>
-                        <td class="generator-table-cell"></td>
-                        <td class="generator-table-cell generator-table-cell-total"><p class="generator-table-cell-text">Total</p></td>
-                        <td class="generator-table-cell generator-table-cell-total"><p class="generator-table-cell-text"></p></td>
-                    </tr>
-                </table>
+                {{> generationNewTable }}
             </div>
 
             <div class="generator-generation-bottom">
@@ -87,7 +28,7 @@
 <template name="generationNewHeader">
     <h1 class="generator-invoice-title">
         <span class="generator-invoice-title-text">Invoice #</span>
-        <input type="text" placeholder="Invoice number" class="generator-generation-input" value="{{ invoiceNumber }}">
+        <input type="text" placeholder="Invoice number" class="generator-generation-input" value="{{ generationNumber }}">
     </h1>
     <div class="generator-invoice-field">
         <p class="generator-invoice-field-text">Date Issued</p>
@@ -105,4 +46,87 @@
         <p class="generator-invoice-field-text">Staff Number</p>
         <input type="text" placeholder="Staff number" class="generator-generation-input">
     </div>
+</template>
+
+<template name="generationNewAddress">
+    <div class="generator-invoice-address-from">
+        <p class="generator-invoice-address-title">From:</p>
+        <p class="generator-invoice-address-gdc">Gentle Dental Care</p>
+        <address class="generator-invoice-address-information">
+            Dr. Jane Okong'o Oloo <br>
+            P.O Box 33764 - 00600 <br>
+            Nairobi, Kenya <br>
+        </address>
+        <p class="generator-invoice-address-text">Tel: 020 2219 054 / 020 2227 052 / 0722 403 340</p>
+        <p class="generator-invoice-address-text">Email: oloojane@gmail.com</p>
+        <p class="generator-invoice-address-text">Website: www.gentle-dentalcare.org</p>
+    </div>
+    <div class="generator-invoice-address-to">
+        <p class="generator-invoice-address-title">To:</p>
+        <address class="generator-invoice-address-information">
+            {{patient.profile.surname}} {{patient.profile.middle_name}} {{patient.profile.first_name}} <br>
+            {{{patient.contacts.postal_address}}}
+        </address>
+        <textarea name="" id="" cols="30" rows="10" placeholder="Enter the address" class="generator-invoice-address-textarea"></textarea>
+        <a href="#" class="generator-invoice-address-edit js-add-address">Add an address</a>
+    </div>
+</template>
+
+<template name="generationNewTable">
+    <table class="generator-table">
+            <tr class="generator-table-head generator-table-head-row">
+                <th class="generator-table-head-cell">Service</th>
+                <th class="generator-table-head-cell">Description</th>
+                <th class="generator-table-head-cell generator-table-cell-quality">Quantity</th>
+                <th class="generator-table-head-cell">Unit Price</th>
+                <th class="generator-table-head-cell">Amount</th>
+            </tr>
+
+        {{> generatorNewTableRows }}
+
+    </table>
+
+    <div class="generator-extension">
+        <div class="generator-extension-buttons">
+            <a href="#" class="button mod-button-small mod-button-edit"><span class="icon-add"></span>Add a row</a>
+        </div>
+
+        <div class="generator-calculator">
+            <div class="generator-calculator-subtotal">
+                <p class="generator-calculator-title">Subtotal</p>
+                <p class="generator-calculator-calculation">Kshs. 12000</p>
+            </div>
+
+            <div>
+                <p class="generator-calculator-title">VAT</p>
+                <div class="generator-calculator-calculation">
+                    <input type="number" placeholder="VAT" min="0" max="100" value="0" class="generator-calculator-vat"> %
+                </div>
+            </div>
+
+            <div>
+                <p class="generator-calculator-title">Total</p>
+                <p class="generator-calculator-calculation">Kshs. 12000</p>
+            </div>
+        </div>
+
+    </div>
+
+</template>
+
+<template name="generatorNewTableRows">
+    <tr class="generator-table-row">
+        <td class="generator-table-cell mod-generator-table-cell-input">
+            <select title="Select a service" id="generator-table-cell-select-0" class="generator-table-cell-select">
+                <option value="None">-Select a service-</option>
+                {{#each services}}
+                    <option value="{{_id}}">{{service_name}}</option>
+                {{/each}}
+            </select>
+        </td>
+        <td class="generator-table-cell mod-generator-table-cell-input"><input type="text" id="generator-table-cell-description-0" placeholder="Description" class="generator-table-cell-input-description"></td>
+        <td class="generator-table-cell mod-generator-table-cell-input generator-table-cell-quality">1</td>
+        <td class="generator-table-cell mod-generator-table-cell-input"><input type="text" id="generator-table-cell-unit-0" placeholder="Unit price" class="generator-table-cell-input"></td>
+        <td class="generator-table-cell mod-generator-table-cell-input"><input type="text" id="generator-table-cell-amount-0" placeholder="Amount" class="generator-table-cell-input"></td>
+    </tr>
 </template>

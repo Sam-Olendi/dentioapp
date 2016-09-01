@@ -406,10 +406,6 @@ tr {
   &:nth-child(even) {
     background-color: $lightest-gray;
   }
-
-  &:hover {
-    background: $light-blue-gray;
-  }
 }
 
 td, th {

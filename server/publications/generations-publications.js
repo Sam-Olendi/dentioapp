@@ -23,6 +23,10 @@ Meteor.publish('generations.all', function (limit) {
 
 });
 
+Meteor.publish('generations.compare', function () {
+   return Generations.find({}, { limit: 1, sort: { date_generated: -1 }, fields: { generation_no: 1, date_generated: 1 }});
+});
+
 function transformGenerations (doc) {
     doc.invoice = Invoices.findOne({_id: doc.invoice_id});
     doc.patient = Patients.findOne({_id: doc.patient_id});

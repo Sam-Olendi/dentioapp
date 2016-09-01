@@ -59,7 +59,6 @@ address {
   //white-space: pre-wrap;
 }
 
-
 .button.mod-button-generator-go {
   background: $gracious-green;
   color: $ordinary-white;
@@ -224,14 +223,14 @@ address {
 }
 
 .generator-table {
-  margin-bottom: 40px;
+  //margin-bottom: 40px;
   width: 100%;
 }
 
-.generator-table-head {
-  background: $lightest-gray;
+.generator-table tr.generator-table-head {
+  background-color: $damien-light;
   border: 1px solid $border-gray ;
-  color: $deepest-gray;
+  color: $ordinary-white;
   font: {
     size: 0.85em;
     weight: 700;
@@ -256,14 +255,13 @@ address {
   }
 }
 
-.generator-table-row.generator-table-row-tally {
-  background-color: $ordinary-white;
-  border: none;
-}
-
 .generator-table-cell {
   font-size: 0.85em;
   padding: 15px;
+}
+
+.generator-table-cell.mod-generator-table-cell-input {
+  padding-right: 5px;
 }
 
 .generator-table-cell-name {
@@ -291,6 +289,7 @@ address {
   border: 1px solid $border-gray;
   box-shadow: 0 3px 12px rgba(177, 182, 186, 0.3);
   margin: 0 250px;
+  overflow: auto;
   padding: 40px 60px 100px;
 }
 
@@ -386,32 +385,69 @@ address {
   text-decoration: none;
 }
 
-.generator-table-cell-input {
+.generator-invoice-address-textarea {
+  border: 2px solid $border-gray;
+  border-radius: 3px;
+  display: none;
+  font-size: 0.85em;
+  padding: 20px;
+}
+
+.generator-table-cell-quality {
+  display: none;
+}
+
+.generator-table-cell-input,
+.generator-table-cell-input-description,
+.generator-table-cell-select {
+  font-size: 1em;
+  width: 100%;
+}
+
+.generator-extension {
+  float: right;
+}
+
+.generator-extension-buttons {
+  text-align: right;
+  padding: 10px;
+
+  .button {
+    font-size: 0.7em;
+  }
+}
+
+.generator-calculator {
+  background-color: $lightest-gray;
+  box-sizing: border-box;
+  margin: 20px 0;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  width: 320px;
+}
+
+.generator-calculator-title {
+  color: $deepest-gray;
+  display: inline-block;
+  font-size: 0.7em;
+  font-weight: 600;
+  text-align: right;
   width: 100px;
 }
 
-.generator-table-cell-text {
-  font: {
-    size: 0.85em;
-    weight: 700;
-  }
-  letter-spacing: -0.3px;
-  margin: 0;
-  text-transform: uppercase;
+.generator-calculator-calculation {
+  font-size: 0.75em;
+  display: inline-block;
+  padding-left: 30px;
+  text-align: left;
+  width: 120px;
 }
 
-.generator-table-cell-total {
-  border: {
-    bottom: 2px solid $border-gray;
-    top: 2px solid $border-gray;
-  }
-}
-
-.generator-table-cell-input-vat {
-  margin-right: 10px;
-  width: 70px;
+.generator-calculator-vat {
+  width: 75%;
 }
 
 .generator-generation-bottom {
+  clear: both;
   float: right;
 }
