@@ -1697,6 +1697,39 @@ td, th {
   width: 100%;
 }
 
+.patient-file {
+  background: $ordinary-white;
+  border: 2px solid $border-gray;
+  border-radius: 3px;
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 0 20px 20px 0;
+  overflow: hidden;
+  padding: 20px 10px 10px;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 170px;
+
+  .icon-picture {
+    color: $deeper-gray;
+    font-size: 1.5em;
+  }
+}
+
+.patient-file-name {
+  font-size: 0.8em;
+  margin: 10px auto 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 130px;
+}
+
+.patient-file-date {
+  color: $deeper-gray;
+  font-size: 0.75em;
+  margin: 0 0 5px;
+}
 
 
 /* ----------------------------------------

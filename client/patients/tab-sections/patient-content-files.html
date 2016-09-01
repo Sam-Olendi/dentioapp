@@ -1,3 +1,10 @@
 <template name="patientContentFiles">
-    <p>Files</p>
+    {{#each images}}
+        <div class="patient-file">
+            <span class="icon-picture"></span>
+            <p class="patient-file-name"><span title="{{this.name}}">{{this.name}}</span></p>
+            <p class="patient-file-date">{{convertToMoment this.meta.date_uploaded}}</p>
+        </div>
+        <!--<img src="{{fileURL this}}" alt="{{this.name}}">-->
+    {{/each}}
 </template>
