@@ -816,6 +816,7 @@ td, th {
 
 .modal-content-uploading-text {
   margin: 0;
+  width: 75%;
 }
 
 .modal-content-uploading-filename {
@@ -870,6 +871,27 @@ td, th {
   &:active {
     color: $danger-red;
     text-decoration: none;
+  }
+}
+
+.modal-upload-file-input {
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 0.1px;
+  z-index: -1;
+}
+
+.modal-upload-file-label {
+
+  &:hover {
+    background-color: #DDDDDD;
+    cursor: pointer;
+  }
+
+  &:active {
+    background-color: $deeper-gray;
   }
 }
 
@@ -1840,27 +1862,6 @@ td, th {
   font-size: 0.8em;
   margin-left: 10px;
   text-decoration: none;
-}
-
-.patients-treatment-upload-file-input {
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  width: 0.1px;
-  z-index: -1;
-}
-
-.patients-treatment-upload-file-label {
-
-  &:hover {
-    background-color: #DDDDDD;
-    cursor: pointer;
-  }
-
-  &:active {
-    background-color: $deeper-gray;
-  }
 }
 
 .patient-treatment-bottom-buttons {

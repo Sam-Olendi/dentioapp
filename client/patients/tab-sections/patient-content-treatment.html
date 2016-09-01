@@ -550,20 +550,19 @@
             <p class="modal-content-uploading-progress">{{progress.get}}%</p>
         </div>
 
-        <div class="modal-content-upload-controls">
-            <a href="#" class="modal-content-controls modal-content-upload-pause">
-                {{#if pauseUpload}}
-                    Resume
-                {{else}}
-                    Pause upload
-                {{/if}}
-            </a>
-            <a href="#" class="modal-content-controls modal-content-upload-cancel">Stop upload</a>
-        </div>
+        <!--<div class="modal-content-upload-controls">-->
+            <!--<a href="#" class="modal-content-controls modal-content-upload-pause">-->
+                <!--{{#if pauseUpload}}-->
+                    <!--Resume-->
+                <!--{{else}}-->
+                    <!--Pause upload-->
+                <!--{{/if}}-->
+            <!--</a>-->
+            <!--<a href="#" class="modal-content-controls modal-content-upload-cancel">Stop upload</a>-->
+        <!--</div>-->
     {{else}}
-        <!--<p class="modal-attach-button"><a href="#" class="button mod-button-dotted"><span class="icon-file3"></span>Attach files</a></p>-->
-        <label for="patients-treatment-upload-file" class="button mod-button-dotted patients-treatment-upload-file-label"><span class="icon-file3"></span>Select the file to upload</label>
-        <input type="file" id="patients-treatment-upload-file" class="patients-treatment-upload-file-input">
+        <label for="patients-treatment-upload-file" class="button mod-button-dotted modal-upload-file-label"><span class="icon-file3"></span>Select the file to upload</label>
+        <input type="file" id="patients-treatment-upload-file" class="modal-upload-file-input">
     {{/with}}
 </template>
 

@@ -299,10 +299,6 @@ Template.patientContentTreatmentsUpload.onCreated(function () {
 Template.patientContentTreatmentsUpload.helpers({
     currentUpload: function () {
         return Template.instance().currentUpload.get();
-    },
-
-    pauseUpload: function () {
-      return Template.instance().pauseUpload.get();
     }
 });
 
@@ -325,10 +321,6 @@ Template.patientContentTreatmentsUpload.events({
                 template.currentUpload.set(this);
             });
 
-            upload.on('pause', function () {
-                template.pauseUpload.set(this);
-            });
-
             upload.on('end', function (error, fileObj) {
                 if (error) {
                     $('.modal-content-uploading-text-error').text(error);
@@ -343,13 +335,6 @@ Template.patientContentTreatmentsUpload.events({
 
         }
     },
-
-    'click .modal-content-upload-pause': function (event) {
-        event.preventDefault();
-        this.toggle();
-        return false;
-
-    }
 });
 
 Template.patientContentFindingsModal.onCreated(function () {

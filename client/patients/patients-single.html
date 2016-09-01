@@ -50,7 +50,53 @@
 </template>
 
 <template name="patientFilesButton">
-    <a href="#" class="button mod-button-okay"><span class="icon-add"></span>Attach files</a>
+    {{> attachFilesModal }}
+    <a href="#" class="button mod-button-okay js-main-attach-files-trigger"><span class="icon-add"></span>Attach files</a>
+</template>
+
+<template name="attachFilesModal">
+    <div id="main-attach-files-modal" class="modal main-attach-files-modal" role="dialog" aria-hidden="true">
+        <div class="modal-dialog main-attach-files-modal-dialog">
+            <div class="modal-content main-attach-files-modal-content">
+                <a href="#" class="modal-close"><span class="icon-cancel"></span></a>
+                <h2 class="modal-content-title">Attach files</h2>
+
+                <p class="modal-content-text">Click the button below to attach a file to <b>{{ profile.surname }}, {{ profile.first_name }} {{ profile.middle_name }}</b>' profile. </p>
+
+                {{> attachFilesModalUploadSection }}
+
+                <div class="modal-button-group">
+                    <!--<button class="button mod-button-no js-main-attach-files">Yes. Delete this patient</button>-->
+                    <button class="button mod-button-cancel js-close-main-attach-files" type="button">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="attachFilesModalUploadSection">
+    <div class="modal-attach-group">
+        <div class="modal-content-uploading-message modal-content-success">
+            <p class="modal-content-uploading-text modal-content-uploading-text-success"><span class="modal-content-uploading-filename">File</span> has successfully been uploaded</p>
+            <p class="modal-content-uploading-progress"><span class="icon-checkmark"></span></p>
+        </div>
+
+        <div class="modal-content-uploading-message modal-content-error">
+            <p class="modal-content-uploading-text modal-content-uploading-text-error">Something went wrong. Please try again later.</p>
+            <p class="modal-content-uploading-progress"><span class="icon-info"></span></p>
+        </div>
+
+        {{#with currentUpload}}
+            <div class="modal-content-uploading-message modal-content-uploading">
+                <p class="modal-content-uploading-text">Uploading: <span class="modal-content-uploading-filename">{{file.name}}</span> </p>
+                <p class="modal-content-uploading-progress">{{progress.get}}%</p>
+            </div>
+        {{else}}
+            <label for="main-attach-files-modal-input" class="button mod-button-dotted modal-upload-file-label"><span class="icon-file3"></span>Select the file to upload</label>
+            <input type="file" id="main-attach-files-modal-input" class="modal-upload-file-input">
+        {{/with}}
+    </div>
 </template>
 
 <template name="patientContent">
@@ -93,7 +139,7 @@
         </li>
         <li class="single-patient-details-tab" data-content="files">
             <div class="single-patient-details-wrapper">
-                Files
+                {{> patientContentFiles }}
             </div>
         </li>
         <li class="single-patient-details-tab" data-content="invoices">

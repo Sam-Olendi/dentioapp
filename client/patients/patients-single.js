@@ -30,6 +30,61 @@ Template.patientDeleteModal.events({
     }
 });
 
+Template.patientFilesButton.events({
+    'click .js-main-attach-files-trigger': function () {
+        openCloseModal('.main-attach-files-modal', '.main-attach-files-modal-content', '.js-close-main-attach-files');
+    }
+});
+
+
+Template.attachFilesModalUploadSection.onCreated(function () {
+    this.currentUpload = new ReactiveVar(false);
+});
+
+Template.attachFilesModalUploadSection.helpers({
+    currentUpload: function () {
+        return Template.instance().currentUpload.get();
+    }
+});
+
+Template.attachFilesModalUploadSection.events({
+    'change #main-attach-files-modal-input': function (event, template) {
+
+        var file = event.currentTarget.files;
+
+        if (file && file[0]) {
+
+            var upload = Images.insert({
+                file: file[0],
+                streams: 'dynamic',
+                chunkSize: 'dynamic',
+                meta: {
+                    patient_id: Session.get('currentPatient'),
+                    date_uploaded: new Date().toISOString()
+                }
+            }, false);
+
+            upload.on('start', function () {
+                template.currentUpload.set(this);
+            });
+
+            upload.on('end', function (error, fileObj) {
+                if (error) {
+                    $('.modal-content-uploading-text-error').text(error);
+                    $('.modal-content-error').show().delay(7000).fadeOut();
+                } else {
+                    $('.modal-content-uploading-text-success').html('<span class="modal-content-uploading-filename">'+ fileObj.name +'</span> has successfully been uploaded')
+                    $('.modal-content-success').show().delay(5000).fadeOut();
+                }
+                template.currentUpload.set(false);
+            });
+
+            upload.start();
+
+        }
+    }
+});
+
 Template.patientContent.events({
     'click .single-patient-tabs': function () {
         /*

@@ -2,13 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e783e81-5958-4c2d-ad95-870373fd6f58" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/files-collection.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/publications/files-publication.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/meteor_packages_auto_import_browser.xml" afterPath="$PROJECT_DIR$/.idea/libraries/meteor_packages_auto_import_browser.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/patients/tab-sections/patient-content-files.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/patients/tab-sections/patient-content-files.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/images-collection.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/files-collection.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/patients/patients-single.html" afterPath="$PROJECT_DIR$/client/patients/patients-single.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/patients/patients-single.js" afterPath="$PROJECT_DIR$/client/patients/patients-single.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/patients/tab-sections/patient-content-treatment.html" afterPath="$PROJECT_DIR$/client/patients/tab-sections/patient-content-treatment.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/patients/tab-sections/patient-content-treatment.js" afterPath="$PROJECT_DIR$/client/patients/tab-sections/patient-content-treatment.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/styles/main.scss" afterPath="$PROJECT_DIR$/client/styles/main.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/publications/files-publication.js" afterPath="$PROJECT_DIR$/server/publications/files-publication.js" />
     </list>
     <ignored path="dentioapp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,59 +33,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="files-collection.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/files-collection.js">
+      <file leaf-file-name="patients-single.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/patients/patients-single.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.39491525">
+              <caret line="80" column="50" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="patients-single.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/patients/patients-single.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="56" selection-start-line="2" selection-start-column="56" selection-end-line="2" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="patient-content-treatment.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/patients/tab-sections/patient-content-treatment.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.846154">
-              <caret line="561" column="14" selection-start-line="552" selection-start-column="8" selection-end-line="561" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="patient-content-treatment.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/patients/tab-sections/patient-content-treatment.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6136364">
-              <caret line="348" column="22" selection-start-line="348" selection-start-column="22" selection-end-line="348" selection-end-column="22" />
+              <caret line="62" column="59" selection-start-line="62" selection-start-column="59" selection-end-line="62" selection-end-column="59" />
               <folding>
                 <element signature="n#!!block;n#openCloseModal#0" expanded="false" />
-                <element signature="n#!!block;n#openModal#0" expanded="false" />
-                <element signature="n#!!block;n#closeModal#0" expanded="false" />
-                <element signature="n#!!block;n#showTooltip#0" expanded="false" />
-                <element signature="e#1839#2102#0" expanded="false" />
-                <element signature="e#2146#3861#0" expanded="false" />
-                <element signature="e#3905#5282#0" expanded="false" />
-                <element signature="e#5346#5427#0" expanded="false" />
-                <element signature="e#5477#6983#0" expanded="false" />
-                <element signature="e#7032#11419#0" expanded="false" />
-                <element signature="e#7101#7222#0" expanded="false" />
-                <element signature="e#7292#7439#0" expanded="false" />
-                <element signature="e#8874#9031#0" expanded="false" />
-                <element signature="e#13383#13468#0" expanded="false" />
-                <element signature="e#14406#18797#0" expanded="false" />
-                <element signature="e#14467#14582#0" expanded="false" />
-                <element signature="e#14650#14793#0" expanded="false" />
-                <element signature="e#14854#16395#0" expanded="false" />
-                <element signature="e#16460#16572#0" expanded="false" />
-                <element signature="e#16629#18795#0" expanded="false" />
-                <element signature="e#18866#18911#0" expanded="false" />
-                <element signature="e#18966#19410#0" expanded="false" />
-                <element signature="e#19464#19654#0" expanded="false" />
-                <element signature="e#19713#19991#0" expanded="false" />
-                <element signature="e#20046#20534#0" expanded="false" />
-                <element signature="e#20588#22464#0" expanded="false" />
-                <element signature="e#20936#21967#0" expanded="false" />
+                <element signature="e#2983#4474#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -90,18 +59,18 @@
       <file leaf-file-name="main.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/styles/main.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.576923">
-              <caret line="857" column="25" selection-start-line="857" selection-start-column="25" selection-end-line="857" selection-end-column="25" />
+            <state vertical-scroll-proportion="-9.615385">
+              <caret line="818" column="12" selection-start-line="818" selection-start-column="12" selection-end-line="818" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="files-publication.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/publications/files-publication.js">
+      <file leaf-file-name="images-collection.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/images-collection.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="1" column="33" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
+              <caret line="9" column="80" selection-start-line="9" selection-start-column="80" selection-end-line="9" selection-end-column="80" />
               <folding />
             </state>
           </provider>
@@ -122,10 +91,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/patients/tab-sections/patient-content-general.html" />
-        <option value="$PROJECT_DIR$/client/patients/tab-sections/patient-content-general.js" />
-        <option value="$PROJECT_DIR$/client/patients/patientContentMedicalHistory.html" />
-        <option value="$PROJECT_DIR$/client/patients/tab-sections/patient-content-medical-history.html" />
         <option value="$PROJECT_DIR$/client/patients/tab-sections/single-patient-invoices.html" />
         <option value="$PROJECT_DIR$/client/patients/tab-sections/patientContentTreatment.html" />
         <option value="$PROJECT_DIR$/client/patients/tab-sections/svgs.html" />
@@ -141,8 +106,6 @@
         <option value="$PROJECT_DIR$/lib/invoices-collection.js" />
         <option value="$PROJECT_DIR$/client/layouts/GeneratorLayout.html" />
         <option value="$PROJECT_DIR$/client/layouts/sidebar.html" />
-        <option value="$PROJECT_DIR$/client/patients/patients-single.html" />
-        <option value="$PROJECT_DIR$/client/patients/patients-single.js" />
         <option value="$PROJECT_DIR$/server/publications/patients-publications.js" />
         <option value="$PROJECT_DIR$/client/invoices/invoices.js" />
         <option value="$PROJECT_DIR$/client/patients/tab-sections/patient-content-invoices.js" />
@@ -168,11 +131,17 @@
         <option value="$PROJECT_DIR$/client/generator/generation-new.js" />
         <option value="$PROJECT_DIR$/client/generator/generation-new.html" />
         <option value="$PROJECT_DIR$/client/styles/generator.scss" />
-        <option value="$PROJECT_DIR$/server/publications/files-publication.js" />
-        <option value="$PROJECT_DIR$/lib/files-collection.js" />
-        <option value="$PROJECT_DIR$/client/styles/main.scss" />
-        <option value="$PROJECT_DIR$/client/patients/tab-sections/patient-content-treatment.html" />
         <option value="$PROJECT_DIR$/client/patients/tab-sections/patient-content-treatment.js" />
+        <option value="$PROJECT_DIR$/client/patients/tab-sections/patientContentFiles.html" />
+        <option value="$PROJECT_DIR$/server/publications/files-publication.js" />
+        <option value="$PROJECT_DIR$/client/patients/tab-sections/patient-content-files.js" />
+        <option value="$PROJECT_DIR$/client/patients/tab-sections/patient-content-files.html" />
+        <option value="$PROJECT_DIR$/lib/files-collection.js" />
+        <option value="$PROJECT_DIR$/client/patients/tab-sections/patient-content-treatment.html" />
+        <option value="$PROJECT_DIR$/client/patients/patients-single.html" />
+        <option value="$PROJECT_DIR$/client/styles/main.scss" />
+        <option value="$PROJECT_DIR$/client/patients/patients-single.js" />
+        <option value="$PROJECT_DIR$/lib/images-collection.js" />
       </list>
     </option>
   </component>
@@ -243,64 +212,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dentioapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dentioapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="styles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dentioapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dentioapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="patients" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dentioapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dentioapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="patients" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tab-sections" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -425,7 +336,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20937042" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20937042" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -457,28 +368,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/patients-collection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13798702">
-          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/services-collection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.52435064">
-          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/treatments-collection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.055194806">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="33" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/publications/treatments-publications.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.027597403">
@@ -553,14 +442,6 @@
             <element signature="e#65#649#0" expanded="false" />
             <element signature="e#710#896#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/patients/tab-sections/patient-content-general.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6644068">
-          <caret line="128" column="101" selection-start-line="128" selection-start-column="101" selection-end-line="128" selection-end-column="121" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -715,14 +596,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/patients/tab-sections/patient-content-invoices.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9542373">
-          <caret line="43" column="31" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/generator/generations.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -736,17 +609,6 @@
         <state vertical-scroll-proportion="1.6423728">
           <caret line="57" column="11" selection-start-line="57" selection-start-column="11" selection-end-line="57" selection-end-column="11" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/patients/patients-single.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46915585">
-          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
-          <folding>
-            <element signature="n#!!block;n#openCloseModal#0" expanded="false" />
-            <element signature="e#1193#2684#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -869,50 +731,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/patients/patients-single.html">
+    <entry file="file://$PROJECT_DIR$/client/patients/tab-sections/patient-content-general.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.78305084">
-          <caret line="42" column="91" selection-start-line="42" selection-start-column="91" selection-end-line="42" selection-end-column="91" />
+        <state vertical-scroll-proportion="-2.7745762">
+          <caret line="128" column="101" selection-start-line="128" selection-start-column="101" selection-end-line="128" selection-end-column="121" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/publications/files-publication.js">
+    <entry file="file://$PROJECT_DIR$/lib/companies-collection.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="33" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/styles/main.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.576923">
-          <caret line="857" column="25" selection-start-line="857" selection-start-column="25" selection-end-line="857" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/files-collection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="56" selection-start-line="2" selection-start-column="56" selection-end-line="2" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/patients/tab-sections/patient-content-treatment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.846154">
-          <caret line="561" column="14" selection-start-line="552" selection-start-column="8" selection-end-line="561" selection-end-column="14" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/patients/tab-sections/patient-content-treatment.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6136364">
-          <caret line="348" column="22" selection-start-line="348" selection-start-column="22" selection-end-line="348" selection-end-column="22" />
+        <state vertical-scroll-proportion="1.2142857">
+          <caret line="304" column="47" selection-start-line="304" selection-start-column="47" selection-end-line="304" selection-end-column="47" />
           <folding>
             <element signature="n#!!block;n#openCloseModal#0" expanded="false" />
             <element signature="n#!!block;n#openModal#0" expanded="false" />
@@ -927,21 +765,97 @@
             <element signature="e#7101#7222#0" expanded="false" />
             <element signature="e#7292#7439#0" expanded="false" />
             <element signature="e#8874#9031#0" expanded="false" />
-            <element signature="e#13383#13468#0" expanded="false" />
-            <element signature="e#14406#18797#0" expanded="false" />
-            <element signature="e#14467#14582#0" expanded="false" />
-            <element signature="e#14650#14793#0" expanded="false" />
-            <element signature="e#14854#16395#0" expanded="false" />
-            <element signature="e#16460#16572#0" expanded="false" />
-            <element signature="e#16629#18795#0" expanded="false" />
-            <element signature="e#18866#18911#0" expanded="false" />
-            <element signature="e#18966#19410#0" expanded="false" />
-            <element signature="e#19464#19654#0" expanded="false" />
-            <element signature="e#19713#19991#0" expanded="false" />
-            <element signature="e#20046#20534#0" expanded="false" />
-            <element signature="e#20588#22464#0" expanded="false" />
-            <element signature="e#20936#21967#0" expanded="false" />
+            <element signature="e#11785#12974#0" expanded="false" />
+            <element signature="e#13037#13122#0" expanded="false" />
+            <element signature="e#14060#18451#0" expanded="false" />
+            <element signature="e#14121#14236#0" expanded="false" />
+            <element signature="e#14304#14447#0" expanded="false" />
+            <element signature="e#14508#16049#0" expanded="false" />
+            <element signature="e#16114#16226#0" expanded="false" />
+            <element signature="e#16283#18449#0" expanded="false" />
+            <element signature="e#18520#18565#0" expanded="false" />
+            <element signature="e#18620#19064#0" expanded="false" />
+            <element signature="e#19118#19308#0" expanded="false" />
+            <element signature="e#19367#19645#0" expanded="false" />
+            <element signature="e#19700#20188#0" expanded="false" />
+            <element signature="e#20242#22118#0" expanded="false" />
+            <element signature="e#20590#21621#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/patients/tab-sections/patient-content-invoices.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.238983">
+          <caret line="43" column="31" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/patients/tab-sections/patient-content-files.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.02881356">
+          <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/patients/tab-sections/patient-content-files.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/publications/files-publication.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/patients/tab-sections/patient-content-treatment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7779661">
+          <caret line="564" column="95" selection-start-line="563" selection-start-column="8" selection-end-line="564" selection-end-column="95" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/styles/main.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.615385">
+          <caret line="818" column="12" selection-start-line="818" selection-start-column="12" selection-end-line="818" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/images-collection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="80" selection-start-line="9" selection-start-column="80" selection-end-line="9" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/patients/patients-single.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="62" column="59" selection-start-line="62" selection-start-column="59" selection-end-line="62" selection-end-column="59" />
+          <folding>
+            <element signature="n#!!block;n#openCloseModal#0" expanded="false" />
+            <element signature="e#2983#4474#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/patients/patients-single.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39491525">
+          <caret line="80" column="50" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
