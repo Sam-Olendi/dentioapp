@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e783e81-5958-4c2d-ad95-870373fd6f58" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/patients/tab-sections/patient-content-files.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/patients/tab-sections/patient-content-files.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/images-collection.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/files-collection.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/patients/patients-single.html" afterPath="$PROJECT_DIR$/client/patients/patients-single.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/patients/patients-single.js" afterPath="$PROJECT_DIR$/client/patients/patients-single.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/patients/tab-sections/patient-content-treatment.html" afterPath="$PROJECT_DIR$/client/patients/tab-sections/patient-content-treatment.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/patients/tab-sections/patient-content-treatment.js" afterPath="$PROJECT_DIR$/client/patients/tab-sections/patient-content-treatment.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/styles/main.scss" afterPath="$PROJECT_DIR$/client/styles/main.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/publications/files-publication.js" afterPath="$PROJECT_DIR$/server/publications/files-publication.js" />
     </list>
     <ignored path="dentioapp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="patients-single.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="patients-single.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/patients/patients-single.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.39491525">
-              <caret line="80" column="50" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="50" />
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="30" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -47,31 +39,65 @@
         <entry file="file://$PROJECT_DIR$/client/patients/patients-single.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="62" column="59" selection-start-line="62" selection-start-column="59" selection-end-line="62" selection-end-column="59" />
+              <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
               <folding>
                 <element signature="n#!!block;n#openCloseModal#0" expanded="false" />
-                <element signature="e#2983#4474#0" expanded="false" />
+                <element signature="e#3297#4788#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/styles/main.scss">
+      <file leaf-file-name="patient-content-treatment.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/patients/tab-sections/patient-content-treatment.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.615385">
-              <caret line="818" column="12" selection-start-line="818" selection-start-column="12" selection-end-line="818" selection-end-column="12" />
-              <folding />
+            <state vertical-scroll-proportion="0.6762712">
+              <caret line="650" column="49" selection-start-line="650" selection-start-column="20" selection-end-line="650" selection-end-column="49" />
+              <folding>
+                <element signature="n#template#2;n#!!top" expanded="false" />
+                <element signature="n#template#3;n#!!top" expanded="false" />
+                <element signature="n#template#5;n#!!top" expanded="false" />
+                <element signature="n#template#6;n#!!top" expanded="false" />
+                <element signature="n#template#7;n#!!top" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="images-collection.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/images-collection.js">
+      <file leaf-file-name="patient-content-treatment.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/patients/tab-sections/patient-content-treatment.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="80" selection-start-line="9" selection-start-column="80" selection-end-line="9" selection-end-column="80" />
-              <folding />
+              <caret line="484" column="0" selection-start-line="484" selection-start-column="0" selection-end-line="484" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!block;n#openCloseModal#0" expanded="false" />
+                <element signature="n#!!block;n#openModal#0" expanded="false" />
+                <element signature="n#!!block;n#closeModal#0" expanded="false" />
+                <element signature="n#!!block;n#showTooltip#0" expanded="false" />
+                <element signature="e#2146#3861#0" expanded="false" />
+                <element signature="e#3905#5282#0" expanded="false" />
+                <element signature="e#5346#5427#0" expanded="false" />
+                <element signature="e#5477#6983#0" expanded="false" />
+                <element signature="e#7032#11419#0" expanded="false" />
+                <element signature="e#7101#7222#0" expanded="false" />
+                <element signature="e#7292#7439#0" expanded="false" />
+                <element signature="e#8874#9031#0" expanded="false" />
+                <element signature="e#13190#13275#0" expanded="false" />
+                <element signature="e#13324#14165#0" expanded="false" />
+                <element signature="e#14213#18605#0" expanded="false" />
+                <element signature="e#14275#14390#0" expanded="false" />
+                <element signature="e#14458#14601#0" expanded="false" />
+                <element signature="e#14662#16203#0" expanded="false" />
+                <element signature="e#16268#16380#0" expanded="false" />
+                <element signature="e#16437#18603#0" expanded="false" />
+                <element signature="e#20368#20413#0" expanded="false" />
+                <element signature="e#20468#20912#0" expanded="false" />
+                <element signature="e#20966#21156#0" expanded="false" />
+                <element signature="e#21215#21493#0" expanded="false" />
+                <element signature="e#21548#22036#0" expanded="false" />
+                <element signature="e#22090#23966#0" expanded="false" />
+                <element signature="e#22438#23469#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -131,17 +157,17 @@
         <option value="$PROJECT_DIR$/client/generator/generation-new.js" />
         <option value="$PROJECT_DIR$/client/generator/generation-new.html" />
         <option value="$PROJECT_DIR$/client/styles/generator.scss" />
-        <option value="$PROJECT_DIR$/client/patients/tab-sections/patient-content-treatment.js" />
         <option value="$PROJECT_DIR$/client/patients/tab-sections/patientContentFiles.html" />
         <option value="$PROJECT_DIR$/server/publications/files-publication.js" />
         <option value="$PROJECT_DIR$/client/patients/tab-sections/patient-content-files.js" />
         <option value="$PROJECT_DIR$/client/patients/tab-sections/patient-content-files.html" />
         <option value="$PROJECT_DIR$/lib/files-collection.js" />
-        <option value="$PROJECT_DIR$/client/patients/tab-sections/patient-content-treatment.html" />
         <option value="$PROJECT_DIR$/client/patients/patients-single.html" />
         <option value="$PROJECT_DIR$/client/styles/main.scss" />
-        <option value="$PROJECT_DIR$/client/patients/patients-single.js" />
         <option value="$PROJECT_DIR$/lib/images-collection.js" />
+        <option value="$PROJECT_DIR$/client/patients/patients-single.js" />
+        <option value="$PROJECT_DIR$/client/patients/tab-sections/patient-content-treatment.html" />
+        <option value="$PROJECT_DIR$/client/patients/tab-sections/patient-content-treatment.js" />
       </list>
     </option>
   </component>
@@ -301,6 +327,13 @@
       <option name="number" value="Default" />
       <updated>1472217163517</updated>
     </task>
+    <task id="LOCAL-00001" summary="Add support for uploading files from the main attachments module">
+      <created>1472763189350</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1472763189350</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -308,41 +341,43 @@
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20937042" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20937042" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20937042" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -360,6 +395,8 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
+    <MESSAGE value="Add support for uploading files from the main attachments module" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add support for uploading files from the main attachments module" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -747,43 +784,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/patients/tab-sections/patient-content-treatment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2142857">
-          <caret line="304" column="47" selection-start-line="304" selection-start-column="47" selection-end-line="304" selection-end-column="47" />
-          <folding>
-            <element signature="n#!!block;n#openCloseModal#0" expanded="false" />
-            <element signature="n#!!block;n#openModal#0" expanded="false" />
-            <element signature="n#!!block;n#closeModal#0" expanded="false" />
-            <element signature="n#!!block;n#showTooltip#0" expanded="false" />
-            <element signature="e#1839#2102#0" expanded="false" />
-            <element signature="e#2146#3861#0" expanded="false" />
-            <element signature="e#3905#5282#0" expanded="false" />
-            <element signature="e#5346#5427#0" expanded="false" />
-            <element signature="e#5477#6983#0" expanded="false" />
-            <element signature="e#7032#11419#0" expanded="false" />
-            <element signature="e#7101#7222#0" expanded="false" />
-            <element signature="e#7292#7439#0" expanded="false" />
-            <element signature="e#8874#9031#0" expanded="false" />
-            <element signature="e#11785#12974#0" expanded="false" />
-            <element signature="e#13037#13122#0" expanded="false" />
-            <element signature="e#14060#18451#0" expanded="false" />
-            <element signature="e#14121#14236#0" expanded="false" />
-            <element signature="e#14304#14447#0" expanded="false" />
-            <element signature="e#14508#16049#0" expanded="false" />
-            <element signature="e#16114#16226#0" expanded="false" />
-            <element signature="e#16283#18449#0" expanded="false" />
-            <element signature="e#18520#18565#0" expanded="false" />
-            <element signature="e#18620#19064#0" expanded="false" />
-            <element signature="e#19118#19308#0" expanded="false" />
-            <element signature="e#19367#19645#0" expanded="false" />
-            <element signature="e#19700#20188#0" expanded="false" />
-            <element signature="e#20242#22118#0" expanded="false" />
-            <element signature="e#20590#21621#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/patients/tab-sections/patient-content-invoices.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.238983">
@@ -816,19 +816,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/patients/tab-sections/patient-content-treatment.html">
+    <entry file="file://$PROJECT_DIR$/client/styles/main.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7779661">
-          <caret line="564" column="95" selection-start-line="563" selection-start-column="8" selection-end-line="564" selection-end-column="95" />
+        <state vertical-scroll-proportion="0.42372882">
+          <caret line="818" column="12" selection-start-line="818" selection-start-column="12" selection-end-line="818" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/styles/main.scss">
+    <entry file="file://$PROJECT_DIR$/client/patients/patients-single.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.615385">
-          <caret line="818" column="12" selection-start-line="818" selection-start-column="12" selection-end-line="818" selection-end-column="12" />
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="30" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="30" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/patients/patients-single.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+          <folding>
+            <element signature="n#!!block;n#openCloseModal#0" expanded="false" />
+            <element signature="e#3297#4788#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -840,22 +851,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/patients/patients-single.js">
+    <entry file="file://$PROJECT_DIR$/client/patients/tab-sections/patient-content-treatment.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="62" column="59" selection-start-line="62" selection-start-column="59" selection-end-line="62" selection-end-column="59" />
+          <caret line="484" column="0" selection-start-line="484" selection-start-column="0" selection-end-line="484" selection-end-column="0" />
           <folding>
             <element signature="n#!!block;n#openCloseModal#0" expanded="false" />
-            <element signature="e#2983#4474#0" expanded="false" />
+            <element signature="n#!!block;n#openModal#0" expanded="false" />
+            <element signature="n#!!block;n#closeModal#0" expanded="false" />
+            <element signature="n#!!block;n#showTooltip#0" expanded="false" />
+            <element signature="e#2146#3861#0" expanded="false" />
+            <element signature="e#3905#5282#0" expanded="false" />
+            <element signature="e#5346#5427#0" expanded="false" />
+            <element signature="e#5477#6983#0" expanded="false" />
+            <element signature="e#7032#11419#0" expanded="false" />
+            <element signature="e#7101#7222#0" expanded="false" />
+            <element signature="e#7292#7439#0" expanded="false" />
+            <element signature="e#8874#9031#0" expanded="false" />
+            <element signature="e#13190#13275#0" expanded="false" />
+            <element signature="e#13324#14165#0" expanded="false" />
+            <element signature="e#14213#18605#0" expanded="false" />
+            <element signature="e#14275#14390#0" expanded="false" />
+            <element signature="e#14458#14601#0" expanded="false" />
+            <element signature="e#14662#16203#0" expanded="false" />
+            <element signature="e#16268#16380#0" expanded="false" />
+            <element signature="e#16437#18603#0" expanded="false" />
+            <element signature="e#20368#20413#0" expanded="false" />
+            <element signature="e#20468#20912#0" expanded="false" />
+            <element signature="e#20966#21156#0" expanded="false" />
+            <element signature="e#21215#21493#0" expanded="false" />
+            <element signature="e#21548#22036#0" expanded="false" />
+            <element signature="e#22090#23966#0" expanded="false" />
+            <element signature="e#22438#23469#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/patients/patients-single.html">
+    <entry file="file://$PROJECT_DIR$/client/patients/tab-sections/patient-content-treatment.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39491525">
-          <caret line="80" column="50" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="50" />
-          <folding />
+        <state vertical-scroll-proportion="0.6762712">
+          <caret line="650" column="49" selection-start-line="650" selection-start-column="20" selection-end-line="650" selection-end-column="49" />
+          <folding>
+            <element signature="n#template#2;n#!!top" expanded="false" />
+            <element signature="n#template#3;n#!!top" expanded="false" />
+            <element signature="n#template#5;n#!!top" expanded="false" />
+            <element signature="n#template#6;n#!!top" expanded="false" />
+            <element signature="n#template#7;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -11,6 +11,15 @@ function openCloseModal (modalClass, modalContentClass, modalCloseClass) {
     });
 }
 
+Template.patientsSingle.rendered = function () {
+
+    // get the last part of the URI (patient's _id) and set it to a session
+    // it'll be used for easy access in this template
+    var patientURI = window.location.pathname.split('/');
+    Session.set('currentPatient', patientURI[patientURI.length - 1]);
+
+};
+
 Template.patientHeaderTitle.events({
     'click .single-patient-settings-gear': function (event) {
         event.preventDefault();
@@ -73,7 +82,7 @@ Template.attachFilesModalUploadSection.events({
                     $('.modal-content-uploading-text-error').text(error);
                     $('.modal-content-error').show().delay(7000).fadeOut();
                 } else {
-                    $('.modal-content-uploading-text-success').html('<span class="modal-content-uploading-filename">'+ fileObj.name +'</span> has successfully been uploaded')
+                    $('.modal-content-uploading-text-success').html('<span class="modal-content-uploading-filename">'+ fileObj.name +'</span> has successfully been uploaded');
                     $('.modal-content-success').show().delay(5000).fadeOut();
                 }
                 template.currentUpload.set(false);

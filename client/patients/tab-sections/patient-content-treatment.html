@@ -535,7 +535,7 @@
 <template name="patientContentTreatmentsUpload">
 
     <div class="modal-content-uploading-message modal-content-success">
-        <p class="modal-content-uploading-text"><span class="modal-content-uploading-filename">Filename</span> has successfully been uploaded</p>
+        <p class="modal-content-uploading-text"><span class="modal-content-uploading-filename">File</span> has successfully been uploaded</p>
         <p class="modal-content-uploading-progress"><span class="icon-checkmark"></span></p>
     </div>
 
@@ -617,7 +617,7 @@
                 <a href="#" class="button mod-button-cancel js-patient-findings-add-service">Add another finding</a>
 
                 <div class="modal-attach-group">
-                    <p class="modal-attach-button"><a href="#" class="button mod-button-dotted"><span class="icon-file3"></span>Attach files</a></p>
+                    {{> patientContentFindingsUpload }}
                 </div>
 
                 <div class="modal-button-group">
@@ -628,6 +628,29 @@
             </div>
         </div>
     </div>
+</template>
+
+<template name="patientContentFindingsUpload">
+
+    <div class="modal-content-uploading-message modal-content-success">
+        <p class="modal-content-uploading-text"><span class="modal-content-uploading-filename">File</span> has successfully been uploaded</p>
+        <p class="modal-content-uploading-progress"><span class="icon-checkmark"></span></p>
+    </div>
+
+    <div class="modal-content-uploading-message modal-content-error">
+        <p class="modal-content-uploading-text modal-content-uploading-text-error">Something went wrong. Please try again later.</p>
+        <p class="modal-content-uploading-progress"><span class="icon-info"></span></p>
+    </div>
+
+    {{#with currentUpload }}
+        <div class="modal-content-uploading-message modal-content-uploading">
+            <p class="modal-content-uploading-text">Uploading: <span class="modal-content-uploading-filename">{{file.name}}</span> </p>
+            <p class="modal-content-uploading-progress">{{progress.get}}%</p>
+        </div>
+    {{else}}
+        <label for="patients-findings-upload-file" class="button mod-button-dotted modal-upload-file-label"><span class="icon-file3"></span>Select the file to upload</label>
+        <input type="file" id="patients-findings-upload-file" class="modal-upload-file-input">
+    {{/with}}
 </template>
 
 <template name="patientContentCompleteAppointment">

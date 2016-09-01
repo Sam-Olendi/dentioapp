@@ -292,22 +292,24 @@ Template.patientContentTreatmentModal.events({
 });
 
 Template.patientContentTreatmentsUpload.onCreated(function () {
-    this.currentUpload = new ReactiveVar(false);
-    this.pauseUpload = new ReactiveVar(false);
+    this.currentTreatmentsUpload = new ReactiveVar(false);
 });
 
 Template.patientContentTreatmentsUpload.helpers({
     currentUpload: function () {
-        return Template.instance().currentUpload.get();
+        return Template.instance().currentTreatmentsUpload.get();
     }
 });
 
 Template.patientContentTreatmentsUpload.events({
     'change #patients-treatment-upload-file': function (event, template) {
-        if ( event.currentTarget.files && event.currentTarget.files[0] ) {
+
+        var file = event.currentTarget.files;
+
+        if ( file && file[0] ) {
 
             var upload = Images.insert({
-                file: event.currentTarget.files[0],
+                file: file[0],
                 meta: {
                     patient_id: Session.get('currentPatient'),
                     tooth_number: Session.get('currentToothNumber'),
@@ -318,7 +320,7 @@ Template.patientContentTreatmentsUpload.events({
             }, false);
 
             upload.on('start', function () {
-                template.currentUpload.set(this);
+                template.currentTreatmentsUpload.set(this);
             });
 
             upload.on('end', function (error, fileObj) {
@@ -326,15 +328,16 @@ Template.patientContentTreatmentsUpload.events({
                     $('.modal-content-uploading-text-error').text(error);
                     $('.modal-content-error').show().delay(7000).fadeOut();
                 } else {
+                    $('.modal-content-uploading-text-success').html('<span class="modal-content-uploading-filename">'+ fileObj.name +'</span> has successfully been uploaded');
                     $('.modal-content-success').show().delay(5000).fadeOut();
                 }
-                template.currentUpload.set(false);
+                template.currentTreatmentsUpload.set(false);
             });
 
             upload.start();
 
         }
-    },
+    }
 });
 
 Template.patientContentFindingsModal.onCreated(function () {
@@ -371,7 +374,7 @@ Template.patientContentFindingsModal.helpers({
 });
 
 Template.patientContentFindingsModal.events({
-   'click .js-patient-findings-show-previous': function () {
+    'click .js-patient-findings-show-previous': function () {
        event.preventDefault();
        $('.patient-findings-previous').show();
        $(event.target).hide();
@@ -462,6 +465,54 @@ Template.patientContentFindingsModal.events({
             alert('Uh oh. Seems like you didn\'t set their appointment. Return to the main page an add an appointment first');
         }
 
+    }
+});
+
+Template.patientContentFindingsUpload.onCreated(function () {
+    this.currentFindingsUpload = new ReactiveVar(false);
+});
+
+Template.patientContentFindingsUpload.helpers({
+    currentUpload: function () {
+        return Template.instance().currentFindingsUpload.get();
+    }
+});
+
+Template.patientContentFindingsUpload.events({
+    'change #patients-findings-upload-file': function (event, template) {
+
+        var file = event.currentTarget.files;
+
+        if ( file && file[0] ) {
+
+            var upload = Images.insert({
+                file: file[0],
+                meta: {
+                    patient_id: Session.get('currentPatient'),
+                    tooth_number: Session.get('currentToothNumber'),
+                    tooth_part: Session.get('currentToothPart'),
+                    date_uploaded: new Date().toISOString()
+                },
+                streams: 'dynamic'
+            }, false);
+
+            upload.on('start', function () {
+                template.currentFindingsUpload.set(this);
+            });
+
+            upload.on('end', function (error, fileObj) {
+                if (error) {
+                    $('.modal-content-uploading-text-error').text(error);
+                    $('.modal-content-error').show().delay(7000).fadeOut();
+                } else {
+                    $('.modal-content-uploading-text-success').html('<span class="modal-content-uploading-filename">' + fileObj.name + '</span> has successfully been uploaded');
+                    $('.modal-content-success').show().delay(5000).fadeOut();
+                }
+                template.currentFindingsUpload.set(false);
+            });
+
+            upload.start();
+        }
     }
 });
 
