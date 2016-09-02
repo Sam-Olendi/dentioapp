@@ -82,6 +82,13 @@ Router.route('/generator/invoice/new', {
     }
 });
 
+Router.route('/generator/invoice/:_id', {
+   layoutTemplate: 'GeneratorLayout',
+    yieldRegions: {
+        'generationEdit': { to: 'generator' }
+    }
+});
+
 AccountsTemplates.configure({
    defaultLayout: 'LoginLayout'
 });

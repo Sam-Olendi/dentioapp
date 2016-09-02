@@ -1,4 +1,4 @@
-<template name="generationNew">
+<template name="generationEdit">
     <div class="generator-generation">
 
         <div class="generator-generation-top">
@@ -7,11 +7,11 @@
 
         <div class="generator-invoice">
             <header class="generator-invoice-header">
-                {{> generationNewHeader }}
+                {{> generationEditHeader }}
             </header>
 
             <div class="generator-invoice-address">
-                {{> generationNewAddress }}
+                {{> generationEditAddress }}
             </div>
 
             <div class="generator-generation-table">
@@ -70,13 +70,13 @@
             </div>
 
             <div class="generator-generation-bottom">
-                <a href="#" class="button mod-button-generator-go js-print-invoice">Preview & Print</a>
+                <a href="#" class="button mod-button-generator-go">Preview & Print</a>
             </div>
         </div>
     </div>
 </template>
 
-<template name="generationNewHeader">
+<template name="generationEditHeader">
     <h1 class="generator-invoice-title">
         <span class="generator-invoice-title-text">Invoice #</span>
         <input type="text" placeholder="Invoice number" class="generator-generation-input mod-generator-generation-input-header" value="{{ generationNumber }}">
@@ -99,7 +99,7 @@
     </div>
 </template>
 
-<template name="generationNewAddress">
+<template name="generationEditAddress">
     <div class="generator-invoice-address-from">
         <p class="generator-invoice-address-title">From:</p>
         <p class="generator-invoice-address-gdc">Gentle Dental Care</p>
@@ -115,8 +115,8 @@
     <div class="generator-invoice-address-to">
         <p class="generator-invoice-address-title">To:</p>
         <!--<address class="generator-invoice-address-information">-->
-            <!--{{patient.profile.surname}} {{patient.profile.middle_name}} {{patient.profile.first_name}} <br>-->
-            <!--{{{patient.contacts.postal_address}}}-->
+        <!--{{patient.profile.surname}} {{patient.profile.middle_name}} {{patient.profile.first_name}} <br>-->
+        <!--{{{patient.contacts.postal_address}}}-->
         <!--</address>-->
         <textarea name="" id="" cols="30" rows="10" placeholder="Recipient's address" class="generator-invoice-address-textarea"></textarea>
     </div>

@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e783e81-5958-4c2d-ad95-870373fd6f58" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/generator/generation-edit.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/styles/print-invoice.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/patients/tab-sections/patient-content-files.html" afterPath="$PROJECT_DIR$/client/patients/tab-sections/patient-content-files.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/patients/tab-sections/patient-content-files.js" afterPath="$PROJECT_DIR$/client/patients/tab-sections/patient-content-files.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/styles/main.scss" afterPath="$PROJECT_DIR$/client/styles/main.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/images-collection.js" afterPath="$PROJECT_DIR$/lib/images-collection.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/generator/generation-new.html" afterPath="$PROJECT_DIR$/client/generator/generation-new.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/generator/generation-new.js" afterPath="$PROJECT_DIR$/client/generator/generation-new.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/generator/generations.html" afterPath="$PROJECT_DIR$/client/generator/generations.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/routes.js" afterPath="$PROJECT_DIR$/client/routes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/styles/generator.scss" afterPath="$PROJECT_DIR$/client/styles/generator.scss" />
     </list>
     <ignored path="dentioapp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,55 +30,53 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="patient-content-files.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/patients/tab-sections/patient-content-files.html">
+      <file leaf-file-name="generation-new.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/generator/generation-new.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.25932205">
-              <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+            <state vertical-scroll-proportion="-47.076923">
+              <caret line="72" column="66" selection-start-line="72" selection-start-column="66" selection-end-line="72" selection-end-column="82" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/styles/main.scss">
+      <file leaf-file-name="generation-edit.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/generator/generation-edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.0">
-              <caret line="1724" column="11" selection-start-line="1724" selection-start-column="11" selection-end-line="1724" selection-end-column="11" />
+            <state vertical-scroll-proportion="-33.807693">
+              <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+              <caret line="101" column="30" selection-start-line="101" selection-start-column="30" selection-end-line="101" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="patient-content-files.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/patients/tab-sections/patient-content-files.js">
+      <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/routes.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="3" column="100" selection-start-line="3" selection-start-column="79" selection-end-line="3" selection-end-column="100" />
+              <caret line="87" column="23" selection-start-line="87" selection-start-column="23" selection-end-line="87" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="images-collection.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/images-collection.js">
+      <file leaf-file-name="generations.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/generator/generations.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="25" column="52" selection-start-line="25" selection-start-column="52" selection-end-line="25" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.59322035">
+              <caret line="65" column="175" selection-start-line="65" selection-start-column="175" selection-end-line="65" selection-end-column="175" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="patients-single.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/patients/patients-single.js">
+      <file leaf-file-name="generation-new.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/generator/generation-new.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="20" selection-end-column="2" />
-              <folding>
-                <element signature="n#!!block;n#openCloseModal#0" expanded="false" />
-                <element signature="e#3297#4788#0" expanded="false" />
-              </folding>
+              <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -95,8 +96,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/patients/tab-sections/single-patient-invoices.html" />
-        <option value="$PROJECT_DIR$/client/patients/tab-sections/patientContentTreatment.html" />
         <option value="$PROJECT_DIR$/client/patients/tab-sections/svgs.html" />
         <option value="$PROJECT_DIR$/lib/treatments-collection.js" />
         <option value="$PROJECT_DIR$/server/publications/services-publications.js" />
@@ -114,7 +113,6 @@
         <option value="$PROJECT_DIR$/client/invoices/invoices.js" />
         <option value="$PROJECT_DIR$/client/patients/tab-sections/patient-content-invoices.js" />
         <option value="$PROJECT_DIR$/client/layouts/LoginLayout.html" />
-        <option value="$PROJECT_DIR$/client/routes.js" />
         <option value="$PROJECT_DIR$/client/layouts/ApplicationLayout.html" />
         <option value="$PROJECT_DIR$/client/styles/login.scss" />
         <option value="$PROJECT_DIR$/lib/at-config.js" />
@@ -127,14 +125,10 @@
         <option value="$PROJECT_DIR$/methods/patients-methods.js" />
         <option value="$PROJECT_DIR$/methods/invoices-methods.js" />
         <option value="$PROJECT_DIR$/server/seeder.js" />
-        <option value="$PROJECT_DIR$/client/generator/generations.html" />
         <option value="$PROJECT_DIR$/client/generator/generations.js" />
         <option value="$PROJECT_DIR$/server/publications/invoices-publications.js" />
         <option value="$PROJECT_DIR$/methods/generations-method.js" />
         <option value="$PROJECT_DIR$/server/publications/generations-publications.js" />
-        <option value="$PROJECT_DIR$/client/generator/generation-new.js" />
-        <option value="$PROJECT_DIR$/client/generator/generation-new.html" />
-        <option value="$PROJECT_DIR$/client/styles/generator.scss" />
         <option value="$PROJECT_DIR$/client/patients/tab-sections/patientContentFiles.html" />
         <option value="$PROJECT_DIR$/server/publications/files-publication.js" />
         <option value="$PROJECT_DIR$/lib/files-collection.js" />
@@ -146,6 +140,13 @@
         <option value="$PROJECT_DIR$/client/patients/tab-sections/patient-content-files.html" />
         <option value="$PROJECT_DIR$/client/patients/tab-sections/patient-content-files.js" />
         <option value="$PROJECT_DIR$/lib/images-collection.js" />
+        <option value="$PROJECT_DIR$/client/generator/generations.html" />
+        <option value="$PROJECT_DIR$/client/styles/generator.scss" />
+        <option value="$PROJECT_DIR$/client/routes.js" />
+        <option value="$PROJECT_DIR$/client/generator/generation-edit.html" />
+        <option value="$PROJECT_DIR$/client/generator/generation-new.html" />
+        <option value="$PROJECT_DIR$/client/generator/generation-new.js" />
+        <option value="$PROJECT_DIR$/client/styles/print-invoice.scss" />
       </list>
     </option>
   </component>
@@ -215,20 +216,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dentioapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dentioapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -247,7 +234,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="patients" />
+              <option name="myItemId" value="styles" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -265,11 +252,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="patients" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tab-sections" />
+              <option name="myItemId" value="generator" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -417,20 +400,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/server/publications/treatments-publications.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.027597403">
-          <caret line="1" column="51" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/insurances-collection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16558442">
-          <caret line="6" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="33" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/layouts/sidebar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6050847">
@@ -513,14 +482,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.54745764">
           <caret line="153" column="1" selection-start-line="153" selection-start-column="1" selection-end-line="153" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.77922076">
-          <caret line="89" column="17" selection-start-line="89" selection-start-column="11" selection-end-line="89" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -627,14 +588,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/generator/generations.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.6423728">
-          <caret line="57" column="11" selection-start-line="57" selection-start-column="11" selection-end-line="57" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/methods/findings-methods.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.08279221">
@@ -700,33 +653,6 @@
             <element signature="e#15660#15752#0" expanded="false" />
             <element signature="e#15797#16094#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/styles/generator.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53898305">
-          <caret line="437" column="35" selection-start-line="437" selection-start-column="35" selection-end-line="437" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/generator/generation-new.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7118644">
-          <caret line="102" column="85" selection-start-line="102" selection-start-column="85" selection-end-line="102" selection-end-column="85" />
-          <folding>
-            <element signature="n#template#1;n#!!top" expanded="false" />
-            <element signature="n#template#2;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/generator/generation-new.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7451299">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -869,9 +795,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/patients/tab-sections/patient-content-files.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25932205">
+          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/patients/tab-sections/patient-content-files.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08279221">
+          <caret line="3" column="100" selection-start-line="3" selection-start-column="79" selection-end-line="3" selection-end-column="100" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/images-collection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6899351">
+          <caret line="25" column="52" selection-start-line="25" selection-start-column="52" selection-end-line="25" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/patients/patients-single.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.055194806">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="20" selection-end-column="2" />
           <folding>
             <element signature="n#!!block;n#openCloseModal#0" expanded="false" />
@@ -880,34 +830,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/images-collection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="52" selection-start-line="25" selection-start-column="52" selection-end-line="25" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/patients/tab-sections/patient-content-files.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="100" selection-start-line="3" selection-start-column="79" selection-end-line="3" selection-end-column="100" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/styles/main.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.0">
+        <state vertical-scroll-proportion="0.70508474">
           <caret line="1724" column="11" selection-start-line="1724" selection-start-column="11" selection-end-line="1724" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/patients/tab-sections/patient-content-files.html">
+    <entry file="file://$PROJECT_DIR$/client/generator/generation-new.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25932205">
-          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+        <state vertical-scroll-proportion="-47.076923">
+          <caret line="72" column="66" selection-start-line="72" selection-start-column="66" selection-end-line="72" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/styles/print-invoice.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31694916">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/styles/generator.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45254236">
+          <caret line="411" column="16" selection-start-line="411" selection-start-column="16" selection-end-line="411" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/generator/generation-new.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/generator/generation-edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-33.807693">
+          <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+          <caret line="101" column="30" selection-start-line="101" selection-start-column="30" selection-end-line="101" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="87" column="23" selection-start-line="87" selection-start-column="23" selection-end-line="87" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/generator/generations.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59322035">
+          <caret line="65" column="175" selection-start-line="65" selection-start-column="175" selection-end-line="65" selection-end-column="175" />
           <folding />
         </state>
       </provider>

@@ -1,3 +1,9 @@
+Template.generationNew.events({
+    'click .js-print-invoice': function () {
+        window.print();
+    }
+});
+
 Template.generationNewHeader.onCreated(function () {
     this.subscribe('generations.compare');
 });
@@ -19,21 +25,5 @@ Template.generationNewHeader.events({
         var selectedDate = $('.generator-generation-datepicker').val(),
             momentDate = moment(new Date(selectedDate).toISOString()).format('Do MMMM YYYY');
         $('.generator-generation-datepicker').val(momentDate);
-    }
-});
-
-Template.generationNewTable.events({
-    'click .js-generator-new-add-row': function () {
-        console.log($(event.target).parent().parent());
-    }
-});
-
-Template.generatorNewTableRows.onCreated(function () {
-   this.subscribe('services.all');
-});
-
-Template.generatorNewTableRows.helpers({
-    services: function () {
-        return Services.find({'service_name': {$ne: 'Consultation'}}, {sort: {service_name: 1}});
     }
 });

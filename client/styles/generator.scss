@@ -260,10 +260,6 @@ address {
   padding: 15px;
 }
 
-.generator-table-cell.mod-generator-table-cell-input {
-  padding-right: 5px;
-}
-
 .generator-table-cell-name {
   font-weight: 700;
 }
@@ -290,7 +286,12 @@ address {
   box-shadow: 0 3px 12px rgba(177, 182, 186, 0.3);
   margin: 0 250px;
   overflow: auto;
-  padding: 40px 60px 100px;
+  padding: 40px 0 60px;
+  width: auto;
+}
+
+.generator-invoice-header {
+  padding: 0 60px;
 }
 
 .generator-invoice-title {
@@ -319,7 +320,6 @@ address {
   border: none;
   border-bottom: 2px solid #dddddd;
   border-radius: 0;
-  width: 300px;
 
   &:hover {
     border-bottom-color: #cccccc;
@@ -330,8 +330,33 @@ address {
   }
 }
 
+.generator-generation-select {
+  &:hover {
+    border-color: #cccccc;
+  }
+}
+
+.generator-generation-select.mod-generator-generation-select-table {
+  font-size: 0.8em;
+  width: 100%;
+}
+
+.generator-generation-input.mod-generator-generation-input-header {
+  width: 300px;
+}
+
+.generator-generation-input.mod-generator-generation-input-table {
+  font-size: 0.8em;
+  width: 100%;
+}
+
+.generator-generation-input.mod-generator-generation-input-calculator {
+  width: 70%;
+}
+
 .generator-invoice-address {
   background-color: $lightest-gray;
+  box-sizing: border-box;
   padding: 10px 30px;
   margin: 50px 0;
 }
@@ -366,88 +391,162 @@ address {
 }
 
 .generator-invoice-address-to {
+  box-sizing: border-box;
   display: inline-block;
-  padding: 10px 0 10px 30px;
+  padding: 10px 0 10px 60px;
   vertical-align: top;
   width: 45%;
 }
 
 .generator-invoice-address-from {
   border-right: 1px dotted $border-gray;
+  box-sizing: border-box;
   display: inline-block;
-  padding: 10px 40px 10px 10px;
+  padding: 10px 40px 10px 30px;
   width: 45%;
-}
-
-.generator-invoice-address-edit {
-  color: $brandon-blue;
-  font-size: 0.8em;
-  text-decoration: none;
 }
 
 .generator-invoice-address-textarea {
   border: 2px solid $border-gray;
   border-radius: 3px;
-  display: none;
-  font-size: 0.85em;
+  font-size: 0.8em;
   padding: 20px;
 }
 
-.generator-table-cell-quality {
-  display: none;
-}
-
-.generator-table-cell-input,
-.generator-table-cell-input-description,
-.generator-table-cell-select {
-  font-size: 1em;
+.generator-generation-table {
   width: 100%;
 }
 
-.generator-extension {
-  float: right;
+.generator-generation-table-head {
+  background: $lightest-gray;
+  border: {
+    bottom: 2px solid $border-gray;
+    top: 2px solid $border-gray
+  }
+  color: $deeper-gray;
+  font: {
+    size: 0.8em;
+    weight: 600;
+  }
+  padding: 5px 0;
+  text-transform: uppercase;
 }
 
-.generator-extension-buttons {
-  text-align: right;
-  padding: 10px;
+.generator-generation-name {
+  display: inline-block;
+  padding: 5px 5px 5px 20px;
+}
 
-  .button {
-    font-size: 0.7em;
+.generator-generation-name.mod-generator-generation-name-item,
+.generator-generation-cell.mod-generator-generation-cell-service {
+  width: 25%;
+}
+
+.generator-generation-name.mod-generator-generation-name-description,
+.generator-generation-cell.mod-generator-generation-cell-description {
+  width: 30%;
+}
+
+.generator-generation-name.mod-generator-generation-name-quantity,
+.generator-generation-cell.mod-generator-generation-cell-quantity {
+  width: 13%;
+}
+
+.generator-generation-name.mod-generator-generation-name-price,
+.generator-generation-cell.mod-generator-generation-cell-price {
+  width: 13%;
+}
+
+.generator-generation-name.mod-generator-generation-name-amount,
+.generator-generation-cell.mod-generator-generation-cell-amount {
+  width: 13%;
+}
+
+.generator-generation-cell {
+  display: inline-block;
+  padding: 5px 5px 0;
+}
+
+.generator-generation-row-delete {
+  color: $danger-red;
+  font-size: 0.8em;
+  text-decoration: none;
+}
+
+.generator-generation-controls {
+  margin: 10px 0 20px;
+  padding-right: 10px;
+  text-align: right;
+}
+
+.generator-generation-add-control {
+  background: $brandon-blue;
+  border-radius: 50%;
+  color: $ordinary-white;
+  display: inline-block;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  text-decoration: none;
+  width: 25px;
+
+  &:hover {
+    background-color: #3498DB;
+  }
+
+  &:active {
+    background-color: #4AA0D5;
   }
 }
 
-.generator-calculator {
-  background-color: $lightest-gray;
-  box-sizing: border-box;
-  margin: 20px 0;
-  padding: 10px 30px;
-  text-transform: uppercase;
-  width: 320px;
-}
-
-.generator-calculator-title {
-  color: $deepest-gray;
-  display: inline-block;
-  font-size: 0.7em;
-  font-weight: 600;
+.generator-generation-calculator {
+  margin-bottom: 30px;
+  padding-right: 6%;
   text-align: right;
-  width: 100px;
 }
 
-.generator-calculator-calculation {
-  font-size: 0.75em;
+.generator-generation-calculator-field {
+  margin-bottom: 10px;
+  vertical-align: middle;
+}
+
+.generator-generation-calculator-title {
+  color: $deeper-gray;
   display: inline-block;
-  padding-left: 30px;
-  text-align: left;
-  width: 120px;
+  font: {
+    size: 0.8em;
+    weight: 600;
+  }
+  text-transform: uppercase;
+  width: 26%;
 }
 
-.generator-calculator-vat {
-  width: 75%;
+.generator-generation-calculator-title.mod-generator-generation-calculator-title-total {
+  color: $damien-light;
+  font-size: 1em;
+  letter-spacing: -0.4px;
+}
+
+.generator-generation-calculator-subtotal,
+.generator-generation-calculator-input,
+.generator-generation-calculator-total {
+  display: inline-block;
+  font-size: 0.85em;
+  width: 13%;
+}
+
+.generator-generation-calculator-subtotal {
+  color: $deeper-gray;
+}
+
+.generator-generation-calculator-total {
+  color: $brandon-blue;
+  font-size: 1em;
+  font-weight: 600;
 }
 
 .generator-generation-bottom {
-  clear: both;
-  float: right;
+  margin-top: 60px;
+  padding-right: 10px;
+  text-align: right;
 }
