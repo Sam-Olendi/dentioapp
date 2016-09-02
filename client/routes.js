@@ -75,7 +75,7 @@ Router.route('/generator', {
     }
 });
 
-Router.route('/generator/invoice/new', {
+Router.route('/generator/new', {
     layoutTemplate: 'GeneratorLayout',
     yieldRegions: {
         'generationNew': { to: 'generator' }
@@ -83,9 +83,15 @@ Router.route('/generator/invoice/new', {
 });
 
 Router.route('/generator/invoice/:_id', {
-   layoutTemplate: 'GeneratorLayout',
+    layoutTemplate: 'GeneratorLayout',
     yieldRegions: {
         'generationEdit': { to: 'generator' }
+    },
+    waitOn : function () {
+        return Meteor.subscribe('generations.single', this.params._id);
+    },
+    data: function () {
+        return Generations.findOne({_id: this.params._id});
     }
 });
 

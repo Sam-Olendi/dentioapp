@@ -79,23 +79,23 @@
 <template name="generationEditHeader">
     <h1 class="generator-invoice-title">
         <span class="generator-invoice-title-text">Invoice #</span>
-        <input type="text" placeholder="Invoice number" class="generator-generation-input mod-generator-generation-input-header" value="{{ generationNumber }}">
+        <input type="text" value="{{ generation_no }}" placeholder="Invoice number" class="generator-generation-input mod-generator-generation-input-header" >
     </h1>
     <div class="generator-invoice-field">
         <p class="generator-invoice-field-text">Date Issued</p>
-        <input type="text" placeholder="Date issued" id="datepicker" class="generator-generation-input mod-generator-generation-input-header generator-generation-datepicker">
+        <input type="text" value="{{convertToMoment date_generated}}" placeholder="Date issued" id="datepicker" class="generator-generation-input mod-generator-generation-input-header generator-generation-datepicker">
     </div>
     <div class="generator-invoice-field">
         <p class="generator-invoice-field-text">Patient Name</p>
-        <input type="text" placeholder="Patient name" class="generator-generation-input mod-generator-generation-input-header">
+        <input type="text" value="{{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}}" placeholder="Patient name" class="generator-generation-input mod-generator-generation-input-header">
     </div>
     <div class="generator-invoice-field">
         <p class="generator-invoice-field-text">Company</p>
-        <input type="text" placeholder="Company name" class="generator-generation-input mod-generator-generation-input-header">
+        <input type="text" value="" placeholder="Company name" class="generator-generation-input mod-generator-generation-input-header">
     </div>
     <div class="generator-invoice-field">
         <p class="generator-invoice-field-text">Staff Number</p>
-        <input type="text" placeholder="Staff number" class="generator-generation-input mod-generator-generation-input-header">
+        <input type="text" value="" placeholder="Staff number" class="generator-generation-input mod-generator-generation-input-header">
     </div>
 </template>
 
@@ -118,6 +118,8 @@
         <!--{{patient.profile.surname}} {{patient.profile.middle_name}} {{patient.profile.first_name}} <br>-->
         <!--{{{patient.contacts.postal_address}}}-->
         <!--</address>-->
-        <textarea name="" id="" cols="30" rows="10" placeholder="Recipient's address" class="generator-invoice-address-textarea"></textarea>
+        <textarea name="" id="" cols="30" rows="10" placeholder="Recipient's address" class="generator-invoice-address-textarea">{{patient.profile.surname}} {{patient.profile.middle_name}} {{patient.profile.first_name}}
+            {{{patient.contacts.postal_address}}}
+        </textarea>
     </div>
 </template>

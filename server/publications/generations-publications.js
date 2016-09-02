@@ -23,6 +23,30 @@ Meteor.publish('generations.all', function (limit) {
 
 });
 
+Meteor.publish('generations.single', function (generationId) {
+
+    check(generationId, String);
+
+    var self = this;
+    var observer = Generations.find({_id: generationId}).observe({
+        added: function (document) {
+            self.added('generations', document._id, transformGenerations (document));
+        },
+        changed: function (newDocument, oldDocument) {
+            self.changed('generations', oldDocument._id, transformGenerations (newDocument));
+        },
+        removed: function (oldDocument) {
+            self.removed('generations', oldDocument._id);
+        }
+    });
+
+    self.onStop(function () {
+        observer.stop();
+    });
+
+    self.ready();
+});
+
 Meteor.publish('generations.compare', function () {
    return Generations.find({}, { limit: 1, sort: { date_generated: -1 }, fields: { generation_no: 1, date_generated: 1 }});
 });

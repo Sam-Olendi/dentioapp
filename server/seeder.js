@@ -553,36 +553,42 @@ Meteor.startup(function () {
         Services.insert({
             _id: 'consultation',
             service_name: 'Consultation',
+            service_description: 'They don\'t allow you to have bees in here.',
             service_price: 3500
         });
 
         Services.insert({
             _id: 'composite',
             service_name: 'All White Composite Filling',
+            service_description: 'I like to look in the mirror.',
             service_price: 12000
         });
 
         Services.insert({
             _id: 'scaling',
             service_name: 'Full Mouth Scaling and Polishing',
+            service_description: 'Excuse me, do these effectively hide my thunder?',
             service_price: 3500
         });
 
         Services.insert({
             _id: 'rct',
             service_name: 'Root Canal Therapy',
+            service_description: 'We never had the chance to.',
             service_price: 12000
         });
 
         Services.insert({
             _id: 'rcf',
             service_name: 'Root Canal Finishing',
+            service_description: 'Yeah. Mom\'s awesome. Tobias is Queen Mary.',
             service_price: 3500
         });
 
         Services.insert({
             _id: 'filling',
             service_name: 'Temporary Filling',
+            service_description: 'Cup-A-Soup…baby, I got a stew goin\'',
             service_price: 12000
         });
     }
