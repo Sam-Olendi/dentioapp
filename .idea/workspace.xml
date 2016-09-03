@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e783e81-5958-4c2d-ad95-870373fd6f58" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/methods/generations-method.js" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/mail.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/generator/generation-new.js" afterPath="$PROJECT_DIR$/client/generator/generation-new.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/generator/generations.html" afterPath="$PROJECT_DIR$/client/generator/generations.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main.js" afterPath="$PROJECT_DIR$/client/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/methods/generations-methods.js" afterPath="$PROJECT_DIR$/methods/generations-methods.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/publications/generations-publications.js" afterPath="$PROJECT_DIR$/server/publications/generations-publications.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/seeder.js" afterPath="$PROJECT_DIR$/server/seeder.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/packages" afterPath="$PROJECT_DIR$/.meteor/packages" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/at-config.js" afterPath="$PROJECT_DIR$/lib/at-config.js" />
     </list>
     <ignored path="dentioapp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,98 +26,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="generation-new.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/generator/generation-new.html">
+      <file leaf-file-name="mail.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/mail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.653846">
-              <caret line="51" column="91" selection-start-line="51" selection-start-column="62" selection-end-line="51" selection-end-column="91" />
+            <state vertical-scroll-proportion="0.027597403">
+              <caret line="1" column="128" selection-start-line="1" selection-start-column="128" selection-end-line="1" selection-end-column="128" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="generation-new.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/generator/generation-new.js">
+      <file leaf-file-name="at-config.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/at-config.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="411" column="8" selection-start-line="411" selection-start-column="8" selection-end-line="420" selection-end-column="15" />
+              <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
               <folding>
-                <element signature="e#155#195#0" expanded="false" />
-                <element signature="e#229#4692#0" expanded="false" />
-                <element signature="e#1322#2195#0" expanded="false" />
-                <element signature="e#2258#3126#0" expanded="false" />
-                <element signature="e#3190#4055#0" expanded="false" />
-                <element signature="e#4113#4690#0" expanded="false" />
-                <element signature="e#6054#6685#0" expanded="false" />
-                <element signature="e#6733#7146#0" expanded="false" />
-                <element signature="e#7193#8925#0" expanded="false" />
-                <element signature="e#7742#8923#0" expanded="false" />
-                <element signature="e#8985#9025#0" expanded="false" />
-                <element signature="e#9069#9170#0" expanded="false" />
-                <element signature="e#9229#9269#0" expanded="false" />
-                <element signature="e#12073#12232#0" expanded="false" />
-                <element signature="e#12276#12551#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="49" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="generations.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/generator/generations.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6830509">
-              <caret line="76" column="53" selection-start-line="76" selection-start-column="53" selection-end-line="76" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="generations-methods.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/methods/generations-methods.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="seeder.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/seeder.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="899" column="30" selection-start-line="899" selection-start-column="30" selection-end-line="899" selection-end-column="30" />
-              <folding>
-                <element signature="e#94#2036#0" expanded="false" />
-                <element signature="e#2064#4108#0" expanded="false" />
-                <element signature="e#4136#5626#0" expanded="false" />
-                <element signature="e#5654#7101#0" expanded="false" />
-                <element signature="e#7129#8578#0" expanded="false" />
-                <element signature="e#8606#8907#0" expanded="false" />
-                <element signature="e#11894#13264#0" expanded="false" />
-                <element signature="e#13305#13830#0" expanded="false" />
-                <element signature="e#13872#14423#0" expanded="false" />
-                <element signature="e#14463#15819#0" expanded="false" />
-                <element signature="e#15859#17786#0" expanded="false" />
-                <element signature="e#17828#23026#0" expanded="false" />
-                <element signature="e#23093#23383#0" expanded="false" />
-                <element signature="e#23411#23705#0" expanded="false" />
-                <element signature="e#23733#24022#0" expanded="false" />
-                <element signature="e#24050#24346#0" expanded="false" />
-                <element signature="e#24744#25109#0" expanded="false" />
-                <element signature="e#25140#25490#0" expanded="false" />
-                <element signature="e#25521#25864#0" expanded="false" />
-                <element signature="e#25895#26247#0" expanded="false" />
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -142,7 +63,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/appointments/appointments.js" />
         <option value="$PROJECT_DIR$/server/publications/findings-publications.js" />
         <option value="$PROJECT_DIR$/methods/findings-methods.js" />
         <option value="$PROJECT_DIR$/server/publications/appointments-publications.js" />
@@ -154,7 +74,6 @@
         <option value="$PROJECT_DIR$/client/layouts/LoginLayout.html" />
         <option value="$PROJECT_DIR$/client/layouts/ApplicationLayout.html" />
         <option value="$PROJECT_DIR$/client/styles/login.scss" />
-        <option value="$PROJECT_DIR$/lib/at-config.js" />
         <option value="$PROJECT_DIR$/client/appointments/appointments.html" />
         <option value="$PROJECT_DIR$/client/invoices/invoices.html" />
         <option value="$PROJECT_DIR$/client/patients/tab-sections/patient-content-invoices.html" />
@@ -193,6 +112,8 @@
         <option value="$PROJECT_DIR$/client/main.js" />
         <option value="$PROJECT_DIR$/client/generator/generation-new.js" />
         <option value="$PROJECT_DIR$/client/generator/generations.html" />
+        <option value="$PROJECT_DIR$/lib/at-config.js" />
+        <option value="$PROJECT_DIR$/server/mail.js" />
       </list>
     </option>
   </component>
@@ -276,75 +197,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="publications" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dentioapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dentioapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="methods" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dentioapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dentioapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dentioapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dentioapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="styles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dentioapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dentioapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="generator" />
+              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -458,7 +311,13 @@
       <option name="project" value="LOCAL" />
       <updated>1472869918493</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fix transform issues on addition of a generation">
+      <created>1472916138100</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1472916138101</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -505,7 +364,8 @@
     <MESSAGE value="Add some level of automation while filing in new invoice data" />
     <MESSAGE value="Add some level of automation while filling in new invoice data" />
     <MESSAGE value="Save a new generation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Save a new generation" />
+    <MESSAGE value="Fix transform issues on addition of a generation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix transform issues on addition of a generation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -542,13 +402,6 @@
         <state vertical-scroll-proportion="0.54745764">
           <caret line="153" column="1" selection-start-line="153" selection-start-column="1" selection-end-line="153" selection-end-column="1" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/at-config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19318181">
-          <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -952,7 +805,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/methods/generations-methods.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.13798702">
           <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
           <folding />
         </state>
@@ -992,7 +845,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/seeder.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="5.3506494">
           <caret line="899" column="30" selection-start-line="899" selection-start-column="30" selection-end-line="899" selection-end-column="30" />
           <folding>
             <element signature="e#94#2036#0" expanded="false" />
@@ -1021,8 +874,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/generator/generations.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6830509">
-          <caret line="76" column="53" selection-start-line="76" selection-start-column="53" selection-end-line="76" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.8559322">
+          <caret line="82" column="70" selection-start-line="82" selection-start-column="70" selection-end-line="82" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/at-config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/mail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.027597403">
+          <caret line="1" column="128" selection-start-line="1" selection-start-column="128" selection-end-line="1" selection-end-column="128" />
           <folding />
         </state>
       </provider>
