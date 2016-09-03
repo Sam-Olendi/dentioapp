@@ -34,7 +34,7 @@
 <template name="generationNewHeader">
     <h1 class="generator-invoice-title">
         <span class="generator-invoice-title-text">Invoice #</span>
-        <input type="text" placeholder="Invoice number" class="generator-generation-input mod-generator-generation-input-header" value="{{ generationNumber }}">
+        <input type="number" min="{{generationNumber}}" id="generator-invoice-new-invoice-no" placeholder="Invoice number" class="generator-generation-input mod-generator-generation-input-header" value="{{ generationNumber }}">
     </h1>
     <div class="generator-invoice-field">
         <p class="generator-invoice-field-text">Date Issued</p>
@@ -115,7 +115,7 @@
 <template name="generationNewTableRows">
     <div class="generator-generation-table-row">
         <div class="generator-generation-cell mod-generator-generation-cell-service">
-            <select title="Select a service" id="generator-invoice-new-select-0" class="generator-generation-select mod-generator-generation-select-table">
+            <select title="Select a service" data-id="0" id="generator-invoice-new-select-0" class="generator-generation-select mod-generator-generation-select-table generator-generation-select-service">
                 <option value="None">--Select a service--</option>
                 {{#each services}}
                     <option value="{{_id}}">{{service_name}}</option>
@@ -123,16 +123,16 @@
             </select>
         </div>
         <div class="generator-generation-cell mod-generator-generation-cell-description">
-            <input type="text" id="generator-invoice-new-description-0" placeholder="Service description" class="generator-generation-input mod-generator-generation-input-table generator-generation-input-description">
+            <input type="text" data-id="0" id="generator-invoice-new-description-0" placeholder="Service description" class="generator-generation-input mod-generator-generation-input-table generator-generation-input-description">
         </div>
         <div class="generator-generation-cell mod-generator-generation-cell-quantity">
-            <input type="number" id="generator-invoice-new-quantity-0" value="1" placeholder="Quantity" class="generator-generation-input mod-generator-generation-input-table generator-generation-input-quantity">
+            <input type="number" data-id="0" id="generator-invoice-new-quantity-0" value="1" placeholder="Quantity" class="generator-generation-input mod-generator-generation-input-table generator-generation-input-quantity">
         </div>
         <div class="generator-generation-cell mod-generator-generation-cell-price">
-            <input type="number" id="generator-invoice-new-price-0" placeholder="Price" class="generator-generation-input mod-generator-generation-input-table generator-generation-input-price">
+            <input type="number" data-id="0" id="generator-invoice-new-price-0" placeholder="Price" class="generator-generation-input mod-generator-generation-input-table generator-generation-input-price">
         </div>
         <div class="generator-generation-cell mod-generator-generation-cell-amount">
-            <input type="number" id="generator-invoice-new-amount-0" placeholder="Amount" class="generator-generation-input mod-generator-generation-input-table generator-generation-input-amount">
+            <input type="number" data-id="0" id="generator-invoice-new-amount-0" placeholder="Amount" class="generator-generation-input mod-generator-generation-input-table generator-generation-input-amount">
         </div>
         <a href="#" class="generator-generation-row-delete js-generation-new-row-delete"><span title="Remove this row" class="icon-cancel"></span></a>
     </div>

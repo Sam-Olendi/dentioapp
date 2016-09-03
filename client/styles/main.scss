@@ -521,6 +521,13 @@ td, th {
   }
 }
 
+.button {
+  &:disabled {
+    background: $deeper-gray;
+    color: $deepest-gray;
+  }
+}
+
 .body-content {
   padding-top: 65px;
   position: relative;

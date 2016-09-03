@@ -3,7 +3,7 @@ Meteor.publish('generations.all', function (limit) {
     check (limit, Number);
 
     var self = this;
-    var observer = Generations.find({}, { sort: { date_generated: 1 }, limit: limit}).observe({
+    var observer = Generations.find({}, { sort: { generation_no: -1 }, limit: limit}).observe({
         added: function (document) {
             self.added('generations', document._id, transformGenerations (document));
         },
@@ -47,8 +47,12 @@ Meteor.publish('generations.single', function (generationId) {
     self.ready();
 });
 
+Meteor.publish('generations.check', function () {
+   return Generations.find({}, { limit: 1, sort: { generation_no: -1 }, fields: { generation_no: 1, date_generated: 1 }});
+});
+
 Meteor.publish('generations.compare', function () {
-   return Generations.find({}, { limit: 1, sort: { date_generated: -1 }, fields: { generation_no: 1, date_generated: 1 }});
+    return Generations.find({}, { sort: { generation_no: 1 }, fields: { generation_no: 1, date_generated: 1 }});
 });
 
 function transformGenerations (doc) {

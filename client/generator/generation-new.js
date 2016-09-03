@@ -114,7 +114,7 @@ Template.generationNew.events({
 
 
 Template.generationNewHeader.onCreated(function () {
-    this.subscribe('generations.compare');
+    this.subscribe('generations.check');
 });
 
 Template.generationNewHeader.rendered = function () {
@@ -131,10 +131,10 @@ Template.generationNewHeader.helpers({
 
 Template.generationNewHeader.events({
     'change .generator-generation-datepicker': function () {
-        var selectedDate = $('.generator-generation-datepicker'),
-            momentDate = moment(new Date(selectedDate.val()).toISOString()).format('Do MMMM YYYY');
-
-        selectedDate.val(momentDate);
+        //var selectedDate = $('.generator-generation-datepicker'),
+        //    momentDate = moment(new Date(selectedDate.val()).toISOString()).format('Do MMM YYYY, h:mm a');
+        //
+        //selectedDate.val(momentDate);
     },
 
     'keyup #generator-invoice-new-patient-name': function () {
@@ -263,20 +263,20 @@ Template.generationNewControls.events({
         $('.generator-generation-table').append('' +
             '<div class="generator-generation-table-row">' +
                 '<div class="generator-generation-cell mod-generator-generation-cell-service">' +
-                    '<select title="Select a service" id="generator-invoice-new-select-' + randomNumber + '" class="generator-generation-select mod-generator-generation-select-table">' +
+                    '<select title="Select a service" data-id="' + randomNumber + '" id="generator-invoice-new-select-' + randomNumber + '" class="generator-generation-select mod-generator-generation-select-table generator-generation-select-service">' +
                         '<option value="None">--Select a service--</option>' +
                     '</select>' +
                 '</div>' +
                 '<div class="generator-generation-cell mod-generator-generation-cell-description">' +
-                    '<input type="text" id="generator-invoice-new-description-' + randomNumber + '" placeholder="Service description" class="generator-generation-input mod-generator-generation-input-table generator-generation-input-description">' +
+                    '<input type="text" data-id="' + randomNumber + '" id="generator-invoice-new-description-' + randomNumber + '" placeholder="Service description" class="generator-generation-input mod-generator-generation-input-table generator-generation-input-description">' +
                 '</div>' +
                 '<div class="generator-generation-cell mod-generator-generation-cell-quantity">' +
-                    '<input type="number" id="generator-invoice-new-quantity-' + randomNumber + '" value="1" placeholder="Quantity" class="generator-generation-input mod-generator-generation-input-table generator-generation-input-quantity">' +
+                    '<input type="number" data-id="' + randomNumber + '" id="generator-invoice-new-quantity-' + randomNumber + '" value="1" placeholder="Quantity" class="generator-generation-input mod-generator-generation-input-table generator-generation-input-quantity">' +
                 '</div>' +
                 '<div class="generator-generation-cell mod-generator-generation-cell-price">' +
-                    '<input type="number" id="generator-invoice-new-price-' + randomNumber + '" placeholder="Price" class="generator-generation-input mod-generator-generation-input-table generator-generation-input-price">' +
+                    '<input type="number" data-id="' + randomNumber + '" id="generator-invoice-new-price-' + randomNumber + '" placeholder="Price" class="generator-generation-input mod-generator-generation-input-table generator-generation-input-price">' +
                 '</div><div class="generator-generation-cell mod-generator-generation-cell-amount">' +
-                    '<input type="number" id="generator-invoice-new-amount-0" placeholder="Amount" class="generator-generation-input mod-generator-generation-input-table generator-generation-input-amount">' +
+                    '<input type="number" data-id="' + randomNumber + '" id="generator-invoice-new-amount-0" placeholder="Amount" class="generator-generation-input mod-generator-generation-input-table generator-generation-input-amount">' +
                 '</div>' +
                 '<a href="#" class="generator-generation-row-delete js-generation-new-row-delete"><span title="Remove this row" class="icon-cancel"></span></a>' +
             '</div>');
@@ -303,5 +303,117 @@ Template.generationNewCalculator.events({
             newTotal = Session.get('subtotalAmount') + (Session.get('subtotalAmount') * (vatRate/100));
 
         Session.set('totalAmount', newTotal);
+    }
+});
+
+
+
+Template.generationNewButtons.onCreated(function () {
+    this.subscribe('generations.compare');
+});
+
+Template.generationNewButtons.events({
+    'click .js-generation-new-save-invoice': function () {
+
+        // check if the invoice number, date and name are empty
+        // if they are, prompt the user to fill them
+        var invoiceNo = parseInt($('#generator-invoice-new-invoice-no').val()),
+            invoiceDate = new Date($('#generator-invoice-new-date').val()),
+            patientName = $('#generator-invoice-new-patient-name').val();
+
+        if ( !invoiceNo || !invoiceDate || !patientName ) {
+            alert('Please make sure that you have entered an invoice number, a date and a patient\'s name!');
+        } else {
+            invoiceDate = invoiceDate.toISOString(); // convert to ISO
+        }
+
+        // check if generation number exists
+        var generationExists = Generations.find({generation_no: invoiceNo}).fetch().length;
+        if ( generationExists ) {
+            alert('The invoice number already exists. Enter another one.');
+        }
+
+        // check if the company entered exists
+        // if not, add it to the DB
+        var companyName = $('#generator-invoice-new-company').val(),
+            companyRegex = new RegExp(companyName, 'i');
+
+        if ( companyName != '' ) {
+            var companyExists = Companies.find({ company_name: { $regex: companyRegex } }).fetch().length,
+                patient = Patients.findOne({_id: Session.get('newGenerationPatientId')});
+
+            if ( !companyExists ) {
+                Meteor.call('AddGeneratedCompanies', companyName);
+                var companyId = Companies.findOne({company_name: companyName})._id;
+            }
+
+            // check if the patient has their work details entered
+            // if not, enter them
+            if ( !patient.work ) {
+                Meteor.call('UpdateWorkDetails', {
+                    patient_id: Session.get('newGenerationPatientId'),
+                    company_id: companyId,
+                    staff_number: $('#generator-invoice-new-staff-number').val()
+                });
+            }
+        }
+
+        // loop through all the rows
+        // for each service, call the treatments method and add it there
+        // add a special property (e.g. generation: true) to differentiate it from other treatments
+        // (or add a generation_id)
+        var services = $('.generator-generation-select-service'),
+            descriptions = $('.generator-generation-input-description'),
+            quantities = $('.generator-generation-input-quantity'),
+            prices = $('.generator-generation-input-price'),
+            dataIds = [];
+
+        for ( var i = 0; i < services.length; i++ ) {
+            dataIds[i] = $(services[i]).data('id');
+        }
+
+        for ( var j = 0; j < dataIds.length; j++) {
+            Meteor.call('AddGeneratedTreatment', {
+                patient_id: Session.get('newGenerationPatientId'),
+                generation_no: invoiceNo,
+                service_id: $('#generator-invoice-new-select-' + dataIds[j]).val(),
+                quantity: parseInt($('#generator-invoice-new-quantity-' + dataIds[j]).val()),
+                price: parseInt($('#generator-invoice-new-price-' + dataIds[j]).val()),
+                amount: parseInt($('#generator-invoice-new-amount-' + dataIds[j]).val()),
+                description: $('#generator-invoice-new-description-' + dataIds[j]).val(),
+                date_performed: moment(invoiceDate).format('Do MMM YYYY, h:mm:ss a')
+            });
+        }
+
+        // call the method to save the generation
+        var postalAddress = $('#generator-invoice-new-address').val(),
+            vatRate = parseInt($('#generator-generation-input-vat').val()),
+            totals = $('.generator-generation-input-amount'),
+            subtotalAmount = 0;
+
+
+        for (var k = 0; k < totals.length; k++) {
+            if ($(totals[k]).val() !== '') {
+                subtotalAmount += parseInt($(totals[k]).val());
+            }
+        }
+
+        var finalAmount = subtotalAmount + (subtotalAmount * (vatRate/100));
+
+        if ( !generationExists && invoiceDate && patientName ) {
+            Meteor.call('AddGeneration', {
+                generation_no: invoiceNo,
+                patient_id: Session.get('newGenerationPatientId'),
+                postal_address: postalAddress,
+                vat: vatRate,
+                final_amount: finalAmount,
+                date_generated: invoiceDate
+            });
+
+            if ( Generations.find({generation_no: invoiceNo}).fetch().length ) {
+                alert('Saved!');
+            }
+        }
+
     }
 });

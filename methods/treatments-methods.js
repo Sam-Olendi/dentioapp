@@ -43,5 +43,22 @@ Meteor.methods({
             }
         });
 
+    },
+
+    'AddGeneratedTreatment': function (data) {
+
+        check (data, {
+            patient_id: String,
+            generation_no: Number,
+            service_id: String,
+            quantity: Number,
+            price: Number,
+            amount: Number,
+            description: String,
+            date_performed: String
+        });
+
+        return Treatments.insert(data);
+
     }
 });
