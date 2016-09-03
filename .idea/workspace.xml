@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e783e81-5958-4c2d-ad95-870373fd6f58" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/mail.js" afterPath="$PROJECT_DIR$/server/mail.js" />
     </list>
     <ignored path="dentioapp.iws" />
@@ -28,7 +27,7 @@
         <entry file="file://$PROJECT_DIR$/server/mail.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.027597403">
-              <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+              <caret line="1" column="128" selection-start-line="1" selection-start-column="128" selection-end-line="1" selection-end-column="128" />
               <folding />
             </state>
           </provider>
@@ -904,7 +903,7 @@
     <entry file="file://$PROJECT_DIR$/server/mail.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.027597403">
-          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+          <caret line="1" column="128" selection-start-line="1" selection-start-column="128" selection-end-line="1" selection-end-column="128" />
           <folding />
         </state>
       </provider>
