@@ -123,9 +123,8 @@ Template.generationNewHeader.rendered = function () {
 
 Template.generationNewHeader.helpers({
     generationNumber: function () {
-        var lastGeneration = Generations.findOne({}, { sort: { date_generated: -1 }, fields: { generation_no: 1, date_generated: 1 } });
+        var lastGeneration = Generations.findOne({}, { sort: { generation_no: -1 }, fields: { generation_no: 1, date_generated: 1 } });
         if (lastGeneration) return lastGeneration.generation_no + 1;
-        return '';
     }
 });
 
@@ -330,13 +329,14 @@ Template.generationNewButtons.events({
         // check if generation number exists
         var generationExists = Generations.find({generation_no: invoiceNo}).fetch().length;
         if ( generationExists ) {
-            alert('The invoice number already exists. Enter another one.');
+            alert('The invoice number already exists. Please try and increment it by 1. .e.g Add 1 to 20001 to make it 20002.');
         }
 
         // check if the company entered exists
         // if not, add it to the DB
         var companyName = $('#generator-invoice-new-company').val(),
-            companyRegex = new RegExp(companyName, 'i');
+            companyRegex = new RegExp(companyName, 'i'),
+            companyId = '';
 
         if ( companyName != '' ) {
             var companyExists = Companies.find({ company_name: { $regex: companyRegex } }).fetch().length,
@@ -344,7 +344,9 @@ Template.generationNewButtons.events({
 
             if ( !companyExists ) {
                 Meteor.call('AddGeneratedCompanies', companyName);
-                var companyId = Companies.findOne({company_name: companyName})._id;
+                companyId = Companies.findOne({company_name: companyName})._id;
+            } else {
+                companyId = Companies.findOne({company_name: companyName})._id;
             }
 
             // check if the patient has their work details entered
@@ -356,6 +358,12 @@ Template.generationNewButtons.events({
                     staff_number: $('#generator-invoice-new-staff-number').val()
                 });
             }
+        } else {
+            Meteor.call('UpdateWorkDetails', {
+                patient_id: Session.get('newGenerationPatientId'),
+                company_id: '',
+                staff_number: ''
+            });
         }
 
         // loop through all the rows
@@ -403,7 +411,9 @@ Template.generationNewButtons.events({
         if ( !generationExists && invoiceDate && patientName ) {
             Meteor.call('AddGeneration', {
                 generation_no: invoiceNo,
+                appointment_id: null,
                 patient_id: Session.get('newGenerationPatientId'),
+                company_id: companyId,
                 postal_address: postalAddress,
                 vat: vatRate,
                 final_amount: finalAmount,

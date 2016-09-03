@@ -847,6 +847,8 @@ Meteor.startup(function () {
             invoice_id: 'andy_invoice',
             generation_no: 20021,
             patient_id: 'andy',
+            insurance_id: 'cic',
+            company_id: 'acme',
             appointment_id: 'andy_appt',
             vat: 0,
             final_amount: 12000,
@@ -858,6 +860,8 @@ Meteor.startup(function () {
             invoice_id: 'jenna_invoice',
             generation_no: 20022,
             patient_id: 'jenna',
+            insurance_id: 'aar',
+            company_id: 'equity',
             appointment_id: 'jenna_appt',
             final_amount: 3000,
             date_generated: new Date().toISOString()
@@ -869,6 +873,8 @@ Meteor.startup(function () {
             generation_no: 20023,
             patient_id: 'liz',
             appointment_id: 'liz_appt',
+            insurance_id: 'acme',
+            company_id: 'fahari',
             final_amount: 5500,
             date_generated: new Date().toISOString()
         });
@@ -878,6 +884,8 @@ Meteor.startup(function () {
             invoice_id: 'james_invoice',
             generation_no: 20024,
             patient_id: 'james',
+            insurance_id: 'jubilee',
+            company_id: 'okhi',
             appointment_id: 'james_appt',
             final_amount: 7500,
             date_generated: new Date().toISOString()
@@ -888,6 +896,8 @@ Meteor.startup(function () {
             invoice_id: 'greg_invoice',
             generation_no: 20025,
             patient_id: 'greg',
+            insurance_id: 'uap',
+            company_id: 'TGS',
             appointment_id: 'greg_appt',
             final_amount: 8200,
             date_generated: new Date().toISOString()

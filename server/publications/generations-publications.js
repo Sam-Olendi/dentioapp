@@ -59,7 +59,7 @@ function transformGenerations (doc) {
     doc.invoice = Invoices.findOne({_id: doc.invoice_id});
     doc.patient = Patients.findOne({_id: doc.patient_id});
     doc.appointment = Appointments.findOne({_id: doc.appointment_id});
-    doc.company = Companies.findOne({_id: doc.patient.work.company_id});
-    doc.insurance = Insurances.findOne({_id: doc.patient.insurance.insurance_id});
+    doc.company = Companies.findOne({_id: doc.company_id});
+    doc.insurance = Insurances.findOne({_id: doc.insurance_id});
     return doc;
 }

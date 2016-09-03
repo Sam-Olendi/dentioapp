@@ -8,6 +8,10 @@ Template.registerHelper('convertToMoment', function (dateString) {
     return moment(dateString).format('Do MMM YYYY, h:mm a');
 });
 
+Template.registerHelper('convertToMomentWithoutTime', function (dateString) {
+    return moment(dateString).format('Do MMM YYYY');
+});
+
 
 /*
  ============================

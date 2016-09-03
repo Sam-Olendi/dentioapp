@@ -73,14 +73,14 @@
                     {{/if}}
                 </td>
                 <td>
-                    {{#if insurance}}
-                        {{insurance.insurance_name}}
+                    {{#if company}}
+                        {{patient.work.staff_number}}
                     {{else}}
                         <span class="body-search-result-helper">-</span>
                     {{/if}}
                 </td>
                 <td>{{final_amount}}</td>
-                <td>{{convertToMoment date_generated}}</td>
+                <td>{{convertToMomentWithoutTime date_generated}}</td>
             </tr>
         {{/each}}
 
