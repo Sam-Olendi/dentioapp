@@ -1,5 +1,18 @@
 Session.setDefault('invoicesLimit', 10);
 
+Template.invoicesSearch.helpers({
+    'invoicesIndex': function () {
+        return InvoicesIndex;
+    }
+});
+
+Template.invoicesSearch.events({
+    'keyup input': function () {
+        $('.body-search-form-results').show();
+    }
+});
+
+
 Template.invoicesContent.onCreated(function () {
     var self = this;
 
