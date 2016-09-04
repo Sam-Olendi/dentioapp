@@ -104,6 +104,25 @@ Template.patientsNewModal.events({
     }
 });
 
+
+
+Template.patientsSearch.helpers({
+    patientsIndex: function () {
+        return PatientsIndex;
+    }
+});
+
+Template.patientsSearch.events({
+    'keyup input': function () {
+        $('.body-search-form-results').show();
+    },
+
+    'click': function () {
+        $('.body-search-form-results').hide();
+    }
+});
+
+
 Template.patientsContent.onCreated(function () {
 
     var self = Template.instance();

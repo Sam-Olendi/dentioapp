@@ -7,10 +7,7 @@
             <div class="body-header-button">
                 {{> patientsNewButton}}
             </div>
-            <div class="body-search-form">
-                <span class="icon-search"></span>
-                <input type="search" placeholder="Search for a patient..." class="body-search-box">
-            </div>
+            {{> patientsSearch}}
         </header>
         <section class="body-flesh mod-body-flesh-patients">
             {{> patientsContent }}
@@ -25,6 +22,23 @@
 <template name="patientsNewButton">
     <a href="#" class="button mod-button-okay js-patient-new-trigger"><span class="icon-add"></span>New patient</a>
     {{> patientsNewModal }}
+</template>
+
+<template name="patientsSearch">
+    <div class="body-search">
+        <div class="body-search-form">
+            <span class="icon-search"></span>
+            <!--<input type="search" id="body-main-patients-search" placeholder="Search for a patient..." class="body-search-box">-->
+            {{> EasySearch.Input index=patientsIndex }}
+        </div>
+        <ul class="body-search-form-results">
+            {{#EasySearch.Each index=patientsIndex }}
+                <li class="body-search-result">
+                    <a href="/patients/{{_id}}" class="body-search-result-link" data-id="{{_id}}">{{profile.surname}}, {{profile.first_name}} {{profile.middle_name}}</a>
+                </li>
+            {{/EasySearch.Each}}
+        </ul>
+    </div>
 </template>
 
 <template name="patientsNewModal">

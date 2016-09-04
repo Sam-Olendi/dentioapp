@@ -611,6 +611,10 @@ td, th {
   }
 }
 
+.body-search {
+  position: relative;
+}
+
 .body-search-form {
   position: relative;
   vertical-align: middle;
@@ -624,7 +628,8 @@ td, th {
     z-index: 1;
   }
 
-  .body-search-box {
+  .body-search-box,
+  input {
     padding: 10px 15px 10px 45px;
     width: 100%;
 
@@ -632,6 +637,20 @@ td, th {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
+}
+
+.body-search-form-results {
+  background: #fff;
+  border: 2px solid $border-gray;
+  display: none;
+  margin: 0;
+  max-height: 140px;
+  min-height: 30px;
+  overflow: auto;
+  padding: 0 20px 10px;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
 }
 
 .body-search-result {
