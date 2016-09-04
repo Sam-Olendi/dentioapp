@@ -790,7 +790,7 @@ Meteor.startup(function () {
             appointment_id: 'andy_appt',
             insurance_id: 'cic',
             company_id: 'acme',
-            amount: 12000,
+            amount: 31000,
             date_issued: new Date().toISOString()
         });
 
@@ -801,7 +801,7 @@ Meteor.startup(function () {
             appointment_id: 'jenna_appt',
             insurance_id: 'aar',
             company_id: 'equity',
-            amount: 3000,
+            amount: 12000,
             date_issued: new Date().toISOString()
         });
 
@@ -812,7 +812,7 @@ Meteor.startup(function () {
             appointment_id: 'liz_appt',
             insurance_id: 'acme',
             company_id: 'fahari',
-            amount: 5500,
+            amount: 12000,
             date_issued: new Date().toISOString()
         });
 
@@ -823,7 +823,7 @@ Meteor.startup(function () {
             appointment_id: 'james_appt',
             insurance_id: 'jubilee',
             company_id: 'okhi',
-            amount: 7500,
+            amount: 12000,
             date_issued: new Date().toISOString()
         });
 
@@ -834,7 +834,7 @@ Meteor.startup(function () {
             appointment_id: 'greg_appt',
             insurance_id: 'uap',
             company_id: 'TGS',
-            amount: 8200,
+            amount: 15500,
             date_issued: new Date().toISOString()
         });
 
@@ -849,9 +849,9 @@ Meteor.startup(function () {
             patient_id: 'andy',
             insurance_id: 'cic',
             company_id: 'acme',
-            appointment_id: 'andy_appt',
             vat: 0,
-            final_amount: 12000,
+            appointment_id: 'andy_appt',
+            final_amount: 31000,
             date_generated: new Date().toISOString()
         });
 
@@ -862,8 +862,9 @@ Meteor.startup(function () {
             patient_id: 'jenna',
             insurance_id: 'aar',
             company_id: 'equity',
+            vat: 0,
             appointment_id: 'jenna_appt',
-            final_amount: 3000,
+            final_amount: 12000,
             date_generated: new Date().toISOString()
         });
 
@@ -875,7 +876,8 @@ Meteor.startup(function () {
             appointment_id: 'liz_appt',
             insurance_id: 'acme',
             company_id: 'fahari',
-            final_amount: 5500,
+            vat: 0,
+            final_amount: 12000,
             date_generated: new Date().toISOString()
         });
 
@@ -886,8 +888,9 @@ Meteor.startup(function () {
             patient_id: 'james',
             insurance_id: 'jubilee',
             company_id: 'okhi',
+            vat: 0,
             appointment_id: 'james_appt',
-            final_amount: 7500,
+            final_amount: 12000,
             date_generated: new Date().toISOString()
         });
 
@@ -898,8 +901,9 @@ Meteor.startup(function () {
             patient_id: 'greg',
             insurance_id: 'uap',
             company_id: 'TGS',
+            vat: 0,
             appointment_id: 'greg_appt',
-            final_amount: 8200,
+            final_amount: 15500,
             date_generated: new Date().toISOString()
         });
     }

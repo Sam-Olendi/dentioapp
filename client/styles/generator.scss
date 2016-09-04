@@ -374,6 +374,11 @@ address {
   width: 70%;
 }
 
+.generator-generation-select-edit,
+.generator-generation-input-edit {
+  display: none;
+}
+
 .generator-invoice-address {
   background-color: $lightest-gray;
   box-sizing: border-box;
@@ -482,9 +487,26 @@ address {
   width: 13%;
 }
 
+.generator-generation-table-row-edit {
+  border-bottom: 1px solid $border-gray;
+  padding: 5px 0 15px;
+}
+
 .generator-generation-cell {
   display: inline-block;
   padding: 5px 5px 0;
+  vertical-align: top;
+}
+
+.generator-generation-cell-edit-text {
+  font-size: 0.8em;
+  padding-left: 10px;
+}
+
+.generator-generation-row-edit {
+  color: $brandon-blue;
+  font-size: 0.8em;
+  text-decoration: none;
 }
 
 .generator-generation-row-delete {

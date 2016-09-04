@@ -12,6 +12,13 @@ Template.registerHelper('convertToMomentWithoutTime', function (dateString) {
     return moment(dateString).format('Do MMM YYYY');
 });
 
+Template.registerHelper('findService', function (serviceId) {
+    return Services.findOne({_id: serviceId}).service_name;
+});
+
+Template.registerHelper('calculateSubtotal', function (totalAmount, vat) {
+    return totalAmount - (totalAmount * (vat/100));
+});
 
 /*
  ============================

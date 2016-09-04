@@ -36,5 +36,21 @@ Template.generationEdit.helpers({
 
     services: function () {
         return Services.find();
+    },
+
+    subtotal: function () {
+
+    }
+});
+
+Template.generationEdit.events({
+    'click .generator-generation-row-edit': function () {
+        var rowWrapper = $(event.target).parent().parent();
+        rowWrapper.find('.generator-generation-input, .generator-generation-select').toggle();
+        rowWrapper.find('.generator-generation-cell-edit-text').toggle();
+    },
+
+    'click .generator-generation-row-delete': function () {
+        $(event.target).parent().parent().remove();
     }
 });

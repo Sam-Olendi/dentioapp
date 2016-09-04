@@ -24,27 +24,43 @@
                 </div>
 
                 {{#each treatments}}
-                    <div class="generator-generation-table-row">
+                    <div class="generator-generation-table-row generator-generation-table-row-edit">
                         <div class="generator-generation-cell mod-generator-generation-cell-service">
-                            <select title="" id="" class="generator-generation-select mod-generator-generation-select-table">
+                            <span class="generator-generation-cell-edit-text">{{findService service_id}}</span>
+                            <select title="" id="" class="generator-generation-select generator-generation-select-edit mod-generator-generation-select-table">
                                 <option value="None">--Select a service--</option>
                                 {{#each services}}
-                                    <option value="{{_id}}">{{service_name}}</option>
+                                    <option class="generator-generation-options" value="{{_id}}">{{service_name}}</option>
                                 {{/each}}
                             </select>
                         </div>
                         <div class="generator-generation-cell mod-generator-generation-cell-description">
-                            <input type="text" id="" value="{{description}}" placeholder="Service description" class="generator-generation-input mod-generator-generation-input-table">
+                            <span class="generator-generation-cell-edit-text">{{description}}</span>
+                            <input type="text" id="" value="{{description}}" placeholder="Service description" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table">
                         </div>
                         <div class="generator-generation-cell mod-generator-generation-cell-quantity">
-                            <input type="number" id="" value="{{quantity}}" placeholder="Quantity" class="generator-generation-input mod-generator-generation-input-table">
+                            {{#if quantity}}
+                                <span class="generator-generation-cell-edit-text">{{quantity}}</span>
+                                <input type="number" id="" value="{{quantity}}" placeholder="Quantity" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table">
+                            {{else}}
+                                <span class="generator-generation-cell-edit-text">1</span>
+                                <input type="number" id="" value="1" placeholder="Quantity" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table">
+                            {{/if}}
                         </div>
                         <div class="generator-generation-cell mod-generator-generation-cell-price">
-                            <input type="number" id="" value="{{price}}" placeholder="Price" class="generator-generation-input mod-generator-generation-input-table">
+                            {{#if price}}
+                                <span class="generator-generation-cell-edit-text">{{price}}</span>
+                                <input type="number" id="" value="{{price}}" placeholder="Price" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table">
+                            {{else}}
+                                <span class="generator-generation-cell-edit-text">{{amount}}</span>
+                                <input type="number" id="" value="{{amount}}" placeholder="Price" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table">
+                            {{/if}}
                         </div>
                         <div class="generator-generation-cell mod-generator-generation-cell-amount">
-                            <input type="number" id="" value="{{amount}}" placeholder="Amount" class="generator-generation-input mod-generator-generation-input-table">
+                            <span class="generator-generation-cell-edit-text">{{amount}}</span>
+                            <input type="number" id="" value="{{amount}}" placeholder="Amount" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table">
                         </div>
+                        <a href="#" class="generator-generation-row-edit"><span title="Edit this row" class="icon-write"></span></a>
                         <a href="#" class="generator-generation-row-delete"><span title="Remove this row" class="icon-cancel"></span></a>
                     </div>
                 {{/each}}
@@ -58,17 +74,17 @@
             <div class="generator-generation-calculator">
                 <div class="generator-generation-calculator-field mod-generator-generation-calculator-field-subtotal">
                     <div class="generator-generation-calculator-title">Subtotal</div>
-                    <div class="generator-generation-calculator-subtotal">Kshs. 12000</div>
+                    <div class="generator-generation-calculator-subtotal">Kshs. {{ calculateSubtotal final_amount vat }}</div>
                 </div>
                 <div class="generator-generation-calculator-field mod-generator-generation-calculator-field-vat">
                     <div class="generator-generation-calculator-title">VAT</div>
                     <div class="generator-generation-calculator-input">
-                        <input type="number" placeholder="VAT" min="0" max="100" class="generator-generation-input mod-generator-generation-input-calculator"> %
+                        <input type="number" placeholder="VAT" value="{{vat}}" min="0" max="100" class="generator-generation-input mod-generator-generation-input-calculator"> %
                     </div>
                 </div>
                 <div class="generator-generation-calculator-field mod-generator-generation-calculator-field-total">
                     <div class="generator-generation-calculator-title mod-generator-generation-calculator-title-total">Total</div>
-                    <div class="generator-generation-calculator-total">Kshs.12000</div>
+                    <div class="generator-generation-calculator-total">Kshs.{{final_amount}}</div>
                 </div>
             </div>
 
