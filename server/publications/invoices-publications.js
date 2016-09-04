@@ -50,6 +50,10 @@ Meteor.publish('invoices.patient', function (data) {
 
 });
 
+Meteor.publish('invoices.check', function () {
+    return Invoices.find({}, { limit: 1, sort: { invoice_no: -1 }, fields: { invoice_no: 1 }});
+});
+
 function transformInvoices (doc) {
     doc.patient = Patients.findOne({_id: doc.patient_id});
     doc.appointment = Appointments.findOne({_id: doc.appointment_id});

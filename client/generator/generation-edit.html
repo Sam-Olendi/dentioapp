@@ -23,28 +23,31 @@
                     <div class="generator-generation-name mod-generator-generation-name-amount">Amount</div>
                 </div>
 
-                <div class="generator-generation-table-row">
-                    <div class="generator-generation-cell mod-generator-generation-cell-service">
-                        <select title="" id="" class="generator-generation-select mod-generator-generation-select-table">
-                            <option value="None">--Select a service--</option>
-                            <option value="#">Consultation</option>
-                            <option value="#">Dire straits</option>
-                        </select>
+                {{#each treatments}}
+                    <div class="generator-generation-table-row">
+                        <div class="generator-generation-cell mod-generator-generation-cell-service">
+                            <select title="" id="" class="generator-generation-select mod-generator-generation-select-table">
+                                <option value="None">--Select a service--</option>
+                                {{#each services}}
+                                    <option value="{{_id}}">{{service_name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="generator-generation-cell mod-generator-generation-cell-description">
+                            <input type="text" id="" value="{{description}}" placeholder="Service description" class="generator-generation-input mod-generator-generation-input-table">
+                        </div>
+                        <div class="generator-generation-cell mod-generator-generation-cell-quantity">
+                            <input type="number" id="" value="{{quantity}}" placeholder="Quantity" class="generator-generation-input mod-generator-generation-input-table">
+                        </div>
+                        <div class="generator-generation-cell mod-generator-generation-cell-price">
+                            <input type="number" id="" value="{{price}}" placeholder="Price" class="generator-generation-input mod-generator-generation-input-table">
+                        </div>
+                        <div class="generator-generation-cell mod-generator-generation-cell-amount">
+                            <input type="number" id="" value="{{amount}}" placeholder="Amount" class="generator-generation-input mod-generator-generation-input-table">
+                        </div>
+                        <a href="#" class="generator-generation-row-delete"><span title="Remove this row" class="icon-cancel"></span></a>
                     </div>
-                    <div class="generator-generation-cell mod-generator-generation-cell-description">
-                        <input type="text" id="" placeholder="Service description" class="generator-generation-input mod-generator-generation-input-table">
-                    </div>
-                    <div class="generator-generation-cell mod-generator-generation-cell-quantity">
-                        <input type="number" id="" placeholder="Quantity" class="generator-generation-input mod-generator-generation-input-table">
-                    </div>
-                    <div class="generator-generation-cell mod-generator-generation-cell-price">
-                        <input type="number" id="" placeholder="Price" class="generator-generation-input mod-generator-generation-input-table">
-                    </div>
-                    <div class="generator-generation-cell mod-generator-generation-cell-amount">
-                        <input type="number" id="" placeholder="Amount" class="generator-generation-input mod-generator-generation-input-table">
-                    </div>
-                    <a href="#" class="generator-generation-row-delete"><span title="Remove this row" class="icon-cancel"></span></a>
-                </div>
+                {{/each}}
 
             </div>
 
@@ -71,8 +74,11 @@
 
             <div class="generator-generation-bottom">
                 <a href="#" class="button mod-button-generator-go">Preview & Print</a>
+                <a href="#" class="button mod-button-generator-no">Delete this invoice</a>
             </div>
         </div>
+
+
     </div>
 </template>
 
@@ -83,7 +89,7 @@
     </h1>
     <div class="generator-invoice-field">
         <p class="generator-invoice-field-text">Date Issued</p>
-        <input type="text" value="{{convertToMoment date_generated}}" placeholder="Date issued" id="datepicker" class="generator-generation-input mod-generator-generation-input-header generator-generation-datepicker">
+        <input type="text" value="{{convertToMomentWithoutTime date_generated}}" placeholder="Date issued" id="datepicker" class="generator-generation-input mod-generator-generation-input-header generator-generation-datepicker">
     </div>
     <div class="generator-invoice-field">
         <p class="generator-invoice-field-text">Patient Name</p>
@@ -91,11 +97,11 @@
     </div>
     <div class="generator-invoice-field">
         <p class="generator-invoice-field-text">Company</p>
-        <input type="text" value="" placeholder="Company name" class="generator-generation-input mod-generator-generation-input-header">
+        <input type="text" value="{{company.company_name}}" placeholder="Company name" class="generator-generation-input mod-generator-generation-input-header">
     </div>
     <div class="generator-invoice-field">
         <p class="generator-invoice-field-text">Staff Number</p>
-        <input type="text" value="" placeholder="Staff number" class="generator-generation-input mod-generator-generation-input-header">
+        <input type="text" value="{{patient.work.staff_number}}" placeholder="Staff number" class="generator-generation-input mod-generator-generation-input-header">
     </div>
 </template>
 

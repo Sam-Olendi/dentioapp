@@ -1,5 +1,5 @@
 Meteor.publish('treatments.patient', function (patientId) {
-    check(patientId, Match.OneOf(String, undefined));
+    check(patientId, Match.Optional(String, undefined));
 
     var self = this;
     var observer = Treatments.find({patient_id: patientId}).observe({
@@ -19,8 +19,6 @@ Meteor.publish('treatments.patient', function (patientId) {
     });
 
     self.ready();
-
-    //return Treatments.find({patient_id: patientId});
 });
 
 
