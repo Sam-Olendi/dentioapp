@@ -20,6 +20,8 @@ Template.patientsSingle.rendered = function () {
 
 };
 
+
+
 Template.patientHeaderTitle.events({
     'click .single-patient-settings-gear': function (event) {
         event.preventDefault();
@@ -32,6 +34,8 @@ Template.patientHeaderTitle.events({
     }
 });
 
+
+
 Template.patientDeleteModal.events({
     'click .js-patient-delete': function () {
         Meteor.call('DeletePatient', $(event.target).data('id'));
@@ -39,11 +43,14 @@ Template.patientDeleteModal.events({
     }
 });
 
+
+
 Template.patientFilesButton.events({
     'click .js-main-attach-files-trigger': function () {
         openCloseModal('.main-attach-files-modal', '.main-attach-files-modal-content', '.js-close-main-attach-files');
     }
 });
+
 
 
 Template.attachFilesModalUploadSection.onCreated(function () {
@@ -93,6 +100,8 @@ Template.attachFilesModalUploadSection.events({
         }
     }
 });
+
+
 
 Template.patientContent.events({
     'click .single-patient-tabs': function () {

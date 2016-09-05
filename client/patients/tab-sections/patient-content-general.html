@@ -126,10 +126,7 @@
     {{else}}
         <a href="#" class="single-patient-general-link js-patient-add-sex">Add sex</a>
     {{/if}}
-    <select id="patient-add-sex-input" class="input mod-input-edit-patient js-patient-add-sex-input" data-id="{{../_id}}">
-        <option value="Female">Female</option>
-        <option value="Male">Male</option>
-    </select>
+    <input type="text" placeholder="What's {{first_name}}'s sex?" class="input mod-input-edit-patient js-patient-add-sex-input" value="{{sex}}">
 </template>
 
 <template name="singlePatientAge">

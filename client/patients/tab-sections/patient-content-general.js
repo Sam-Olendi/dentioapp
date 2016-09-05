@@ -16,13 +16,12 @@ Template.singlePatientSex.events({
         showInput('.js-patient-add-sex', '.js-patient-add-sex-input');
 
         input.change(function () {
-            //if (inputValue.match(regex)) {
-            //    Meteor.call('singlePatientAddSex', {
-            //        _id: patientId,
-            //        profile: {
-            //            sex: inputValue }
-            //    });
-            //}
+            Meteor.call('AddPatientSex', {
+                patient_id: Session.get('currentPatient'),
+                sex: input.val()
+            });
+
+            input.hide();
         });
     },
 
@@ -31,6 +30,16 @@ Template.singlePatientSex.events({
 
         $(event.target).hide();
         input.show().select();
+
+        input.change(function () {
+            Meteor.call('AddPatientAge', {
+                patient_id: Session.get('currentPatient'),
+                sex: input.val()
+            });
+
+            input.hide();
+            $('.js-single-patient-dblclick-sex').show();
+        });
     }
 });
 
@@ -40,6 +49,15 @@ Template.singlePatientAge.events({
         var input = $('.js-patient-add-age-input');
 
         showInput('.js-patient-add-age', '.js-patient-add-age-input');
+
+        input.change(function () {
+            Meteor.call('AddPatientAge', {
+                patient_id: Session.get('currentPatient'),
+                age: parseInt(input.val())
+            });
+
+            input.hide();
+        });
     },
 
     'dblclick .js-single-patient-dblclick-age': function () {
@@ -47,6 +65,16 @@ Template.singlePatientAge.events({
 
         $(event.target).hide();
         input.show().select();
+
+        input.change(function () {
+            Meteor.call('AddPatientAge', {
+                patient_id: Session.get('currentPatient'),
+                age: parseInt(input.val())
+            });
+
+            input.hide();
+            $('.js-single-patient-dblclick-age').show();
+        });
     }
 });
 
@@ -56,6 +84,15 @@ Template.singlePatientDOB.events({
         var input = $('.js-patient-add-dob-input').datepicker({dateFormat: 'yy mm dd', maxDate: 0});
 
         showInput('.js-patient-add-dob', '.js-patient-add-dob-input');
+
+        input.change(function () {
+            Meteor.call('AddPatientDOB', {
+                patient_id: Session.get('currentPatient'),
+                dob: moment(new Date(input.val()).toISOString()).format('Do MMM YYYY')
+            });
+
+            input.hide();
+        });
     },
 
     'dblclick .js-single-patient-dblclick-dob': function () {
@@ -63,6 +100,16 @@ Template.singlePatientDOB.events({
 
         $(event.target).hide();
         input.show().select();
+
+        input.change(function () {
+            Meteor.call('AddPatientDOB', {
+                patient_id: Session.get('currentPatient'),
+                dob: moment(new Date(input.val()).toISOString()).format('Do MMM YYYY')
+            });
+
+            input.hide();
+            $('.js-single-patient-dblclick-dob').show();
+        });
     }
 });
 
@@ -72,6 +119,15 @@ Template.singlePatientMobile.events({
         var input = $('.js-patient-add-mobile-input');
 
         showInput('.js-patient-add-mobile', '.js-patient-add-mobile-input');
+
+        input.change(function () {
+            Meteor.call('AddPatientMobile', {
+                patient_id: Session.get('currentPatient'),
+                mobile: input.val()
+            });
+
+            input.hide();
+        });
     },
 
     'dblclick .js-single-patient-dblclick-mobile': function () {
@@ -79,6 +135,16 @@ Template.singlePatientMobile.events({
 
         $(event.target).hide();
         input.show().select();
+
+        input.change(function () {
+            Meteor.call('AddPatientMobile', {
+                patient_id: Session.get('currentPatient'),
+                mobile: input.val()
+            });
+
+            input.hide();
+            $('.js-single-patient-dblclick-mobile').show();
+        });
     }
 });
 
@@ -88,6 +154,15 @@ Template.singlePatientPhone.events({
         var input = $('.js-patient-add-phone-input');
 
         showInput('.js-patient-add-phone', '.js-patient-add-phone-input');
+
+        input.change(function () {
+            Meteor.call('AddPatientPhone', {
+                patient_id: Session.get('currentPatient'),
+                phone: input.val()
+            });
+
+            input.hide();
+        });
     },
 
     'dblclick .js-single-patient-dblclick-phone': function () {
@@ -95,6 +170,16 @@ Template.singlePatientPhone.events({
 
         $(event.target).hide();
         input.show().select();
+
+        input.change(function () {
+            Meteor.call('AddPatientPhone', {
+                patient_id: Session.get('currentPatient'),
+                phone: input.val()
+            });
+
+            input.hide();
+            $('.js-single-patient-dblclick-phone').show();
+        });
     }
 });
 
@@ -104,6 +189,15 @@ Template.singlePatientEmail.events({
         var input = $('.js-patient-add-email-input');
 
         showInput('.js-patient-add-email', '.js-patient-add-email-input');
+
+        input.change(function () {
+            Meteor.call('AddPatientEmail', {
+                patient_id: Session.get('currentPatient'),
+                email: input.val()
+            });
+
+            input.hide();
+        });
     },
 
     'dblclick .js-single-patient-dblclick-email': function () {
@@ -111,6 +205,16 @@ Template.singlePatientEmail.events({
 
         $(event.target).hide();
         input.show().select();
+
+        input.change(function () {
+            Meteor.call('AddPatientEmail', {
+                patient_id: Session.get('currentPatient'),
+                email: input.val()
+            });
+
+            input.hide();
+            $('.js-single-patient-dblclick-email').show();
+        });
     }
 });
 
@@ -120,6 +224,15 @@ Template.singlePatientPhysicalAddress.events({
         var input = $('.js-patient-add-address-input');
 
         showInput('.js-patient-add-address', '.js-patient-add-address-input');
+
+        input.change(function () {
+            Meteor.call('AddPatientLocation', {
+                patient_id: Session.get('currentPatient'),
+                location: input.val()
+            });
+
+            input.hide();
+        });
     },
 
     'dblclick .js-single-patient-dblclick-address': function () {
@@ -127,6 +240,16 @@ Template.singlePatientPhysicalAddress.events({
 
         $(event.target).hide();
         input.show().select();
+
+        input.change(function () {
+            Meteor.call('AddPatientLocation', {
+                patient_id: Session.get('currentPatient'),
+                location: input.val()
+            });
+
+            input.hide();
+            $('.js-single-patient-dblclick-address').show();
+        });
     }
 });
 
@@ -136,6 +259,15 @@ Template.singlePatientPostalAddress.events({
         var input = $('.js-patient-add-postal-input');
 
         showInput('.js-patient-add-postal', '.js-patient-add-postal-input');
+
+        input.change(function () {
+            Meteor.call('AddPatientPostal', {
+                patient_id: Session.get('currentPatient'),
+                postal: input.val()
+            });
+
+            input.hide();
+        });
     },
 
     'dblclick .js-single-patient-dblclick-postal': function () {
@@ -143,6 +275,16 @@ Template.singlePatientPostalAddress.events({
 
         $(event.target).hide();
         input.show().select();
+
+        input.change(function () {
+            Meteor.call('AddPatientPostal', {
+                patient_id: Session.get('currentPatient'),
+                postal: input.val()
+            });
+
+            input.hide();
+            $('.js-single-patient-dblclick-postal').show();
+        });
     }
 });
 
@@ -152,6 +294,15 @@ Template.singlePatientCompany.events({
         var input = $('.js-patient-add-workplace-input');
 
         showInput('.js-patient-add-workplace', '.js-patient-add-workplace-input');
+
+        input.change(function () {
+            Meteor.call('AddPatientWorkplace', {
+                patient_id: Session.get('currentPatient'),
+                workplace: input.val()
+            });
+
+            input.hide();
+        });
     },
 
     'dblclick .js-single-patient-dblclick-workplace': function () {
@@ -159,6 +310,16 @@ Template.singlePatientCompany.events({
 
         $(event.target).hide();
         input.show().select();
+
+        input.change(function () {
+            Meteor.call('AddPatientWorkplace', {
+                patient_id: Session.get('currentPatient'),
+                workplace: input.val()
+            });
+
+            input.hide();
+            $('.js-single-patient-dblclick-workplace').show();
+        });
     }
 });
 
@@ -168,6 +329,15 @@ Template.singlePatientStaffNumber.events({
         var input = $('.js-patient-add-staffno-input');
 
         showInput('.js-patient-add-staffno', '.js-patient-add-staffno-input');
+
+        input.change(function () {
+            Meteor.call('AddPatientStaffNumber', {
+                patient_id: Session.get('currentPatient'),
+                staff_number: input.val()
+            });
+
+            input.hide();
+        });
     },
 
     'dblclick .js-single-patient-dblclick-staffno': function () {
@@ -175,6 +345,16 @@ Template.singlePatientStaffNumber.events({
 
         $(event.target).hide();
         input.show().select();
+
+        input.change(function () {
+            Meteor.call('AddPatientStaffNumber', {
+                patient_id: Session.get('currentPatient'),
+                staff_number: input.val()
+            });
+
+            input.hide();
+            $('.js-single-patient-dblclick-staffno').show();
+        });
     }
 });
 
@@ -184,6 +364,15 @@ Template.singlePatientInsurance.events({
         var input = $('.js-patient-add-insurance-input');
 
         showInput('.js-patient-add-insurance', '.js-patient-add-insurance-input');
+
+        input.change(function () {
+            Meteor.call('AddPatientInsurance', {
+                patient_id: Session.get('currentPatient'),
+                insurance: input.val()
+            });
+
+            input.hide();
+        });
     },
 
     'dblclick .js-single-patient-dblclick-insurance': function () {
@@ -191,6 +380,16 @@ Template.singlePatientInsurance.events({
 
         $(event.target).hide();
         input.show().select();
+
+        input.change(function () {
+            Meteor.call('AddPatientInsurance', {
+                patient_id: Session.get('currentPatient'),
+                insurance: input.val()
+            });
+
+            input.hide();
+            $('.js-single-patient-dblclick-insurance').show();
+        });
     }
 });
 
@@ -200,6 +399,15 @@ Template.singlePatientInsuranceCover.events({
         var input = $('.js-patient-add-cover-input');
 
         showInput('.js-patient-add-cover', '.js-patient-add-cover-input');
+
+        input.change(function () {
+            Meteor.call('AddPatientCover', {
+                patient_id: Session.get('currentPatient'),
+                cover: parseInt(input.val())
+            });
+
+            input.hide();
+        });
     },
 
     'dblclick .js-single-patient-dblclick-cover': function () {
@@ -207,6 +415,16 @@ Template.singlePatientInsuranceCover.events({
 
         $(event.target).hide();
         input.show().select();
+
+        input.change(function () {
+            Meteor.call('AddPatientCover', {
+                patient_id: Session.get('currentPatient'),
+                cover: parseInt(input.val())
+            });
+
+            input.hide();
+            $('.js-single-patient-dblclick-cover').show();
+        });
     }
 });
 
@@ -216,6 +434,15 @@ Template.singlePatientKinName.events({
         var input = $('.js-patient-add-kin-name-input');
 
         showInput('.js-patient-add-kin-name', '.js-patient-add-kin-name-input');
+
+        input.change(function () {
+            Meteor.call('AddPatientKinName', {
+                patient_id: Session.get('currentPatient'),
+                name: input.val()
+            });
+
+            input.hide();
+        });
     },
 
     'dblclick .js-single-patient-dblclick-kin-name': function () {
@@ -223,6 +450,16 @@ Template.singlePatientKinName.events({
 
         $(event.target).hide();
         input.show().select();
+
+        input.change(function () {
+            Meteor.call('AddPatientKinName', {
+                patient_id: Session.get('currentPatient'),
+                name: input.val()
+            });
+
+            input.hide();
+            $('.js-single-patient-dblclick-kin-name').show();
+        });
     }
 });
 
@@ -232,6 +469,15 @@ Template.singlePatientKinPhone.events({
         var input = $('.js-patient-add-kin-phone-input');
 
         showInput('.js-patient-add-kin-phone', '.js-patient-add-kin-phone-input');
+
+        input.change(function () {
+            Meteor.call('AddPatientKinPhone', {
+                patient_id: Session.get('currentPatient'),
+                phone: input.val()
+            });
+
+            input.hide();
+        });
     },
 
     'dblclick .js-single-patient-dblclick-kin-phone': function () {
@@ -239,6 +485,16 @@ Template.singlePatientKinPhone.events({
 
         $(event.target).hide();
         input.show().select();
+
+        input.change(function () {
+            Meteor.call('AddPatientKinPhone', {
+                patient_id: Session.get('currentPatient'),
+                phone: input.val()
+            });
+
+            input.hide();
+            $('.js-single-patient-dblclick-kin-phone').show();
+        });
     }
 });
 
@@ -248,6 +504,15 @@ Template.singlePatientKinLocation.events({
         var input = $('.js-patient-add-kin-location-input');
 
         showInput('.js-patient-add-kin-location', '.js-patient-add-kin-location-input');
+
+        input.change(function () {
+            Meteor.call('AddPatientKinLocation', {
+                patient_id: Session.get('currentPatient'),
+                location: input.val()
+            });
+
+            input.hide();
+        });
     },
 
     'dblclick .js-single-patient-dblclick-kin-location': function () {
@@ -255,5 +520,15 @@ Template.singlePatientKinLocation.events({
 
         $(event.target).hide();
         input.show().select();
+
+        input.change(function () {
+            Meteor.call('AddPatientKinLocation', {
+                patient_id: Session.get('currentPatient'),
+                location: input.val()
+            });
+
+            input.hide();
+            $('.js-single-patient-dblclick-kin-location').show();
+        });
     }
 });
