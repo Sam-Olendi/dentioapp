@@ -36,32 +36,35 @@
                         </div>
                         <div class="generator-generation-cell mod-generator-generation-cell-description">
                             <span class="generator-generation-cell-edit-text">{{description}}</span>
-                            <input type="text" id="" value="{{description}}" placeholder="Service description" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table">
+                            <input type="text" id="" value="{{description}}" placeholder="Service description" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table generator-generation-input-description">
                         </div>
                         <div class="generator-generation-cell mod-generator-generation-cell-quantity">
                             {{#if quantity}}
                                 <span class="generator-generation-cell-edit-text">{{quantity}}</span>
-                                <input type="number" id="" value="{{quantity}}" placeholder="Quantity" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table">
+                                <input type="number" id="" value="{{quantity}}" placeholder="Quantity" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table generator-generation-input-quantity">
                             {{else}}
                                 <span class="generator-generation-cell-edit-text">1</span>
-                                <input type="number" id="" value="1" placeholder="Quantity" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table">
+                                <input type="number" id="" value="1" placeholder="Quantity" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table generator-generation-input-quantity">
                             {{/if}}
                         </div>
                         <div class="generator-generation-cell mod-generator-generation-cell-price">
                             {{#if price}}
                                 <span class="generator-generation-cell-edit-text">{{price}}</span>
-                                <input type="number" id="" value="{{price}}" placeholder="Price" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table">
+                                <input type="number" id="" value="{{price}}" placeholder="Price" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table generator-generation-input-price">
                             {{else}}
                                 <span class="generator-generation-cell-edit-text">{{amount}}</span>
-                                <input type="number" id="" value="{{amount}}" placeholder="Price" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table">
+                                <input type="number" id="" value="{{amount}}" placeholder="Price" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table generator-generation-input-price">
                             {{/if}}
                         </div>
                         <div class="generator-generation-cell mod-generator-generation-cell-amount">
                             <span class="generator-generation-cell-edit-text">{{amount}}</span>
-                            <input type="number" id="" value="{{amount}}" placeholder="Amount" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table">
+                            <input type="number" id="" value="{{amount}}" placeholder="Amount" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table generator-generation-input-amount">
                         </div>
-                        <a href="#" class="generator-generation-row-edit"><span title="Edit this row" class="icon-write"></span></a>
-                        <a href="#" class="generator-generation-row-delete"><span title="Remove this row" class="icon-cancel"></span></a>
+                        <div class="generator-generation-table-actions">
+                            <a href="#" class="generator-generation-row-edit"><span title="Edit this row" class="icon-write"></span></a>
+                            <a href="#" class="generator-generation-row-save"><span title="Save changes" class="icon-checkmark"></span></a>
+                            <a href="#" class="generator-generation-row-delete"><span title="Remove this row" class="icon-cancel"></span></a>
+                        </div>
                     </div>
                 {{/each}}
 
