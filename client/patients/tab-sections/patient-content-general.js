@@ -32,7 +32,7 @@ Template.singlePatientSex.events({
         input.show().select();
 
         input.change(function () {
-            Meteor.call('AddPatientAge', {
+            Meteor.call('AddPatientSex', {
                 patient_id: Session.get('currentPatient'),
                 sex: input.val()
             });

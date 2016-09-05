@@ -247,5 +247,75 @@ Meteor.methods({
                 'next_of_kin.physical_location': data.location
             }
         });
+    },
+
+    'AddPatientIllness': function (data) {
+
+        check (data, {
+            patient_id: String,
+            significant_illnesses: String
+        });
+
+        return Patients.update(data.patient_id, {
+            $push: {
+                'medical_history.significant_illnesses' : data.significant_illnesses
+            }
+        });
+    },
+
+    'AddPatientSurgery': function (data) {
+
+        check (data, {
+            patient_id: String,
+            significant_surgeries: String
+        });
+
+        return Patients.update(data.patient_id, {
+            $push: {
+                "medical_history.significant_surgeries" : data.significant_surgeries
+            }
+        });
+    },
+
+    'AddPatientAllergy': function (data) {
+
+        check (data, {
+            patient_id: String,
+            allergies: String
+        });
+
+        return Patients.update(data.patient_id, {
+            $push: {
+                "medical_history.allergies" : data.allergies
+            }
+        });
+    },
+
+    'AddPatientCondition': function (data) {
+
+        check (data, {
+            patient_id: String,
+            present_conditions: String
+        });
+
+        return Patients.update(data.patient_id, {
+            $push: {
+                "medical_history.present_conditions" : data.present_conditions
+            }
+        });
+    },
+
+    'AddPatientMedication': function (data) {
+
+        check (data, {
+            patient_id: String,
+            current_medication: String
+        });
+
+        return Patients.update(data.patient_id, {
+            $push: {
+                "medical_history.current_medication" : data.current_medication
+            }
+        });
     }
 });
