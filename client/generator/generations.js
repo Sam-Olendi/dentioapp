@@ -1,5 +1,17 @@
 Session.setDefault('generationsLimit', 10);
 
+Template.generatorSearch.helpers({
+    generationsIndex: function () {
+        return GenerationsIndex;
+    }
+});
+
+Template.generatorSearch.events({
+    'keyup input': function () {
+        $('.body-search-form-results').show();
+    }
+});
+
 Template.generatorTable.onCreated(function () {
     var self = this;
     self.autorun(function () {

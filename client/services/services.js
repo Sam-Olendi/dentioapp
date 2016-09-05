@@ -68,6 +68,19 @@ Template.servicesNewModal.events({
    }
 });
 
+Template.servicesSearch.helpers({
+    servicesIndex: function () {
+        return ServicesIndex;
+    }
+});
+
+Template.servicesSearch.events({
+    'keyup input': function () {
+        $('.body-search-form-results').show();
+    }
+});
+
+
 Template.servicesContent.onCreated(function () {
     var self = Template.instance();
 

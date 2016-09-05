@@ -34,7 +34,7 @@
         <ul class="body-search-form-results">
             {{#EasySearch.Each index=invoicesIndex }}
                 <li class="body-search-result">
-                    <a href="/patients/{{_id}}" class="body-search-result-link" data-id="{{_id}}"><span class="body-search-result-helper">{{invoice_no}}</span> {{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}} <span class="body-search-result-helper">{{convertToMomentWithoutTime date_issued}}</span></a>
+                    <a href="#" class="body-search-result-link" data-id="{{_id}}"><span class="body-search-result-helper">{{invoice_no}}</span> {{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}} <span class="body-search-result-helper">{{convertToMomentWithoutTime date_issued}}</span></a>
                 </li>
             {{/EasySearch.Each}}
         </ul>

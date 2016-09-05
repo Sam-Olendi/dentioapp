@@ -9,9 +9,7 @@
     </div>
 
     <div class="generator-content">
-        <form class="generator-search">
-            {{> generatorSearch}}
-        </form>
+        {{> generatorSearch}}
 
         {{> generatorTable}}
 
@@ -27,8 +25,19 @@
 </template>
 
 <template name="generatorSearch">
-    <span class="icon-search"></span>
-    <input type="search" placeholder="Search for an invoice" class="generator-search-bar">
+    <div class="body-search">
+        <div class="body-search-form">
+            <span class="icon-search"></span>
+            {{> EasySearch.Input index=generationsIndex }}
+        </div>
+        <ul class="body-search-form-results">
+            {{#EasySearch.Each index=generationsIndex }}
+                <li class="body-search-result">
+                    <a href="#" class="body-search-result-link" data-id="{{_id}}"><span class="body-search-result-helper">{{generation_no}}</span> {{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}} <span class="body-search-result-helper">{{convertToMomentWithoutTime date_generated}}</span></a>
+                </li>
+            {{/EasySearch.Each}}
+        </ul>
+    </div>
 </template>
 
 <template name="generatorTable">

@@ -7,10 +7,9 @@
             <div class="body-header-button">
                 {{> servicesNewButton }}
             </div>
-            <div class="body-search-form">
-                <span class="icon-search"></span>
-                <input type="search" placeholder="Search for a service..." class="body-search-box">
-            </div>
+
+            {{> servicesSearch }}
+
         </header>
         <section class="body-flesh mod-body-flesh-services">
             {{> servicesContent }}
@@ -54,6 +53,22 @@
 
             </div>
         </div>
+    </div>
+</template>
+
+<template name="servicesSearch">
+    <div class="body-search">
+        <div class="body-search-form">
+            <span class="icon-search"></span>
+            {{> EasySearch.Input index=servicesIndex }}
+        </div>
+        <ul class="body-search-form-results">
+            {{#EasySearch.Each index=servicesIndex }}
+                <li class="body-search-result">
+                    <a href="#" class="body-search-result-link" data-id="{{_id}}">{{service_name}}</a>
+                </li>
+            {{/EasySearch.Each}}
+        </ul>
     </div>
 </template>
 
