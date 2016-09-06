@@ -60,5 +60,31 @@ Meteor.methods({
 
         return Treatments.insert(data);
 
+    },
+
+    'UpdateGeneratedTreatment': function (data) {
+
+        check (data, {
+            treatment_id: String,
+            service_id: String,
+            quantity: Number,
+            price: Number,
+            amount: Number
+        });
+
+        return Treatments.update(data.treatment_id, {
+            $set: {
+                service_id: data.service_id,
+                quantity: data.quantity,
+                price: data.price,
+                amount: data.amount
+            }
+        });
+
+    },
+
+    'DeleteGeneratedTreatment': function (treatment_id) {
+        check (treatment_id, String);
+        return Treatments.remove(treatment_id);
     }
 });

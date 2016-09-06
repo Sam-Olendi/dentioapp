@@ -15,85 +15,19 @@
             </div>
 
             <div class="generator-generation-table">
-                <div class="generator-generation-table-head">
-                    <div class="generator-generation-name mod-generator-generation-name-item">Service</div>
-                    <div class="generator-generation-name mod-generator-generation-name-description">Description</div>
-                    <div class="generator-generation-name mod-generator-generation-name-quantity">Quantity</div>
-                    <div class="generator-generation-name mod-generator-generation-name-price">Price</div>
-                    <div class="generator-generation-name mod-generator-generation-name-amount">Amount</div>
-                </div>
-
-                {{#each treatments}}
-                    <div class="generator-generation-table-row generator-generation-table-row-edit">
-                        <div class="generator-generation-cell mod-generator-generation-cell-service">
-                            <span class="generator-generation-cell-edit-text">{{findService service_id}}</span>
-                            <select title="" id="" class="generator-generation-select generator-generation-select-edit mod-generator-generation-select-table">
-                                <option value="None">--Select a service--</option>
-                                {{#each services}}
-                                    <option class="generator-generation-options" value="{{_id}}">{{service_name}}</option>
-                                {{/each}}
-                            </select>
-                        </div>
-                        <div class="generator-generation-cell mod-generator-generation-cell-description">
-                            <span class="generator-generation-cell-edit-text">{{description}}</span>
-                            <input type="text" id="" value="{{description}}" placeholder="Service description" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table generator-generation-input-description">
-                        </div>
-                        <div class="generator-generation-cell mod-generator-generation-cell-quantity">
-                            {{#if quantity}}
-                                <span class="generator-generation-cell-edit-text">{{quantity}}</span>
-                                <input type="number" id="" value="{{quantity}}" placeholder="Quantity" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table generator-generation-input-quantity">
-                            {{else}}
-                                <span class="generator-generation-cell-edit-text">1</span>
-                                <input type="number" id="" value="1" placeholder="Quantity" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table generator-generation-input-quantity">
-                            {{/if}}
-                        </div>
-                        <div class="generator-generation-cell mod-generator-generation-cell-price">
-                            {{#if price}}
-                                <span class="generator-generation-cell-edit-text">{{price}}</span>
-                                <input type="number" id="" value="{{price}}" placeholder="Price" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table generator-generation-input-price">
-                            {{else}}
-                                <span class="generator-generation-cell-edit-text">{{amount}}</span>
-                                <input type="number" id="" value="{{amount}}" placeholder="Price" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table generator-generation-input-price">
-                            {{/if}}
-                        </div>
-                        <div class="generator-generation-cell mod-generator-generation-cell-amount">
-                            <span class="generator-generation-cell-edit-text">{{amount}}</span>
-                            <input type="number" id="" value="{{amount}}" placeholder="Amount" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table generator-generation-input-amount">
-                        </div>
-                        <div class="generator-generation-table-actions">
-                            <a href="#" class="generator-generation-row-edit"><span title="Edit this row" class="icon-write"></span></a>
-                            <a href="#" class="generator-generation-row-save"><span title="Save changes" class="icon-checkmark"></span></a>
-                            <a href="#" class="generator-generation-row-delete"><span title="Remove this row" class="icon-cancel"></span></a>
-                        </div>
-                    </div>
-                {{/each}}
-
+                {{> generationEditTable }}
             </div>
 
             <div class="generator-generation-controls">
-                <a href="#" class="generator-generation-add-control"><span title="Add a row" class="icon-add"></span></a>
+                {{> generationEditControls }}
             </div>
 
             <div class="generator-generation-calculator">
-                <div class="generator-generation-calculator-field mod-generator-generation-calculator-field-subtotal">
-                    <div class="generator-generation-calculator-title">Subtotal</div>
-                    <div class="generator-generation-calculator-subtotal">Kshs. {{ calculateSubtotal final_amount vat }}</div>
-                </div>
-                <div class="generator-generation-calculator-field mod-generator-generation-calculator-field-vat">
-                    <div class="generator-generation-calculator-title">VAT</div>
-                    <div class="generator-generation-calculator-input">
-                        <input type="number" placeholder="VAT" value="{{vat}}" min="0" max="100" class="generator-generation-input mod-generator-generation-input-calculator"> %
-                    </div>
-                </div>
-                <div class="generator-generation-calculator-field mod-generator-generation-calculator-field-total">
-                    <div class="generator-generation-calculator-title mod-generator-generation-calculator-title-total">Total</div>
-                    <div class="generator-generation-calculator-total">Kshs.{{final_amount}}</div>
-                </div>
+                {{> generationEditCalculator }}
             </div>
 
             <div class="generator-generation-bottom">
-                <a href="#" class="button mod-button-generator-go">Preview & Print</a>
-                <a href="#" class="button mod-button-generator-no">Delete this invoice</a>
+                {{> generationEditButtons }}
             </div>
         </div>
 
@@ -139,12 +73,107 @@
     </div>
     <div class="generator-invoice-address-to">
         <p class="generator-invoice-address-title">To:</p>
-        <!--<address class="generator-invoice-address-information">-->
-        <!--{{patient.profile.surname}} {{patient.profile.middle_name}} {{patient.profile.first_name}} <br>-->
-        <!--{{{patient.contacts.postal_address}}}-->
-        <!--</address>-->
-        <textarea name="" id="" cols="30" rows="10" placeholder="Recipient's address" class="generator-invoice-address-textarea">{{patient.profile.surname}} {{patient.profile.middle_name}} {{patient.profile.first_name}}
+        <textarea cols="30" rows="10" placeholder="Recipient's address" class="generator-invoice-address-textarea">
+            {{patient.profile.surname}} {{patient.profile.middle_name}} {{patient.profile.first_name}}
             {{{patient.contacts.postal_address}}}
         </textarea>
     </div>
+</template>
+
+<template name="generationEditTable">
+    <div class="generator-generation-table-head">
+        <div class="generator-generation-name mod-generator-generation-name-item">Service</div>
+        <div class="generator-generation-name mod-generator-generation-name-description">Description</div>
+        <div class="generator-generation-name mod-generator-generation-name-quantity">Quantity</div>
+        <div class="generator-generation-name mod-generator-generation-name-price">Price</div>
+        <div class="generator-generation-name mod-generator-generation-name-amount">Amount</div>
+    </div>
+
+    {{> generationEditRows }}
+</template>
+
+<template name="generationEditRows">
+    {{#each treatments}}
+        <div class="generator-generation-table-row generator-generation-table-row-edit" data-id="{{_id}}">
+            <div class="generator-generation-cell mod-generator-generation-cell-service">
+                <span class="generator-generation-cell-edit-text">{{service_id}}</span>
+                <select title="" id="" class="generator-generation-select generator-generation-select-edit mod-generator-generation-select-table">
+                    <option value="None">--Select a service--</option>
+                    {{#each services}}
+                        <option class="generator-generation-options" value="{{_id}}">{{service_name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="generator-generation-cell mod-generator-generation-cell-description">
+                <span class="generator-generation-cell-edit-text">{{description}}</span>
+                <input type="text" value="{{description}}" placeholder="Service description" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table generator-generation-input-description">
+            </div>
+            <div class="generator-generation-cell mod-generator-generation-cell-quantity">
+                {{#if quantity}}
+                    <span class="generator-generation-cell-edit-text">{{quantity}}</span>
+                    <input type="number" value="{{quantity}}" placeholder="Quantity" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table generator-generation-input-quantity">
+                {{else}}
+                    <span class="generator-generation-cell-edit-text">1</span>
+                    <input type="number" value="1" placeholder="Quantity" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table generator-generation-input-quantity">
+                {{/if}}
+            </div>
+            <div class="generator-generation-cell mod-generator-generation-cell-price">
+                {{#if price}}
+                    <span class="generator-generation-cell-edit-text">{{price}}</span>
+                    <input type="number" value="{{price}}" placeholder="Price" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table generator-generation-input-price">
+                {{else}}
+                    <span class="generator-generation-cell-edit-text">{{amount}}</span>
+                    <input type="number" value="{{amount}}" placeholder="Price" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table generator-generation-input-price">
+                {{/if}}
+            </div>
+            <div class="generator-generation-cell mod-generator-generation-cell-amount">
+                <span class="generator-generation-cell-edit-text">{{amount}}</span>
+                <input type="number" value="{{amount}}" placeholder="Amount" class="generator-generation-input generator-generation-input-edit mod-generator-generation-input-table generator-generation-input-amount">
+            </div>
+            <div class="generator-generation-table-actions">
+                <a href="#" class="generator-generation-row-edit"><span title="Edit this row" class="icon-write"></span></a>
+                <a href="#" class="generator-generation-row-save"><span title="Save changes" class="icon-checkmark"></span></a>
+                <a href="#" class="generator-generation-row-delete"><span title="Remove this row" class="icon-cancel"></span></a>
+            </div>
+        </div>
+    {{/each}}
+</template>
+
+<template name="generationEditControls">
+    <a href="#" class="generator-generation-add-control"><span title="Add a row" class="icon-add"></span></a>
+</template>
+
+<template name="generationEditCalculator">
+    <div class="generator-generation-calculator-field mod-generator-generation-calculator-field-subtotal">
+        <div class="generator-generation-calculator-title">Subtotal</div>
+        {{#if subtotal}}
+            <div class="generator-generation-calculator-subtotal">Kshs. {{ subtotal }}</div>
+        {{else}}
+            <div class="generator-generation-calculator-subtotal">Kshs. {{ calculateSubtotal final_amount vat }}</div>
+        {{/if}}
+    </div>
+    <div class="generator-generation-calculator-field mod-generator-generation-calculator-field-vat">
+        <div class="generator-generation-calculator-title">VAT</div>
+        <div class="generator-generation-calculator-input">
+            <input type="number" placeholder="VAT" value="{{vat}}" min="0" max="100" class="generator-generation-input mod-generator-generation-input-calculator generator-generation-input-vat"> %
+        </div>
+    </div>
+    <div class="generator-generation-calculator-field mod-generator-generation-calculator-field-total">
+        <div class="generator-generation-calculator-title mod-generator-generation-calculator-title-total">Total</div>
+        {{#if total}}
+            <div class="generator-generation-calculator-total">Kshs. {{ total }}</div>
+        {{else}}
+            <div class="generator-generation-calculator-total">Kshs. {{ final_amount }}</div>
+        {{/if}}
+    </div>
+</template>
+
+<template name="generationEditButtons">
+    <p>
+        <a href="#" class="button mod-button-edit">Save changes</a>
+        <a href="#" class="button mod-button-generator-go">Preview & Print</a>
+    </p>
+    <p>
+        <a href="#" class="button mod-button-delete-text js-delete-generation">Delete this invoice</a>
+    </p>
 </template>

@@ -14,5 +14,10 @@ Meteor.methods({
 
        return Generations.insert(data);
 
-   }
+   },
+
+    'DeleteGeneration': function (id) {
+        check (id, String);
+        return Generations.remove(id)
+    }
 });

@@ -13,7 +13,9 @@ Template.registerHelper('convertToMomentWithoutTime', function (dateString) {
 });
 
 Template.registerHelper('findService', function (serviceId) {
-    return Services.findOne({_id: serviceId}).service_name;
+    if (Services.findOne({_id: serviceId})) {
+        return Services.findOne({_id: serviceId}).service_name;
+    }
 });
 
 Template.registerHelper('calculateSubtotal', function (totalAmount, vat) {

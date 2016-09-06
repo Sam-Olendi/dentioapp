@@ -76,7 +76,6 @@ Meteor.publish('patients.all', function (limit) {
 
 Meteor.publish('patients.single', function (patientId) {
     check(patientId, String);
-    //return Patients.find({_id: patientId});
 
     var self = this;
     var observer = Patients.find({_id: patientId}).observe({
