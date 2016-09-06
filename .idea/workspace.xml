@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1e783e81-5958-4c2d-ad95-870373fd6f58" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/generator/generation-edit.html" afterPath="$PROJECT_DIR$/client/generator/generation-edit.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/generator/generation-edit.js" afterPath="$PROJECT_DIR$/client/generator/generation-edit.js" />
     </list>
     <ignored path="dentioapp.iws" />
@@ -25,24 +24,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="generation-edit.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="generation-edit.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/generator/generation-edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6254237">
+            <state vertical-scroll-proportion="-35.807693">
               <caret line="193" column="76" selection-start-line="193" selection-start-column="56" selection-end-line="193" selection-end-column="76" />
               <folding>
-                <element signature="n#template#6;n#!!top" expanded="false" />
+                <element signature="n#template#7;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="generation-edit.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="generation-edit.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/generator/generation-edit.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="71" column="50" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="50" />
-              <folding />
+            <state vertical-scroll-proportion="0.42045453">
+              <caret line="154" column="0" selection-start-line="154" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
+              <folding>
+                <element signature="e#47#238#0" expanded="false" />
+                <element signature="e#7962#8059#0" expanded="false" />
+                <element signature="e#8114#8369#0" expanded="false" />
+                <element signature="e#8409#9152#0" expanded="false" />
+                <element signature="e#9403#9957#0" expanded="false" />
+                <element signature="e#9999#10206#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -426,7 +432,13 @@
       <option name="project" value="LOCAL" />
       <updated>1473200719284</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Add a delete generation confirmation modal">
+      <created>1473201421092</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1473201421092</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -484,11 +496,12 @@
     <MESSAGE value="Allow user to add medical history properties" />
     <MESSAGE value="Display single generation treatments" />
     <MESSAGE value="Delete a generation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete a generation" />
+    <MESSAGE value="Add a delete generation confirmation modal" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add a delete generation confirmation modal" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="18" />
+      <option name="time" value="19" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -965,20 +978,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/generator/generation-edit.js">
+    <entry file="file://$PROJECT_DIR$/client/generator/generation-edit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="71" column="50" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="50" />
-          <folding />
+        <state vertical-scroll-proportion="-35.807693">
+          <caret line="193" column="76" selection-start-line="193" selection-start-column="56" selection-end-line="193" selection-end-column="76" />
+          <folding>
+            <element signature="n#template#7;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/generator/generation-edit.html">
+    <entry file="file://$PROJECT_DIR$/client/generator/generation-edit.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6254237">
-          <caret line="193" column="76" selection-start-line="193" selection-start-column="56" selection-end-line="193" selection-end-column="76" />
+        <state vertical-scroll-proportion="0.42045453">
+          <caret line="154" column="0" selection-start-line="154" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
           <folding>
-            <element signature="n#template#6;n#!!top" expanded="false" />
+            <element signature="e#47#238#0" expanded="false" />
+            <element signature="e#7962#8059#0" expanded="false" />
+            <element signature="e#8114#8369#0" expanded="false" />
+            <element signature="e#8409#9152#0" expanded="false" />
+            <element signature="e#9403#9957#0" expanded="false" />
+            <element signature="e#9999#10206#0" expanded="false" />
           </folding>
         </state>
       </provider>
