@@ -53,12 +53,27 @@ Template.generationEditRows.events({
 
 
 Template.generationEditButtons.events({
-    'click .js-delete-generation': function (event) {
+    'click .js-delete-generation-confirmation': function (event) {
         event.preventDefault();
 
+        $('.generation-delete-modal').addClass('modal-is-active');
+        $('.generation-delete-modal-content').addClass('modal-content-is-active');
+
+        $('.modal-close, .js-cancel-generation-delete').click(function () {
+            $('.body-error').hide();
+
+            $('.generation-delete-modal').removeClass('modal-is-active');
+                $('.generation-delete-modal-content').removeClass('modal-content-is-active');
+        });
+    }
+});
+
+Template.generationDeleteModal.events({
+    'click .js-generation-delete': function (event) {
         var generationId = $(event.target).data('id');
         Router.go('/generator');
 
         Meteor.call('DeleteGeneration', generationId);
     }
+
 });

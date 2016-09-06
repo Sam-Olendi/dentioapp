@@ -1,6 +1,8 @@
 <template name="generationEdit">
     <div class="generator-generation">
 
+        {{> generationDeleteModal }}
+
         <div class="generator-generation-top">
             <a href="/generator" class="button mod-button-generator-back"><span class="icon-arrow-left"></span>Back to Invoice List</a>
         </div>
@@ -174,6 +176,26 @@
         <a href="#" class="button mod-button-generator-go">Preview & Print</a>
     </p>
     <p>
-        <a href="#" data-id="{{_id}}" class="button mod-button-delete-text js-delete-generation">Delete this invoice</a>
+        <a href="#" data-id="{{_id}}" class="button mod-button-delete-text js-delete-generation-confirmation">Delete this invoice</a>
     </p>
+
+</template>
+
+<template name="generationDeleteModal">
+    <div id="generation-delete-modal" class="modal generation-delete-modal" role="dialog" aria-hidden="true">
+        <div class="modal-dialog generation-delete-modal-dialog">
+            <div class="modal-content generation-delete-modal-content">
+                <a href="#" class="modal-close"><span class="icon-cancel"></span></a>
+                <h2 class="modal-content-title">Delete this Invoice</h2>
+
+                <p class="modal-content-text">You are about to delete this invoice? This action cannot be reversed.</p>
+
+                <div class="modal-button-group">
+                    <button class="button mod-button-no js-generation-delete" data-id="{{_id}}">Yes. Delete this generation</button>
+                    <button class="button mod-button-cancel js-cancel-generation-delete" type="button">Cancel</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </template>
