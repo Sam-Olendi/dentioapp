@@ -16,8 +16,12 @@ Meteor.methods({
 
    },
 
-    'DeleteGeneration': function (id) {
-        check (id, String);
-        return Generations.remove(id)
+    'DeleteGeneration': function (generationId) {
+        check (generationId, String);
+
+        var generationNo = Generations.findOne({_id: generationId}).generation_no;
+
+        Treatments.remove({generation_no: generationNo});
+        return Generations.remove(generationId);
     }
 });
