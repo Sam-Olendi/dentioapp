@@ -149,10 +149,10 @@ Template.generationNewHeader.helpers({
 
 Template.generationNewHeader.events({
     'change .generator-generation-datepicker': function () {
-        //var selectedDate = $('.generator-generation-datepicker'),
-        //    momentDate = moment(new Date(selectedDate.val()).toISOString()).format('Do MMM YYYY, h:mm a');
-        //
-        //selectedDate.val(momentDate);
+        var selectedDate = $('.generator-generation-datepicker'),
+            momentDate = moment(new Date(selectedDate.val()).toISOString()).format('Do MMM YYYY');
+
+        selectedDate.val(momentDate);
     },
 
     'keyup #generator-invoice-new-patient-name': function () {
@@ -332,7 +332,7 @@ Template.generationNewButtons.events({
         // check if the invoice number, date and name are empty
         // if they are, prompt the user to fill them
         var invoiceNo = parseInt($('#generator-invoice-new-invoice-no').val()),
-            invoiceDate = new Date($('#generator-invoice-new-date').val()),
+            invoiceDate = $('#generator-invoice-new-date').val(),
             patientName = $('#generator-invoice-new-patient-name').val();
 
         if ( !invoiceNo || !invoiceDate || !patientName ) {

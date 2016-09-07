@@ -51,7 +51,7 @@ Meteor.methods({
             insurance_id: insuranceId,
             company_id: companyId,
             amount: amount,
-            date_issued: new Date().toISOString()
+            date_issued: new Date()
         });
 
         return Generations.insert({
@@ -61,7 +61,7 @@ Meteor.methods({
             appointment_id: appointmentId,
             vat: 0,
             final_amount: amount,
-            date_generated: new Date().toISOString()
+            date_generated: new Date()
         });
 
 

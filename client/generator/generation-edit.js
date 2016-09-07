@@ -222,6 +222,14 @@ Template.generationEditHeader.rendered = function () {
     $('.generator-generation-datepicker').datepicker({ dateFormat: 'yy mm dd', maxDate: 0 });
 };
 
+Template.generationEditHeader.events({
+    'change .generator-generation-datepicker': function () {
+        var selectedDate = $('.generator-generation-datepicker'),
+            momentDate = moment(new Date(selectedDate.val()).toISOString()).format('Do MMM YYYY');
+
+        selectedDate.val(momentDate);
+    }
+});
 
 
 Template.generationEditRows.onCreated(function () {
