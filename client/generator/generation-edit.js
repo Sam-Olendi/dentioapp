@@ -290,6 +290,7 @@ Template.generationEditButtons.events({
 Template.generationSaveModal.onCreated(function () {
     this.subscribe('generations.compare');
     this.subscribe('patients.generations');
+    this.subscribe('companies.all');
 });
 
 Template.generationSaveModal.events({
@@ -356,7 +357,6 @@ Template.generationSaveModal.events({
                 // call the method to save the generation
                 var postalAddress = $('#generator-invoice-edit-address').val(),
                     vatRate = parseInt($('.generator-generation-input-vat').val());
-
 
                 if ( invoiceDate && patientName ) {
                     Meteor.call('UpdateGeneration', {

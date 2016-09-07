@@ -35,7 +35,7 @@ Meteor.methods({
                 company_id: data.company_id,
                 postal_address: data.postal_address,
                 vat: data.vat,
-                date_generated: data.generation_no
+                date_generated: data.date_generated
             }
         });
 
