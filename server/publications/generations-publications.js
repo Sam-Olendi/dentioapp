@@ -52,7 +52,7 @@ Meteor.publish('generations.check', function () {
 });
 
 Meteor.publish('generations.compare', function () {
-    return Generations.find({}, { sort: { generation_no: 1 }, fields: { generation_no: 1, date_generated: 1 }});
+    return Generations.find({}, { sort: { generation_no: -1 }, fields: { generation_no: 1, date_generated: 1 }});
 });
 
 function transformGenerations (doc) {

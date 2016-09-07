@@ -791,7 +791,7 @@ Meteor.startup(function () {
             insurance_id: 'cic',
             company_id: 'acme',
             amount: 31000,
-            date_issued: new Date().toISOString()
+            date_issued: moment().format('Do MMM YYYY')
         });
 
         Invoices.insert({
@@ -802,7 +802,7 @@ Meteor.startup(function () {
             insurance_id: 'aar',
             company_id: 'equity',
             amount: 12000,
-            date_issued: new Date().toISOString()
+            date_issued: moment().format('Do MMM YYYY')
         });
 
         Invoices.insert({
@@ -813,7 +813,7 @@ Meteor.startup(function () {
             insurance_id: 'acme',
             company_id: 'fahari',
             amount: 12000,
-            date_issued: new Date().toISOString()
+            date_issued: moment().format('Do MMM YYYY')
         });
 
         Invoices.insert({
@@ -824,7 +824,7 @@ Meteor.startup(function () {
             insurance_id: 'jubilee',
             company_id: 'okhi',
             amount: 12000,
-            date_issued: new Date().toISOString()
+            date_issued: moment().format('Do MMM YYYY')
         });
 
         Invoices.insert({
@@ -835,7 +835,7 @@ Meteor.startup(function () {
             insurance_id: 'uap',
             company_id: 'TGS',
             amount: 15500,
-            date_issued: new Date().toISOString()
+            date_issued: moment().format('Do MMM YYYY')
         });
 
     }
@@ -852,7 +852,7 @@ Meteor.startup(function () {
             vat: 0,
             appointment_id: 'andy_appt',
             final_amount: 31000,
-            date_generated: new Date().toISOString()
+            date_generated: moment().format('Do MMM YYYY')
         });
 
         Generations.insert({
@@ -865,7 +865,7 @@ Meteor.startup(function () {
             vat: 0,
             appointment_id: 'jenna_appt',
             final_amount: 12000,
-            date_generated: new Date().toISOString()
+            date_generated: moment().format('Do MMM YYYY')
         });
 
         Generations.insert({
@@ -878,7 +878,7 @@ Meteor.startup(function () {
             company_id: 'fahari',
             vat: 0,
             final_amount: 12000,
-            date_generated: new Date().toISOString()
+            date_generated: moment().format('Do MMM YYYY')
         });
 
         Generations.insert({
@@ -891,7 +891,7 @@ Meteor.startup(function () {
             vat: 0,
             appointment_id: 'james_appt',
             final_amount: 12000,
-            date_generated: new Date().toISOString()
+            date_generated: moment().format('Do MMM YYYY')
         });
 
         Generations.insert({
@@ -904,7 +904,7 @@ Meteor.startup(function () {
             vat: 0,
             appointment_id: 'greg_appt',
             final_amount: 15500,
-            date_generated: new Date().toISOString()
+            date_generated: moment().format('Do MMM YYYY')
         });
     }
 });

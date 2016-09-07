@@ -4,7 +4,8 @@ Meteor.methods({
         check (patientId, String);
 
         var lastInvoiceNo = Invoices.find({}, { sort: { invoice_no: -1 }, limit: 1 }).fetch()[0].invoice_no,
-            newInvoiceNo = lastInvoiceNo + 1,
+            lastGenerationNo =  Generations.find({}, { sort: { generation_no: -1 }, fields: { generation_no: 1, date_generated: 1 }}).fetch()[0].generation_no,
+            newInvoiceNo,
             dateRegex = new RegExp(moment().format('Do MMM YYYY')),
             appointmentId = Appointments.find({patient_id: patientId, status: { $regex: /(Waiting)|(In-Session)/ }, date_created: { $regex: dateRegex }}).fetch()[0]._id,
             patient = Patients.findOne({_id: patientId}),
@@ -44,6 +45,12 @@ Meteor.methods({
             }
         });
 
+        if ( lastInvoiceNo >= lastGenerationNo ) {
+            newInvoiceNo = lastInvoiceNo + 1;
+        } else {
+            newInvoiceNo = lastGenerationNo + 1;
+        }
+
         var invoiceId =  Invoices.insert({
             invoice_no: newInvoiceNo,
             patient_id: patientId,
@@ -51,7 +58,7 @@ Meteor.methods({
             insurance_id: insuranceId,
             company_id: companyId,
             amount: amount,
-            date_issued: new Date()
+            date_issued: moment().format('Do MMM YYYY')
         });
 
         return Generations.insert({
@@ -59,12 +66,12 @@ Meteor.methods({
             generation_no: newInvoiceNo,
             patient_id: patientId,
             appointment_id: appointmentId,
+            insurance_id: insuranceId,
+            company_id: companyId,
             vat: 0,
             final_amount: amount,
-            date_generated: new Date()
+            date_generated: moment().format('Do MMM YYYY')
         });
-
-
 
     }
 });

@@ -248,16 +248,19 @@ Template.generationEditRows.onCreated(function () {
 Template.generationEditRows.helpers({
     treatments: function () {
         if (this._id) {
-            var generation  = Generations.findOne({_id: this._id});
+            var generation  = Generations.findOne({_id: this._id}); // find the selected generation
 
             if (generation) {
+                // get the patient id, appointment id and generation number
                 var patientId = generation.patient_id,
                     appointmentId = generation.appointment_id,
                     generationNo = generation.generation_no;
 
                 if (appointmentId) {
+                    // if there's an appointment id, return the treatments with the given appointment id
                     return Treatments.find({patient_id: patientId, appointment_id: appointmentId});
                 } else {
+                    // if appointmentIdis falsey, return the treatments that have the same generation number
                     return Treatments.find({patient_id: patientId, appointment_id: appointmentId, generation_no: generationNo});
                 }
             }
@@ -336,6 +339,7 @@ Template.generationNewTreatmentModal.events({
 
             var patientId = generation.patient_id,
                 generationNo = generation.generation_no,
+                appointmentId = generation.appointment_id,
                 serviceId = $('#generation-new-treatment-select').val(),
                 quantity = parseInt($('#generation-new-treatment-quantity').val()),
                 price = parseInt($('#generation-new-treatment-price').val()),
@@ -345,6 +349,7 @@ Template.generationNewTreatmentModal.events({
             Meteor.call('AddGeneratedTreatment', {
                 patient_id: patientId,
                 generation_no: generationNo,
+                appointment_id: appointmentId,
                 service_id: serviceId,
                 quantity: quantity,
                 price: price,
@@ -399,6 +404,8 @@ Template.generationEditButtons.events({
         openCloseModal('.generation-save-modal', '.generation-save-modal-content', '.js-cancel-generation-save');
     }
 });
+
+
 
 Template.generationSaveModal.onCreated(function () {
     this.subscribe('generations.compare');

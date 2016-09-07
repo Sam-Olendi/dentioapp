@@ -327,7 +327,9 @@ Template.generationNewButtons.onCreated(function () {
 });
 
 Template.generationNewButtons.events({
-    'click .js-generation-new-save-invoice': function () {
+    'click .js-generation-new-save-invoice': function (event) {
+
+        event.preventDefault();
 
         // check if the invoice number, date and name are empty
         // if they are, prompt the user to fill them
@@ -398,6 +400,7 @@ Template.generationNewButtons.events({
                 Meteor.call('AddGeneratedTreatment', {
                     patient_id: Session.get('newGenerationPatientId'),
                     generation_no: invoiceNo,
+                    appointment_id: null,
                     service_id: $('#generator-invoice-new-select-' + dataIds[j]).val(),
                     quantity: parseInt($('#generator-invoice-new-quantity-' + dataIds[j]).val()),
                     price: parseInt($('#generator-invoice-new-price-' + dataIds[j]).val()),
@@ -437,6 +440,7 @@ Template.generationNewButtons.events({
 
                 if ( Generations.find({generation_no: invoiceNo}).fetch().length ) {
                     alert('Saved!');
+                    Router.go('/generator')
                 }
             }
         }

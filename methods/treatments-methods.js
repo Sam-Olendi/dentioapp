@@ -50,6 +50,7 @@ Meteor.methods({
         check (data, {
             patient_id: String,
             generation_no: Number,
+            appointment_id: Match.OneOf(String, null, undefined),
             service_id: String,
             quantity: Number,
             price: Number,

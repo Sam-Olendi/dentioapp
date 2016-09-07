@@ -15,11 +15,6 @@ function openCloseModal (modalClass, modalContentClass, modalCloseClass) {
     });
 }
 
-function openModal (modalClass, modalContentClass) {
-    $(modalClass).addClass('modal-is-active');
-    $(modalContentClass).addClass('modal-content-is-active');
-}
-
 function closeModal (modalClass, modalContentClass) {
     $('.body-error').hide();
     $('.patient-treatments-previous').hide();
@@ -49,10 +44,14 @@ function showTooltip (event, toothNumber) {
 Template.patientContentTreatment.onCreated(function () {
     // subscribe to the publication
     var self = this;
-    self.autorun(function () {
-        self.subscribe('treatments.patient', Session.get('currentPatient'));
-        self.subscribe('findings.patient', Session.get('currentPatient'));
-    });
+
+    if ( Session.get('currentPatient') ) {
+        self.autorun(function () {
+            self.subscribe('treatments.patient', Session.get('currentPatient'));
+            self.subscribe('findings.patient', Session.get('currentPatient'));
+            self.subscribe('generations.compare');
+        });
+    }
 
 });
 
@@ -151,6 +150,8 @@ Template.patientContentTreatment.events({
 
     }
 });
+
+
 
 Template.patientContentTreatmentModal.onCreated(function () {
     this.subscribe('services.all');
@@ -291,6 +292,8 @@ Template.patientContentTreatmentModal.events({
     }
 });
 
+
+
 Template.patientContentTreatmentsUpload.onCreated(function () {
     this.currentTreatmentsUpload = new ReactiveVar(false);
 });
@@ -339,6 +342,8 @@ Template.patientContentTreatmentsUpload.events({
         }
     }
 });
+
+
 
 Template.patientContentFindingsModal.onCreated(function () {
     this.subscribe('findings.patient');
@@ -468,6 +473,8 @@ Template.patientContentFindingsModal.events({
     }
 });
 
+
+
 Template.patientContentFindingsUpload.onCreated(function () {
     this.currentFindingsUpload = new ReactiveVar(false);
 });
@@ -516,6 +523,8 @@ Template.patientContentFindingsUpload.events({
     }
 });
 
+
+
 Template.patientContentCompleteAppointment.onCreated(function () {
     this.subscribe('appointments.check');
 });
@@ -537,11 +546,20 @@ Template.patientContentCompleteAppointment.events({
     }
 });
 
+
+
 Template.patientContentCompleteAppointmentModal.events({
     'click .js-complete-appointment-confirmation': function () {
         closeModal('.complete-appointment-modal', '.complete-appointment-modal-content');
         openCloseModal('.confirm-invoice-modal', '.confirm-invoice-modal-content', '.js-cancel-confirm-invoice');
     }
+});
+
+
+
+Template.patientContentConfirmInvoiceModal.onCreated(function () {
+    this.subscribe('services.list');
+    this.subscribe('invoices.check');
 });
 
 Template.patientContentConfirmInvoiceModal.helpers({

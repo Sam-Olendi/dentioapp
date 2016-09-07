@@ -23,7 +23,7 @@ Template.invoicesContent.onCreated(function () {
 
 Template.invoicesContent.helpers({
    invoicesFound: function () {
-       return Invoices.find({}, {limit: Session.get('invoicesLimit'), sort: { date_issued: 1 }}).fetch().length;
+       return Invoices.find({}, {limit: Session.get('invoicesLimit'), sort: { invoice_no: -1 }}).fetch().length;
    }
 });
 
@@ -35,6 +35,6 @@ Template.invoicesContent.events({
 
 Template.invoicesContentTableRow.helpers({
     invoices: function () {
-        return Invoices.find({}, {limit: Session.get('invoicesLimit'), sort: { date_issued: 1 }});
+        return Invoices.find({}, {limit: Session.get('invoicesLimit'), sort: { invoice_no: -1 }});
     }
 });

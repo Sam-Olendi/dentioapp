@@ -3,9 +3,12 @@ Session.setDefault('patientInvoicesLimit', 10);
 Template.singlePatientInvoices.onCreated(function () {
 
     var self = this;
-    self.autorun(function () {
-        self.subscribe('invoices.patient', { patientId: Session.get('currentPatient'), limit: Session.get('patientInvoicesLimit') });
-    });
+
+    if ( Session.get('currentPatient') ) {
+        self.autorun(function () {
+            self.subscribe('invoices.patient', { patientId: Session.get('currentPatient'), limit: Session.get('patientInvoicesLimit') });
+        });
+    }
 
 });
 

@@ -33,7 +33,7 @@
         <ul class="body-search-form-results">
             {{#EasySearch.Each index=generationsIndex }}
                 <li class="body-search-result">
-                    <a href="#" class="body-search-result-link" data-id="{{_id}}"><span class="body-search-result-helper">{{generation_no}}</span> {{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}} <span class="body-search-result-helper">{{convertToMomentWithoutTime date_generated}}</span></a>
+                    <a href="#" class="body-search-result-link" data-id="{{_id}}"><span class="body-search-result-helper">{{generation_no}}</span> {{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}} <span class="body-search-result-helper">{{date_generated}}</span></a>
                 </li>
             {{/EasySearch.Each}}
         </ul>

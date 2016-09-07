@@ -3,7 +3,7 @@ Meteor.publish('invoices', function (limit) {
     check (limit, Number);
 
     var self = this;
-    var observer = Invoices.find({}, {limit: limit, sort: { date_issued: 1 }}).observe({
+    var observer = Invoices.find({}, {limit: limit, sort: { invoice_no: -1 }}).observe({
         added: function (document) {
             self.added('invoices', document._id, transformInvoices (document));
         },
