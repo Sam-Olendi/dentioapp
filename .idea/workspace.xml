@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1e783e81-5958-4c2d-ad95-870373fd6f58" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/generator/generation-edit.html" afterPath="$PROJECT_DIR$/client/generator/generation-edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/generator/generation-edit.js" afterPath="$PROJECT_DIR$/client/generator/generation-edit.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/generator/generation-new.js" afterPath="$PROJECT_DIR$/client/generator/generation-new.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/methods/invoices-methods.js" afterPath="$PROJECT_DIR$/methods/invoices-methods.js" />
     </list>
@@ -26,7 +24,60 @@
     <favorites_list name="dentioapp" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="invoices-methods.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/methods/invoices-methods.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.027597403">
+              <caret line="5" column="108" selection-start-line="5" selection-start-column="108" selection-end-line="5" selection-end-column="108" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="patient-content-treatment.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/patients/tab-sections/patient-content-treatment.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-20.827587">
+              <caret line="604" column="23" selection-start-line="604" selection-start-column="23" selection-end-line="604" selection-end-column="23" />
+              <folding>
+                <element signature="n#!!block;n#openCloseModal#0" expanded="false" />
+                <element signature="n#!!block;n#openModal#0" expanded="false" />
+                <element signature="n#!!block;n#closeModal#0" expanded="false" />
+                <element signature="n#!!block;n#showTooltip#0" expanded="false" />
+                <element signature="e#1527#1779#0" expanded="false" />
+                <element signature="e#1839#2102#0" expanded="false" />
+                <element signature="e#2146#3861#0" expanded="false" />
+                <element signature="e#3905#5282#0" expanded="false" />
+                <element signature="e#5346#5427#0" expanded="false" />
+                <element signature="e#5477#6983#0" expanded="false" />
+                <element signature="e#7032#11419#0" expanded="false" />
+                <element signature="e#7101#7222#0" expanded="false" />
+                <element signature="e#7292#7439#0" expanded="false" />
+                <element signature="e#11485#11547#0" expanded="false" />
+                <element signature="e#11599#11707#0" expanded="false" />
+                <element signature="e#11758#13127#0" expanded="false" />
+                <element signature="e#13190#13275#0" expanded="false" />
+                <element signature="e#13324#14165#0" expanded="false" />
+                <element signature="e#14275#14390#0" expanded="false" />
+                <element signature="e#14458#14601#0" expanded="false" />
+                <element signature="e#14662#16203#0" expanded="false" />
+                <element signature="e#16268#16380#0" expanded="false" />
+                <element signature="e#18669#18729#0" expanded="false" />
+                <element signature="e#18779#18885#0" expanded="false" />
+                <element signature="e#18934#20299#0" expanded="false" />
+                <element signature="e#20368#20413#0" expanded="false" />
+                <element signature="e#20468#20912#0" expanded="false" />
+                <element signature="e#20966#21156#0" expanded="false" />
+                <element signature="e#21215#21493#0" expanded="false" />
+                <element signature="e#21548#22036#0" expanded="false" />
+                <element signature="e#22438#23469#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -88,10 +139,10 @@
         <option value="$PROJECT_DIR$/client/styles/generator.scss" />
         <option value="$PROJECT_DIR$/methods/generations-methods.js" />
         <option value="$PROJECT_DIR$/client/styles/main.scss" />
-        <option value="$PROJECT_DIR$/methods/invoices-methods.js" />
         <option value="$PROJECT_DIR$/client/generator/generation-edit.html" />
-        <option value="$PROJECT_DIR$/client/generator/generation-new.js" />
         <option value="$PROJECT_DIR$/client/generator/generation-edit.js" />
+        <option value="$PROJECT_DIR$/client/generator/generation-new.js" />
+        <option value="$PROJECT_DIR$/methods/invoices-methods.js" />
       </list>
     </option>
   </component>
@@ -437,14 +488,20 @@
       <option name="project" value="LOCAL" />
       <updated>1473222088578</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Revert to moment.js for invoices and generations">
+      <created>1473222810774</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1473222810774</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20937042" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20937042" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
@@ -463,6 +520,26 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20937042" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -501,7 +578,8 @@
     <MESSAGE value="Save an edited generation" />
     <MESSAGE value="Fix the weird date and duplicate companies bug" />
     <MESSAGE value="Add a new treatment to a generation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add a new treatment to a generation" />
+    <MESSAGE value="Revert to moment.js for invoices and generations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Revert to moment.js for invoices and generations" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -922,18 +1000,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/methods/invoices-methods.js">
+    <entry file="file://$PROJECT_DIR$/client/generator/generation-edit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.512987">
+          <caret line="425" column="69" selection-start-line="425" selection-start-column="69" selection-end-line="425" selection-end-column="69" />
+          <folding>
+            <element signature="n#!!block;n#openCloseModal#0" expanded="false" />
+            <element signature="n#!!block;n#closeModal#0" expanded="false" />
+            <element signature="e#731#1290#0" expanded="false" />
+            <element signature="e#1324#9703#0" expanded="false" />
+            <element signature="e#9761#9858#0" expanded="false" />
+            <element signature="e#10227#10482#0" expanded="false" />
+            <element signature="e#10522#11265#0" expanded="false" />
+            <element signature="e#11310#11509#0" expanded="false" />
+            <element signature="e#15640#15799#0" expanded="false" />
+            <element signature="e#15843#16290#0" expanded="false" />
+            <element signature="e#16345#16472#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/generator/generation-edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27966103">
+          <caret line="48" column="217" selection-start-line="48" selection-start-column="186" selection-end-line="48" selection-end-column="217" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/methods/generations-methods.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7516234">
+          <caret line="38" column="48" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/generator/generation-new.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.64123374">
-          <caret line="63" column="38" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
-          <folding />
+          <caret line="434" column="47" selection-start-line="434" selection-start-column="36" selection-end-line="434" selection-end-column="47" />
+          <folding>
+            <element signature="e#229#5311#0" expanded="false" />
+            <element signature="e#7705#8118#0" expanded="false" />
+            <element signature="e#8165#9897#0" expanded="false" />
+            <element signature="e#8714#9895#0" expanded="false" />
+            <element signature="e#10041#10142#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/patients/tab-sections/patient-content-treatment.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6282467">
-          <caret line="433" column="62" selection-start-line="433" selection-start-column="62" selection-end-line="433" selection-end-column="62" />
+        <state vertical-scroll-proportion="-20.827587">
+          <caret line="604" column="23" selection-start-line="604" selection-start-column="23" selection-end-line="604" selection-end-column="23" />
           <folding>
             <element signature="n#!!block;n#openCloseModal#0" expanded="false" />
             <element signature="n#!!block;n#openModal#0" expanded="false" />
@@ -965,59 +1085,15 @@
             <element signature="e#20966#21156#0" expanded="false" />
             <element signature="e#21215#21493#0" expanded="false" />
             <element signature="e#21548#22036#0" expanded="false" />
-            <element signature="e#22090#23966#0" expanded="false" />
             <element signature="e#22438#23469#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/generator/generation-edit.js">
+    <entry file="file://$PROJECT_DIR$/methods/invoices-methods.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.512987">
-          <caret line="425" column="69" selection-start-line="425" selection-start-column="69" selection-end-line="425" selection-end-column="69" />
-          <folding>
-            <element signature="n#!!block;n#openCloseModal#0" expanded="false" />
-            <element signature="n#!!block;n#closeModal#0" expanded="false" />
-            <element signature="e#731#1290#0" expanded="false" />
-            <element signature="e#1324#9703#0" expanded="false" />
-            <element signature="e#9761#9858#0" expanded="false" />
-            <element signature="e#10227#10482#0" expanded="false" />
-            <element signature="e#10522#11265#0" expanded="false" />
-            <element signature="e#11310#11509#0" expanded="false" />
-            <element signature="e#15640#15799#0" expanded="false" />
-            <element signature="e#15843#16290#0" expanded="false" />
-            <element signature="e#16345#16472#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/generator/generation-edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27966103">
-          <caret line="48" column="217" selection-start-line="48" selection-start-column="186" selection-end-line="48" selection-end-column="217" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/generator/generation-new.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57954544">
-          <caret line="150" column="44" selection-start-line="150" selection-start-column="44" selection-end-line="150" selection-end-column="44" />
-          <folding>
-            <element signature="e#229#5311#0" expanded="false" />
-            <element signature="e#5640#6357#0" expanded="false" />
-            <element signature="e#7705#8118#0" expanded="false" />
-            <element signature="e#8165#9897#0" expanded="false" />
-            <element signature="e#8714#9895#0" expanded="false" />
-            <element signature="e#10041#10142#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/methods/generations-methods.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7516234">
-          <caret line="38" column="48" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.027597403">
+          <caret line="5" column="108" selection-start-line="5" selection-start-column="108" selection-end-line="5" selection-end-column="108" />
           <folding />
         </state>
       </provider>

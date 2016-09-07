@@ -3,7 +3,7 @@ Meteor.methods({
 
         check (patientId, String);
 
-        var lastInvoiceNo = Invoices.find({}, { sort: { date_issued: -1 }, limit: 1 }).fetch()[0].invoice_no,
+        var lastInvoiceNo = Invoices.find({}, { sort: { invoice_no: -1 }, limit: 1 }).fetch()[0].invoice_no,
             newInvoiceNo = lastInvoiceNo + 1,
             dateRegex = new RegExp(moment().format('Do MMM YYYY')),
             appointmentId = Appointments.find({patient_id: patientId, status: { $regex: /(Waiting)|(In-Session)/ }, date_created: { $regex: dateRegex }}).fetch()[0]._id,

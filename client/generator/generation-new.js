@@ -337,8 +337,6 @@ Template.generationNewButtons.events({
 
         if ( !invoiceNo || !invoiceDate || !patientName ) {
             alert('Please make sure that you have entered an invoice number, a date and a patient\'s name!');
-        } else {
-            invoiceDate = invoiceDate.toISOString(); // convert to ISO
         }
 
         // check if generation number exists
@@ -405,7 +403,7 @@ Template.generationNewButtons.events({
                     price: parseInt($('#generator-invoice-new-price-' + dataIds[j]).val()),
                     amount: parseInt($('#generator-invoice-new-amount-' + dataIds[j]).val()),
                     description: $('#generator-invoice-new-description-' + dataIds[j]).val(),
-                    date_performed: moment(invoiceDate).format('Do MMM YYYY, h:mm:ss a')
+                    date_performed: invoiceDate
                 });
 
             }
