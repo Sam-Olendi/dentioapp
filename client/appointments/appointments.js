@@ -32,11 +32,6 @@ function openCloseModal (modalClass, modalContentClass, modalCloseClass) {
     });
 }
 
-function openModal (modalClass, modalContentClass) {
-    $(modalClass).addClass('modal-is-active');
-    $(modalContentClass).addClass('modal-content-is-active');
-}
-
 function closeModal (modalClass, modalContentClass) {
     $('.body-error').hide();
     $(modalClass).removeClass('modal-is-active');

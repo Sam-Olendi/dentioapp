@@ -74,6 +74,30 @@ Meteor.publish('patients.all', function (limit) {
 
 });
 
+Meteor.publish('patients.generations', function () {
+
+
+    var self = this;
+    var observer = Patients.find({}, { sort: { 'profile.surname': 1 }}).observe({
+        added: function (document) {
+            self.added('patients', document._id, transformPatients (document));
+        },
+        changed: function (newDocument, oldDocument) {
+            self.changed('patients', oldDocument._id, transformPatients (newDocument));
+        },
+        removed: function (oldDocument) {
+            self.removed('patients', oldDocument._id);
+        }
+    });
+
+    self.onStop(function () {
+        observer.stop();
+    });
+
+    self.ready();
+
+});
+
 Meteor.publish('patients.single', function (patientId) {
     check(patientId, String);
 

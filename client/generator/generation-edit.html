@@ -1,6 +1,7 @@
 <template name="generationEdit">
     <div class="generator-generation">
 
+        {{> generationSaveModal }}
         {{> generationDeleteModal }}
 
         <div class="generator-generation-top">
@@ -40,23 +41,23 @@
 <template name="generationEditHeader">
     <h1 class="generator-invoice-title">
         <span class="generator-invoice-title-text">Invoice #</span>
-        <input type="text" value="{{ generation_no }}" placeholder="Invoice number" class="generator-generation-input mod-generator-generation-input-header" >
+        <input type="number" min="{{ generation_no }}" id="generator-invoice-edit-invoice-no" value="{{ generation_no }}" placeholder="Invoice number" class="generator-generation-input mod-generator-generation-input-header" >
     </h1>
     <div class="generator-invoice-field">
         <p class="generator-invoice-field-text">Date Issued</p>
-        <input type="text" value="{{convertToMomentWithoutTime date_generated}}" placeholder="Date issued" id="datepicker" class="generator-generation-input mod-generator-generation-input-header generator-generation-datepicker">
+        <input type="text" value="{{convertToMomentWithoutTime date_generated}}" id="generator-invoice-edit-date" placeholder="Date issued" class="generator-generation-input mod-generator-generation-input-header generator-generation-datepicker">
     </div>
     <div class="generator-invoice-field">
         <p class="generator-invoice-field-text">Patient Name</p>
-        <input type="text" value="{{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}}" placeholder="Patient name" class="generator-generation-input mod-generator-generation-input-header">
+        <input type="text" id="generator-invoice-edit-patient-name" value="{{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}}" placeholder="Patient name" class="generator-generation-input mod-generator-generation-input-header">
     </div>
     <div class="generator-invoice-field">
         <p class="generator-invoice-field-text">Company</p>
-        <input type="text" value="{{company.company_name}}" placeholder="Company name" class="generator-generation-input mod-generator-generation-input-header">
+        <input type="text" id="generator-invoice-edit-company" value="{{company.company_name}}" placeholder="Company name" class="generator-generation-input mod-generator-generation-input-header">
     </div>
     <div class="generator-invoice-field">
         <p class="generator-invoice-field-text">Staff Number</p>
-        <input type="text" value="{{patient.work.staff_number}}" placeholder="Staff number" class="generator-generation-input mod-generator-generation-input-header">
+        <input type="text" id="generator-invoice-edit-staff-number" value="{{patient.work.staff_number}}" placeholder="Staff number" class="generator-generation-input mod-generator-generation-input-header">
     </div>
 </template>
 
@@ -75,9 +76,8 @@
     </div>
     <div class="generator-invoice-address-to">
         <p class="generator-invoice-address-title">To:</p>
-        <textarea cols="30" rows="10" placeholder="Recipient's address" class="generator-invoice-address-textarea">
-            {{patient.profile.surname}} {{patient.profile.middle_name}} {{patient.profile.first_name}}
-            {{{patient.contacts.postal_address}}}
+        <textarea cols="30" rows="10" id="generator-invoice-edit-address" placeholder="Recipient's address" class="generator-invoice-address-textarea">{{patient.profile.surname}}, {{patient.profile.middle_name}} {{patient.profile.first_name}}
+{{{patient.contacts.postal_address}}}
         </textarea>
     </div>
 </template>
@@ -172,13 +172,32 @@
 
 <template name="generationEditButtons">
     <p>
-        <a href="#" class="button mod-button-edit">Save changes</a>
+        <a href="#" class="button mod-button-edit js-save-generation-confirmation">Save changes</a>
         <a href="#" class="button mod-button-generator-go">Preview & Print</a>
     </p>
     <p>
         <a href="#" data-id="{{_id}}" class="button mod-button-delete-text js-delete-generation-confirmation">Delete this invoice</a>
     </p>
 
+</template>
+
+<template name="generationSaveModal">
+    <div id="generation-save-modal" class="modal generation-save-modal" role="dialog" aria-hidden="true">
+        <div class="modal-dialog generation-save-modal-dialog">
+            <div class="modal-content generation-save-modal-content">
+                <a href="#" class="modal-close"><span class="icon-cancel"></span></a>
+                <h2 class="modal-content-title">Save this Invoice</h2>
+
+                <p class="modal-content-text">You are about to save this invoice. Continue?</p>
+
+                <div class="modal-button-group">
+                    <button class="button mod-button-generator-go js-generation-save" data-id="{{_id}}">Continue</button>
+                    <button class="button mod-button-cancel js-cancel-generation-save" type="button">Cancel</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </template>
 
 <template name="generationDeleteModal">
@@ -188,7 +207,7 @@
                 <a href="#" class="modal-close"><span class="icon-cancel"></span></a>
                 <h2 class="modal-content-title">Delete this Invoice</h2>
 
-                <p class="modal-content-text">You are about to delete this invoice? This action cannot be reversed.</p>
+                <p class="modal-content-text">You are about to delete this invoice. Do you want to continue? This action cannot be reversed.</p>
 
                 <div class="modal-button-group">
                     <button class="button mod-button-no js-generation-delete" data-id="{{_id}}">Yes. Delete this generation</button>

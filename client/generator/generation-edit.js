@@ -1,8 +1,23 @@
-Template.generationEdit.rendered = function () {
-    var generationURI = window.location.pathname.split('/'),
-        generationId = generationURI[generationURI.length - 1],
-        generation = Generations.findOne({_id: generationId});
-};
+function openCloseModal (modalClass, modalContentClass, modalCloseClass) {
+    // this function provides the ability to open and close modals
+    $(modalClass).addClass('modal-is-active');
+    $(modalContentClass).addClass('modal-content-is-active');
+
+    $('.modal-close,' + modalCloseClass).click(function () {
+        $('.body-error').hide();
+
+        $(modalClass).removeClass('modal-is-active');
+        $(modalContentClass).removeClass('modal-content-is-active');
+    });
+}
+
+function closeModal (modalClass, modalContentClass) {
+    $('.body-error').hide();
+    $(modalClass).removeClass('modal-is-active');
+    $(modalContentClass).removeClass('modal-content-is-active');
+}
+
+
 
 Template.generationEdit.rendered = function () {
     var amountFields = $('.generator-generation-input-amount'),
@@ -263,16 +278,105 @@ Template.generationEditCalculator.helpers({
 Template.generationEditButtons.events({
     'click .js-delete-generation-confirmation': function (event) {
         event.preventDefault();
+        openCloseModal('.generation-delete-modal', '.generation-delete-modal-content', '.js-cancel-generation-delete');
+    },
 
-        $('.generation-delete-modal').addClass('modal-is-active');
-        $('.generation-delete-modal-content').addClass('modal-content-is-active');
+    'click .js-save-generation-confirmation': function (event) {
+        event.preventDefault();
+        openCloseModal('.generation-save-modal', '.generation-save-modal-content', '.js-cancel-generation-save');
+    }
+});
 
-        $('.modal-close, .js-cancel-generation-delete').click(function () {
-            $('.body-error').hide();
+Template.generationSaveModal.onCreated(function () {
+    this.subscribe('generations.compare');
+    this.subscribe('patients.generations');
+});
 
-            $('.generation-delete-modal').removeClass('modal-is-active');
-                $('.generation-delete-modal-content').removeClass('modal-content-is-active');
-        });
+Template.generationSaveModal.events({
+    'click .js-generation-save': function () {
+        // check if the invoice number, date and name are empty
+        // if they are, prompt the user to fill them
+
+        closeModal('.generation-save-modal', '.generation-save-modal-content');
+
+        var invoiceNo = parseInt($('#generator-invoice-edit-invoice-no').val()),
+            invoiceDate = $('#generator-invoice-edit-date').val(),
+            patientName = $('#generator-invoice-edit-patient-name').val();
+
+        if ( !invoiceNo || !invoiceDate || !patientName ) {
+            alert('Please make sure that you have entered an invoice number, a date and a patient\'s name!');
+        }
+
+        // check if generation number exists
+        var generationExists = Generations.find({generation_no: invoiceNo}),
+            generationNo = Generations.findOne({_id: this._id}).generation_no,
+            patientId = Generations.findOne({_id: this._id}).patient_id;
+
+        if ( generationExists.fetch().length && generationNo !== invoiceNo ) {
+            alert('The invoice number already exists. Please refrain from changing the generated number.');
+        } else {
+            if ( patientName )
+            {
+                // check if the company entered exists
+                // if not, add it to the DB
+                var companyName = $('#generator-invoice-edit-company').val(),
+                    companyRegex = new RegExp(companyName, 'i'),
+                    companyId = '';
+
+                if ( companyName != '' ) {
+                    var companyExists = Companies.find({ company_name: { $regex: companyRegex } }).fetch().length,
+                        patient = Patients.findOne({_id: patientId});
+
+                    if ( !companyExists ) {
+                        Meteor.call('AddGeneratedCompanies', companyName);
+                        companyId = Companies.findOne({company_name: companyName})._id;
+                    } else {
+                        companyId = Companies.findOne({company_name: companyName})._id;
+                    }
+
+                    // check if the patient has their work details entered
+                    // if not, enter them
+                    if ( !patient.work ) {
+                        Meteor.call('UpdateWorkDetails', {
+                            patient_id: patientId,
+                            company_id: companyId,
+                            staff_number: $('#generator-invoice-edit-staff-number').val()
+                        });
+                    }
+
+                } else {
+                    Meteor.call('UpdateWorkDetails', {
+                        patient_id: patientId,
+                        company_id: '',
+                        staff_number: ''
+                    });
+                }
+
+
+                // call the method to save the generation
+                var postalAddress = $('#generator-invoice-edit-address').val(),
+                    vatRate = parseInt($('.generator-generation-input-vat').val());
+
+
+                if ( invoiceDate && patientName ) {
+                    Meteor.call('UpdateGeneration', {
+                        generation_id: this._id,
+                        generation_no: invoiceNo,
+                        patient_id: patientId,
+                        company_id: companyId,
+                        postal_address: postalAddress,
+                        vat: vatRate,
+                        date_generated: invoiceDate
+                    });
+
+                    if ( Generations.find({generation_no: invoiceNo}).fetch().length ) {
+                        alert('Saved!');
+                    }
+
+                    Router.go('/generator');
+                }
+            }
+        }
     }
 });
 

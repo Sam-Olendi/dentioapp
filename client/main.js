@@ -12,6 +12,10 @@ Template.registerHelper('convertToMomentWithoutTime', function (dateString) {
     return moment(dateString).format('Do MMM YYYY');
 });
 
+Template.registerHelper('convertToDate', function (dateString) {
+    return new Date(dateString);
+});
+
 Template.registerHelper('findService', function (serviceId) {
     if (Services.findOne({_id: serviceId})) {
         return Services.findOne({_id: serviceId}).service_name;
