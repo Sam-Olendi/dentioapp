@@ -25,6 +25,7 @@ Meteor.methods({
             company_id: String,
             postal_address: String,
             vat: Number,
+            final_amount: Number,
             date_generated: String
         });
 
@@ -35,6 +36,7 @@ Meteor.methods({
                 company_id: data.company_id,
                 postal_address: data.postal_address,
                 vat: data.vat,
+                final_amount: data.final_amount,
                 date_generated: data.date_generated
             }
         });

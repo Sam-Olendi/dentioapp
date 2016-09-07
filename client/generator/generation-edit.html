@@ -1,6 +1,7 @@
 <template name="generationEdit">
     <div class="generator-generation">
 
+        {{> generationNewTreatmentModal }}
         {{> generationSaveModal }}
         {{> generationDeleteModal }}
 
@@ -142,7 +143,56 @@
 </template>
 
 <template name="generationEditControls">
-    <a href="#" class="generator-generation-add-control"><span title="Add a row" class="icon-add"></span></a>
+    <a href="#" class="generator-generation-add-control js-add-new-treatment"><span title="Add a row" class="icon-add"></span></a>
+</template>
+
+<template name="generationNewTreatmentModal">
+    <div id="generation-new-treatment-modal" class="modal generation-new-treatment-modal" role="dialog" aria-hidden="true">
+        <div class="modal-dialog generation-new-treatment-modal-dialog">
+            <div class="modal-content generation-new-treatment-modal-content">
+                <a href="#" class="modal-close"><span class="icon-cancel"></span></a>
+                <h2 class="modal-content-title">Add a Service</h2>
+
+                <form id="generation-new-treatment-form">
+                    <div class="generation-form-group">
+                        <label for="generation-new-treatment-select" class="body-form-label">Select a service</label>
+                        <select id="generation-new-treatment-select" class="body-form-input mod-body-form-input-generation">
+                            <option value="None">--Select a service--</option>
+                            {{#each services}}
+                                <option value="{{_id}}">{{service_name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div class="generation-form-group">
+                        <label for="generation-new-treatment-description" class="body-form-label">Description
+                            <input id="generation-new-treatment-description" type="text" class="body-form-input mod-body-form-input-generation" placeholder="Description">
+                        </label>
+                    </div>
+                    <div class="generation-form-group">
+                        <label for="generation-new-treatment-quantity" class="body-form-label">Quantity
+                            <input id="generation-new-treatment-quantity" value="1" type="number" class="body-form-input mod-body-form-input-generation" placeholder="Quantity">
+                        </label>
+                    </div>
+                    <div class="generation-form-group">
+                        <label for="generation-new-treatment-price" class="body-form-label">Price
+                            <input id="generation-new-treatment-price" type="number" class="body-form-input mod-body-form-input-generation" placeholder="Price">
+                        </label>
+                    </div>
+                    <div class="generation-form-group">
+                        <label for="generation-new-treatment-amount" class="body-form-label">Amount
+                            <input id="generation-new-treatment-amount" type="number" class="body-form-input mod-body-form-input-generation" placeholder="Amount">
+                        </label>
+                    </div>
+                </form>
+
+                <div class="modal-button-group">
+                    <button class="button mod-button-generator-go js-generation-new-treatment" type="submit" form="generation-new-treatment-form">Add service</button>
+                    <button class="button mod-button-cancel js-cancel-generation-new-treatment" type="button">Cancel</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </template>
 
 <template name="generationEditCalculator">

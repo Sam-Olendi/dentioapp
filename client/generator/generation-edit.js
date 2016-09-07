@@ -263,6 +263,111 @@ Template.generationEditRows.helpers({
 
 
 
+Template.generationEditControls.events({
+    'click .js-add-new-treatment': function () {
+        openCloseModal('.generation-new-treatment-modal', '.generation-new-treatment-modal-content', '.js-cancel-generation-new-treatment');
+    }
+});
+
+
+
+Template.generationNewTreatmentModal.onCreated(function () {
+    this.subscribe('services.list');
+});
+
+Template.generationNewTreatmentModal.helpers({
+    services: function () {
+        return Services.find();
+    }
+});
+
+Template.generationNewTreatmentModal.events({
+    'change #generation-new-treatment-select': function () {
+        var serviceId = $(event.target).val(), // id of the service
+            service = Services.findOne({_id: serviceId}), // service in the DB
+            rowWrapper = $(event.target).parent().parent(); // the row that contains all the service info
+
+        rowWrapper.find('#generation-new-treatment-description').val(service.service_description);
+        rowWrapper.find('#generation-new-treatment-price').val(parseInt(service.service_price, 10));
+        rowWrapper.find('#generation-new-treatment-amount').val(parseInt(service.service_price, 10));
+    },
+
+    'change #generation-new-treatment-quantity': function () {
+        var quantity = $(event.target).val(),
+            rowWrapper = $(event.target).parent().parent().parent(),
+            priceInput = rowWrapper.find('#generation-new-treatment-price'),
+            amountInput = rowWrapper.find('#generation-new-treatment-amount');
+
+        amountInput.val(parseInt(quantity, 10) * parseInt(priceInput.val(), 10));
+    },
+
+    'change #generation-new-treatment-price': function () {
+        var price = $(event.target).val(),
+            rowWrapper = $(event.target).parent().parent().parent(),
+            quantityInput = rowWrapper.find('#generation-new-treatment-quantity'),
+            amountInput = rowWrapper.find('#generation-new-treatment-amount');
+
+        amountInput.val(parseInt(price) * parseInt(quantityInput.val()));
+    },
+
+    'change #generation-new-treatment-amount': function () {
+        var amount = $(event.target).val(),
+            rowWrapper = $(event.target).parent().parent().parent(),
+            quantityInput = rowWrapper.find('#generation-new-treatment-quantity'),
+            priceInput = rowWrapper.find('#generation-new-treatment-price');
+
+        priceInput.val(parseInt(amount)/parseInt(quantityInput.val()));
+    },
+
+    'submit #generation-new-treatment-form': function (event) {
+        event.preventDefault();
+
+        var generation = Generations.findOne({_id: this._id});
+
+        if (generation) {
+
+            var patientId = generation.patient_id,
+                generationNo = generation.generation_no,
+                serviceId = $('#generation-new-treatment-select').val(),
+                quantity = parseInt($('#generation-new-treatment-quantity').val()),
+                price = parseInt($('#generation-new-treatment-price').val()),
+                amount = parseInt($('#generation-new-treatment-amount').val()),
+                description = $('#generation-new-treatment-description').val();
+
+            Meteor.call('AddGeneratedTreatment', {
+                patient_id: patientId,
+                generation_no: generationNo,
+                service_id: serviceId,
+                quantity: quantity,
+                price: price,
+                amount: amount,
+                description: description,
+                date_performed: moment().format('Do MMM YYYY, h:mm:ss a')
+            });
+
+            var amountFields = $('.generator-generation-input-amount'),
+                subtotalAmount = 0,
+                vat = parseInt($('.generator-generation-input-vat').val());
+
+            // add up the subtotal (before tax) of all the amount fields
+            for (var i = 0; i < amountFields.length; i++) {
+                if ($(amountFields[i]).val() !== '') {
+                    subtotalAmount += parseInt($(amountFields[i]).val(), 10);
+                }
+            }
+
+            Session.set('subtotalAmount', subtotalAmount); // and set the subtotal to a session
+            Session.set('totalAmount', subtotalAmount + (subtotalAmount * (vat/100))); // set the total (after tax) to a session
+
+            closeModal('.generation-new-treatment-modal', '.generation-new-treatment-modal-content');
+        }
+
+
+    }
+});
+
+
+
 Template.generationEditCalculator.helpers({
     subtotal: function () {
         return Session.get('subtotalAmount');
@@ -353,10 +458,21 @@ Template.generationSaveModal.events({
                     });
                 }
 
-
                 // call the method to save the generation
                 var postalAddress = $('#generator-invoice-edit-address').val(),
-                    vatRate = parseInt($('.generator-generation-input-vat').val());
+                    vatRate = parseInt($('.generator-generation-input-vat').val()),
+                    amountFields = $('.generator-generation-input-amount'),
+                    subtotalAmount = 0;
+
+                // add up the subtotal (before tax) of all the amount fields
+                for (var i = 0; i < amountFields.length; i++) {
+                    if ($(amountFields[i]).val() !== '') {
+                        subtotalAmount += parseInt($(amountFields[i]).val(), 10);
+                    }
+                }
+
+                Session.set('subtotalAmount', subtotalAmount); // and set the subtotal to a session
+                Session.set('totalAmount', subtotalAmount + (subtotalAmount * (vatRate/100))); // set the total (after tax) to a session
 
                 if ( invoiceDate && patientName ) {
                     Meteor.call('UpdateGeneration', {
@@ -366,6 +482,7 @@ Template.generationSaveModal.events({
                         company_id: companyId,
                         postal_address: postalAddress,
                         vat: vatRate,
+                        final_amount: parseInt(Session.get('totalAmount')),
                         date_generated: invoiceDate
                     });
 
