@@ -218,6 +218,7 @@ Template.generationEdit.events({
 });
 
 
+
 Template.generationEditHeader.rendered = function () {
     $('.generator-generation-datepicker').datepicker({ dateFormat: 'yy mm dd', maxDate: 0 });
 };
@@ -230,6 +231,7 @@ Template.generationEditHeader.events({
         selectedDate.val(momentDate);
     }
 });
+
 
 
 Template.generationEditRows.onCreated(function () {
