@@ -160,15 +160,45 @@ Template.generationEdit.events({
             description = rowWrapper.find('.generator-generation-input-description').val(),
             quantity = parseInt(rowWrapper.find('.generator-generation-input-quantity').val()),
             price = parseInt(rowWrapper.find('.generator-generation-input-price').val()),
-            amount = parseInt(rowWrapper.find('.generator-generation-input-amount').val());
+            amount = parseInt(rowWrapper.find('.generator-generation-input-amount').val()),
+            generationId = $('.generator-generation-table-head').data('id')
 
         Meteor.call('UpdateGeneratedTreatment', {
             treatment_id: treatmentId,
             service_id: serviceId,
             quantity: quantity,
             price: price,
-            amount: amount
+            amount: amount,
+            total_amount: Session.get('totalAmount'),
+            generation_id: generationId
         });
+    },
+
+    'click .generator-generation-row-delete': function () {
+        $(event.target).parent().parent().parent().remove();
+
+        var amountFields = $('.generator-generation-input-amount'), // an array of all the amount fields (to collect totals)
+            subtotalAmount = 0,
+            vat = parseInt($('.generator-generation-input-vat').val());
+
+        if (amountFields.length) {
+            for (var i = 0; i < amountFields.length; i++) {
+                if ($(amountFields[i]).val() !== '') {
+                    subtotalAmount += parseInt($(amountFields[i]).val(), 10);
+                }
+            }
+
+            Session.set('subtotalAmount', subtotalAmount); // and set the subtotal to a session
+            Session.set('totalAmount', subtotalAmount + (subtotalAmount * (vat/100))); // set the total (after tax) to a session
+
+        } else {
+            Session.set('subtotalAmount', subtotalAmount); // if there are no rows, set the subtotal and total to 0
+            Session.set('totalAmount', 0);
+        }
+
+        // Delete treatment from the database
+        Meteor.call('DeleteGeneratedTreatment',$(event.target).parent().parent().parent().data('id') );
+
     }
 });
 

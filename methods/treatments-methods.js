@@ -69,7 +69,15 @@ Meteor.methods({
             service_id: String,
             quantity: Number,
             price: Number,
-            amount: Number
+            amount: Number,
+            total_amount: Number,
+            generation_id: String
+        });
+
+        Generations.update(data.generation_id, {
+            $set: {
+                final_amount: data.total_amount
+            }
         });
 
         return Treatments.update(data.treatment_id, {
