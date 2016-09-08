@@ -1,0 +1,132 @@
+<template name="generationPreview">
+    <div class="generator-generation">
+
+        <div class="generator-generation-top">
+            <a href="/generator/invoice/{{_id}}" class="button mod-button-generator-back"><span class="icon-arrow-left"></span>Back to Invoice</a>
+        </div>
+
+        <div class="generator-preview">
+
+            <header class="generator-preview-header">
+
+                <h2 class="generator-preview-header-title">Invoice</h2>
+
+                <div class="generator-preview-header-address">
+                    <p class="generator-preview-header-address-to">Gentle Dental Care</p>
+                    <address class="generator-preview-header-address-gdc">
+                        Dr. Jane Okong'o Oloo <br>
+                        P.O Box 33764 - 00600 <br>
+                        Nairobi, Kenya <br>
+                    </address>
+                    <div class="generator-preview-header-address-details">
+                        <p class="generator-preview-header-address-meta">Tel: 020 2219 054 / 020 2227 052 / 0722 403 340</p>
+                        <p class="generator-preview-header-address-meta">Email: oloojane@gmail.com</p>
+                        <p class="generator-preview-header-address-meta">Website: www.gentle-dentalcare.org</p>
+                    </div>
+                </div>
+
+
+            </header>
+
+            <div class="generator-preview-invoice-information">
+                <div class="generator-preview-invoice-to">
+                    <p class="generator-invoice-address-title">To:</p>
+                    <address>
+                        {{#if postal_address}}
+                            {{{postal_address}}}
+                        {{else}}
+                            {{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}}
+                            <br>
+                            {{{patient.contacts.postal_address}}}
+                        {{/if}}
+                    </address>
+                </div>
+                <div class="generator-preview-invoice-details">
+                    <div class="generator-preview-invoice-details-text generator-preview-invoice-details-heading">Invoice No:</div> <div class="generator-preview-invoice-details-text generator-preview-invoice-details-value">{{generation_no}}</div>
+                    <br>
+                    <div class="generator-preview-invoice-details-text generator-preview-invoice-details-heading">Date:</div> <div class="generator-preview-invoice-details-text generator-preview-invoice-details-value">{{date_generated}}</div>
+                    <br>
+                    <div class="generator-preview-invoice-details-text generator-preview-invoice-details-heading">Staff Number:</div> <div class="generator-preview-invoice-details-text generator-preview-invoice-details-value">{{patient.work.staff_number}}</div>
+                </div>
+            </div>
+
+            <div class="generator-preview-table-section">
+                <table class="generator-preview-table">
+                    <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Qty units</th>
+                        <th>Unit price</th>
+                        <th>VAT</th>
+                        <th>Amount</th>
+                    </tr>
+                    </thead>
+
+                    {{> generationPreviewRows }}
+
+                </table>
+            </div>
+
+
+            <div class="generator-preview-tallies">
+                {{> generationPreviewTallies }}
+            </div>
+
+            <div class="generator-preview-bottom">
+                {{> generationPreviewPrint }}
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<template name="generationPreviewRows">
+    {{#each treatments}}
+        <tr>
+            <td>{{ description }}</td>
+            {{#if quantity }}
+                <td class="generator-preview-table-quantity">{{ quantity }}</td>
+            {{else}}
+                <td class="generator-preview-table-quantity">1</td>
+            {{/if}}
+
+            {{#if price}}
+                <td class="generator-preview-table-price">{{ price }}</td>
+            {{else}}
+                <td class="generator-preview-table-price">{{ amount }}</td>
+            {{/if}}
+
+            {{#if ../vat}}
+                <td class="generator-preview-table-vat">{{ ../vat }}</td>
+            {{else}}
+                <td class="generator-preview-table-vat">0</td>
+            {{/if}}
+
+            <td class="generator-preview-table-amount">{{ amount }}</td>
+        </tr>
+    {{/each}}
+</template>
+
+<template name="generationPreviewTallies">
+    <div class="generator-preview-tallies-group generator-preview-tallies-subtotal">
+        <div class="generator-preview-tallies-title">Subtotal</div>
+        <div class="generator-preview-tallies-amount">{{ calculateSubtotal final_amount vat }}</div>
+    </div>
+    <div class="generator-preview-tallies-group generator-preview-tallies-vat">
+        <div class="generator-preview-tallies-title">VAT</div>
+        {{#if vat}}
+            <div class="generator-preview-tallies-amount">{{ vat }}</div>
+        {{else}}
+            <div class="generator-preview-tallies-amount">0</div>
+        {{/if}}
+    </div>
+    <div class="generator-preview-tallies-group generator-preview-tallies-total">
+        <div class="generator-preview-tallies-title">Total: Kshs.</div>
+        <div class="generator-preview-tallies-amount">{{ final_amount }}</div>
+    </div>
+</template>
+
+<template name="generationPreviewPrint">
+    <a href="#" class="button mod-button-generator-go js-generation-print-button">Print</a>
+</template>

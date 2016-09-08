@@ -95,6 +95,19 @@ Router.route('/generator/invoice/:_id', {
     }
 });
 
+Router.route('/generator/invoice/:_id/preview', {
+    layoutTemplate: 'GeneratorLayout',
+    yieldRegions: {
+        'generationPreview': { to: 'generator' }
+    },
+    waitOn : function () {
+        return Meteor.subscribe('generations.single', this.params._id);
+    },
+    data: function () {
+        return Generations.findOne({_id: this.params._id});
+    }
+});
+
 AccountsTemplates.configure({
    defaultLayout: 'LoginLayout'
 });

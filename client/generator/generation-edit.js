@@ -262,7 +262,7 @@ Template.generationEditRows.helpers({
                     // if there's an appointment id, return the treatments with the given appointment id
                     return Treatments.find({patient_id: patientId, appointment_id: appointmentId});
                 } else {
-                    // if appointmentIdis falsey, return the treatments that have the same generation number
+                    // if appointmentId is falsey, return the treatments that have the same generation number
                     return Treatments.find({patient_id: patientId, appointment_id: appointmentId, generation_no: generationNo});
                 }
             }

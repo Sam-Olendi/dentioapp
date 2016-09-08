@@ -626,3 +626,175 @@ address {
 .generation-form-group {
   margin-bottom: 10px;
 }
+
+
+
+.generator-preview {
+  background: $ordinary-white;
+  border: 1px solid $border-gray;
+  box-shadow: 0 3px 12px rgba(177, 182, 186, 0.3);
+  margin: 0 250px;
+  overflow: auto;
+  padding: 40px 0 60px;
+  width: auto;
+}
+
+@media print {
+  .generator-preview {
+    background: $ordinary-white;
+    border: 1px solid $border-gray;
+    box-shadow: 0 3px 12px rgba(177, 182, 186, 0.3);
+    margin: 0;
+    overflow: auto;
+    padding: 40px 0 60px;
+    width: auto;
+  }
+}
+
+
+.generator-preview-header {
+  padding: 10px 50px;
+}
+
+.generator-preview-header-title {
+  font: {
+    size: 2em;
+    weight: 600;
+  }
+  float: right;
+  letter-spacing: -1px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.generator-preview-header-address-to {
+  font: {
+    size: 1.3em;
+    weight: 700;
+  }
+  margin: 0 0 10px;
+}
+
+.generator-preview-header-address-gdc {
+  margin-bottom: 20px;
+}
+
+.generator-preview-header-address-meta {
+  color: $deepest-gray;
+  font-size: 0.75em;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.generator-preview-invoice-information {
+  border-top: 2px solid $border-gray;
+  margin: 20px 40px;
+  padding: 20px 10px;
+}
+
+@media print {
+  .generator-preview-invoice-information {
+    border-top-color: #cccccc;
+  }
+}
+
+.generator-preview-invoice-to {
+  float: left;
+}
+
+.generator-preview-invoice-details {
+  float: right;
+  margin-top: 30px;
+}
+
+.generator-preview-invoice-details-text {
+  display: inline-block;
+  font-size: 0.85em;
+  line-height: 1.8;
+  margin: 0;
+  text-align: right;
+}
+
+.generator-preview-invoice-details-heading {
+  font-weight: 600;
+  width: 120px;
+}
+
+.generator-preview-invoice-details-value {
+  width: 120px;
+}
+
+.generator-preview-table-section {
+  margin: 150px 0 0;
+  padding: 0 50px;
+}
+
+.generator-preview-table {
+
+  tr:nth-child(even) {
+    background-color: transparent;
+  }
+
+}
+
+@media print {
+  .generator-preview-table {
+    border-color: #cccccc;
+
+    tr { border-color: #cccccc}
+  }
+}
+
+@media print {
+  .generator-preview-table {
+    font-size: 12px;
+  }
+}
+
+.generator-preview-table-amount {
+  width: 90px;
+}
+
+.generator-preview-tallies {
+  font-size: 0.85em;
+  margin: 10px 0;
+  padding: 0 50px;
+  text-align: right;
+}
+
+.generator-preview-tallies-group {
+  margin: 20px 0;
+}
+
+.generator-preview-tallies-title,
+.generator-preview-tallies-amount {
+  display: inline-block;
+  width: 120px;
+}
+
+@media print {
+  .generator-preview-tallies-title,
+  .generator-preview-tallies-amount {
+    font-size: 12px;
+    width: 100px;
+  }
+}
+
+.generator-preview-tallies-title{
+  font-weight: 600;
+}
+
+.generator-preview-tallies-amount {
+  padding-right: 30px;
+}
+
+.generator-preview-bottom {
+  margin: 50px;
+  text-align: right;
+}
+
+@media print {
+  .generator-preview-bottom {
+    display: none;
+  }
+}
