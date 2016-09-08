@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1e783e81-5958-4c2d-ad95-870373fd6f58" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/mail.js" afterPath="$PROJECT_DIR$/server/mail.js" />
     </list>
     <ignored path="dentioapp.iws" />
@@ -28,8 +27,8 @@
       <file leaf-file-name="mail.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/mail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.16558442">
-              <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+            <state vertical-scroll-proportion="0.027597403">
+              <caret line="1" column="73" selection-start-line="1" selection-start-column="73" selection-end-line="1" selection-end-column="73" />
               <folding />
             </state>
           </provider>
@@ -464,7 +463,13 @@
       <option name="project" value="LOCAL" />
       <updated>1473305636837</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Configure process env">
+      <created>1473308721022</created>
+      <option name="number" value="00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1473308721023</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -526,7 +531,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Add some level of automation while filling in new invoice data" />
     <MESSAGE value="Save a new generation" />
     <MESSAGE value="Fix transform issues on addition of a generation" />
     <MESSAGE value="Set up SMTP" />
@@ -551,7 +555,8 @@
     <MESSAGE value="Disable editing invoice number" />
     <MESSAGE value="Print an invoice" />
     <MESSAGE value="Add user details" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add user details" />
+    <MESSAGE value="Configure process env" />
+    <option name="LAST_COMMIT_MESSAGE" value="Configure process env" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1063,8 +1068,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/mail.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16558442">
-          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.027597403">
+          <caret line="1" column="73" selection-start-line="1" selection-start-column="73" selection-end-line="1" selection-end-column="73" />
           <folding />
         </state>
       </provider>
