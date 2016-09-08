@@ -110,3 +110,13 @@ Template.LoginLayout.rendered = function () {
         });
     }
 };
+
+Template.sidebar.helpers({
+    user: function () {
+        if (Meteor.user()) {
+            return Meteor.user().emails[0].address;
+        }
+
+        return 'Anonymous';
+    }
+});
