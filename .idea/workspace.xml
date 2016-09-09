@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1e783e81-5958-4c2d-ad95-870373fd6f58" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/layouts/states.html" afterPath="$PROJECT_DIR$/client/layouts/states.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/invoices/invoices.html" afterPath="$PROJECT_DIR$/client/invoices/invoices.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/services/services.html" afterPath="$PROJECT_DIR$/client/services/services.html" />
     </list>
     <ignored path="dentioapp.iws" />
@@ -25,42 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="appointments.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/appointments/appointments.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.730769">
-              <caret line="178" column="19" selection-start-line="175" selection-start-column="16" selection-end-line="178" selection-end-column="19" />
-              <folding>
-                <element signature="n#template#0;n#!!top" expanded="false" />
-                <element signature="n#template#1;n#!!top" expanded="false" />
-                <element signature="n#template#2;n#!!top" expanded="false" />
-                <element signature="n#template#3;n#!!top" expanded="false" />
-                <element signature="n#template#4;n#!!top" expanded="false" />
-                <element signature="n#template#5;n#!!top" expanded="false" />
-                <element signature="n#template#6;n#!!top" expanded="false" />
-                <element signature="n#template#7;n#!!top" expanded="false" />
-                <element signature="n#template#8;n#!!top" expanded="false" />
-                <element signature="n#template#10;n#!!top" expanded="false" />
-                <element signature="n#template#12;n#!!top" expanded="false" />
-                <element signature="n#template#13;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#a#2;n#div#0;n#div#0;n#div#0;n#template#13;n#!!top" expanded="true" />
-                <element signature="n#template#14;n#!!top" expanded="false" />
-                <element signature="n#template#15;n#!!top" expanded="false" />
-                <element signature="n#template#16;n#!!top" expanded="false" />
-                <element signature="n#template#17;n#!!top" expanded="false" />
-                <element signature="n#template#18;n#!!top" expanded="false" />
-                <element signature="n#template#19;n#!!top" expanded="false" />
-                <element signature="n#template#20;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="services.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="services.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/services/services.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.76949155">
-              <caret line="107" column="33" selection-start-line="107" selection-start-column="33" selection-end-line="107" selection-end-column="33" />
+            <state vertical-scroll-proportion="-16.153847">
+              <caret line="123" column="13" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="13" />
               <folding>
                 <element signature="n#template#7;n#!!top" expanded="false" />
                 <element signature="n#template#8;n#!!top" expanded="false" />
@@ -70,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="states.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/layouts/states.html">
+      <file leaf-file-name="invoices.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/invoices/invoices.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.1923075">
-              <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
+            <state vertical-scroll-proportion="1.201695">
+              <caret line="87" column="4" selection-start-line="87" selection-start-column="4" selection-end-line="87" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -143,9 +112,9 @@
         <option value="$PROJECT_DIR$/client/styles/main.scss" />
         <option value="$PROJECT_DIR$/client/appointments/appointments.js" />
         <option value="$PROJECT_DIR$/client/appointments/appointments.html" />
-        <option value="$PROJECT_DIR$/client/invoices/invoices.html" />
-        <option value="$PROJECT_DIR$/client/services/services.html" />
         <option value="$PROJECT_DIR$/client/layouts/states.html" />
+        <option value="$PROJECT_DIR$/client/services/services.html" />
+        <option value="$PROJECT_DIR$/client/invoices/invoices.html" />
       </list>
     </option>
   </component>
@@ -539,7 +508,13 @@
       <option name="project" value="LOCAL" />
       <updated>1473398037817</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Add loading state to the services">
+      <created>1473398797491</created>
+      <option name="number" value="00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1473398797491</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -601,7 +576,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Add a patient's search for the list of patients" />
     <MESSAGE value="Add a search for invoices" />
     <MESSAGE value="Add a search for generations and services" />
     <MESSAGE value="Add patient profile editing functionality" />
@@ -626,7 +600,8 @@
     <MESSAGE value="Add empty states to the appointments module" />
     <MESSAGE value="Add empty states to the invoices" />
     <MESSAGE value="Add empty states to the services" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add empty states to the services" />
+    <MESSAGE value="Add loading state to the services" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add loading state to the services" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1119,17 +1094,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/invoices/invoices.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.81864405">
-          <caret line="84" column="82" selection-start-line="84" selection-start-column="82" selection-end-line="84" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/appointments/appointments.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.730769">
+        <state vertical-scroll-proportion="0.6050847">
           <caret line="178" column="19" selection-start-line="175" selection-start-column="16" selection-end-line="178" selection-end-column="19" />
           <folding>
             <element signature="n#template#0;n#!!top" expanded="false" />
@@ -1158,7 +1125,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/layouts/states.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075">
+        <state vertical-scroll-proportion="0.31694916">
           <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
           <folding />
         </state>
@@ -1166,13 +1133,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/services/services.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.76949155">
-          <caret line="107" column="33" selection-start-line="107" selection-start-column="33" selection-end-line="107" selection-end-column="33" />
+        <state vertical-scroll-proportion="-16.153847">
+          <caret line="123" column="13" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="13" />
           <folding>
             <element signature="n#template#7;n#!!top" expanded="false" />
             <element signature="n#template#8;n#!!top" expanded="false" />
             <element signature="n#template#9;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/invoices/invoices.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.201695">
+          <caret line="87" column="4" selection-start-line="87" selection-start-column="4" selection-end-line="87" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>

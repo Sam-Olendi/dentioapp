@@ -112,18 +112,16 @@
 </template>
 
 <template name="servicesTableRow">
-
-            {{#each services}}
-                <tr class="services-table-row" data-id="{{_id}}">
-                    <td class="services-table-services-column"><a href="#" class="body-table-link js-service-trigger-view">{{ service_name }}</a></td>
-                    <td class="services-table-prices-column">Kshs. {{ service_price }}</td>
-                    <td class="services-table-actions-column">
-                        <a href="#" class="services-table-actions mod-services-table-actions-edit js-services-trigger-edit"><span class="icon-write"></span>Edit</a>
-                        <a href="#" class="services-table-actions mod-services-table-actions-delete js-services-trigger-delete"><span class="icon-cancel"></span>Delete</a>
-                    </td>
-                </tr>
-            {{/each}}
-
+    {{#each services}}
+        <tr class="services-table-row" data-id="{{_id}}">
+            <td class="services-table-services-column"><a href="#" class="body-table-link js-service-trigger-view">{{ service_name }}</a></td>
+            <td class="services-table-prices-column">Kshs. {{ service_price }}</td>
+            <td class="services-table-actions-column">
+                <a href="#" class="services-table-actions mod-services-table-actions-edit js-services-trigger-edit"><span class="icon-write"></span>Edit</a>
+                <a href="#" class="services-table-actions mod-services-table-actions-delete js-services-trigger-delete"><span class="icon-cancel"></span>Delete</a>
+            </td>
+        </tr>
+    {{/each}}
 </template>
 
 <template name="servicesViewModal">
