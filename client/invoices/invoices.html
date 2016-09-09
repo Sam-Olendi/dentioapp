@@ -61,23 +61,29 @@
             <a href="#" class="button mod-button-cancel js-show-more-invoices">Show more...</a>
         </div>
     {{else}}
-
-        <p class="body-search-result-helper">Seems like you do not yet have any invoices.</p>
-        <p class="body-search-result-helper">Invoices are automatically generated when an appointment is completed.
-        You could also generate one using the invoice generator by clicking on the button on the top right of your screen.</p>
+        <div class="body-no-content">
+            {{> noContent }}
+            <p class="body-no-content-instruction"><span class="body-no-content-highlight">Worry not! </span>Invoices are automatically generated when an appointment is completed. You could also generate one using the <span class="body-no-content-highlight">Invoice Generator</span> by clicking on the green button on the top right of your screen.</p>
+        </div>
     {{/if}}
 </template>
 
 <template name="invoicesContentTableRow">
-    {{#each invoices }}
-        <tr class="invoices-table-row js-trigger-invoice-view" data-id="{{_id}}">
-            <td>{{invoice_no}}</td>
-            <td>{{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}}</td>
-            <td>{{company.company_name}}</td>
-            <td>{{insurance.insurance_name}}</td>
-            <td>{{date_issued}}</td>
-        </tr>
-    {{/each}}
+    {{#if Template.subscriptionsReady}}
+        {{#transition in="fadeIn:250"}}
+            {{#each invoices }}
+                <tr class="invoices-table-row js-trigger-invoice-view" data-id="{{_id}}">
+                    <td>{{invoice_no}}</td>
+                    <td>{{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}}</td>
+                    <td>{{company.company_name}}</td>
+                    <td>{{insurance.insurance_name}}</td>
+                    <td>{{date_issued}}</td>
+                </tr>
+            {{/each}}
+        {{/transition}}
+    {{else}}
+        <p><span class="body-search-loading"></span> Please wait. Loading appointments...</p>
+    {{/if}}
 </template>
 
 <template name="invoicesViewModal">

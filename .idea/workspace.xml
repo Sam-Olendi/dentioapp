@@ -4,6 +4,7 @@
     <list default="true" id="1e783e81-5958-4c2d-ad95-870373fd6f58" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/appointments/appointments.html" afterPath="$PROJECT_DIR$/client/appointments/appointments.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/invoices/invoices.html" afterPath="$PROJECT_DIR$/client/invoices/invoices.html" />
     </list>
     <ignored path="dentioapp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,8 +28,8 @@
       <file leaf-file-name="appointments.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/appointments/appointments.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.76949155">
-              <caret line="417" column="14" selection-start-line="417" selection-start-column="14" selection-end-line="417" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.45084745">
+              <caret line="177" column="61" selection-start-line="177" selection-start-column="61" selection-end-line="177" selection-end-column="61" />
               <folding>
                 <element signature="n#template#0;n#!!top" expanded="false" />
                 <element signature="n#template#1;n#!!top" expanded="false" />
@@ -39,7 +40,6 @@
                 <element signature="n#template#6;n#!!top" expanded="false" />
                 <element signature="n#template#7;n#!!top" expanded="false" />
                 <element signature="n#template#8;n#!!top" expanded="false" />
-                <element signature="n#template#9;n#!!top" expanded="false" />
                 <element signature="n#template#10;n#!!top" expanded="false" />
                 <element signature="n#template#11;n#!!top" expanded="false" />
                 <element signature="n#template#12;n#!!top" expanded="false" />
@@ -51,7 +51,18 @@
                 <element signature="n#template#17;n#!!top" expanded="false" />
                 <element signature="n#template#18;n#!!top" expanded="false" />
                 <element signature="n#template#19;n#!!top" expanded="false" />
+                <element signature="n#template#20;n#!!top" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="invoices.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/invoices/invoices.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.269231">
+              <caret line="72" column="37" selection-start-line="72" selection-start-column="37" selection-end-line="72" selection-end-column="37" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -85,16 +96,6 @@
                 <element signature="e#15264#15356#0" expanded="false" />
                 <element signature="e#16024#16116#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="invoices.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/invoices/invoices.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.65384614">
-              <caret line="35" column="88" selection-start-line="35" selection-start-column="88" selection-end-line="35" selection-end-column="88" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -201,12 +202,12 @@
         <option value="$PROJECT_DIR$/client/services/services.html" />
         <option value="$PROJECT_DIR$/client/services/services.js" />
         <option value="$PROJECT_DIR$/server/publications/generations-publications.js" />
-        <option value="$PROJECT_DIR$/client/invoices/invoices.html" />
         <option value="$PROJECT_DIR$/client/invoices/invoices.js" />
         <option value="$PROJECT_DIR$/client/styles/main.scss" />
         <option value="$PROJECT_DIR$/client/layouts/states.html" />
         <option value="$PROJECT_DIR$/client/appointments/appointments.js" />
         <option value="$PROJECT_DIR$/client/appointments/appointments.html" />
+        <option value="$PROJECT_DIR$/client/invoices/invoices.html" />
       </list>
     </option>
   </component>
@@ -582,7 +583,13 @@
       <option name="project" value="LOCAL" />
       <updated>1473396077283</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Add empty states to the appointments module">
+      <created>1473396609640</created>
+      <option name="number" value="00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1473396609640</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1115,14 +1122,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/invoices/invoices.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614">
-          <caret line="35" column="88" selection-start-line="35" selection-start-column="88" selection-end-line="35" selection-end-column="88" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/invoices/invoices.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1190,10 +1189,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/invoices/invoices.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.269231">
+          <caret line="72" column="37" selection-start-line="72" selection-start-column="37" selection-end-line="72" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/appointments/appointments.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.76949155">
-          <caret line="417" column="14" selection-start-line="417" selection-start-column="14" selection-end-line="417" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.45084745">
+          <caret line="177" column="61" selection-start-line="177" selection-start-column="61" selection-end-line="177" selection-end-column="61" />
           <folding>
             <element signature="n#template#0;n#!!top" expanded="false" />
             <element signature="n#template#1;n#!!top" expanded="false" />
@@ -1204,7 +1211,6 @@
             <element signature="n#template#6;n#!!top" expanded="false" />
             <element signature="n#template#7;n#!!top" expanded="false" />
             <element signature="n#template#8;n#!!top" expanded="false" />
-            <element signature="n#template#9;n#!!top" expanded="false" />
             <element signature="n#template#10;n#!!top" expanded="false" />
             <element signature="n#template#11;n#!!top" expanded="false" />
             <element signature="n#template#12;n#!!top" expanded="false" />
@@ -1216,6 +1222,7 @@
             <element signature="n#template#17;n#!!top" expanded="false" />
             <element signature="n#template#18;n#!!top" expanded="false" />
             <element signature="n#template#19;n#!!top" expanded="false" />
+            <element signature="n#template#20;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
