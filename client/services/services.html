@@ -88,28 +88,39 @@
                 <th class="services-table-prices-column">Price</th>
                 <th class="services-table-actions-column"></th>
             </tr>
-            {{> servicesTableRow}}
+            {{#if Template.subscriptionsReady}}
+                {{#transition in="fadeInLeft:300" out="fadeOutRight:300"}}
+                    {{> servicesTableRow}}
+                {{/transition}}
+            {{else}}
+                <p><span class="body-search-loading"></span> Please wait. Loading services...</p>
+            {{/if}}
         </table>
         <div class="body-bottom-buttons">
             <a href="#" class="button mod-button-cancel js-services-show-more">Show more...</a>
         </div>
     {{else}}
-        <p class="body-search-result-helper">Seems like you have not yet added your list of services.</p>
-        <p class="body-search-result-helper">You can add one by clicking on the '+ New service' button on the top right of the screen</p>
+        <div class="body-no-content">
+            {{> noContent }}
+            <p class="body-no-content-instruction">You can add a new service by clicking on the green <span class="body-no-content-highlight">'New service'</span> button on the top right of your screen.</p>
+        </div>
     {{/if}}
+
 </template>
 
 <template name="servicesTableRow">
-    {{#each services}}
-        <tr class="services-table-row" data-id="{{_id}}">
-            <td class="services-table-services-column"><a href="#" class="body-table-link js-service-trigger-view">{{ service_name }}</a></td>
-            <td class="services-table-prices-column">Kshs. {{ service_price }}</td>
-            <td class="services-table-actions-column">
-                <a href="#" class="services-table-actions mod-services-table-actions-edit js-services-trigger-edit"><span class="icon-write"></span>Edit</a>
-                <a href="#" class="services-table-actions mod-services-table-actions-delete js-services-trigger-delete"><span class="icon-cancel"></span>Delete</a>
-            </td>
-        </tr>
-    {{/each}}
+
+            {{#each services}}
+                <tr class="services-table-row" data-id="{{_id}}">
+                    <td class="services-table-services-column"><a href="#" class="body-table-link js-service-trigger-view">{{ service_name }}</a></td>
+                    <td class="services-table-prices-column">Kshs. {{ service_price }}</td>
+                    <td class="services-table-actions-column">
+                        <a href="#" class="services-table-actions mod-services-table-actions-edit js-services-trigger-edit"><span class="icon-write"></span>Edit</a>
+                        <a href="#" class="services-table-actions mod-services-table-actions-delete js-services-trigger-delete"><span class="icon-cancel"></span>Delete</a>
+                    </td>
+                </tr>
+            {{/each}}
+
 </template>
 
 <template name="servicesViewModal">

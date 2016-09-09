@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1e783e81-5958-4c2d-ad95-870373fd6f58" name="Default" comment="">
+    <list default="true" id="1e783e81-5958-4c2d-ad95-870373fd6f58" name="Default" comment="Add empty states to the services">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/appointments/appointments.html" afterPath="$PROJECT_DIR$/client/appointments/appointments.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/invoices/invoices.html" afterPath="$PROJECT_DIR$/client/invoices/invoices.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/services/services.html" afterPath="$PROJECT_DIR$/client/services/services.html" />
     </list>
     <ignored path="dentioapp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="appointments.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="appointments.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/appointments/appointments.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.45084745">
-              <caret line="177" column="61" selection-start-line="177" selection-start-column="61" selection-end-line="177" selection-end-column="61" />
+            <state vertical-scroll-proportion="-13.730769">
+              <caret line="178" column="19" selection-start-line="175" selection-start-column="16" selection-end-line="178" selection-end-column="19" />
               <folding>
                 <element signature="n#template#0;n#!!top" expanded="false" />
                 <element signature="n#template#1;n#!!top" expanded="false" />
@@ -41,7 +42,6 @@
                 <element signature="n#template#7;n#!!top" expanded="false" />
                 <element signature="n#template#8;n#!!top" expanded="false" />
                 <element signature="n#template#10;n#!!top" expanded="false" />
-                <element signature="n#template#11;n#!!top" expanded="false" />
                 <element signature="n#template#12;n#!!top" expanded="false" />
                 <element signature="n#template#13;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#a#2;n#div#0;n#div#0;n#div#0;n#template#13;n#!!top" expanded="true" />
@@ -57,87 +57,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="invoices.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/invoices/invoices.html">
+      <file leaf-file-name="services.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/services/services.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.269231">
-              <caret line="72" column="37" selection-start-line="72" selection-start-column="37" selection-end-line="72" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="appointments.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/appointments/appointments.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="460" column="10" selection-start-line="460" selection-start-column="10" selection-end-line="460" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.720339">
+              <caret line="102" column="37" selection-start-line="102" selection-start-column="37" selection-end-line="102" selection-end-column="37" />
               <folding>
-                <element signature="e#1310#1620#0" expanded="false" />
-                <element signature="e#1663#1906#0" expanded="false" />
-                <element signature="e#1949#2502#0" expanded="false" />
-                <element signature="e#2545#2783#0" expanded="false" />
-                <element signature="e#2824#4482#0" expanded="false" />
-                <element signature="e#4524#6739#0" expanded="false" />
-                <element signature="e#6804#7406#0" expanded="false" />
-                <element signature="e#7455#7868#0" expanded="false" />
-                <element signature="e#7916#8739#0" expanded="false" />
-                <element signature="e#8802#8988#0" expanded="false" />
-                <element signature="e#9035#9457#0" expanded="false" />
-                <element signature="e#9503#9834#0" expanded="false" />
-                <element signature="e#9886#10537#0" expanded="false" />
-                <element signature="e#10583#10822#0" expanded="false" />
-                <element signature="e#10865#12419#0" expanded="false" />
-                <element signature="e#12471#13424#0" expanded="false" />
-                <element signature="e#13469#13576#0" expanded="false" />
-                <element signature="e#13618#14469#0" expanded="false" />
-                <element signature="e#14528#14616#0" expanded="false" />
-                <element signature="e#14659#15203#0" expanded="false" />
-                <element signature="e#15264#15356#0" expanded="false" />
-                <element signature="e#16024#16116#0" expanded="false" />
+                <element signature="n#template#7;n#!!top" expanded="false" />
+                <element signature="n#template#8;n#!!top" expanded="false" />
+                <element signature="n#template#9;n#!!top" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="invoices.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/invoices/invoices.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-              <folding>
-                <element signature="n#!!block;n#openCloseModal#0" expanded="false" />
-                <element signature="n#!!block;n#closeModal#0" expanded="false" />
-                <element signature="e#975#1049#0" expanded="false" />
-                <element signature="e#1084#1597#0" expanded="false" />
-                <element signature="e#1650#1780#0" expanded="false" />
-                <element signature="e#1817#1970#0" expanded="false" />
-                <element signature="e#2006#2135#0" expanded="false" />
-                <element signature="e#2182#2318#0" expanded="false" />
-                <element signature="e#2362#2660#0" expanded="false" />
-                <element signature="e#2715#2932#0" expanded="false" />
-                <element signature="e#2971#3081#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="states.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/layouts/states.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/styles/main.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.115385">
-              <caret line="568" column="16" selection-start-line="568" selection-start-column="16" selection-end-line="568" selection-end-column="16" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -199,7 +128,6 @@
         <option value="$PROJECT_DIR$/server/mail.js" />
         <option value="$PROJECT_DIR$/client/patients/patients.js" />
         <option value="$PROJECT_DIR$/methods/services-methods.js" />
-        <option value="$PROJECT_DIR$/client/services/services.html" />
         <option value="$PROJECT_DIR$/client/services/services.js" />
         <option value="$PROJECT_DIR$/server/publications/generations-publications.js" />
         <option value="$PROJECT_DIR$/client/invoices/invoices.js" />
@@ -208,6 +136,7 @@
         <option value="$PROJECT_DIR$/client/appointments/appointments.js" />
         <option value="$PROJECT_DIR$/client/appointments/appointments.html" />
         <option value="$PROJECT_DIR$/client/invoices/invoices.html" />
+        <option value="$PROJECT_DIR$/client/services/services.html" />
       </list>
     </option>
   </component>
@@ -589,7 +518,13 @@
       <option name="project" value="LOCAL" />
       <updated>1473396609640</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Add empty states to the invoices">
+      <created>1473397175169</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1473397175170</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -651,8 +586,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Fix the NaN generated treatment amount bug" />
-    <MESSAGE value="Create interface for editing a generation" />
     <MESSAGE value="Add a patient's search for the list of patients" />
     <MESSAGE value="Add a search for invoices" />
     <MESSAGE value="Add a search for generations and services" />
@@ -676,7 +609,9 @@
     <MESSAGE value="Add modal with more details to each service" />
     <MESSAGE value="Add modal with more details to each invoice" />
     <MESSAGE value="Add empty states to the appointments module" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add empty states to the appointments module" />
+    <MESSAGE value="Add empty states to the invoices" />
+    <MESSAGE value="Add empty states to the services" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add empty states to the services" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1110,18 +1045,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/services/services.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3644068">
-          <caret line="71" column="73" selection-start-line="71" selection-start-column="66" selection-end-line="71" selection-end-column="73" />
-          <folding>
-            <element signature="n#template#6;n#!!top" expanded="false" />
-            <element signature="n#template#8;n#!!top" expanded="false" />
-            <element signature="n#template#9;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/invoices/invoices.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1160,7 +1083,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/appointments/appointments.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.9172078">
           <caret line="460" column="10" selection-start-line="460" selection-start-column="10" selection-end-line="460" selection-end-column="10" />
           <folding>
             <element signature="e#1310#1620#0" expanded="false" />
@@ -1191,16 +1114,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/invoices/invoices.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.269231">
-          <caret line="72" column="37" selection-start-line="72" selection-start-column="37" selection-end-line="72" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.81864405">
+          <caret line="84" column="82" selection-start-line="84" selection-start-column="82" selection-end-line="84" selection-end-column="82" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/appointments/appointments.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45084745">
-          <caret line="177" column="61" selection-start-line="177" selection-start-column="61" selection-end-line="177" selection-end-column="61" />
+        <state vertical-scroll-proportion="-13.730769">
+          <caret line="178" column="19" selection-start-line="175" selection-start-column="16" selection-end-line="178" selection-end-column="19" />
           <folding>
             <element signature="n#template#0;n#!!top" expanded="false" />
             <element signature="n#template#1;n#!!top" expanded="false" />
@@ -1212,7 +1135,6 @@
             <element signature="n#template#7;n#!!top" expanded="false" />
             <element signature="n#template#8;n#!!top" expanded="false" />
             <element signature="n#template#10;n#!!top" expanded="false" />
-            <element signature="n#template#11;n#!!top" expanded="false" />
             <element signature="n#template#12;n#!!top" expanded="false" />
             <element signature="n#template#13;n#!!top" expanded="false" />
             <element signature="n#style#0;n#a#2;n#div#0;n#div#0;n#div#0;n#template#13;n#!!top" expanded="true" />
@@ -1223,6 +1145,18 @@
             <element signature="n#template#18;n#!!top" expanded="false" />
             <element signature="n#template#19;n#!!top" expanded="false" />
             <element signature="n#template#20;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/services/services.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.720339">
+          <caret line="102" column="37" selection-start-line="102" selection-start-column="37" selection-end-line="102" selection-end-column="37" />
+          <folding>
+            <element signature="n#template#7;n#!!top" expanded="false" />
+            <element signature="n#template#8;n#!!top" expanded="false" />
+            <element signature="n#template#9;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
