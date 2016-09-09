@@ -168,10 +168,16 @@
 
 <template name="appointmentContentWaiting">
     <!--{> appointmentWaitingSearch}-->
-
     <div class="appointment-content-waiting">
         <table class="appointment-content-table">
-            {{> appointmentWaitingRow}}
+            {{#if Template.subscriptionsReady}}
+                {{#transition in="fadeInLeft:250" out="fadeOutRight:250"}}
+                    {{> appointmentWaitingRow}}
+                {{/transition}}
+            {{else}}
+                <p>Please wait. Loading appointments...</p>
+                <span class="body-search-loading"></span>
+            {{/if}}
         </table>
     </div>
 </template>
@@ -185,25 +191,32 @@
 </template>
 
 <template name="appointmentWaitingRow">
-    {{#each appointments}}
-        <tr class="appointment-content-row" data-id="{{patient_id}}" data-appointment="{{_id}}">
-            <td class="appointment-content-row-name">
-                <a href="#" class="appointment-content-table-patient js-show-start-appointment-modal">
-                    {{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}}
-                </a>
-            </td>
-            <td class="appointment-content-row-status">
-                <a href="#" class="appointment-content-table-status js-appointment-content-table-status">
-                    <span class="icon-toggles"></span> Change status
-                </a>
-            </td>
-            <td class="appointment-content-row-booked">
-                {{#if booked}}
-                    <span class="appointment-content-table-booked">Booked</span>
-                {{/if}}
-            </td>
-        </tr>
-    {{/each}}
+    {{#if appointmentsFound }}
+        {{#each appointments}}
+            <tr class="appointment-content-row" data-id="{{patient_id}}" data-appointment="{{_id}}">
+                <td class="appointment-content-row-name">
+                    <a href="#" class="appointment-content-table-patient js-show-start-appointment-modal">
+                        {{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}}
+                    </a>
+                </td>
+                <td class="appointment-content-row-status">
+                    <a href="#" class="appointment-content-table-status js-appointment-content-table-status">
+                        <span class="icon-toggles"></span> Change status
+                    </a>
+                </td>
+                <td class="appointment-content-row-booked">
+                    {{#if booked}}
+                        <span class="appointment-content-table-booked">Booked</span>
+                    {{/if}}
+                </td>
+            </tr>
+        {{/each}}
+    {{else}}
+        <div class="body-no-content">
+            {{> noContent }}
+            <p class="body-no-content-instruction">You can add an appointment by clicking on the green <span class="body-no-content-highlight">'New Appointment'</span> button on the top right of your screen.</p>
+        </div>
+    {{/if}}
 </template>
 
 <template name="appointmentStatusModal">
@@ -305,7 +318,14 @@
 
     <div class="appointment-content-in-session">
         <table class="appointment-content-table">
-            {{> appointmentInSessionRow}}
+            {{#if Template.subscriptionsReady}}
+                {{#transition in="fadeInLeft:250" out="fadeOutRight:250"}}
+                    {{> appointmentInSessionRow}}
+                {{/transition}}
+            {{else}}
+                <p>Please wait. Loading appointments...</p>
+                <span class="body-search-loading"></span>
+            {{/if}}
         </table>
     </div>
 </template>
@@ -318,25 +338,32 @@
 </template>
 
 <template name="appointmentInSessionRow">
-    {{#each appointments}}
-        <tr class="appointment-content-row" data-id="{{patient_id}}" data-appointment="{{_id}}">
-            <td class="appointment-content-row-name">
-                <a href="/patients/{{patient_id}}" class="appointment-content-table-patient">
-                    {{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}}
-                </a>
-            </td>
-            <td class="appointment-content-row-status">
-                <a href="#" class="appointment-content-table-status js-appointment-content-table-status">
-                    <span class="icon-toggles"></span> Change status
-                </a>
-            </td>
-            <td class="appointment-content-row-booked">
-                {{#if booked}}
-                    <span class="appointment-content-table-booked">Booked</span>
-                {{/if}}
-            </td>
-        </tr>
-    {{/each}}
+    {{#if appointmentsFound}}
+        {{#each appointments}}
+            <tr class="appointment-content-row" data-id="{{patient_id}}" data-appointment="{{_id}}">
+                <td class="appointment-content-row-name">
+                    <a href="/patients/{{patient_id}}" class="appointment-content-table-patient">
+                        {{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}}
+                    </a>
+                </td>
+                <td class="appointment-content-row-status">
+                    <a href="#" class="appointment-content-table-status js-appointment-content-table-status">
+                        <span class="icon-toggles"></span> Change status
+                    </a>
+                </td>
+                <td class="appointment-content-row-booked">
+                    {{#if booked}}
+                        <span class="appointment-content-table-booked">Booked</span>
+                    {{/if}}
+                </td>
+            </tr>
+        {{/each}}
+    {{else}}
+        <div class="body-no-content">
+            {{> noContent }}
+            <p class="body-no-content-instruction">You can add an appointment by clicking on the green <span class="body-no-content-highlight">'New Appointment'</span> button on the top right of your screen.</p>
+        </div>
+    {{/if}}
 </template>
 
 <template name="appointmentContentCompleted">
@@ -344,7 +371,14 @@
 
     <div class="appointment-content-completed">
         <table class="appointment-content-table">
-            {{> appointmentCompletedRow}}
+            {{#if Template.subscriptionsReady}}
+                {{#transition in="fadeInLeft:250" out="fadeOutRight:250"}}
+                    {{> appointmentCompletedRow}}
+                {{/transition}}
+            {{else}}
+                <p>Please wait. Loading appointments...</p>
+                <span class="body-search-loading"></span>
+            {{/if}}
         </table>
     </div>
 </template>
@@ -357,23 +391,30 @@
 </template>
 
 <template name="appointmentCompletedRow">
-    {{#each appointments}}
-        <tr class="appointment-content-row" data-id="{{patient_id}}" data-appointment="{{_id}}">
-            <td class="appointment-content-row-name">
-                <a href="/patients/{{patient_id}}" class="appointment-content-table-patient">
-                    {{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}}
-                </a>
-            </td>
-            <td class="appointment-content-row-status">
-                <a href="#" class="appointment-content-table-status js-appointment-content-table-status">
-                    <span class="icon-toggles"></span> Change status
-                </a>
-            </td>
-            <td class="appointment-content-row-booked">
-                {{#if booked}}
-                    <span class="appointment-content-table-booked">Booked</span>
-                {{/if}}
-            </td>
-        </tr>
-    {{/each}}
+    {{#if appointmentsFound}}
+        {{#each appointments}}
+            <tr class="appointment-content-row" data-id="{{patient_id}}" data-appointment="{{_id}}">
+                <td class="appointment-content-row-name">
+                    <a href="/patients/{{patient_id}}" class="appointment-content-table-patient">
+                        {{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}}
+                    </a>
+                </td>
+                <td class="appointment-content-row-status">
+                    <a href="#" class="appointment-content-table-status js-appointment-content-table-status">
+                        <span class="icon-toggles"></span> Change status
+                    </a>
+                </td>
+                <td class="appointment-content-row-booked">
+                    {{#if booked}}
+                        <span class="appointment-content-table-booked">Booked</span>
+                    {{/if}}
+                </td>
+            </tr>
+        {{/each}}
+    {{else}}
+        <div class="body-no-content">
+            {{> noContent }}
+            <p class="body-no-content-instruction">You can add an appointment by clicking on the green <span class="body-no-content-highlight">'New Appointment'</span> button on the top right of your screen.</p>
+        </div>
+    {{/if}}
 </template>

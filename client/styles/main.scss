@@ -550,6 +550,31 @@ td, th {
   }
 }
 
+.body-no-content {
+  text-align: center;
+
+  .body-no-content-svg {
+    height: 60px;
+    margin: 0 auto;
+    width: 60px;
+  }
+  
+  .body-no-content-text {
+    color: $deeper-gray;
+  }
+}
+
+.body-no-content-instruction {
+  background-color: #D8E9F0;
+  margin: 20px 0;
+  padding: 10px;
+  width: auto;
+
+  .body-no-content-highlight {
+    font-weight: 600;
+  }
+}
+
 .body-header {
   padding: 20px 0;
 }

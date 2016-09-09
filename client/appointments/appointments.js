@@ -73,12 +73,16 @@ Template.appointmentHeaderTitle.events({
     }
 });
 
+
+
 Template.appointmentNewButton.events({
    'click .js-appointment-new-trigger': function () {
        // open modal that allows user to add a new appointment
        openCloseModal('.appointment-new-modal', '.appointment-new-modal-content', '.js-cancel-appointment-new');
    }
 });
+
+
 
 Template.appointmentContent.events({
     'click .appointment-tabs': function () {
@@ -119,6 +123,8 @@ Template.appointmentContent.events({
         openCloseModal('.appointment-start-modal', '.appointment-start-modal-content', '.js-cancel-appointment-start');
     }
 });
+
+
 
 Template.appointmentNewModal.events({
     'keyup .js-show-patient-results': function () {
@@ -173,6 +179,8 @@ Template.appointmentNewModal.events({
 
     }
 });
+
+
 
 Template.appointmentNewPatientSearch.onCreated(function () {
     // attach a reactive var to the template instance
@@ -234,6 +242,8 @@ Template.appointmentNewPatientSearch.events({
     }
 });
 
+
+
 Template.appointmentNewPatientName.onCreated(function () {
     // subscribe to the right publication.
     // set the query to the selected (searched for) patient.
@@ -258,6 +268,8 @@ Template.appointmentNewPatientName.events({
    }
 });
 
+
+
 Template.appointmentContentTabSections.events({
     'mouseenter .appointment-content-row': function () {
         // set the session to show selected patient
@@ -272,6 +284,8 @@ Template.appointmentContentTabSections.events({
         openCloseModal('.change-status-modal', '.change-status-modal-content', '.js-cancel-change-status');
     }
 });
+
+
 
 Template.appointmentStatusModal.helpers({
    patient: function () {
@@ -319,6 +333,8 @@ Template.appointmentStatusModal.events({
     }
 });
 
+
+
 Template.confirmDeleteAppointmentModal.events({
     'click .js-appointment-delete-confirmed': function (event) {
        // when patient confirms that they really do want to delete the patient
@@ -341,6 +357,8 @@ Template.confirmDeleteAppointmentModal.events({
         closeModal('.confirm-delete-appointment-modal', '.confirm-delete-appointment-modal');
     }
 });
+
+
 
 Template.appointmentStartModal.helpers({
    patient: function () {
@@ -366,6 +384,8 @@ Template.appointmentStartModal.events({
     }
 });
 
+
+
 Template.appointmentWaitingRow.onCreated(function () {
     // subscribe to appointments.waiting
     this.subscribe('appointments.waiting');
@@ -379,8 +399,18 @@ Template.appointmentWaitingRow.helpers({
             status: 'Waiting',
             date_created: { $regex: momentDate }
         });
+    },
+
+    appointmentsFound: function () {
+        var momentDate = new RegExp(Session.get("momentDate"));
+        return Appointments.find({
+            status: 'Waiting',
+            date_created: { $regex: momentDate }
+        }).fetch().length;
     }
 });
+
+
 
 Template.appointmentInSessionRow.onCreated(function () {
     // subscribe to appointments.inSession
@@ -395,8 +425,18 @@ Template.appointmentInSessionRow.helpers({
             status: 'In-Session',
             date_created: { $regex: momentDate }
         });
+    },
+
+    appointmentsFound: function () {
+        var momentDate = new RegExp(Session.get("momentDate"));
+        return Appointments.find({
+            status: 'In-Session',
+            date_created: { $regex: momentDate }
+        }).fetch().length;
     }
 });
+
+
 
 Template.appointmentCompletedRow.onCreated(function () {
     // subscribe to appointments.completed
@@ -411,5 +451,13 @@ Template.appointmentCompletedRow.helpers({
             status: 'Completed',
             date_created: { $regex: momentDate }
         });
+    },
+
+    appointmentsFound: function () {
+        var momentDate = new RegExp(Session.get("momentDate"));
+        return Appointments.find({
+            status: 'Completed',
+            date_created: { $regex: momentDate }
+        }).fetch().length;
     }
 });
