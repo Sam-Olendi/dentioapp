@@ -81,28 +81,31 @@
     {{> servicesEditModal }}
     {{> servicesDeleteModal }}
 
-    {{#if servicesFound}}
-        <table>
-            <tr>
-                <th class="services-table-services-column">Service</th>
-                <th class="services-table-prices-column">Price</th>
-                <th class="services-table-actions-column"></th>
-            </tr>
-            {{#if Template.subscriptionsReady}}
+
+    {{#if Template.subscriptionsReady}}
+        {{#if servicesFound}}
+            <table>
+                <tr>
+                    <th class="services-table-services-column">Service</th>
+                    <th class="services-table-prices-column">Price</th>
+                    <th class="services-table-actions-column"></th>
+                </tr>
                 {{#transition in="fadeInLeft:300" out="fadeOutRight:300"}}
                     {{> servicesTableRow}}
                 {{/transition}}
-            {{else}}
-                <p><span class="body-search-loading"></span> Please wait. Loading services...</p>
-            {{/if}}
-        </table>
-        <div class="body-bottom-buttons">
-            <a href="#" class="button mod-button-cancel js-services-show-more">Show more...</a>
-        </div>
+            </table>
+            <div class="body-bottom-buttons">
+                <a href="#" class="button mod-button-cancel js-services-show-more">Show more...</a>
+            </div>
+        {{else}}
+            <div class="body-no-content">
+                {{> noContent }}
+                <p class="body-no-content-instruction">You can add a new service by clicking on the green <span class="body-no-content-highlight">'New service'</span> button on the top right of your screen.</p>
+            </div>
+        {{/if}}
     {{else}}
         <div class="body-no-content">
-            {{> noContent }}
-            <p class="body-no-content-instruction">You can add a new service by clicking on the green <span class="body-no-content-highlight">'New service'</span> button on the top right of your screen.</p>
+            {{> loadingContent }}
         </div>
     {{/if}}
 
