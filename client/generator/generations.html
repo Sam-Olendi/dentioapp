@@ -41,56 +41,64 @@
 </template>
 
 <template name="generatorTable">
+    {{#if Template.subscriptionsReady}}
+        {{#if generationsFound}}
+            <table class="generator-table">
+                <tr class="generator-table-head-row">
+                    <th class="generator-table-head-cell">Invoice Number</th>
+                    <th class="generator-table-head-cell">Patient Name</th>
+                    <th class="generator-table-head-cell">Company</th>
+                    <th class="generator-table-head-cell">Staff Number</th>
+                    <th class="generator-table-head-cell">Total Amount</th>
+                    <th class="generator-table-head-cell">Date Issued</th>
+                </tr>
 
-    {{#if generationsFound}}
-        <table class="generator-table">
-            <tr class="generator-table-head-row">
-                <th class="generator-table-head-cell">Invoice Number</th>
-                <th class="generator-table-head-cell">Patient Name</th>
-                <th class="generator-table-head-cell">Company</th>
-                <th class="generator-table-head-cell">Staff Number</th>
-                <th class="generator-table-head-cell">Total Amount</th>
-                <th class="generator-table-head-cell">Date Issued</th>
-            </tr>
-
-            {{> generatorRows}}
-
-        </table>
-        <div class="body-bottom-buttons">
-            <a href="#" class="button mod-button-cancel js-show-more-generations">Show more...</a>
-        </div>
+                {{#transition in="fadeInLeft:400" out="fadeOutRight:400"}}
+                    {{> generatorRows}}
+                {{/transition}}
+            </table>
+            <div class="body-bottom-buttons">
+                <a href="#" class="button mod-button-cancel js-show-more-generations">Show more...</a>
+            </div>
+        {{else}}
+            <div class="body-no-content">
+                {{> noContent }}
+                <p class="body-no-content-instruction">
+                    Invoices are automatically generated when an appointment is completed.
+                    You could also generate one by clicking on the green <span class="body-no-content-highlight">'New invoice'</span> button on the top right of your screen.
+                </p>
+            </div>
+        {{/if}}
     {{else}}
-        <p class="body-search-result-helper">Seems like you do not yet have any invoices.</p>
-        <p class="body-search-result-helper">Invoices are automatically generated when an appointment is completed.
-            You could also generate one by clicking on the button on the top right of your screen.</p>
+        <div class="body-no-content">
+            {{> loadingContent }}
+        </div>
     {{/if}}
 </template>
 
 <template name="generatorRows">
-
-        {{#each generations}}
-            <tr>
-                <td>{{generation_no}}</td>
-                <td>
-                    <a href="/generator/invoice/{{_id}}" class="generator-table-cell-link">{{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}}</a>
-                </td>
-                <td>
-                    {{#if company}}
-                        {{company.company_name}}
-                    {{else}}
-                        <span class="body-search-result-helper">-</span>
-                    {{/if}}
-                </td>
-                <td>
-                    {{#if company}}
-                        {{patient.work.staff_number}}
-                    {{else}}
-                        <span class="body-search-result-helper">-</span>
-                    {{/if}}
-                </td>
-                <td>{{final_amount}}</td>
-                <td>{{date_generated}}</td>
-            </tr>
-        {{/each}}
-
+    {{#each generations}}
+        <tr>
+            <td>{{generation_no}}</td>
+            <td>
+                <a href="/generator/invoice/{{_id}}" class="generator-table-cell-link">{{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}}</a>
+            </td>
+            <td>
+                {{#if company}}
+                    {{company.company_name}}
+                {{else}}
+                    <span class="body-search-result-helper">-</span>
+                {{/if}}
+            </td>
+            <td>
+                {{#if company}}
+                    {{patient.work.staff_number}}
+                {{else}}
+                    <span class="body-search-result-helper">-</span>
+                {{/if}}
+            </td>
+            <td>{{final_amount}}</td>
+            <td>{{date_generated}}</td>
+        </tr>
+    {{/each}}
 </template>
