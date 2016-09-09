@@ -386,10 +386,22 @@ Template.appointmentStartModal.events({
 
 
 
-Template.appointmentWaitingRow.onCreated(function () {
+Template.appointmentContentWaiting.onCreated(function () {
     // subscribe to appointments.waiting
     this.subscribe('appointments.waiting');
 });
+
+Template.appointmentContentWaiting.helpers({
+    waitingPatientsFound: function () {
+        var momentDate = new RegExp(Session.get("momentDate"));
+        return Appointments.find({
+            status: 'Waiting',
+            date_created: { $regex: momentDate }
+        }).fetch().length;
+    }
+});
+
+
 
 Template.appointmentWaitingRow.helpers({
     'appointments': function () {
@@ -399,23 +411,27 @@ Template.appointmentWaitingRow.helpers({
             status: 'Waiting',
             date_created: { $regex: momentDate }
         });
-    },
+    }
+});
 
-    appointmentsFound: function () {
+
+
+Template.appointmentContentInSession.onCreated(function () {
+    // subscribe to appointments.inSession
+    this.subscribe('appointments.inSession');
+});
+
+Template.appointmentContentInSession.helpers({
+    inSessionPatientsFound: function () {
         var momentDate = new RegExp(Session.get("momentDate"));
         return Appointments.find({
-            status: 'Waiting',
+            status: 'In-Session',
             date_created: { $regex: momentDate }
         }).fetch().length;
     }
 });
 
 
-
-Template.appointmentInSessionRow.onCreated(function () {
-    // subscribe to appointments.inSession
-    this.subscribe('appointments.inSession');
-});
 
 Template.appointmentInSessionRow.helpers({
     'appointments': function () {
@@ -425,12 +441,21 @@ Template.appointmentInSessionRow.helpers({
             status: 'In-Session',
             date_created: { $regex: momentDate }
         });
-    },
+    }
+});
 
-    appointmentsFound: function () {
+
+
+Template.appointmentContentCompleted.onCreated(function () {
+    // subscribe to appointments.completed
+    this.subscribe('appointments.completed');
+});
+
+Template.appointmentContentCompleted.helpers({
+    completedPatientsFound: function () {
         var momentDate = new RegExp(Session.get("momentDate"));
         return Appointments.find({
-            status: 'In-Session',
+            status: 'Completed',
             date_created: { $regex: momentDate }
         }).fetch().length;
     }
@@ -438,10 +463,6 @@ Template.appointmentInSessionRow.helpers({
 
 
 
-Template.appointmentCompletedRow.onCreated(function () {
-    // subscribe to appointments.completed
-    this.subscribe('appointments.completed');
-});
 
 Template.appointmentCompletedRow.helpers({
     'appointments': function () {
@@ -451,13 +472,5 @@ Template.appointmentCompletedRow.helpers({
             status: 'Completed',
             date_created: { $regex: momentDate }
         });
-    },
-
-    appointmentsFound: function () {
-        var momentDate = new RegExp(Session.get("momentDate"));
-        return Appointments.find({
-            status: 'Completed',
-            date_created: { $regex: momentDate }
-        }).fetch().length;
     }
 });

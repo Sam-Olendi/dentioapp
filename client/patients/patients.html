@@ -93,25 +93,35 @@
 
 <template name="patientsContent">
 
-    {{#if patientsFound}}
-    <table>
-        <tr>
-            <th>Patient Name</th>
-            <th>Email</th>
-            <th>Phone Number</th>
-            <th>Company</th>
-            <th>Staff Number</th>
-        </tr>
-        {{> patientsTableRow }}
-    </table>
-    <div class="body-bottom-buttons">
-        <a href="#" class="button mod-button-cancel js-show-more-patients">Show more...</a>
-    </div>
-
+    {{#if Template.subscriptionsReady}}
+        {{#if patientsFound}}
+            <table>
+                <tr>
+                    <th>Patient Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Company</th>
+                    <th>Staff Number</th>
+                </tr>
+                {{#transition in="fadeInLeft:300" out="fadeOutRight:300"}}
+                    {{> patientsTableRow }}
+                {{/transition}}
+            </table>
+            <div class="body-bottom-buttons">
+                <a href="#" class="button mod-button-cancel js-show-more-patients">Show more...</a>
+            </div>
+        {{else}}
+            <div class="body-no-content">
+                {{> noContent }}
+                <p class="body-no-content-instruction">You can add a new patient by clicking on the green <span class="body-no-content-highlight">'New patient'</span> button on the top right of your screen.</p>
+            </div>
+        {{/if}}
     {{else}}
-        <p class="body-search-result-helper">Seems like you have not yet added your patients.</p>
-        <p class="body-search-result-helper">You can add one by clicking on the '+ New patient' button on the top right of the screen</p>
+        <div class="body-no-content">
+            {{> loadingContent }}
+        </div>
     {{/if}}
+
 </template>
 
 <template name="patientsTableRow">
