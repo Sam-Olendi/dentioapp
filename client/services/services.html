@@ -40,6 +40,11 @@
                         <input type="text" class="body-form-input" placeholder="Enter the name of the service" id="service-new-form-name" autocomplete="off" required>
                     </div>
                     <div class="services-form-group">
+                        <label for="service-new-form-description" class="body-form-label">Service Description:</label>
+                        <p class="body-error js-error-service-description"><span class="icon-cancel"></span></p>
+                        <input type="text" class="body-form-input" placeholder="Enter a description of the service" id="service-new-form-description" autocomplete="off">
+                    </div>
+                    <div class="services-form-group">
                         <label for="service-new-form-price" class="body-form-label">Service Price:*</label>
                         <p class="body-error js-error-service-price"><span class="icon-cancel"></span></p>
                         <input type="number" class="body-form-input" placeholder="Enter the price of the service (in Kshs.)" id="service-new-form-price" required>
@@ -48,7 +53,6 @@
                         <button class="button mod-button-okay" type="submit">Add service</button>
                         <button class="button mod-button-cancel js-cancel-service-new" type="button">Cancel</button>
                     </div>
-
                 </form>
 
             </div>
@@ -64,8 +68,8 @@
         </div>
         <ul class="body-search-form-results">
             {{#EasySearch.Each index=servicesIndex }}
-                <li class="body-search-result">
-                    <a href="#" class="body-search-result-link" data-id="{{_id}}">{{service_name}}</a>
+                <li class="body-search-result" data-id="{{_id}}">
+                    <a href="#" class="body-search-result-link js-service-trigger-view" data-id="{{_id}}">{{service_name}}</a>
                 </li>
             {{/EasySearch.Each}}
         </ul>
@@ -73,6 +77,7 @@
 </template>
 
 <template name="servicesContent">
+    {{> servicesViewModal }}
     {{> servicesEditModal }}
     {{> servicesDeleteModal }}
 
@@ -97,7 +102,7 @@
 <template name="servicesTableRow">
     {{#each services}}
         <tr class="services-table-row" data-id="{{_id}}">
-            <td class="services-table-services-column">{{ service_name }}</td>
+            <td class="services-table-services-column"><a href="#" class="body-table-link js-service-trigger-view">{{ service_name }}</a></td>
             <td class="services-table-prices-column">Kshs. {{ service_price }}</td>
             <td class="services-table-actions-column">
                 <a href="#" class="services-table-actions mod-services-table-actions-edit js-services-trigger-edit"><span class="icon-write"></span>Edit</a>
@@ -105,6 +110,31 @@
             </td>
         </tr>
     {{/each}}
+</template>
+
+<template name="servicesViewModal">
+    <div id="services-view-modal" class="modal services-view-modal" role="dialog" aria-hidden="true">
+        <div class="modal-dialog services-view-modal-dialog">
+            <div class="modal-content services-view-modal-content">
+                <a href="#" class="modal-close"><span class="icon-cancel"></span></a>
+                <h2 class="modal-content-title">Service</h2>
+
+                {{#with service}}
+
+                    <div class="services-view-modal-group">
+                        <p class="modal-content-text mod-modal-content-text-title"> {{ service_name }}</p>
+                        <p class="modal-content-text mod-modal-content-text-helper"><b>Description:</b> {{ service_description }}</p>
+                    </div>
+
+                {{/with}}
+
+                <div class="modal-button-group">
+                    <button class="button mod-button-edit js-services-trigger-edit" type="submit">Edit</button>
+                    <button class="button mod-button-cancel js-cancel-service-view" type="button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <template name="servicesEditModal">
@@ -120,6 +150,11 @@
                         <label for="service-edit-form-name" class="body-form-label">Service Name:*</label>
                         <p class="body-error js-error-service-name"><span class="icon-cancel"></span></p>
                         <input type="text" class="body-form-input" placeholder="Enter the name of the service" id="service-edit-form-name" value="{{service_name}}" autocomplete="off" required>
+                    </div>
+                    <div class="services-form-group">
+                        <label for="service-edit-form-description" class="body-form-label">Service Description:</label>
+                        <p class="body-error js-error-service-description"><span class="icon-cancel"></span></p>
+                        <input type="text" class="body-form-input" placeholder="Enter a description of the service" id="service-edit-form-description" value="{{service_description}}" autocomplete="off">
                     </div>
                     <div class="services-form-group">
                         <label for="service-edit-form-price" class="body-form-label">Service Price:*</label>

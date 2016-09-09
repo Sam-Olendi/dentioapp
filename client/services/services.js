@@ -15,11 +15,6 @@ function openCloseModal (modalClass, modalContentClass, modalCloseClass) {
     });
 }
 
-function openModal (modalClass, modalContentClass) {
-    $(modalClass).addClass('modal-is-active');
-    $(modalContentClass).addClass('modal-content-is-active');
-}
-
 function closeModal (modalClass, modalContentClass) {
     $('.body-error').hide();
     Session.set('selectedPatientId', undefined);
@@ -38,11 +33,22 @@ function validateRequired (inputSelector, regex, errorSelector, message) {
 }
 
 
+
+Template.services.events({
+    'click': function () {
+        $('.body-search-form-results').hide();
+    }
+});
+
+
+
 Template.servicesNewButton.events({
    'click .js-service-new-trigger': function () {
        openCloseModal('.services-new-modal', '.services-new-modal-content', '.js-cancel-service-new');
    }
 });
+
+
 
 Template.servicesNewModal.events({
    'submit #services-new-modal': function (event) {
@@ -57,15 +63,27 @@ Template.servicesNewModal.events({
 
            Meteor.call('AddService', {
                service_name: $('#service-new-form-name').val().trim(),
+               service_description: $('#service-new-form-description').val().trim(),
                service_price: parseInt($('#service-new-form-price').val().trim(), 10)
            });
 
            closeModal('.services-new-modal', '.services-new-modal-content');
+
        } else {
            alert('Oh no. Seems like your form isn\'t filled correctly. Please correct the errors');
        }
 
    }
+});
+
+
+
+Template.servicesSearch.onCreated(function () {
+    var self = this;
+
+    self.autorun(function () {
+        self.subscribe('services', Session.get('servicesLimit'));
+    });
 });
 
 Template.servicesSearch.helpers({
@@ -75,16 +93,30 @@ Template.servicesSearch.helpers({
 });
 
 Template.servicesSearch.events({
+    'click .body-search': function (event) {
+        event.stopPropagation();
+    },
+
     'keyup input': function () {
         $('.body-search-form-results').show();
+    },
+
+    'mouseenter .body-search-result': function (event) {
+        Session.set('selectedServiceId', $(event.target).data('id'));
+    },
+
+    'click .js-service-trigger-view': function (event) {
+        event.preventDefault();
+        openCloseModal('.services-view-modal', '.services-view-modal-content', '.js-cancel-service-view')
     }
 });
+
 
 
 Template.servicesContent.onCreated(function () {
     var self = Template.instance();
 
-    Tracker.autorun(function () {
+    self.autorun(function () {
         self.subscribe('services', Session.get('servicesLimit'));
     });
 });
@@ -102,6 +134,8 @@ Template.servicesContent.events({
         Session.set('servicesLimit', Session.get('servicesLimit') + 10);
     }
 });
+
+
 
 Template.servicesTableRow.helpers({
    services: function () {
@@ -122,8 +156,30 @@ Template.servicesTableRow.events({
     'click .js-services-trigger-delete': function (event) {
         event.preventDefault();
         openCloseModal('.services-delete-modal', '.services-delete-modal-content', '.js-cancel-service-delete');
+    },
+
+    'click .js-service-trigger-view': function (event) {
+        event.preventDefault();
+        openCloseModal('.services-view-modal', '.services-view-modal-content', '.js-cancel-service-view')
     }
 });
+
+
+
+Template.servicesViewModal.helpers({
+    service: function () {
+        return Services.findOne({_id: Session.get('selectedServiceId')});
+    }
+});
+
+Template.servicesViewModal.events({
+    'click .js-services-trigger-edit': function () {
+        closeModal('.services-view-modal', '.services-view-modal-content');
+        openCloseModal('.services-edit-modal', '.services-edit-modal-content', '.js-cancel-service-edit');
+    }
+});
+
+
 
 Template.servicesEditModal.helpers({
     service: function () {
@@ -145,15 +201,19 @@ Template.servicesEditModal.events({
             Meteor.call('EditService', {
                 _id: Session.get('selectedServiceId'),
                 service_name: $('#service-edit-form-name').val().trim(),
+                service_description: $('#service-edit-form-description').val().trim(),
                 service_price: parseInt($('#service-edit-form-price').val().trim(), 10)
             });
 
             closeModal('.services-edit-modal', '.services-edit-modal-content');
+
         } else {
             alert('Oh no. Seems like your form isn\'t filled correctly. Please correct the errors');
         }
     }
 });
+
+
 
 Template.servicesDeleteModal.events({
     'click .js-service-delete': function () {

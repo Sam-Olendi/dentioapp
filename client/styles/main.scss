@@ -758,6 +758,12 @@ td, th {
   font-size: 1em;
 }
 
+.body-table-link {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: none;
+}
+
 
 /* ------------------------------
 
@@ -825,11 +831,22 @@ td, th {
   font-weight: 400;
   letter-spacing: -1px;
   margin: 0 0 35px;
+  max-width: 90%;
   text-transform: uppercase;
 }
 
 .modal-content-text {
   font-size: 0.8em;
+}
+
+.modal-content-text.mod-modal-content-text-title {
+  font-size: 1em;
+}
+
+.modal-content-text.mod-modal-content-text-helper {
+  color: $deepest-gray;
+  max-width: 90%;
+  line-height: 1.7;
 }
 
 .modal-content-uploading-message {
@@ -1987,8 +2004,13 @@ td, th {
 }
 
 .modal-content.services-new-modal-content,
-.modal-content.services-edit-modal-content {
+.modal-content.services-edit-modal-content,
+.modal-content.services-view-modal-content {
   width: 400px;
+}
+
+.services-view-modal-group {
+  margin-bottom: 25px;
 }
 
 .services-form-group {
@@ -2016,9 +2038,15 @@ td, th {
 
 .services-table-row {
   &:hover {
+
+    .body-table-link {
+      text-decoration: underline;
+    }
+
     .services-table-actions {
       display: inline-block;
     }
+
   }
 }
 

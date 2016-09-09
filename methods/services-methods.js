@@ -2,6 +2,7 @@ Meteor.methods({
     'AddService': function (data) {
         check (data, {
             service_name: String,
+            service_description: String,
             service_price: Number
         });
 
@@ -12,12 +13,14 @@ Meteor.methods({
         check (data, {
             _id: String,
             service_name: String,
+            service_description: String,
             service_price: Number
         });
 
         return Services.update(data._id, {
             $set: {
                 service_name: data.service_name,
+                service_description: data.service_description,
                 service_price: data.service_price
             }
         });
