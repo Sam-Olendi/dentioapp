@@ -835,6 +835,11 @@ td, th {
   text-transform: uppercase;
 }
 
+.modal-content-group {
+  margin-bottom: 25px;
+}
+
+
 .modal-content-text {
   font-size: 0.8em;
 }
@@ -2009,10 +2014,6 @@ td, th {
   width: 400px;
 }
 
-.services-view-modal-group {
-  margin-bottom: 25px;
-}
-
 .services-form-group {
   margin-bottom: 20px;
 }
@@ -2058,3 +2059,16 @@ td, th {
   color: $danger-red
 }
 
+
+
+/* ------------------------------
+
+    Invoices
+
+-------------------------------- */
+
+.invoices-table-row {
+  &:hover {
+    cursor: pointer;
+  }
+}

@@ -33,7 +33,7 @@
         </div>
         <ul class="body-search-form-results">
             {{#EasySearch.Each index=invoicesIndex }}
-                <li class="body-search-result">
+                <li class="body-search-result js-trigger-invoice-view" data-id="{{_id}}">
                     <a href="#" class="body-search-result-link" data-id="{{_id}}"><span class="body-search-result-helper">{{invoice_no}}</span> {{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}} <span class="body-search-result-helper">{{date_issued}}</span></a>
                 </li>
             {{/EasySearch.Each}}
@@ -42,6 +42,9 @@
 </template>
 
 <template name="invoicesContent">
+
+    {{> invoicesViewModal }}
+
     {{#if invoicesFound}}
         <table>
             <tr>
@@ -67,7 +70,7 @@
 
 <template name="invoicesContentTableRow">
     {{#each invoices }}
-        <tr>
+        <tr class="invoices-table-row js-trigger-invoice-view" data-id="{{_id}}">
             <td>{{invoice_no}}</td>
             <td>{{patient.profile.surname}}, {{patient.profile.first_name}} {{patient.profile.middle_name}}</td>
             <td>{{company.company_name}}</td>
@@ -75,4 +78,42 @@
             <td>{{date_issued}}</td>
         </tr>
     {{/each}}
+</template>
+
+<template name="invoicesViewModal">
+    <div id="invoices-view-modal" class="modal invoices-view-modal" role="dialog" aria-hidden="true">
+        <div class="modal-dialog invoices-view-modal-dialog">
+            <div class="modal-content invoices-view-modal-content">
+                <a href="#" class="modal-close"><span class="icon-cancel"></span></a>
+
+                {{#with invoice}}
+                    <h2 class="modal-content-title">Invoice No: #{{invoice_no}}</h2>
+
+                    <div class="modal-content-group">
+                        <p class="modal-content-text mod-modal-content-text-title"> <b>{{ patient.profile.surname }}, {{ patient.profile.first_name }} {{ patient.profile.middle_name }}</b></p>
+                        <p class="modal-content-text mod-modal-content-text-helper"><b>Amount:</b> Kshs. {{ amount }}</p>
+                        <p class="modal-content-text mod-modal-content-text-helper"><b>Date Generated:</b> {{ date_issued }}</p>
+
+                        {{#if company}}
+                            <p class="modal-content-text mod-modal-content-text-helper"><b>Company:</b> {{ company.company_name }}</p>
+                        {{else}}
+                            <p class="modal-content-text mod-modal-content-text-helper"><b>Company:</b> N/A</p>
+                        {{/if}}
+
+                        {{#if insurance}}
+                            <p class="modal-content-text mod-modal-content-text-helper"><b>Insurance:</b> {{ insurance.insurance_name }}</p>
+                        {{else}}
+                            <p class="modal-content-text mod-modal-content-text-helper"><b>Insurance:</b> N/A</p>
+                        {{/if}}
+                    </div>
+
+                {{/with}}
+
+                <div class="modal-button-group">
+                    <a href="/generator" class="button mod-button-edit" target="_blank">Edit with the Invoice Generator</a>
+                    <a href="#" class="button mod-button-cancel js-cancel-invoice-view">Close</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
