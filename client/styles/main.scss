@@ -232,8 +232,17 @@ $light-blue-gray: hsl(240, 100, 99);
 
 .body-sidebar-profile {
   background-color: $damien-light;
+  display: table;
+  height: 210px;
   padding: 30px 0 20px;
   text-align: center;
+  width: 100%;
+
+
+  .body-sidebar-profile-content {
+    display: table-cell;
+    vertical-align: middle;
+  }
 }
 
 .body-sidebar-settings {
@@ -253,21 +262,21 @@ $light-blue-gray: hsl(240, 100, 99);
   background-color: #3C4649;
   border-radius: 50%;
   color: #EEF8FB;
-  font-size: 25px;
-  height: 70px;
-  line-height: 70px;
+  font-size: 20px;
+  height: 60px;
+  line-height: 60px;
   margin: 0 auto;
-  width: 70px;
+  width: 60px;
 }
 
 .body-sidebar-name {
   color: $ordinary-white;
   font: {
     family: 'OrkneyLight', sans-serif;
-    size: 1.3em;
+    size: 1.1em;
   }
   letter-spacing: 0.5px;
-  margin: 10px 0 0;
+  margin: 15px 0 0;
 }
 
 .body-sidebar-role {

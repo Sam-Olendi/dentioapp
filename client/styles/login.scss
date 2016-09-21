@@ -155,6 +155,7 @@ $light-blue-gray: hsl(240, 100, 99);
 
 .at-error {
   background: $danger-red;
+  border-radius: 3px;
   color: $ordinary-white;
   font-size: 0.85em;
   margin-bottom: 10px;
