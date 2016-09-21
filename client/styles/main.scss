@@ -365,6 +365,15 @@ $light-blue-gray: hsl(240, 100, 99);
   }
 }
 
+.mobile-navigation {
+  background-color: $damien-light;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+}
+
 
 /* ------------------------------
 

@@ -53,84 +53,46 @@ $light-blue-gray: hsl(240, 100, 99);
 
 
 .login {
-  border-left: none;
-  border-right: none;
-  position: relative;
-}
-
-.no-video .login-video video,
-.touch .login-video video {
-  display: none;
-}
-
-.no-video .login-video .poster,
-.touch .login-video .poster {
-  display: block !important;
-}
-
-.login-video {
-  background: #000;
-  bottom: 0;
+  background: $damien-dark;
+  display: table;
   height: 100%;
-  left: 0;
-  overflow: hidden;
+  padding: 2em 0;
   position: relative;
   width: 100%;
 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background-image: -webkit-linear-gradient(320deg, #3e88a8  0%, #4a9ec2 100%);
+  background-image: linear-gradient(180deg, #3e88a8  0%, #4a9ec2 100%);
 }
 
-.login-video .poster img {
-  bottom: 0;
-  position: absolute;
-  width: 100%;
+.login-body {
+  display: table-cell;
+  vertical-align: middle;
 }
 
-.login-video .login-filter {
-  background: rgba(0, 0, 0, 0.1);
-  height: 100vh;
-  position: absolute;
-  width: 100%;
-  z-index: 100;
-}
-
-.login-video video {
-  bottom: 0;
-  position: absolute;
-  z-index: 0;
-}
-
-.login-video video.login-video-fullwidth {
-  width: 100%;
-}
-
-.login-text {
-  color: $ordinary-white;
-  margin-top: 20px;
+.login-brand {
+  margin: 0 auto 20px;
   text-align: center;
+  width: 450px;
+
+  .login-logo {
+    height: 35px;
+  }
+
 }
 
 .login-form {
-  align-items: center;
-  background-color: hsla(193, 14, 12, 0.85);
+  background: #fcfcfc;
   border-radius: 3px;
-  color: $ordinary-white;
-  display: flex;
-  justify-content: center;
-  margin: 20px auto;
-  padding: 20px 0;
-  width: 30%;
+  margin: 0 auto;
+  padding: 1em 2.2em;
+  width: 450px;
 }
 
 .at-form {
-  width: 70%;
 
   input {
     border-radius: 3px;
-    border: 1px solid #eeeeee;
+    border: 2px solid #dfdfdf;
     color: initial;
     font-size: 0.8em;
     margin-bottom: 5px;
@@ -139,9 +101,10 @@ $light-blue-gray: hsl(240, 100, 99);
   }
 
   label {
+    color: #444;
     display: block;
-    font-size: 0.9em;
-    margin-bottom: 5px;
+    font-size: 0.85em;
+    margin-bottom: 7px;
   }
 
   span {
@@ -153,55 +116,92 @@ $light-blue-gray: hsl(240, 100, 99);
   margin-bottom: 10px;
 }
 
-.at-input.icon-accept {
-  color: $gracious-green;
+.at-signup-link,
+.at-signin-link,
+.at-pwd-link {
+  display: inline-block;
+  font-size: 0.8em;
 }
 
-.at-input.icon-cancel {
-  color: $danger-red;
+.at-signup-link {
+  clear: both;
+}
+
+.at-form a {
+  color: #4a9ec2;
 }
 
 .at-btn {
-  background-color: $brandon-blue;
-  border: none;
+  background-color: #48adcf;
+  border: 1px solid #48a0c2;
   border-radius: 3px;
+  color: $ordinary-white;
+  float: right;
   font: {
     size: 0.8em;
     weight: 600;
   }
   padding: 10px 17px;
   text-decoration: none;
-  width: 100%;
-}
-
-.at-signup-link,
-.at-signin-link,
-.at-pwd-link {
-  font-size: 0.8em;
-  margin-top: 20px;
-}
-
-.at-form a {
-  color: $brandon-blue;
-  text-decoration: none;
-}
-
-#at-nav-button {
-  align-items: center;
-  background-color: $damien-light;
-  color: $ordinary-white;
-  cursor: pointer;
-  display: flex;
-  font-size: 0.85em;
-  float: right;
-  height: 100%;
-  justify-content: center;
-  padding: 0 20px;
-  vertical-align: middle;
-
-  @include transition(all 0.1s ease);
 
   &:hover {
-    background-color: $danger-red;
+    background-color: #3e88a8;
+  }
+
+  &:active {
+    background-color: #48a0c2;
   }
 }
+
+.at-error {
+  background: $danger-red;
+  color: $ordinary-white;
+  font-size: 0.85em;
+  margin-bottom: 10px;
+  padding: 10px;
+
+  p {
+    margin: 0;
+  }
+}
+
+.at-input {
+
+  .icon-accept {
+    color: $gracious-green;
+    font-weight: bold;
+  }
+
+  .icon-cancel {
+    color: $danger-red;
+  }
+}
+
+.at-input.has-error {
+  span {
+    color: $danger-red;
+    font-weight: 600;
+  }
+}
+
+//
+//
+//#at-nav-button {
+//  align-items: center;
+//  background-color: $damien-light;
+//  color: $ordinary-white;
+//  cursor: pointer;
+//  display: flex;
+//  font-size: 0.85em;
+//  float: right;
+//  height: 100%;
+//  justify-content: center;
+//  padding: 0 20px;
+//  vertical-align: middle;
+//
+//  @include transition(all 0.1s ease);
+//
+//  &:hover {
+//    background-color: $danger-red;
+//  }
+//}
