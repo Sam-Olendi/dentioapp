@@ -1,0 +1,33 @@
+<template name="reports">
+    <div class="body-content">
+        <header class="body-header">
+            <h1 class="body-header-title">
+                {{> reportsHeaderTitle }}
+            </h1>
+        </header>
+        <section class="body-flesh mod-body-flesh-patients">
+            {{> reportsContent }}
+        </section>
+    </div>
+</template>
+
+<template name="reportsHeaderTitle">
+    Reports <small class="body-header-subtitle">Generate and print your reports here</small>
+</template>
+
+<template name="reportsContent">
+
+    <a href="#" class="button mod-button-edit"><i class="icon-wallet"></i> View invoice reports</a>
+    <a href="#" class="button mod-button-edit"><i class="icon-users"></i> View patient reports</a>
+
+    <div>
+        <h2>Patients seen today</h2>
+        <p>300</p>
+    </div>
+
+    <div>
+        <h2>Money made today</h2>
+        <p>Kshs. 34999</p>
+    </div>
+
+</template>

@@ -68,6 +68,14 @@ Router.route('/services', {
     name: 'services'
 });
 
+Router.route('/reports', {
+    layoutTemplate: 'ApplicationLayout',
+    yieldRegions: {
+        'reports': { to: 'content' }
+    },
+    name: 'reports'
+});
+
 Router.route('/generator', {
     layoutTemplate: 'GeneratorLayout',
     yieldRegions: {
