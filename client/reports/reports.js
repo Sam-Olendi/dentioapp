@@ -81,3 +81,26 @@ Template.reportsSummary.helpers({
         return Appointments.find( { date_created: { $regex: thisMonth } }, { fields: { date_created: 1 } }).count();
     }
 });
+
+Template.reportsInvoices.rendered = function () {
+  $('#reports-filter-date').datepicker({
+      dateFormat: 'dd/mm/yy'
+  });
+};
+
+Template.reportsInvoicesTable.onCreated(function () {
+    this.subscribe('invoices.reports.all');
+});
+
+Template.reportsInvoices.events({
+    'focus .reports-filter-input': function (event) {
+        var results = $(event.target).parent().find('.reports-filter-search-results');
+        results.show();
+    }
+});
+
+Template.reportsInvoicesTable.helpers({
+    invoices: function () {
+        return Invoices.find();
+    }
+});

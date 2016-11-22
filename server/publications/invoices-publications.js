@@ -62,6 +62,27 @@ Meteor.publish( 'invoices.reports.total', function () {
     }, { fields: { amount: 1, date_issued: 1 } });
 } );
 
+Meteor.publish( 'invoices.reports.all', function () {
+    var self = this;
+    var observer = Invoices.find().observe({
+        added: function (document) {
+            self.added('invoices', document._id, transformInvoices (document));
+        },
+        changed: function (newDocument, oldDocument) {
+            self.changed('invoices', oldDocument._id, transformInvoices (newDocument));
+        },
+        removed: function (oldDocument) {
+            self.removed('invoices', oldDocument._id);
+        }
+    });
+
+    self.onStop(function () {
+        observer.stop();
+    });
+
+    self.ready();
+} );
+
 function transformInvoices (doc) {
     doc.patient = Patients.findOne({_id: doc.patient_id});
     doc.appointment = Appointments.findOne({_id: doc.appointment_id});

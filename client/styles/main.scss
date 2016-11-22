@@ -2407,12 +2407,32 @@ td, th {
 }
 
 .reports-filter-input {
+  font-size: 0.8em;
   position: relative;
-  //width: 200px;
 }
 
 .reports-filter-group .icon-arrow_drop_down {
   position: absolute;
   right: 5px;
   top: 47px;
+}
+
+.reports-filter-search-results {
+  background-color: $ordinary-white;
+  border: 1px solid $border-gray;
+  display: none;
+  font-size: 0.85em;
+  list-style-type: none;
+  padding: 5px 15px 15px;
+  position: absolute;
+  text-align: left;
+}
+
+.reports-filter-search-result {
+  cursor: pointer;
+  margin: 7px 0;
+}
+
+.reports-filter-search-result-none {
+  color: $deeper-gray;
 }
