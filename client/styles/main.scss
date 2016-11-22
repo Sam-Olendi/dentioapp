@@ -2374,7 +2374,6 @@ td, th {
   justify-content: center;
   margin: 0 auto;
   padding: 10px 10px 20px;
-  width: 90%;
 }
 
 .reports-filter-section {
@@ -2396,12 +2395,24 @@ td, th {
   position: relative;
 }
 
+.reports-filter-label {
+  color: $deeper-gray;
+  display: inline-block;
+  font: {
+    size: 0.75em;
+    weight: 700;
+  }
+  margin: 10px 0 7px;
+  text-transform: uppercase;
+}
+
 .reports-filter-input {
   position: relative;
+  //width: 200px;
 }
 
 .reports-filter-group .icon-arrow_drop_down {
   position: absolute;
   right: 5px;
-  top: 15px;
+  top: 47px;
 }
