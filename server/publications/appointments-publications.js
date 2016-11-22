@@ -68,6 +68,15 @@ Meteor.publish('appointments.check', function () {
    return Appointments.find({}, { fields: { patient_id: 1, status: 1, date_created: 1 } }) ;
 });
 
+Meteor.publish('appointments.day.patients', function () {
+
+    var todaysDate = new RegExp(moment().format('Do MMM YYYY'));
+
+    return Appointments.find({
+        date_created: { $regex: todaysDate }
+    }, { fields: { date_created: 1 } });
+});
+
 function transformAppointments (doc) {
     doc.patient = Patients.findOne({_id: doc.patient_id});
     return doc;

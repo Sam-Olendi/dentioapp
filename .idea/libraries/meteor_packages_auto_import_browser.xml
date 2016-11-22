@@ -175,6 +175,7 @@
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/ordered-dict/1.0.9/web.browser/ordered_dict.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/useraccounts_iron-routing/1.14.2/web.browser/lib/client.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/observe-sequence/1.0.14/web.browser/observe_sequence.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/jcbernack_reactive-aggregate/0.7.0/web.browser/aggregate.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/mongo-id/1.0.6/web.browser/id.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/momentjs_moment/2.15.1/web.browser/meteor/export.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/momentjs_moment/2.15.1/web.browser/moment.js" />
@@ -461,6 +462,7 @@
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/ordered-dict/1.0.9/web.browser/ordered_dict.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/useraccounts_iron-routing/1.14.2/web.browser/lib/client.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/observe-sequence/1.0.14/web.browser/observe_sequence.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/jcbernack_reactive-aggregate/0.7.0/web.browser/aggregate.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/mongo-id/1.0.6/web.browser/id.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/momentjs_moment/2.15.1/web.browser/meteor/export.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/momentjs_moment/2.15.1/web.browser/moment.js" />

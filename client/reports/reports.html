@@ -5,7 +5,7 @@
                 {{> reportsHeaderTitle }}
             </h1>
         </header>
-        <section class="body-flesh mod-body-flesh-patients">
+        <section class="body-flesh">
             {{> reportsContent }}
         </section>
     </div>
@@ -17,17 +17,58 @@
 
 <template name="reportsContent">
 
-    <a href="#" class="button mod-button-edit"><i class="icon-wallet"></i> View invoice reports</a>
-    <a href="#" class="button mod-button-edit"><i class="icon-users"></i> View patient reports</a>
+    <nav class="reports-navigation">
+        <ul class="reports-tabs">
+            <li class="reports-tabs-tab">
+                <a href="#" class="reports-tabs-link reports-tabs-link-is-selected" data-content="summary">Summary</a>
+            </li>
+            <li class="reports-tabs-tab">
+                <a href="#" class="reports-tabs-link" data-content="invoices">Invoices</a>
+            </li>
+            <li class="reports-tabs-tab">
+                <a href="#" class="reports-tabs-link" data-content="patients">Patients</a>
+            </li>
+        </ul>
+    </nav>
 
-    <div>
-        <h2>Patients seen today</h2>
-        <p>300</p>
-    </div>
+    <ul class="reports-tabs-content">
+        <li class="reports-tabs-content-section reports-tabs-content-section-is-selected" data-content="summary">
+            <div class="reports-tabs-content-wrapper">
 
-    <div>
-        <h2>Money made today</h2>
-        <p>Kshs. 34999</p>
-    </div>
+                <div>
+                    <h2>Patients seen today</h2>
+                    <p> {{ daysPatients }} </p>
+                </div>
+
+                <div>
+                    <h2>Money made today</h2>
+                    <p>Kshs. {{ totalAmount }}</p>
+                </div>
+
+                <div>
+                    <h2>Patients seen this month</h2>
+                    <p></p>
+                </div>
+
+                <div>
+                    <h2>Money made this month</h2>
+                    <p>Kshs. </p>
+                </div>
+
+            </div>
+        </li>
+        <li class="reports-tabs-content-section" data-content="invoices">
+            <div class="reports-tabs-content-wrapper">
+                Invoices content
+            </div>
+        </li>
+        <li class="reports-tabs-content-section" data-content="patients">
+            <div class="reports-tabs-content-wrapper">
+                Patients content
+            </div>
+        </li>
+    </ul>
+
+
 
 </template>

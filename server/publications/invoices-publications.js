@@ -54,6 +54,14 @@ Meteor.publish('invoices.check', function () {
     return Invoices.find({}, { limit: 1, sort: { invoice_no: -1 }, fields: { invoice_no: 1 }});
 });
 
+Meteor.publish( 'invoices.reports.total', function () {
+    var todaysDate = new RegExp( moment().format('Do MMM YYYY') );
+
+    return Invoices.find({
+        date_issued: { $regex: todaysDate }
+    }, { fields: { amount: 1, date_issued: 1 } });
+} );
+
 function transformInvoices (doc) {
     doc.patient = Patients.findOne({_id: doc.patient_id});
     doc.appointment = Appointments.findOne({_id: doc.appointment_id});
