@@ -55,10 +55,10 @@ Meteor.publish('invoices.check', function () {
 });
 
 Meteor.publish( 'invoices.reports.total', function () {
-    var todaysDate = new RegExp( moment().format('Do MMM YYYY') );
+    var thisMonth = new RegExp( moment().format('MMM YYYY') );
 
     return Invoices.find({
-        date_issued: { $regex: todaysDate }
+        date_issued: { $regex: thisMonth }
     }, { fields: { amount: 1, date_issued: 1 } });
 } );
 

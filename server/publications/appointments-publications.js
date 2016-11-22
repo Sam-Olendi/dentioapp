@@ -70,10 +70,10 @@ Meteor.publish('appointments.check', function () {
 
 Meteor.publish('appointments.day.patients', function () {
 
-    var todaysDate = new RegExp(moment().format('Do MMM YYYY'));
+    var thisMonth = new RegExp(moment().format('MMM YYYY'));
 
     return Appointments.find({
-        date_created: { $regex: todaysDate }
+        date_created: { $regex: thisMonth }
     }, { fields: { date_created: 1 } });
 });
 
