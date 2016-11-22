@@ -35,24 +35,32 @@
         <li class="reports-tabs-content-section reports-tabs-content-section-is-selected" data-content="summary">
             <div class="reports-tabs-content-wrapper">
 
-                <div>
-                    <h2>Patients seen today</h2>
-                    <p> {{ daysPatients }} </p>
+                <div class="reports-summary-card">
+                    <div>
+                        <p class="reports-summary-value"> {{ daysPatients }} </p>
+                        <p class="reports-summary-title">Patients seen: <span class="reports-summary-title-highlight">today</span></p>
+                    </div>
                 </div>
 
-                <div>
-                    <h2>Money made today</h2>
-                    <p>Kshs. {{ totalAmount }}</p>
+                <div class="reports-summary-card">
+                    <div>
+                        <p class="reports-summary-value">398</p>
+                        <p class="reports-summary-title">Patients seen: <span class="reports-summary-title-highlight">this month</span></p>
+                    </div>
                 </div>
 
-                <div>
-                    <h2>Patients seen this month</h2>
-                    <p></p>
+                <div class="reports-summary-card">
+                    <div>
+                        <p class="reports-summary-value"><span class="reports-summary-value-currency">Kshs.</span> {{ totalAmount }}</p>
+                        <p class="reports-summary-title">Money made: <span class="reports-summary-title-highlight">today</span></p>
+                    </div>
                 </div>
 
-                <div>
-                    <h2>Money made this month</h2>
-                    <p>Kshs. </p>
+                <div class="reports-summary-card">
+                    <div>
+                        <p class="reports-summary-value"><span class="reports-summary-value-currency">Kshs.</span> 1000000</p>
+                        <p class="reports-summary-title">Money made: <span class="reports-summary-title-highlight">this month</span></p>
+                    </div>
                 </div>
 
             </div>

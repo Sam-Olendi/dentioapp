@@ -2309,3 +2309,59 @@ td, th {
 
   @include animation(fade-in 0.5s);
 }
+
+.reports-tabs-content-wrapper {
+  padding: 10px;
+}
+
+@media only screen and (min-width: 25em) {
+  .reports-tabs-content-wrapper {
+    padding: 10px 25px;
+  }
+}
+
+@media only screen and (min-width: 48em) {
+  .reports-tabs-content-wrapper {
+    padding: 10px 40px;
+  }
+}
+
+.reports-summary-card {
+  align-items: center;
+  background-color: $ordinary-white;
+  border: 1px solid $border-gray;
+  display: flex;
+  float: left;
+  height: 150px;
+  justify-content: center;
+
+
+  padding: 1em;
+  text-align: center;
+  vertical-align: top;
+  width: 23%;
+}
+
+.reports-summary-title {
+  color: $deeper-gray;
+  font-size: 0.75em;
+  text-transform: uppercase;
+}
+
+.reports-summary-title-highlight {
+  color: $deepest-gray;
+  font-weight: 700;
+}
+
+.reports-summary-value {
+  font: {
+    size: 2em;
+    weight: 700;
+  }
+  margin: 5px 0;
+}
+
+.reports-summary-value-currency {
+  font-size: 0.4em;
+  text-transform: uppercase;
+}
