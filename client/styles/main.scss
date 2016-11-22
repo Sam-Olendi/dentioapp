@@ -2365,3 +2365,43 @@ td, th {
   font-size: 0.4em;
   text-transform: uppercase;
 }
+
+.reports-filter {
+  align-items: center;
+  background-color: $lightest-gray;
+  border: 1px solid $border-gray;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 10px 10px 20px;
+  width: 90%;
+}
+
+.reports-filter-section {
+  text-align: center;
+}
+
+.reports-filter-title {
+  color: $deeper-gray;
+  font: {
+    size: 0.8em;
+    weight: 700;
+  }
+  margin: 10px 0 15px;
+  text-transform: uppercase;
+}
+
+.reports-filter-group {
+  display: inline-block;
+  position: relative;
+}
+
+.reports-filter-input {
+  position: relative;
+}
+
+.reports-filter-group .icon-arrow_drop_down {
+  position: absolute;
+  right: 5px;
+  top: 15px;
+}

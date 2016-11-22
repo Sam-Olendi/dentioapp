@@ -34,49 +34,121 @@
     <ul class="reports-tabs-content">
         <li class="reports-tabs-content-section reports-tabs-content-section-is-selected" data-content="summary">
             <div class="reports-tabs-content-wrapper">
-
-                <div class="reports-summary-card">
-                    <div>
-                        <p class="reports-summary-value"> {{ daysPatients }} </p>
-                        <p class="reports-summary-title">Patients seen: <span class="reports-summary-title-highlight">today</span></p>
-                    </div>
-                </div>
-
-                <div class="reports-summary-card">
-                    <div>
-                        <p class="reports-summary-value"> {{ monthsPatients }} </p>
-                        <p class="reports-summary-title">Patients seen: <span class="reports-summary-title-highlight">this month</span></p>
-                    </div>
-                </div>
-
-                <div class="reports-summary-card">
-                    <div>
-                        <p class="reports-summary-value"><span class="reports-summary-value-currency">Kshs.</span> {{ totalAmount }}</p>
-                        <p class="reports-summary-title">Money made: <span class="reports-summary-title-highlight">today</span></p>
-                    </div>
-                </div>
-
-                <div class="reports-summary-card">
-                    <div>
-                        <p class="reports-summary-value"><span class="reports-summary-value-currency">Kshs.</span> {{ monthsAmount }}</p>
-                        <p class="reports-summary-title">Money made: <span class="reports-summary-title-highlight">this month</span></p>
-                    </div>
-                </div>
-
+                {{> reportsSummary }}
             </div>
         </li>
         <li class="reports-tabs-content-section" data-content="invoices">
             <div class="reports-tabs-content-wrapper">
-                Invoices content
+                {{> reportsInvoices }}
             </div>
         </li>
         <li class="reports-tabs-content-section" data-content="patients">
             <div class="reports-tabs-content-wrapper">
-                Patients content
+                {{> reportsPatients }}
             </div>
         </li>
     </ul>
 
+</template>
 
+<template name="reportsSummary">
+    <div class="reports-summary-card">
+        <div>
+            <p class="reports-summary-value"> {{ daysPatients }} </p>
+            <p class="reports-summary-title">Patients seen: <span class="reports-summary-title-highlight">today</span></p>
+        </div>
+    </div>
 
+    <div class="reports-summary-card">
+        <div>
+            <p class="reports-summary-value"> {{ monthsPatients }} </p>
+            <p class="reports-summary-title">Patients seen: <span class="reports-summary-title-highlight">this month</span></p>
+        </div>
+    </div>
+
+    <div class="reports-summary-card">
+        <div>
+            <p class="reports-summary-value"><span class="reports-summary-value-currency">Kshs.</span> {{ totalAmount }}</p>
+            <p class="reports-summary-title">Money made: <span class="reports-summary-title-highlight">today</span></p>
+        </div>
+    </div>
+
+    <div class="reports-summary-card">
+        <div>
+            <p class="reports-summary-value"><span class="reports-summary-value-currency">Kshs.</span> {{ monthsAmount }}</p>
+            <p class="reports-summary-title">Money made: <span class="reports-summary-title-highlight">this month</span></p>
+        </div>
+    </div>
+</template>
+
+<template name="reportsInvoices">
+
+    <div class="reports-filter">
+
+        <div class="reports-filter-section">
+            <p class="reports-filter-title">Filter</p>
+
+            <div class="reports-filter-group">
+                <input type="search" placeholder="-- Show all companies --" class="reports-filter-input">
+                <i class="icon-arrow_drop_down"></i>
+            </div>
+
+            <div class="reports-filter-group">
+                <input type="search" placeholder="-- Show all insurances --" class="reports-filter-input">
+                <i class="icon-arrow_drop_down"></i>
+            </div>
+
+            <div class="reports-filter-group">
+                <input type="text" placeholder="-- Show all dates --" class="reports-filter-input">
+                <i class="icon-arrow_drop_down"></i>
+            </div>
+
+            <div class="reports-filter-group">
+                <input type="text" placeholder="-- Show all patients --" class="reports-filter-input">
+                <i class="icon-arrow_drop_down"></i>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div>
+
+        <table>
+            <tr>
+                <th>Invoice Number</th>
+                <th>Patient Name</th>
+                <th>Company</th>
+                <th>Insurance Provider</th>
+                <th>Date Issued</th>
+            </tr>
+            <tr>
+                <td>Invoice Number</td>
+                <td>Patient Name</td>
+                <td>Company</td>
+                <td>Insurance Provider</td>
+                <td>Date Issued</td>
+            </tr>
+            <tr>
+                <td>Invoice Number</td>
+                <td>Patient Name</td>
+                <td>Company</td>
+                <td>Insurance Provider</td>
+                <td>Date Issued</td>
+            </tr>
+            <tr>
+                <td>Invoice Number</td>
+                <td>Patient Name</td>
+                <td>Company</td>
+                <td>Insurance Provider</td>
+                <td>Date Issued</td>
+            </tr>
+        </table>
+
+    </div>
+
+</template>
+
+<template name="reportsPatients">
+    Patients
 </template>

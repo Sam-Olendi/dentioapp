@@ -36,3 +36,4 @@ easy:search
 webtempest:animate
 momentjs:moment@=2.15.1
 jcbernack:reactive-aggregate
+mfpierre:chartist-js
