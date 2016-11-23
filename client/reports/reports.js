@@ -141,6 +141,52 @@ Template.reportsInvoicesCompany.events({
 });
 
 
+
+Template.reportsInvoicesInsurance.onCreated( function () {
+    var template = Template.instance();
+
+    template.insuranceSearch = new ReactiveVar();
+    template.searchingInsurance = new ReactiveVar( false );
+
+    template.autorun(function () {
+        template.subscribe( 'insurances.reports.all', template.insuranceSearch.get(), function () {
+            setTimeout(function () {
+                template.searchingInsurance.set( false );
+            }, 300);
+        } );
+    });
+} );
+
+Template.reportsInvoicesInsurance.helpers({
+    searching: function () {
+        return Template.instance().searchingInsurance.get();
+    },
+
+    query: function () {
+        return Template.instance().insuranceSearch.get();
+    },
+
+    insurances: function () {
+        return Insurances.find();
+    }
+});
+
+Template.reportsInvoicesInsurance.events({
+    'keyup #reports-filter-insurance': function ( event, template ) {
+
+        var value = event.target.value.trim();
+
+        if ( value !== '' && event.keyCode === 13 ) {
+            template.insuranceSearch.set( value );
+            template.searchingInsurance.set( true );
+        }
+
+        if ( value === '' ) template.insuranceSearch.set( value );
+
+    }
+});
+
+
 Template.reportsInvoicesTable.onCreated(function () {
     this.subscribe('invoices.reports.all');
 });

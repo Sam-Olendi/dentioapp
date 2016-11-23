@@ -143,7 +143,7 @@
                 {{#each companies}}
                     <li class="reports-filter-search-result">{{ company_name }}</li>
                 {{else}}
-                    <p class="reports-filter-search-result-none">No results found.</p>
+                    <p class="reports-filter-search-result-none">{{ query }} not found</p>
                 {{/each}}
             {{/if}}
         </ul>
@@ -153,7 +153,7 @@
 <template name="reportsInvoicesInsurance">
     <div class="reports-filter-group">
         <label class="reports-filter-label">Sort by insurance</label><br>
-        <input type="search" placeholder="-- Show all insurances --" class="reports-filter-input">
+        <input type="search" placeholder="-- Show all insurances --" class="reports-filter-input" id="reports-filter-insurance">
         <i class="icon-arrow_drop_down"></i>
         <ul class="reports-filter-search-results">
             {{#if searching}}
@@ -162,7 +162,7 @@
                 {{#each insurances}}
                     <li class="reports-filter-search-result">{{ insurance_name }}</li>
                 {{else}}
-                    <p class="reports-filter-search-result-none">No results found.</p>
+                    <p class="reports-filter-search-result-none">{{ query }} not found</p>
                 {{/each}}
             {{/if}}
         </ul>
