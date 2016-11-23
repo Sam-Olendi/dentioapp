@@ -88,25 +88,9 @@
         <div class="reports-filter-section">
             <!--<p class="reports-filter-title">Filter</p>-->
 
-            <div class="reports-filter-group">
-                <label class="reports-filter-label">Sort by company</label><br>
-                <input type="search" placeholder="-- Show all companies --" class="reports-filter-input">
-                <i class="icon-arrow_drop_down"></i>
-                <ul class="reports-filter-search-results">
-                    <p class="reports-filter-search-result-none">No results found.</p>
-                    <li class="reports-filter-search-result">Acme Co.</li>
-                </ul>
-            </div>
+            {{> reportsInvoicesCompany }}
 
-            <div class="reports-filter-group">
-                <label class="reports-filter-label">Sort by insurance</label><br>
-                <input type="search" placeholder="-- Show all insurances --" class="reports-filter-input">
-                <i class="icon-arrow_drop_down"></i>
-                <ul class="reports-filter-search-results">
-                    <p class="reports-filter-search-result-none">No results found.</p>
-                    <li class="reports-filter-search-result">Acme Co.</li>
-                </ul>
-            </div>
+            {{> reportsInvoicesInsurance }}
 
             <div class="reports-filter-group">
                 <label class="reports-filter-label">Sort by date</label><br>
@@ -145,6 +129,44 @@
 
     </div>
 
+</template>
+
+<template name="reportsInvoicesCompany">
+    <div class="reports-filter-group">
+        <label class="reports-filter-label">Sort by company</label><br>
+        <input type="search" placeholder="-- Show all companies --" class="reports-filter-input" id="reports-filter-company">
+        <i class="icon-arrow_drop_down"></i>
+        <ul class="reports-filter-search-results">
+            {{#if searching}}
+                Loading...
+            {{else}}
+                {{#each companies}}
+                    <li class="reports-filter-search-result">{{ company_name }}</li>
+                {{else}}
+                    <p class="reports-filter-search-result-none">No results found.</p>
+                {{/each}}
+            {{/if}}
+        </ul>
+    </div>
+</template>
+
+<template name="reportsInvoicesInsurance">
+    <div class="reports-filter-group">
+        <label class="reports-filter-label">Sort by insurance</label><br>
+        <input type="search" placeholder="-- Show all insurances --" class="reports-filter-input">
+        <i class="icon-arrow_drop_down"></i>
+        <ul class="reports-filter-search-results">
+            {{#if searching}}
+                Loading...
+            {{else}}
+                {{#each insurances}}
+                    <li class="reports-filter-search-result">{{ insurance_name }}</li>
+                {{else}}
+                    <p class="reports-filter-search-result-none">No results found.</p>
+                {{/each}}
+            {{/if}}
+        </ul>
+    </div>
 </template>
 
 <template name="reportsInvoicesTable">

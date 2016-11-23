@@ -35,6 +35,8 @@ Template.reportsContent.events({
     }
 });
 
+
+
 Template.reportsSummary.onCreated(function () {
     this.subscribe( 'invoices.reports.total' );
     this.subscribe('appointments.day.patients');
@@ -82,11 +84,62 @@ Template.reportsSummary.helpers({
     }
 });
 
+
+
 Template.reportsInvoices.rendered = function () {
   $('#reports-filter-date').datepicker({
       dateFormat: 'dd/mm/yy'
   });
 };
+
+
+
+Template.reportsInvoicesCompany.onCreated( function () {
+    var template = Template.instance();
+
+    template.companySearch = new ReactiveVar(); // company search query
+    template.searchingCompany = new ReactiveVar( false ); // searching...
+
+    template.autorun( function () {
+        template.subscribe( 'companies.reports.all', template.companySearch.get(), function () {
+            // onReady callback (after result returns from server)
+            setTimeout( function () {
+                template.searchingCompany.set( false );
+            }, 300 )
+        });
+    } );
+});
+
+Template.reportsInvoicesCompany.helpers({
+    searching: function () {
+        return Template.instance().searchingCompany.get();
+    },
+
+    query: function () {
+        return Template.instance().companySearch.get();
+    },
+
+    companies: function () {
+        var companies = Companies.find();
+        if ( companies ) return companies;
+    }
+});
+
+Template.reportsInvoicesCompany.events({
+    'keyup #reports-filter-company': function ( event, template ) {
+        var value = event.target.value.trim();
+
+        if ( value !== '' && event.keyCode === 13 ) {
+            template.companySearch.set( value );
+            template.searchingCompany.set( true );
+        }
+
+        if ( value === '' ) {
+            template.companySearch.set( value );
+        }
+    }
+});
+
 
 Template.reportsInvoicesTable.onCreated(function () {
     this.subscribe('invoices.reports.all');
@@ -98,6 +151,8 @@ Template.reportsInvoices.events({
         results.show();
     }
 });
+
+
 
 Template.reportsInvoicesTable.helpers({
     invoices: function () {
