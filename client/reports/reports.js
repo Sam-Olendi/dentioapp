@@ -86,12 +86,6 @@ Template.reportsSummary.helpers({
 
 
 
-Template.reportsInvoices.rendered = function () {
-  $('#reports-filter-date').datepicker({
-      dateFormat: 'dd/mm/yy'
-  });
-};
-
 Template.reportsInvoices.events({
     'focus .reports-filter-input': function (event) {
         var results = $(event.target).parent().find('.reports-filter-search-results');
@@ -205,6 +199,23 @@ Template.reportsInvoicesInsurance.events({
 
 
 
+Template.reportsInvoicesDate.rendered = function () {
+    $('#reports-filter-date').datepicker({
+        dateFormat: 'yy mm dd',
+        maxDate: 0
+    });
+};
+
+Template.reportsInvoicesDate.events({
+   'change #reports-filter-date': function (event) {
+       var selectedDay = moment(new Date(event.target.value).toISOString()).format('Do MMM YYYY');
+       Session.set('selectedDate', selectedDay);
+       event.target.value = selectedDay;
+   }
+});
+
+
+
 Template.reportsInvoicesPatients.onCreated(function () {
     var template = Template.instance();
     template.patientSearch = new ReactiveVar();
@@ -250,8 +261,6 @@ Template.reportsInvoicesPatients.events({
         Session.set('selectedPatient', patientId);
     }
 });
-
-
 
 
 

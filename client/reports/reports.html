@@ -92,11 +92,7 @@
 
             {{> reportsInvoicesInsurance }}
 
-            <div class="reports-filter-group">
-                <label class="reports-filter-label">Sort by date</label><br>
-                <input type="text" placeholder="-- Show all dates --" class="reports-filter-input" id="reports-filter-date">
-                <i class="icon-arrow_drop_down"></i>
-            </div>
+            {{> reportsInvoicesDate }}
 
             {{> reportsInvoicesPatients }}
 
@@ -158,6 +154,14 @@
                 {{/each}}
             {{/if}}
         </ul>
+    </div>
+</template>
+
+<template name="reportsInvoicesDate">
+    <div class="reports-filter-group">
+        <label class="reports-filter-label">Sort by date</label><br>
+        <input type="text" placeholder="-- Show all dates --" class="reports-filter-input" id="reports-filter-date">
+        <i class="icon-arrow_drop_down"></i>
     </div>
 </template>
 
