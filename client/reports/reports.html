@@ -133,7 +133,7 @@
                 Loading...
             {{else}}
                 {{#each companies}}
-                    <li class="reports-filter-search-result">{{ company_name }}</li>
+                    <li class="reports-filter-search-result js-reports-filter-company" data-id="{{ _id }}">{{ company_name }}</li>
                 {{else}}
                     <p class="reports-filter-search-result-none">{{ query }} not found</p>
                 {{/each}}
@@ -152,7 +152,7 @@
                 Loading...
             {{else}}
                 {{#each insurances}}
-                    <li class="reports-filter-search-result">{{ insurance_name }}</li>
+                    <li class="reports-filter-search-result js-reports-filter-insurance" data-id="{{ _id }}">{{ insurance_name }}</li>
                 {{else}}
                     <p class="reports-filter-search-result-none">{{ query }} not found</p>
                 {{/each}}
@@ -171,7 +171,7 @@
                 Loading...
             {{else}}
                 {{#each patients}}
-                    <li class="reports-filter-search-result">{{ profile.surname }}, {{ profile.first_name }} {{ profile.middle_name }}</li>
+                    <li class="reports-filter-search-result js-reports-filter-patient" data-id="{{ _id }}">{{ profile.surname }}, {{ profile.first_name }} {{ profile.middle_name }}</li>
                 {{else}}
                     <p class="reports-filter-search-result-none">{{ query }} not found</p>
                 {{/each}}

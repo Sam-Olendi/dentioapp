@@ -62,9 +62,25 @@ Meteor.publish( 'invoices.reports.total', function () {
     }, { fields: { amount: 1, date_issued: 1 } });
 } );
 
-Meteor.publish( 'invoices.reports.all', function () {
+Meteor.publish( 'invoices.reports.all', function (data) {
+
+    check(data, {
+        company_id: Match.OneOf( String, null, undefined ),
+        insurance_id: Match.OneOf( String, null, undefined ),
+        date_issued: Match.OneOf( String, null, undefined ),
+        patient_id: Match.OneOf( String, null, undefined )
+    });
+
+    var query = {},
+        projection = { sort: { invoice_no: 1 } };
+
+    if ( data.company_id ) query[ 'company_id' ] = data.company_id;
+    if ( data.insurance_id ) query[ 'insurance_id' ] = data.insurance_id;
+    if ( data.date_issued ) query[ 'date_issued' ] = data.date_issued;
+    if ( data.patient_id ) query[ 'patient_id' ] = data.patient_id;
+
     var self = this;
-    var observer = Invoices.find().observe({
+    var observer = Invoices.find( query, projection ).observe({
         added: function (document) {
             self.added('invoices', document._id, transformInvoices (document));
         },

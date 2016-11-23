@@ -92,6 +92,13 @@ Template.reportsInvoices.rendered = function () {
   });
 };
 
+Template.reportsInvoices.events({
+    'focus .reports-filter-input': function (event) {
+        var results = $(event.target).parent().find('.reports-filter-search-results');
+        results.show();
+    }
+});
+
 
 
 Template.reportsInvoicesCompany.onCreated( function () {
@@ -137,50 +144,14 @@ Template.reportsInvoicesCompany.events({
         if ( value === '' ) {
             template.companySearch.set( value );
         }
-    }
-});
-
-
-Template.reportsInvoicesPatients.onCreated(function () {
-    var template = Template.instance();
-    template.patientSearch = new ReactiveVar();
-    template.searchingPatient = new ReactiveVar( false );
-
-    template.autorun(function () {
-        template.subscribe( 'patients.search', template.patientSearch.get(), function () {
-            setTimeout(function () {
-                template.searchingPatient.set( false );
-            }, 300);
-        } )
-    } );
-});
-
-Template.reportsInvoicesPatients.helpers({
-    searching: function () {
-        return Template.instance().searchingPatient.get();
     },
 
-    query: function () {
-        return Template.instance().patientSearch.get();
-    },
-
-    patients: function () {
-        return Patients.find();
+    'click .js-reports-filter-company': function ( event ) {
+        var companyId = $(event.target).attr('data-id');
+        Session.set('selectedCompany', companyId);
     }
 });
 
-Template.reportsInvoicesPatients.events({
-    'keyup #reports-filter-patients': function ( event, template ) {
-        var value = event.target.value.trim();
-
-        if ( value !== '' && event.keyCode === 13 ) {
-            template.patientSearch.set( value );
-            template.searchingPatient.set( true );
-        }
-
-        if ( value === '' ) template.patientSearch.set( value );
-    }
-});
 
 
 Template.reportsInvoicesInsurance.onCreated( function () {
@@ -224,25 +195,94 @@ Template.reportsInvoicesInsurance.events({
 
         if ( value === '' ) template.insuranceSearch.set( value );
 
+    },
+
+    'click .js-reports-filter-insurance': function ( event ) {
+        var insuranceId = $(event.target).attr('data-id');
+        Session.set('selectedInsurance', insuranceId);
     }
 });
+
+
+
+Template.reportsInvoicesPatients.onCreated(function () {
+    var template = Template.instance();
+    template.patientSearch = new ReactiveVar();
+    template.searchingPatient = new ReactiveVar( false );
+
+    template.autorun(function () {
+        template.subscribe( 'patients.search', template.patientSearch.get(), function () {
+            setTimeout(function () {
+                template.searchingPatient.set( false );
+            }, 300);
+        } )
+    } );
+});
+
+Template.reportsInvoicesPatients.helpers({
+    searching: function () {
+        return Template.instance().searchingPatient.get();
+    },
+
+    query: function () {
+        return Template.instance().patientSearch.get();
+    },
+
+    patients: function () {
+        return Patients.find();
+    }
+});
+
+Template.reportsInvoicesPatients.events({
+    'keyup #reports-filter-patients': function ( event, template ) {
+        var value = event.target.value.trim();
+
+        if ( value !== '' && event.keyCode === 13 ) {
+            template.patientSearch.set( value );
+            template.searchingPatient.set( true );
+        }
+
+        if ( value === '' ) template.patientSearch.set( value );
+    },
+
+    'click .js-reports-filter-patient': function ( event ) {
+        var patientId = $(event.target).attr('data-id');
+        Session.set('selectedPatient', patientId);
+    }
+});
+
+
+
 
 
 Template.reportsInvoicesTable.onCreated(function () {
-    this.subscribe('invoices.reports.all');
+    Session.setDefault('selectedCompany', null);
+    Session.setDefault('selectedInsurance', null);
+    Session.set('selectedDate', null);
+    Session.setDefault('selectedPatient', null);
+
+    var template = Template.instance();
+    var data = {
+        company_id: Session.get('selectedCompany'),
+        insurance_id: Session.get('selectedInsurance'),
+        date_issued: Session.get('selectedDate'),
+        patient_id: Session.get('selectedPatient')
+    };
+
+    template.autorun(function () {
+        template.subscribe('invoices.reports.all', data);
+    });
 });
-
-Template.reportsInvoices.events({
-    'focus .reports-filter-input': function (event) {
-        var results = $(event.target).parent().find('.reports-filter-search-results');
-        results.show();
-    }
-});
-
-
 
 Template.reportsInvoicesTable.helpers({
     invoices: function () {
-        return Invoices.find();
+        var query = {};
+
+        if ( Session.get('selectedCompany') ) query[ 'company_id' ] = Session.get('selectedCompany');
+        if ( Session.get('selectedInsurance') ) query[ 'insurance_id' ] = Session.get('selectedInsurance');
+        if ( Session.get('selectedDate') ) query[ 'date_issued' ] = Session.get('selectedDate');
+        if ( Session.get('selectedPatient') ) query[ 'patient_id' ] = Session.get('selectedPatient');
+
+        return Invoices.find( query, { sort: { invoice_no: 1 } } );
     }
 });
