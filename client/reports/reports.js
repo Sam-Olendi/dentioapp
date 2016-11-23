@@ -141,6 +141,47 @@ Template.reportsInvoicesCompany.events({
 });
 
 
+Template.reportsInvoicesPatients.onCreated(function () {
+    var template = Template.instance();
+    template.patientSearch = new ReactiveVar();
+    template.searchingPatient = new ReactiveVar( false );
+
+    template.autorun(function () {
+        template.subscribe( 'patients.search', template.patientSearch.get(), function () {
+            setTimeout(function () {
+                template.searchingPatient.set( false );
+            }, 300);
+        } )
+    } );
+});
+
+Template.reportsInvoicesPatients.helpers({
+    searching: function () {
+        return Template.instance().searchingPatient.get();
+    },
+
+    query: function () {
+        return Template.instance().patientSearch.get();
+    },
+
+    patients: function () {
+        return Patients.find();
+    }
+});
+
+Template.reportsInvoicesPatients.events({
+    'keyup #reports-filter-patients': function ( event, template ) {
+        var value = event.target.value.trim();
+
+        if ( value !== '' && event.keyCode === 13 ) {
+            template.patientSearch.set( value );
+            template.searchingPatient.set( true );
+        }
+
+        if ( value === '' ) template.patientSearch.set( value );
+    }
+});
+
 
 Template.reportsInvoicesInsurance.onCreated( function () {
     var template = Template.instance();

@@ -98,15 +98,7 @@
                 <i class="icon-arrow_drop_down"></i>
             </div>
 
-            <div class="reports-filter-group">
-                <label class="reports-filter-label">Sort by patient</label><br>
-                <input type="text" placeholder="-- Show all patients --" class="reports-filter-input">
-                <i class="icon-arrow_drop_down"></i>
-                <ul class="reports-filter-search-results">
-                    <p class="reports-filter-search-result-none">No results found.</p>
-                    <li class="reports-filter-search-result">Acme Co.</li>
-                </ul>
-            </div>
+            {{> reportsInvoicesPatients }}
 
         </div>
 
@@ -161,6 +153,25 @@
             {{else}}
                 {{#each insurances}}
                     <li class="reports-filter-search-result">{{ insurance_name }}</li>
+                {{else}}
+                    <p class="reports-filter-search-result-none">{{ query }} not found</p>
+                {{/each}}
+            {{/if}}
+        </ul>
+    </div>
+</template>
+
+<template name="reportsInvoicesPatients">
+    <div class="reports-filter-group">
+        <label class="reports-filter-label">Sort by patient</label><br>
+        <input type="text" placeholder="-- Show all patients --" class="reports-filter-input" id="reports-filter-patients">
+        <i class="icon-arrow_drop_down"></i>
+        <ul class="reports-filter-search-results">
+            {{#if searching}}
+                Loading...
+            {{else}}
+                {{#each patients}}
+                    <li class="reports-filter-search-result">{{ profile.surname }}, {{ profile.first_name }} {{ profile.middle_name }}</li>
                 {{else}}
                     <p class="reports-filter-search-result-none">{{ query }} not found</p>
                 {{/each}}
