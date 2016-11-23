@@ -2421,16 +2421,29 @@ td, th {
   background-color: $ordinary-white;
   border: 1px solid $border-gray;
   display: none;
-  font-size: 0.85em;
+  font-size: 0.8em;
+  height: 150px;
   list-style-type: none;
+  min-width: 180px;
+  overflow-y: scroll;
   padding: 5px 15px 15px;
   position: absolute;
   text-align: left;
 }
 
 .reports-filter-search-result {
+  border-bottom: 1px solid $lightest-gray;
   cursor: pointer;
   margin: 7px 0;
+  padding: 0 10px 10px;
+}
+
+.reports-filter-search-result.mod-reports-filter-search-result-reset {
+  background-color: $brandon-blue;
+  border-radius: 3px;
+  color: #fff;
+  margin-bottom: 10px;
+  padding-top: 10px;
 }
 
 .reports-filter-search-result-none {

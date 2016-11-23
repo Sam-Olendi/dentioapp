@@ -32,6 +32,13 @@ Template.reportsContent.events({
 
         });
 
+    },
+
+    'click': function ( event ) {
+        if ( !$(event.target).hasClass('reports-filter-input') && !$(event.target).hasClass('reports-filter-search-results') && !$(event.target).hasClass('icon-arrow_drop_down') ) {
+            $('.reports-filter-search-results').hide();
+            //event.stopPropagation();
+        }
     }
 });
 
@@ -104,9 +111,7 @@ Template.reportsInvoicesCompany.onCreated( function () {
     template.autorun( function () {
         template.subscribe( 'companies.reports.all', template.companySearch.get(), function () {
             // onReady callback (after result returns from server)
-            setTimeout( function () {
-                template.searchingCompany.set( false );
-            }, 300 )
+            template.searchingCompany.set( false );
         });
     } );
 });
@@ -127,10 +132,14 @@ Template.reportsInvoicesCompany.helpers({
 });
 
 Template.reportsInvoicesCompany.events({
+    'click .icon-arrow_drop_down': function ( event ) {
+        $(event.target).parent().find('.reports-filter-search-results').toggle();
+    },
+
     'keyup #reports-filter-company': function ( event, template ) {
         var value = event.target.value.trim();
 
-        if ( value !== '' && event.keyCode === 13 ) {
+        if ( value !== '' ) {
             template.companySearch.set( value );
             template.searchingCompany.set( true );
         }
@@ -143,6 +152,20 @@ Template.reportsInvoicesCompany.events({
     'click .js-reports-filter-company': function ( event ) {
         var companyId = $(event.target).attr('data-id');
         Session.set('selectedCompany', companyId);
+        $('#reports-filter-company').val($(event.target).text());
+        $(event.target).parent().hide();
+    },
+
+    'click .js-reports-filter-company-all': function () {
+        Session.set('selectedCompany', null);
+        $('#reports-filter-company').val('Show all companies');
+        $(event.target).parent().hide();
+    },
+
+    'click .js-reports-filter-company-private': function () {
+        var companyId = $(event.target).attr('data-id');
+        Session.set('selectedCompany', companyId);
+        $('#reports-filter-company').val($(event.target).text());
     }
 });
 
@@ -267,10 +290,11 @@ Template.reportsInvoicesPatients.events({
 Template.reportsInvoicesTable.onCreated(function () {
     Session.setDefault('selectedCompany', null);
     Session.setDefault('selectedInsurance', null);
-    Session.set('selectedDate', null);
+    Session.setDefault('selectedDate', null);
     Session.setDefault('selectedPatient', null);
 
     var template = Template.instance();
+
     var data = {
         company_id: Session.get('selectedCompany'),
         insurance_id: Session.get('selectedInsurance'),
@@ -281,6 +305,7 @@ Template.reportsInvoicesTable.onCreated(function () {
     template.autorun(function () {
         template.subscribe('invoices.reports.all', data);
     });
+
 });
 
 Template.reportsInvoicesTable.helpers({
