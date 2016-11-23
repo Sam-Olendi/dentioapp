@@ -64,8 +64,6 @@ Meteor.publish( 'invoices.reports.total', function () {
 
 Meteor.publish( 'invoices.reports.all', function (data) {
 
-    console.log(data.company_id);
-
     check(data, {
         company_id: Match.OneOf( String, null, undefined ),
         insurance_id: Match.OneOf( String, null, undefined ),

@@ -143,12 +143,13 @@
 <template name="reportsInvoicesInsurance">
     <div class="reports-filter-group">
         <label class="reports-filter-label">Sort by insurance</label><br>
-        <input type="search" placeholder="-- Show all insurances --" class="reports-filter-input" id="reports-filter-insurance">
+        <input type="search" placeholder="Show all insurances" class="reports-filter-input" id="reports-filter-insurance">
         <i class="icon-arrow_drop_down"></i>
         <ul class="reports-filter-search-results">
             {{#if searching}}
                 Loading...
             {{else}}
+                <li class="reports-filter-search-result mod-reports-filter-search-result-reset js-reports-filter-insurance-all">Reset: Show all</li>
                 {{#each insurances}}
                     <li class="reports-filter-search-result js-reports-filter-insurance" data-id="{{ _id }}">{{ insurance_name }}</li>
                 {{else}}
@@ -162,7 +163,7 @@
 <template name="reportsInvoicesDate">
     <div class="reports-filter-group">
         <label class="reports-filter-label">Sort by date</label><br>
-        <input type="text" placeholder="-- Show all dates --" class="reports-filter-input" id="reports-filter-date">
+        <input type="text" placeholder="Show all dates" class="reports-filter-input" id="reports-filter-date">
         <i class="icon-arrow_drop_down"></i>
     </div>
 </template>
@@ -170,12 +171,13 @@
 <template name="reportsInvoicesPatients">
     <div class="reports-filter-group">
         <label class="reports-filter-label">Sort by patient</label><br>
-        <input type="text" placeholder="-- Show all patients --" class="reports-filter-input" id="reports-filter-patients">
+        <input type="text" placeholder="Show all patients" class="reports-filter-input" id="reports-filter-patients">
         <i class="icon-arrow_drop_down"></i>
         <ul class="reports-filter-search-results">
             {{#if searching}}
                 Loading...
             {{else}}
+                <li class="reports-filter-search-result mod-reports-filter-search-result-reset js-reports-filter-patients-all">Reset: Show all</li>
                 {{#each patients}}
                     <li class="reports-filter-search-result js-reports-filter-patient" data-id="{{ _id }}">{{ profile.surname }}, {{ profile.first_name }} {{ profile.middle_name }}</li>
                 {{else}}

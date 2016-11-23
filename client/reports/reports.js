@@ -201,6 +201,10 @@ Template.reportsInvoicesInsurance.helpers({
 });
 
 Template.reportsInvoicesInsurance.events({
+    'click .icon-arrow_drop_down': function ( event ) {
+        $(event.target).parent().find('.reports-filter-search-results').toggle();
+    },
+
     'keyup #reports-filter-insurance': function ( event, template ) {
 
         var value = event.target.value.trim();
@@ -217,6 +221,14 @@ Template.reportsInvoicesInsurance.events({
     'click .js-reports-filter-insurance': function ( event ) {
         var insuranceId = $(event.target).attr('data-id');
         Session.set('selectedInsurance', insuranceId);
+        $('#reports-filter-insurance').val($(event.target).text());
+        $(event.target).parent().hide();
+    },
+
+    'click .js-reports-filter-insurance-all': function () {
+        Session.set('selectedInsurance', null);
+        $('#reports-filter-insurance').val('Show all insurances');
+        $(event.target).parent().hide();
     }
 });
 
@@ -268,6 +280,10 @@ Template.reportsInvoicesPatients.helpers({
 });
 
 Template.reportsInvoicesPatients.events({
+    'click .icon-arrow_drop_down': function ( event ) {
+        $(event.target).parent().find('.reports-filter-search-results').toggle();
+    },
+
     'keyup #reports-filter-patients': function ( event, template ) {
         var value = event.target.value.trim();
 
@@ -282,6 +298,14 @@ Template.reportsInvoicesPatients.events({
     'click .js-reports-filter-patient': function ( event ) {
         var patientId = $(event.target).attr('data-id');
         Session.set('selectedPatient', patientId);
+        $('#reports-filter-patients').val($(event.target).text());
+        $(event.target).parent().hide();
+    },
+
+    'click .js-reports-filter-patients-all': function () {
+        Session.set('selectedPatient', null);
+        $('#reports-filter-patients').val('Show all patients');
+        $(event.target).parent().hide();
     }
 });
 
