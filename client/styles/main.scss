@@ -2449,3 +2449,36 @@ td, th {
 .reports-filter-search-result-none {
   color: $deeper-gray;
 }
+
+.reports-patients-week {
+  overflow-y: auto;
+}
+
+.reports-patients-week-title {
+  margin: 0 0 25px;
+}
+
+.reports-patients-week-day {
+  background-color: $damien-light;
+  border-right: 1px solid #2c3739;
+  float: left;
+  height: 120px;
+  padding: 20px 15px;
+  width: calc(100% / 7);
+}
+
+.reports-patients-week-day-title {
+  color: #7a7a7a;
+  font-size: 0.8em;
+  margin: 0 0 5px;
+  text-transform: uppercase;
+}
+
+.reports-patients-week-day-number {
+  color: $lightest-gray;
+  font: {
+    size: 2.5em;
+    weight: 700;
+  }
+  margin: 0;
+}
