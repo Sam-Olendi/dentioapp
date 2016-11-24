@@ -111,7 +111,9 @@ Template.reportsInvoicesCompany.onCreated( function () {
     template.autorun( function () {
         template.subscribe( 'companies.reports.all', template.companySearch.get(), function () {
             // onReady callback (after result returns from server)
-            template.searchingCompany.set( false );
+            setTimeout(function () {
+                template.searchingCompany.set( false );
+            }, 300 );
         });
     } );
 });
@@ -139,7 +141,7 @@ Template.reportsInvoicesCompany.events({
     'keyup #reports-filter-company': function ( event, template ) {
         var value = event.target.value.trim();
 
-        if ( value !== '' ) {
+        if ( value !== '' && event.keyCode === 13 ) {
             template.companySearch.set( value );
             template.searchingCompany.set( true );
         }
