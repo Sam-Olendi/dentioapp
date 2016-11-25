@@ -44,8 +44,6 @@ Template.reportsPatientsMonth.helpers({
                 monthlyCount: Appointments.find( { date_created: { $regex: thisMonth.format('MMM YYYY') } } ).count()
             };
 
-            console.log( Appointments.find( { date_created: { $regex: thisMonth.format('MMM YYYY') } } ).count());
-
             thisMonth = moment().subtract( i + 1, 'months');
 
         }
@@ -53,3 +51,13 @@ Template.reportsPatientsMonth.helpers({
         return monthlyData.reverse();
     }
 });
+
+Template.reportsPatientsTable.onCreated(function () {
+    this.subscribe('patients.reports');
+});
+Template.reportsPatientsTable.helpers({
+    patients: function () {
+        return Patients.find();
+    }
+});
+

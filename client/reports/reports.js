@@ -45,8 +45,8 @@ Template.reportsContent.events({
 
 
 Template.reportsSummary.onCreated(function () {
-    this.subscribe( 'invoices.reports.total' );
-    this.subscribe('appointments.day.patients');
+    //this.subscribe( 'invoices.reports.total' );
+    //this.subscribe('appointments.day.patients');
 });
 
 Template.reportsSummary.helpers({
@@ -109,12 +109,12 @@ Template.reportsInvoicesCompany.onCreated( function () {
     template.searchingCompany = new ReactiveVar( false ); // searching...
 
     template.autorun( function () {
-        template.subscribe( 'companies.reports.all', template.companySearch.get(), function () {
-            // onReady callback (after result returns from server)
-            setTimeout(function () {
-                template.searchingCompany.set( false );
-            }, 300 );
-        });
+        //template.subscribe( 'companies.reports.all', template.companySearch.get(), function () {
+        //    // onReady callback (after result returns from server)
+        //    setTimeout(function () {
+        //        template.searchingCompany.set( false );
+        //    }, 300 );
+        //});
     } );
 });
 
@@ -180,11 +180,11 @@ Template.reportsInvoicesInsurance.onCreated( function () {
     template.searchingInsurance = new ReactiveVar( false );
 
     template.autorun(function () {
-        template.subscribe( 'insurances.reports.all', template.insuranceSearch.get(), function () {
-            setTimeout(function () {
-                template.searchingInsurance.set( false );
-            }, 300);
-        } );
+        //template.subscribe( 'insurances.reports.all', template.insuranceSearch.get(), function () {
+        //    setTimeout(function () {
+        //        template.searchingInsurance.set( false );
+        //    }, 300);
+        //} );
     });
 } );
 
@@ -259,11 +259,11 @@ Template.reportsInvoicesPatients.onCreated(function () {
     template.searchingPatient = new ReactiveVar( false );
 
     template.autorun(function () {
-        template.subscribe( 'patients.search', template.patientSearch.get(), function () {
-            setTimeout(function () {
-                template.searchingPatient.set( false );
-            }, 300);
-        } )
+        //template.subscribe( 'patients.search', template.patientSearch.get(), function () {
+        //    setTimeout(function () {
+        //        template.searchingPatient.set( false );
+        //    }, 300);
+        //} )
     } );
 });
 
@@ -329,7 +329,7 @@ Template.reportsInvoicesTable.onCreated(function () {
     };
 
     template.autorun(function () {
-        template.subscribe('invoices.reports.all', data);
+        //template.subscribe('invoices.reports.all', data);
     });
 
 });

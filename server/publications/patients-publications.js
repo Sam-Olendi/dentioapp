@@ -121,6 +121,27 @@ Meteor.publish('patients.single', function (patientId) {
     self.ready();
 });
 
+Meteor.publish('patients.reports', function () {
+    var self = this;
+    var observer = Patients.find().observe({
+        added: function (document) {
+            self.added('patients', document._id, transformPatients (document));
+        },
+        changed: function (newDocument, oldDocument) {
+            self.changed('patients', oldDocument._id, transformPatients (newDocument));
+        },
+        removed: function (oldDocument) {
+            self.removed('patients', oldDocument._id);
+        }
+    });
+
+    self.onStop(function () {
+        observer.stop();
+    });
+
+    self.ready();
+});
+
 function transformPatients (doc) {
     if (doc.work) {
         doc.company = Companies.findOne(doc.work.company_id);

@@ -40,13 +40,7 @@
                 <th>Insurance Provider</th>
             </tr>
 
-            <tr>
-                <td>patient.profile.surname, patient.profile.first_name patient.profile.middle_name</td>
-                <td>patient.contacts.email</td>
-                <td>patient.contacts.phone</td>
-                <td>company.company_name</td>
-                <td>insurance.insurance_name</td>
-            </tr>
+            {{> reportsPatientsTable }}
 
         </table>
 
@@ -69,5 +63,17 @@
             <p class="reports-patients-week-day-title">{{ month }}</p>
             <p class="reports-patients-week-day-number">{{ monthlyCount }}</p>
         </div>
+    {{/each}}
+</template>
+
+<template name="reportsPatientsTable">
+    {{#each patients}}
+        <tr>
+            <td>{{ profile.surname }}, {{ profile.first_name }} {{ profile.middle_name }}</td>
+            <td>{{ contacts.email }}</td>
+            <td>{{ contacts.mobile }}</td>
+            <td>{{ company.company_name }}</td>
+            <td>{{ patient_insurance.insurance_name }}</td>
+        </tr>
     {{/each}}
 </template>
