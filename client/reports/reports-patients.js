@@ -1,9 +1,8 @@
 Template.reportsPatientsWeek.onCreated(function () {
     var template = Template.instance();
-    template.theDay = new ReactiveVar( moment().format('Do MMM YYYY') );
 
     template.autorun(function () {
-        template.subscribe('appointments.daily.reports', template.theDay.get() );
+        template.subscribe('appointments.daily.reports', moment().format('Do MMM YYYY') );
     });
 });
 
@@ -26,5 +25,31 @@ Template.reportsPatientsWeek.helpers({
 
         return dailyData.reverse();
 
+    }
+});
+
+Template.reportsPatientsMonth.onCreated(function () {
+    this.subscribe('appointments.monthly.reports', moment().format('YYYY'));
+});
+
+Template.reportsPatientsMonth.helpers({
+    months: function () {
+        var count = 7,
+            monthlyData = [],
+            thisMonth = moment();
+
+        for ( var i = 0; i < count; i++ ) {
+            monthlyData[i] = {
+                month: thisMonth.format('MMMM'),
+                monthlyCount: Appointments.find( { date_created: { $regex: thisMonth.format('MMM YYYY') } } ).count()
+            };
+
+            console.log( Appointments.find( { date_created: { $regex: thisMonth.format('MMM YYYY') } } ).count());
+
+            thisMonth = moment().subtract( i + 1, 'months');
+
+        }
+
+        return monthlyData.reverse();
     }
 });

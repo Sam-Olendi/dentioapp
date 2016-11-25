@@ -519,7 +519,7 @@ Meteor.startup(function () {
             patient_id: 'greg',
             status: 'Completed',
             booked: true,
-            date_created: "20th Sept 2016, 1:38 pm"
+            date_created: "20th Sep 2016, 1:38 pm"
         });
 
         Appointments.insert({

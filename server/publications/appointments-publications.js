@@ -89,6 +89,18 @@ Meteor.publish('appointments.daily.reports', function ( theDate ) {
 
 });
 
+Meteor.publish('appointments.monthly.reports', function ( theDate ) {
+
+    check(theDate, String);
+
+    var date = new RegExp(theDate);
+
+    return Appointments.find({
+        date_created: { $regex: date }
+    }, { fields: { date_created: 1 } });
+
+});
+
 function transformAppointments (doc) {
     doc.patient = Patients.findOne({_id: doc.patient_id});
     return doc;
