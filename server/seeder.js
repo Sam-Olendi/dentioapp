@@ -507,6 +507,34 @@ Meteor.startup(function () {
             booked: true,
             date_created: "20th Nov 2016, 1:38 pm"
         });
+
+        Appointments.insert({
+            patient_id: 'liz',
+            status: 'Completed',
+            booked: true,
+            date_created: "21st Oct 2016, 1:38 pm"
+        });
+
+        Appointments.insert({
+            patient_id: 'greg',
+            status: 'Completed',
+            booked: true,
+            date_created: "20th Sept 2016, 1:38 pm"
+        });
+
+        Appointments.insert({
+            patient_id: 'liz',
+            status: 'Completed',
+            booked: true,
+            date_created: "21st Jul 2016, 1:38 pm"
+        });
+
+        Appointments.insert({
+            patient_id: 'greg',
+            status: 'Completed',
+            booked: true,
+            date_created: "20th Jun 2016, 1:38 pm"
+        });
     }
 
     if (Companies.find().count() == 0) {

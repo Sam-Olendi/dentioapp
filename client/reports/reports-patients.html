@@ -1,8 +1,18 @@
 <template name="reportsPatients">
     <div class="reports-patients-week">
-        <h2 class="reports-patients-week-title">Daily Appointments</h2>
+        <h2 class="reports-patients-week-title">Last 7 Days...</h2>
         <div class="reports-patients-week-days">
             {{> reportsPatientsWeek }}
+        </div>
+    </div>
+
+    <div class="reports-patients-month">
+        <h2 class="reports-patients-month-title">Last 7 Months...</h2>
+        <div class="reports-patients-months">
+            <div class="reports-patients-week-day">
+                <p class="reports-patients-week-day-title">NOV</p>
+                <p class="reports-patients-week-day-number">524</p>
+            </div>
         </div>
     </div>
 </template>
@@ -14,33 +24,4 @@
             <p class="reports-patients-week-day-number">{{ dailyCount }}</p>
         </div>
     {{/each}}
-    <!--<div class="reports-patients-week-day">-->
-        <!--<p class="reports-patients-week-day-title">Tuesday</p>-->
-        <!--<p class="reports-patients-week-day-number">20</p>-->
-    <!--</div>-->
-
-    <!--<div class="reports-patients-week-day">-->
-        <!--<p class="reports-patients-week-day-title">Wednesday</p>-->
-        <!--<p class="reports-patients-week-day-number">20</p>-->
-    <!--</div>-->
-
-    <!--<div class="reports-patients-week-day">-->
-        <!--<p class="reports-patients-week-day-title">Thursday</p>-->
-        <!--<p class="reports-patients-week-day-number">20</p>-->
-    <!--</div>-->
-
-    <!--<div class="reports-patients-week-day">-->
-        <!--<p class="reports-patients-week-day-title">Friday</p>-->
-        <!--<p class="reports-patients-week-day-number">20</p>-->
-    <!--</div>-->
-
-    <!--<div class="reports-patients-week-day">-->
-        <!--<p class="reports-patients-week-day-title">Saturday</p>-->
-        <!--<p class="reports-patients-week-day-number">20</p>-->
-    <!--</div>-->
-
-    <!--<div class="reports-patients-week-day">-->
-        <!--<p class="reports-patients-week-day-title">Sunday</p>-->
-        <!--<p class="reports-patients-week-day-number">20</p>-->
-    <!--</div>-->
 </template>
