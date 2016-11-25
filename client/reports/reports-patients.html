@@ -12,6 +12,46 @@
             {{> reportsPatientsMonth }}
         </div>
     </div>
+
+    <div class="reports-patients-filter">
+        <div class="reports-patients-filter-group">
+            <label for="reports-patients-filter-company" class="reports-patients-filter-label">Sort by company</label>
+            <div class="reports-patients-filter-input-group">
+                <input type="text" placeholder="Show all companies" class="reports-patients-filter-input" id="reports-patients-filter-company">
+                <i class="icon-arrow_drop_down"></i>
+            </div>
+        </div>
+        <div class="reports-patients-filter-group">
+            <label for="reports-patients-filter-insurance" class="reports-patients-filter-label">Sort by insurance</label>
+            <div class="reports-patients-filter-input-group">
+                <input type="text" placeholder="Show all insurances" class="reports-patients-filter-input" id="reports-patients-filter-insurance">
+                <i class="icon-arrow_drop_down"></i>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <table>
+            <tr>
+                <th>Patient Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Company</th>
+                <th>Insurance Provider</th>
+            </tr>
+
+            <tr>
+                <td>patient.profile.surname, patient.profile.first_name patient.profile.middle_name</td>
+                <td>patient.contacts.email</td>
+                <td>patient.contacts.phone</td>
+                <td>company.company_name</td>
+                <td>insurance.insurance_name</td>
+            </tr>
+
+        </table>
+
+    </div>
+
 </template>
 
 <template name="reportsPatientsWeek">

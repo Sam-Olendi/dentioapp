@@ -2482,3 +2482,43 @@ td, th {
   }
   margin: 0;
 }
+
+.reports-patients-month {
+  overflow-y: auto;
+}
+
+.reports-patients-filter {
+  background-color: $lightest-gray;
+  border: 1px solid $border-gray;
+  display: inline-block;
+  margin: 20px auto;
+  padding: 20px 25px;
+}
+
+.reports-patients-filter-group {
+  display: inline-block;
+  position: relative;
+}
+
+.reports-patients-filter-label {
+  color: $deeper-gray;
+  display: inline-block;
+  font: {
+    size: 0.75em;
+    weight: 700;
+  }
+  margin: 10px 0 7px;
+  text-transform: uppercase;
+}
+
+.reports-patients-filter-input-group {
+  display: inline-block;
+  margin-right: 20px;
+  position: relative;
+}
+
+.reports-patients-filter-input-group .icon-arrow_drop_down {
+  position: absolute;
+  right: 10px;
+  top: 15px;
+}
