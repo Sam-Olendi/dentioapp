@@ -43,56 +43,6 @@ Template.reportsContent.events({
 });
 
 
-
-Template.reportsSummary.onCreated(function () {
-    //this.subscribe( 'invoices.reports.total' );
-    //this.subscribe('appointments.day.patients');
-});
-
-Template.reportsSummary.helpers({
-    totalAmount: function () {
-        var todaysDate = new RegExp( moment().format('Do MMM YYYY') );
-        var todaysInvoices = Invoices.find( { date_issued: { $regex: todaysDate } }, { fields: { amount: 1 } }).fetch();
-        var count = todaysInvoices.length,
-            amount = 0;
-
-        if ( count ) {
-            for ( var i = 0; i < count; i++ ) {
-                amount += todaysInvoices[i].amount;
-            }
-        }
-
-        return amount;
-    },
-
-    monthsAmount: function () {
-        var thisMonth = new RegExp( moment().format('MMM YYYY')),
-            monthsInvoices = Invoices.find( { date_issued: { $regex: thisMonth } }, { fields: { amount: 1 } } ).fetch(),
-            count = monthsInvoices.length,
-            amount = 0;
-
-        if ( count ) {
-            for (var i = 0; i < count; i++) {
-                amount += monthsInvoices[i].amount;
-            }
-        }
-
-        return amount;
-    },
-
-    daysPatients: function () {
-        var todaysDate = new RegExp( moment().format('Do MMM YYYY') );
-        return Appointments.find( { date_created: { $regex: todaysDate } }, { fields: { date_created: 1 } } ).count();
-    },
-
-    monthsPatients: function () {
-        var thisMonth = new RegExp( moment().format('MMM YYYY') );
-        return Appointments.find( { date_created: { $regex: thisMonth } }, { fields: { date_created: 1 } }).count();
-    }
-});
-
-
-
 Template.reportsInvoices.events({
     'focus .reports-filter-input': function (event) {
         var results = $(event.target).parent().find('.reports-filter-search-results');
@@ -109,12 +59,12 @@ Template.reportsInvoicesCompany.onCreated( function () {
     template.searchingCompany = new ReactiveVar( false ); // searching...
 
     template.autorun( function () {
-        //template.subscribe( 'companies.reports.all', template.companySearch.get(), function () {
-        //    // onReady callback (after result returns from server)
-        //    setTimeout(function () {
-        //        template.searchingCompany.set( false );
-        //    }, 300 );
-        //});
+        template.subscribe( 'companies.reports.all', template.companySearch.get(), function () {
+            // onReady callback (after result returns from server)
+            setTimeout(function () {
+                template.searchingCompany.set( false );
+            }, 300 );
+        });
     } );
 });
 
@@ -180,11 +130,11 @@ Template.reportsInvoicesInsurance.onCreated( function () {
     template.searchingInsurance = new ReactiveVar( false );
 
     template.autorun(function () {
-        //template.subscribe( 'insurances.reports.all', template.insuranceSearch.get(), function () {
-        //    setTimeout(function () {
-        //        template.searchingInsurance.set( false );
-        //    }, 300);
-        //} );
+        template.subscribe( 'insurances.reports.all', template.insuranceSearch.get(), function () {
+            setTimeout(function () {
+                template.searchingInsurance.set( false );
+            }, 300);
+        } );
     });
 } );
 
@@ -259,11 +209,11 @@ Template.reportsInvoicesPatients.onCreated(function () {
     template.searchingPatient = new ReactiveVar( false );
 
     template.autorun(function () {
-        //template.subscribe( 'patients.search', template.patientSearch.get(), function () {
-        //    setTimeout(function () {
-        //        template.searchingPatient.set( false );
-        //    }, 300);
-        //} )
+        template.subscribe( 'patients.search', template.patientSearch.get(), function () {
+            setTimeout(function () {
+                template.searchingPatient.set( false );
+            }, 300);
+        } )
     } );
 });
 
@@ -329,7 +279,7 @@ Template.reportsInvoicesTable.onCreated(function () {
     };
 
     template.autorun(function () {
-        //template.subscribe('invoices.reports.all', data);
+        template.subscribe('invoices.reports.all', data);
     });
 
 });

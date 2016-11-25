@@ -2366,6 +2366,13 @@ td, th {
   text-transform: uppercase;
 }
 
+.reports-summary-week-appointments {
+  clear: both;
+  margin: 0 auto;
+  padding-top: 30px;
+  width: 80%;
+}
+
 .reports-filter {
   align-items: center;
   background-color: $lightest-gray;
@@ -2522,3 +2529,4 @@ td, th {
   right: 10px;
   top: 15px;
 }
+

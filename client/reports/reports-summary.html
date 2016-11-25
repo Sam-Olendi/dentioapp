@@ -1,0 +1,39 @@
+<template name="reportsSummary">
+    <div class="reports-summary-card">
+        <div>
+            <p class="reports-summary-value"> {{ daysPatients }} </p>
+            <p class="reports-summary-title">Patients seen: <span class="reports-summary-title-highlight">today</span></p>
+        </div>
+    </div>
+
+    <div class="reports-summary-card">
+        <div>
+            <p class="reports-summary-value"> {{ monthsPatients }} </p>
+            <p class="reports-summary-title">Patients seen: <span class="reports-summary-title-highlight">this month</span></p>
+        </div>
+    </div>
+
+    <div class="reports-summary-card">
+        <div>
+            <p class="reports-summary-value"><span class="reports-summary-value-currency">Kshs.</span> {{ totalAmount }}</p>
+            <p class="reports-summary-title">Money made: <span class="reports-summary-title-highlight">today</span></p>
+        </div>
+    </div>
+
+    <div class="reports-summary-card">
+        <div>
+            <p class="reports-summary-value"><span class="reports-summary-value-currency">Kshs.</span> {{ monthsAmount }}</p>
+            <p class="reports-summary-title">Money made: <span class="reports-summary-title-highlight">this month</span></p>
+        </div>
+    </div>
+
+    {{> reportsSummaryGraphs }}
+
+</template>
+
+<template name="reportsSummaryGraphs">
+    <div class="reports-summary-week-appointments">
+        <h2>This week in appointments</h2>
+        <div class="ct-chart"></div>
+    </div>
+</template>
