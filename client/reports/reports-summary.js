@@ -45,19 +45,50 @@ Template.reportsSummary.helpers({
     }
 });
 
-Template.reportsSummaryGraphs.onRendered(function () {
+Template.reportsSummaryWeeksAppointments.onRendered(function () {
 
     var days = [], dailyCount = [];
 
+    setTimeout(function () {
+        for ( var i = 0; i < 7; i++ ) {
+            days[i] = moment().subtract( i, 'days').format('dddd');
+            dailyCount.push(Appointments.find( { date_created: { $regex: moment().subtract( i, 'days').format('Do MMM YYYY') } } ).count());
+        }
+
+        console.log(dailyCount);
+
+        new Chartist.Line('#report-week-appointments', {
+            labels: days.reverse(),
+            series: [
+                dailyCount.reverse()
+            ]
+        }, {
+            height: 300,
+            width: 900
+        });
+    }, 1000);
+
+});
+
+Template.reportsSummaryWeeksCash.onRendered(function () {
+
+    var days = [], dailyCash = [];
+
     for ( var i = 0; i < 7; i++ ) {
         days[i] = moment().subtract( i, 'days').format('dddd');
-        dailyCount[i] = Appointments.find( { date_created: { $regex: moment().subtract( i, 'days').format('Do MMM YYYY') } } ).count();
+        dailyCash[i] = Invoices.find().fetch();
+
+        for ( var j = 0; j < 3; j++ ) {
+            console.log('run!');
+        }
+
     }
 
-    new Chartist.Line('.ct-chart', {
+
+    new Chartist.Line('#report-week-cash', {
         labels: days.reverse(),
         series: [
-            dailyCount.reverse()
+            [23, 11, 43, 55, 22, 10, 33]
         ]
     }, {
         height: 300,

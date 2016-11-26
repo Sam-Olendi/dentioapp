@@ -34,6 +34,19 @@
 <template name="reportsSummaryGraphs">
     <div class="reports-summary-week-appointments">
         <h2>This week in appointments</h2>
-        <div class="ct-chart"></div>
+        {{> reportsSummaryWeeksAppointments }}
     </div>
+
+    <div class="reports-summary-week-money">
+        <h2>This week in cash flow</h2>
+        {{> reportsSummaryWeeksCash }}
+    </div>
+</template>
+
+<template name="reportsSummaryWeeksAppointments">
+    <div class="ct-chart" id="report-week-appointments"></div>
+</template>
+
+<template name="reportsSummaryWeeksCash">
+    <div class="ct-chart" id="report-week-cash"></div>
 </template>
