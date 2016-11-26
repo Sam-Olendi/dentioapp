@@ -1,25 +1,12 @@
 Meteor.methods({
-    getInvoicesTotal: function ( today ) {
-        check ( today, String );
+    getDailyTotal: function ( theDate ) {
 
-        var group = {
-            _id: {
-                date_issued: '$date_issued'
-            },
-            total: {
-                $sum: '$amount'
-            }
-        };
+        check( theDate, String );
 
-        //if (Meteor.isClient) {
-        //    console.log(invoiceTotal);
-        //} else {
-        //    console.log('nope!');
-        //}
+        return Invoices.aggregate(
+            { $match: { date_issued: theDate } },
+            { $group: { _id: '$date_issued', total: { $sum: '$amount' } } }
+        );
 
-        //return Invoices.aggregate(
-        //    { $match: { date_issued: today } },
-        //    { $group: group }
-        //);
     }
 });

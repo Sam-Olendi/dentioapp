@@ -1,6 +1,7 @@
 Template.reportsSummary.onCreated(function () {
+    var template = Template.instance();
     this.subscribe( 'invoices.reports.total' );
-    this.subscribe('appointments.day.patients');
+    template.subscribe('appointments.day.patients');
 });
 
 Template.reportsSummary.helpers({
@@ -55,8 +56,6 @@ Template.reportsSummaryWeeksAppointments.onRendered(function () {
             dailyCount.push(Appointments.find( { date_created: { $regex: moment().subtract( i, 'days').format('Do MMM YYYY') } } ).count());
         }
 
-        console.log(dailyCount);
-
         new Chartist.Line('#report-week-appointments', {
             labels: days.reverse(),
             series: [
@@ -66,33 +65,45 @@ Template.reportsSummaryWeeksAppointments.onRendered(function () {
             height: 300,
             width: 900
         });
-    }, 1000);
+    }, 2000);
 
 });
 
 Template.reportsSummaryWeeksCash.onRendered(function () {
 
-    var days = [], dailyCash = [];
+    var days = [], dailyIncome = [], theDay = [];
 
-    for ( var i = 0; i < 7; i++ ) {
-        days[i] = moment().subtract( i, 'days').format('dddd');
-        dailyCash[i] = Invoices.find().fetch();
-
-        for ( var j = 0; j < 3; j++ ) {
-            console.log('run!');
+    setTimeout(function () {
+        for ( var i = 0; i < 7; i++ ) {
+            days[i] = moment().subtract( i, 'days').format( 'dddd' );
+            theDay[i] = moment().subtract( i, 'days' ).format('Do MMM YYYY');
         }
 
-    }
+        for ( var j = 0; j < theDay.length; j++ ) {
+            Meteor.call('getDailyTotal', theDay[j], function (error, response) {
+                if ( error ) {
+                    alert(error.reason)
+                } else {
+                    if ( response[0] ) {
+                        dailyIncome.unshift(response[0].total);
+                    } else {
+                        dailyIncome.unshift(0);
+                    }
+                }
+            });
+        }
 
+        console.log(dailyIncome);
 
-    new Chartist.Line('#report-week-cash', {
-        labels: days.reverse(),
-        series: [
-            [23, 11, 43, 55, 22, 10, 33]
-        ]
-    }, {
-        height: 300,
-        width: 900
-    });
+        new Chartist.Line('#report-week-cash', {
+            labels: days.reverse(),
+            series: [
+                dailyIncome
+            ]
+        }, {
+            height: 300,
+            width: 900
+        });
+    }, 2000);
 
 });
