@@ -2366,11 +2366,33 @@ td, th {
   text-transform: uppercase;
 }
 
+.reports-summary-week-money,
 .reports-summary-week-appointments {
+  align-items: center;
+  border-bottom: 1px solid $border-gray;
   clear: both;
-  margin: 0 auto;
-  padding-top: 30px;
-  width: 80%;
+  display: flex;
+  justify-content: center;
+  padding: 30px 0 50px;
+}
+
+.reports-summary-week-select {
+  float: right;
+}
+
+.ct-series-a .ct-line {
+  stroke: $brandon-blue;
+  stroke-width: 1px;
+  stroke-opacity: 0.3;
+}
+
+.ct-series-a .ct-point {
+  display: none;
+}
+
+.ct-series-a .ct-area {
+  fill: $brandon-blue;
+  fill-opacity: 0.3;
 }
 
 .reports-filter {

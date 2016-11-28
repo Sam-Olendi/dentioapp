@@ -63,9 +63,11 @@ Template.reportsSummaryWeeksAppointments.onRendered(function () {
             ]
         }, {
             height: 300,
-            width: 900
+            width: 900,
+            low: 0,
+            showArea: true
         });
-    }, 2000);
+    }, 3000);
 
 });
 
@@ -93,8 +95,6 @@ Template.reportsSummaryWeeksCash.onRendered(function () {
             });
         }
 
-        console.log(dailyIncome);
-
         new Chartist.Line('#report-week-cash', {
             labels: days.reverse(),
             series: [
@@ -102,8 +102,10 @@ Template.reportsSummaryWeeksCash.onRendered(function () {
             ]
         }, {
             height: 300,
-            width: 900
+            width: 900,
+            low: 0,
+            showArea: true
         });
-    }, 2000);
+    }, 3000);
 
 });
