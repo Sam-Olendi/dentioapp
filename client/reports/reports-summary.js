@@ -1,7 +1,7 @@
 Template.reportsSummary.onCreated(function () {
     var template = Template.instance();
     this.subscribe( 'invoices.reports.total' );
-    template.subscribe('appointments.day.patients');
+    this.subscribe('appointments.day.patients');
 });
 
 Template.reportsSummary.helpers({
@@ -48,27 +48,69 @@ Template.reportsSummary.helpers({
 
 Template.reportsSummaryWeeksAppointments.onRendered(function () {
 
+    var template = Template.instance();
     var days = [], dailyCount = [];
 
-    setTimeout(function () {
-        for ( var i = 0; i < 7; i++ ) {
-            days[i] = moment().subtract( i, 'days').format('dddd');
-            dailyCount.push(Appointments.find( { date_created: { $regex: moment().subtract( i, 'days').format('Do MMM YYYY') } } ).count());
+    Session.setDefault('appointmentsPeriod', 'week');
+
+    $('#reports-summary-appointments-select').change(function () {
+        Session.set('appointmentsPeriod', $(this).val());
+    });
+
+    this.autorun(function () {
+
+        if ( Session.get('appointmentsPeriod') == 'year' ) {
+
+            var years = [], yearlyCount = [];
+
+
+            for ( var y = 0; y < 6; y++ ) {
+                years[y] = moment().subtract( y, 'years').format('YYYY');
+                yearlyCount.push(Appointments.find( { date_created: { $regex: moment().subtract( y, 'years').format('YYYY') } } ).count());
+            }
+            console.log(yearlyCount);
+
+            plotGraph( '#report-week-appointments', years.reverse(), yearlyCount.reverse() );
+
+        } else if ( Session.get('appointmentsPeriod') == 'half' ) {
+
+            var sixMonths = [], biannualCount = [];
+
+            for ( var h = 0; h < 6; h++ ) {
+                sixMonths[h] = moment().subtract( h, 'months').format('MMMM');
+                biannualCount.push(Appointments.find( { date_created: { $regex: moment().subtract( h, 'months').format('MMM YYYY') } } ).count());
+            }
+
+            plotGraph( '#report-week-appointments', sixMonths.reverse(), biannualCount.reverse() );
+
+        } else if ( Session.get('appointmentsPeriod') == 'quarter' ) {
+            var months = [], monthlyCount = [];
+            for ( var q = 0; q < 4; q++ ) {
+                months[q] = moment().subtract( q, 'months').format('MMMM');
+                monthlyCount.push(Appointments.find( { date_created: { $regex: moment().subtract( q, 'months').format('MMM YYYY') } } ).count());
+            }
+
+            plotGraph( '#report-week-appointments', months.reverse(), monthlyCount.reverse() );
+
+        } else if ( Session.get('appointmentsPeriod') == 'week' ) {
+            for ( var i = 0; i < 7; i++ ) {
+                days[i] = moment().subtract( i, 'days').format('dddd');
+                dailyCount.push(Appointments.find( { date_created: { $regex: moment().subtract( i, 'days').format('Do MMM YYYY') } } ).count());
+            }
+
+            new Chartist.Line('#report-week-appointments', {
+                labels: days.reverse(),
+                series: [
+                    dailyCount.reverse()
+                ]
+            }, {
+                height: 300,
+                width: 900,
+                low: 0,
+                showArea: true
+            });
         }
-
-        new Chartist.Line('#report-week-appointments', {
-            labels: days.reverse(),
-            series: [
-                dailyCount.reverse()
-            ]
-        }, {
-            height: 300,
-            width: 900,
-            low: 0,
-            showArea: true
-        });
-    }, 3000);
-
+    });
 });
 
 Template.reportsSummaryWeeksCash.onRendered(function () {
@@ -106,6 +148,20 @@ Template.reportsSummaryWeeksCash.onRendered(function () {
             low: 0,
             showArea: true
         });
-    }, 3000);
+    }, 1000);
 
 });
+
+var plotGraph = function ( graphId, labelArray, seriesArray ) {
+    new Chartist.Line( graphId , {
+        labels: labelArray,
+        series: [
+            seriesArray
+        ]
+    }, {
+        height: 300,
+        width: 900,
+        low: 0,
+        showArea: true
+    });
+};
