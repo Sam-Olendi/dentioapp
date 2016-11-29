@@ -28,6 +28,9 @@
             <li class="reports-tabs-tab">
                 <a href="#" class="reports-tabs-link" data-content="patients">Patients</a>
             </li>
+            <li class="reports-tabs-tab">
+                <a href="#" class="reports-tabs-link" data-content="cash">Cash Flow</a>
+            </li>
         </ul>
     </nav>
 
@@ -45,6 +48,11 @@
         <li class="reports-tabs-content-section" data-content="patients">
             <div class="reports-tabs-content-wrapper">
                 {{> reportsPatients }}
+            </div>
+        </li>
+        <li class="reports-tabs-content-section" data-content="cash">
+            <div class="reports-tabs-content-wrapper">
+                {{> reportsCash }}
             </div>
         </li>
     </ul>

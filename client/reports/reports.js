@@ -189,7 +189,9 @@ Template.reportsInvoicesInsurance.events({
 Template.reportsInvoicesDate.rendered = function () {
     $('#reports-filter-date').datepicker({
         dateFormat: 'yy mm dd',
-        maxDate: 0
+        maxDate: 0,
+        changeMonth: true,
+        changeYear: true
     });
 };
 
