@@ -1,3 +1,6 @@
+var Highcharts = require('highcharts/highstock');
+require('highcharts/modules/exporting')(Highcharts);
+
 Template.reportsSummary.onCreated(function () {
     var template = Template.instance();
     this.subscribe( 'invoices.reports.total' );
@@ -46,10 +49,37 @@ Template.reportsSummary.helpers({
     }
 });
 
-Template.reportsSummaryWeeksAppointments.onRendered(function () {
+Template.reportsSummaryGraphs.onRendered(function () {
 
-    var template = Template.instance();
-    var days = [], dailyCount = [];
+    //$('#container').highcharts({
+    //    chart: {
+    //        type: 'bar'
+    //    },
+    //
+    //    title: {
+    //        text: 'Voting Results. Bluergh!'
+    //    },
+    //
+    //    xAxis: {
+    //        //       type: 'linear',
+    //        categories: ['Option One', 'Option Two', 'Option Three'],
+    //    },
+    //
+    //    yAxis: {
+    //
+    //    },
+    //
+    //    series: [{
+    //        name: 'Votes',
+    //        data: [1, 2, 3],
+    //        color: 'rgb(214, 53, 53)'
+    //
+    //    }]
+    //
+    //});
+});
+
+Template.reportsSummaryWeeksAppointments.onRendered(function () {
 
     Session.setDefault('appointmentsPeriod', 'week');
 
@@ -59,18 +89,26 @@ Template.reportsSummaryWeeksAppointments.onRendered(function () {
 
     this.autorun(function () {
 
-        if ( Session.get('appointmentsPeriod') == 'year' ) {
+        if ( Session.get('appointmentsPeriod') == 'week' ) {
+            var days = [], dailyCount = [];
 
-            var years = [], yearlyCount = [];
-
-
-            for ( var y = 0; y < 6; y++ ) {
-                years[y] = moment().subtract( y, 'years').format('YYYY');
-                yearlyCount.push(Appointments.find( { date_created: { $regex: moment().subtract( y, 'years').format('YYYY') } } ).count());
+            for ( var i = 0; i < 7; i++ ) {
+                days[i] = moment().subtract( i, 'days').format('dddd');
+                dailyCount.push(Appointments.find( { date_created: { $regex: moment().subtract( i, 'days').format('Do MMM YYYY') } } ).count());
             }
-            console.log(yearlyCount);
 
-            plotGraph( '#report-week-appointments', years.reverse(), yearlyCount.reverse() );
+            plotGraph('#report-week-appointments', 'Last Week in Appointments', 'The number of appointments completed in the last seven days', 'No. of Appointments', 'Days', days.reverse(), dailyCount.reverse(), 'Appointments');
+
+
+        } else if ( Session.get('appointmentsPeriod') == 'quarter' ) {
+            var months = [], monthlyCount = [];
+
+            for ( var q = 0; q < 4; q++ ) {
+                months[q] = moment().subtract( q, 'months').format('MMMM');
+                monthlyCount.push(Appointments.find( { date_created: { $regex: moment().subtract( q, 'months').format('MMM YYYY') } } ).count());
+            }
+
+            plotGraph('#report-week-appointments', 'Last Quarter', 'Last 4 months in appointments', 'No. of Appointments', 'Months', months.reverse(), monthlyCount.reverse(), 'Appointments');
 
         } else if ( Session.get('appointmentsPeriod') == 'half' ) {
 
@@ -81,27 +119,113 @@ Template.reportsSummaryWeeksAppointments.onRendered(function () {
                 biannualCount.push(Appointments.find( { date_created: { $regex: moment().subtract( h, 'months').format('MMM YYYY') } } ).count());
             }
 
-            plotGraph( '#report-week-appointments', sixMonths.reverse(), biannualCount.reverse() );
+            plotGraph('#report-week-appointments', 'Last 6 Months', 'Last 6 months in appointments', 'No. of Appointments', 'Months', sixMonths.reverse(), biannualCount.reverse(), 'Appointments');
 
-        } else if ( Session.get('appointmentsPeriod') == 'quarter' ) {
-            var months = [], monthlyCount = [];
+
+        } else if ( Session.get('appointmentsPeriod') == 'year' ) {
+            var years = [], yearlyCount = [];
+
+            for ( var y = 0; y < 6; y++ ) {
+                years[y] = moment().subtract( y, 'years').format('YYYY');
+                yearlyCount.push(Appointments.find( { date_created: { $regex: moment().subtract( y, 'years').format('YYYY') } } ).count());
+            }
+
+            plotGraph('#report-week-appointments', 'Last Year', 'Last 12 months in appointments', 'No. of Appointments', 'Years', years.reverse(), yearlyCount.reverse(), 'Appointments');
+
+        }
+
+    });
+});
+
+Template.reportsSummaryWeeksCash.onRendered(function () {
+
+    Session.setDefault('cashFlowPeriod', 'week');
+
+    $('#reports-summary-cash-select').change(function () {
+        Session.set('cashFlowPeriod', $(this).val());
+    });
+
+    this.autorun(function () {
+
+        if ( Session.get('cashFlowPeriod') == 'quarter' ) {
+
+            var months = [], monthlyIncome = [], theMonth = [];
+
             for ( var q = 0; q < 4; q++ ) {
-                months[q] = moment().subtract( q, 'months').format('MMMM');
-                monthlyCount.push(Appointments.find( { date_created: { $regex: moment().subtract( q, 'months').format('MMM YYYY') } } ).count());
+                months[q] = moment().subtract( q, 'months').format( 'MMMM' );
+                theMonth[q] = moment().subtract( q, 'months' ).format('MMM YYYY');
             }
 
-            plotGraph( '#report-week-appointments', months.reverse(), monthlyCount.reverse() );
+            for ( var r = 0; r < theMonth.length; r++ ) {
+                Meteor.call('getDailyTotal', theMonth[r], function (error, response) {
+                    if ( error ) {
+                        alert(error.reason)
+                    } else {
+                        if ( response[0] ) {
+                            monthlyIncome.unshift(response[0].total);
+                        } else {
+                            monthlyIncome.unshift(0);
+                        }
+                    }
+                });
+            }
 
-        } else if ( Session.get('appointmentsPeriod') == 'week' ) {
+            //new Chartist.Line('#report-week-cash', {
+            //    labels: months.reverse(),
+            //    series: [
+            //        monthlyIncome
+            //    ]
+            //}, {
+            //    height: 300,
+            //    width: 900,
+            //    low: 0,
+            //    showArea: true
+            //});
+
+            new Chartist.Line('#report-week-cash', {
+                labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                series: [
+                    [12, 9, 7, 8, 5],
+                    [2, 1, 3.5, 7, 3],
+                    [1, 3, 4, 5, 6]
+                ]
+            }, {
+                fullWidth: true,
+                chartPadding: {
+                    right: 40
+                }
+            });
+
+
+        } else if ( Session.get('cashFlowPeriod') == 'week' ) {
+
+            var days = [], dailyIncome = [], theDay = [];
+
             for ( var i = 0; i < 7; i++ ) {
-                days[i] = moment().subtract( i, 'days').format('dddd');
-                dailyCount.push(Appointments.find( { date_created: { $regex: moment().subtract( i, 'days').format('Do MMM YYYY') } } ).count());
+                days[i] = moment().subtract( i, 'days').format( 'dddd' );
+                theDay[i] = moment().subtract( i, 'days' ).format('Do MMM YYYY');
             }
 
-            new Chartist.Line('#report-week-appointments', {
+            for ( var j = 0; j < theDay.length; j++ ) {
+                Meteor.call('getDailyTotal', theDay[j], function (error, response) {
+                    if ( error ) {
+                        alert(error.reason)
+                    } else {
+                        if ( response[0] ) {
+                            dailyIncome.unshift(response[0].total);
+                        } else {
+                            dailyIncome.unshift(0);
+                        }
+                    }
+                });
+            }
+
+            //console.log(dailyIncome);
+
+            new Chartist.Line('#report-week-cash', {
                 labels: days.reverse(),
                 series: [
-                    dailyCount.reverse()
+                    dailyIncome
                 ]
             }, {
                 height: 300,
@@ -109,59 +233,47 @@ Template.reportsSummaryWeeksAppointments.onRendered(function () {
                 low: 0,
                 showArea: true
             });
+
         }
     });
-});
-
-Template.reportsSummaryWeeksCash.onRendered(function () {
-
-    var days = [], dailyIncome = [], theDay = [];
-
-    setTimeout(function () {
-        for ( var i = 0; i < 7; i++ ) {
-            days[i] = moment().subtract( i, 'days').format( 'dddd' );
-            theDay[i] = moment().subtract( i, 'days' ).format('Do MMM YYYY');
-        }
-
-        for ( var j = 0; j < theDay.length; j++ ) {
-            Meteor.call('getDailyTotal', theDay[j], function (error, response) {
-                if ( error ) {
-                    alert(error.reason)
-                } else {
-                    if ( response[0] ) {
-                        dailyIncome.unshift(response[0].total);
-                    } else {
-                        dailyIncome.unshift(0);
-                    }
-                }
-            });
-        }
-
-        new Chartist.Line('#report-week-cash', {
-            labels: days.reverse(),
-            series: [
-                dailyIncome
-            ]
-        }, {
-            height: 300,
-            width: 900,
-            low: 0,
-            showArea: true
-        });
-    }, 1000);
 
 });
 
-var plotGraph = function ( graphId, labelArray, seriesArray ) {
-    new Chartist.Line( graphId , {
-        labels: labelArray,
-        series: [
-            seriesArray
-        ]
-    }, {
-        height: 300,
-        width: 900,
-        low: 0,
-        showArea: true
+var plotGraph = function ( graphId, graphTitle, graphSubtitle, yAxisTitle, xAxisTitle, labelArray, seriesArray, seriesName ) {
+    $(graphId).highcharts({
+
+        title: {
+            text: graphTitle,
+            x: -20 //center
+        },
+
+        chart: {
+            marginTop: 120,
+            type: 'area',
+            width: 900
+        },
+
+        subtitle: {
+            text: graphSubtitle,
+            x: -20
+        },
+
+        yAxis: {
+            title: {
+                text: yAxisTitle
+            }
+        },
+
+        xAxis: {
+            title: {
+                text: xAxisTitle
+            },
+            categories: labelArray
+        },
+
+        series: [{
+            name: seriesName,
+            data: seriesArray
+        }]
     });
 };
