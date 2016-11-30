@@ -833,7 +833,8 @@ Meteor.startup(function () {
             insurance_id: 'cic',
             company_id: 'acme',
             amount: 31000,
-            date_issued: moment().format('Do MMM YYYY')
+            date_issued: moment().format('Do MMM YYYY'),
+            timestamp: new Date().toISOString()
         });
 
         Invoices.insert({
@@ -844,7 +845,8 @@ Meteor.startup(function () {
             insurance_id: 'aar',
             company_id: 'equity',
             amount: 12000,
-            date_issued: moment().format('Do MMM YYYY')
+            date_issued: moment().format('Do MMM YYYY'),
+            timestamp: new Date().toISOString()
         });
 
         Invoices.insert({
@@ -855,7 +857,8 @@ Meteor.startup(function () {
             insurance_id: 'acme',
             company_id: 'fahari',
             amount: 12000,
-            date_issued: moment().format('Do MMM YYYY')
+            date_issued: moment().format('Do MMM YYYY'),
+            timestamp: new Date().toISOString()
         });
 
         Invoices.insert({
@@ -866,7 +869,8 @@ Meteor.startup(function () {
             insurance_id: 'jubilee',
             company_id: 'okhi',
             amount: 12000,
-            date_issued: moment().format('Do MMM YYYY')
+            date_issued: moment().format('Do MMM YYYY'),
+            timestamp: new Date().toISOString()
         });
 
         Invoices.insert({
@@ -877,7 +881,8 @@ Meteor.startup(function () {
             insurance_id: 'uap',
             company_id: 'TGS',
             amount: 15500,
-            date_issued: moment().format('Do MMM YYYY')
+            date_issued: moment().format('Do MMM YYYY'),
+            timestamp: new Date().toISOString()
         });
 
     }

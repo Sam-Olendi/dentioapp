@@ -1,3 +1,50 @@
 <template name="reportsCash">
-    <p>This is yet another tab. Show it! Bitch!</p>
+
+    <div class="reports-patients-filter">
+        <div class="reports-patients-filter-group">
+            <label for="reports-patients-filter-company" class="reports-patients-filter-label">Sort by company</label>
+            <div class="reports-patients-filter-input-group">
+                <input type="text" placeholder="Show all companies" class="reports-patients-filter-input" id="reports-patients-filter-company">
+                <i class="icon-arrow_drop_down"></i>
+            </div>
+        </div>
+        <div class="reports-patients-filter-group">
+            <label for="reports-patients-filter-insurance" class="reports-patients-filter-label">Sort by insurance</label>
+            <div class="reports-patients-filter-input-group">
+                <input type="text" placeholder="Show all insurances" class="reports-patients-filter-input" id="reports-patients-filter-insurance">
+                <i class="icon-arrow_drop_down"></i>
+            </div>
+        </div>
+    </div>
+
+    <table>
+        <tr>
+            <th>Date of Appointment</th>
+            <th>Appointment ID</th>
+            <th>Patient</th>
+            <th>Amount</th>
+            <th>Invoice Number</th>
+        </tr>
+        
+        {{> reportsCashTable }}
+
+    </table>
+
+</template>
+
+<template name="reportsCashTable">
+    <tr>
+        <td>7th Nov 2016</td>
+        <td>83743</td>
+        <td>Samantha Olendi</td>
+        <td>Kshs. 25,000</td>
+        <td>20043</td>
+    </tr>
+    <tr>
+        <td>7th Nov 2016</td>
+        <td>83743</td>
+        <td>Samantha Olendi</td>
+        <td>Kshs. 25,000</td>
+        <td>20043</td>
+    </tr>
 </template>

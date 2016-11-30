@@ -187,12 +187,28 @@ Template.reportsInvoicesInsurance.events({
 
 
 Template.reportsInvoicesDate.rendered = function () {
-    $('#reports-filter-date').datepicker({
-        dateFormat: 'yy mm dd',
-        maxDate: 0,
-        changeMonth: true,
-        changeYear: true
-    });
+    //$('#reports-filter-date').datepicker({
+    //    dateFormat: 'yy mm dd',
+    //    maxDate: 0,
+    //    changeMonth: true,
+    //    changeYear: true
+    //});
+
+    var dateFormat = "mm/dd/yy",
+        from = $( "#reports-filter-date" )
+            .datepicker({
+                //defaultDate: "+1w",
+                dateFormat: 'yy mm dd',
+                changeMonth: true,
+                changeYear: true,
+                maxDate: 0
+            }),
+        to = $( "#reports-filter-date-to" ).datepicker({
+                dateFormat: 'yy mm dd',
+                changeMonth: true,
+                changeYear: true,
+                maxDate: 0
+            });
 };
 
 Template.reportsInvoicesDate.events({

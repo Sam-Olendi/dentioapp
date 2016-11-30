@@ -1,17 +1,4 @@
 <template name="reportsPatients">
-    <div class="reports-patients-week">
-        <h2 class="reports-patients-week-title">Last 7 Days...</h2>
-        <div class="reports-patients-week-days">
-            {{> reportsPatientsWeek }}
-        </div>
-    </div>
-
-    <div class="reports-patients-month">
-        <h2 class="reports-patients-month-title">Last 7 Months...</h2>
-        <div class="reports-patients-months">
-            {{> reportsPatientsMonth }}
-        </div>
-    </div>
 
     <div class="reports-patients-filter">
         <div class="reports-patients-filter-group">
@@ -46,24 +33,6 @@
 
     </div>
 
-</template>
-
-<template name="reportsPatientsWeek">
-    {{#each days}}
-        <div class="reports-patients-week-day">
-            <p class="reports-patients-week-day-title">{{ day }}</p>
-            <p class="reports-patients-week-day-number">{{ dailyCount }}</p>
-        </div>
-    {{/each}}
-</template>
-
-<template name="reportsPatientsMonth">
-    {{#each months}}
-        <div class="reports-patients-week-day">
-            <p class="reports-patients-week-day-title">{{ month }}</p>
-            <p class="reports-patients-week-day-number">{{ monthlyCount }}</p>
-        </div>
-    {{/each}}
 </template>
 
 <template name="reportsPatientsTable">

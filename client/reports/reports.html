@@ -86,6 +86,7 @@
                 <th>Patient Name</th>
                 <th>Company</th>
                 <th>Insurance Provider</th>
+                <th>Amount</th>
                 <th>Date Issued</th>
             </tr>
 
@@ -140,8 +141,10 @@
 
 <template name="reportsInvoicesDate">
     <div class="reports-filter-group">
-        <label class="reports-filter-label">Sort by date</label><br>
-        <input type="text" placeholder="Show all dates" class="reports-filter-input" id="reports-filter-date">
+        <label class="reports-filter-label">Sort by date range</label><br>
+        <input type="text" placeholder="From date..." class="reports-filter-input" id="reports-filter-date">
+        <i class="icon-arrow_drop_down"></i>
+        <input type="text" placeholder="To date..." class="reports-filter-input" id="reports-filter-date-to">
         <i class="icon-arrow_drop_down"></i>
     </div>
 </template>
@@ -173,6 +176,7 @@
             <td>{{ patient.profile.surname }}, {{ patient.profile.first_name }} {{ patient.profile.middle_name }}</td>
             <td>{{ company.company_name }}</td>
             <td>{{ insurance.insurance_name }}</td>
+            <td>{{ amount }}</td>
             <td>{{ date_issued }}</td>
         </tr>
     {{/each}}
