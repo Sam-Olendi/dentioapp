@@ -64,6 +64,8 @@ Template.reportsSummaryWeeksAppointments.onRendered(function () {
         if ( Session.get('appointmentsPeriod') == 'week' ) {
             var days = [], dailyCount = [];
 
+            console.log(Appointments.find().fetch());
+
             for ( var i = 0; i < 7; i++ ) {
                 days[i] = moment().subtract( i, 'days').format('dddd');
                 dailyCount.push(Appointments.find( { date_created: { $regex: moment().subtract( i, 'days').format('Do MMM YYYY') } } ).count());

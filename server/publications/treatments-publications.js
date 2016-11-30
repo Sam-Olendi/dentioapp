@@ -22,6 +22,10 @@ Meteor.publish('treatments.patient', function (patientId) {
 });
 
 
+Meteor.publish('treatments.reports', function () {
+    return Treatments.find();
+});
+
 function transformTreatments (doc) {
     doc.patient = Patients.findOne(doc.patient_id);
     doc.service = Services.findOne(doc.service_id);

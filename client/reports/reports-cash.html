@@ -20,12 +20,13 @@
     <table>
         <tr>
             <th>Date of Appointment</th>
-            <th>Appointment ID</th>
             <th>Patient</th>
             <th>Amount</th>
             <th>Invoice Number</th>
+            <th>Company</th>
+            <th>Insurance</th>
         </tr>
-        
+
         {{> reportsCashTable }}
 
     </table>
@@ -33,18 +34,14 @@
 </template>
 
 <template name="reportsCashTable">
-    <tr>
-        <td>7th Nov 2016</td>
-        <td>83743</td>
-        <td>Samantha Olendi</td>
-        <td>Kshs. 25,000</td>
-        <td>20043</td>
-    </tr>
-    <tr>
-        <td>7th Nov 2016</td>
-        <td>83743</td>
-        <td>Samantha Olendi</td>
-        <td>Kshs. 25,000</td>
-        <td>20043</td>
-    </tr>
+    {{#each treatments}}
+        <tr>
+            <td>{{ date_performed }}</td>
+            <td>{{ patient.profile.surname }}, {{ patient.profile.first_name }} {{ patient.profile.middle_name }}</td>
+            <td>Kshs. {{ total }}</td>
+            <td>{{ invoice_no.invoice_no }}</td>
+            <td>{{ company }}</td>
+            <td>{{ insurance }}</td>
+        </tr>
+    {{/each}}
 </template>
