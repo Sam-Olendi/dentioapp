@@ -1,20 +1,15 @@
 <template name="reportsPatients">
 
+    <div class="reports-patients-filter-trigger">
+        <span>Filter <i class="icon-arrow_drop_down"></i></span>
+    </div>
+
     <div class="reports-patients-filter">
-        <div class="reports-patients-filter-group">
-            <label for="reports-patients-filter-company" class="reports-patients-filter-label">Sort by company</label>
-            <div class="reports-patients-filter-input-group">
-                <input type="text" placeholder="Show all companies" class="reports-patients-filter-input" id="reports-patients-filter-company">
-                <i class="icon-arrow_drop_down"></i>
-            </div>
-        </div>
-        <div class="reports-patients-filter-group">
-            <label for="reports-patients-filter-insurance" class="reports-patients-filter-label">Sort by insurance</label>
-            <div class="reports-patients-filter-input-group">
-                <input type="text" placeholder="Show all insurances" class="reports-patients-filter-input" id="reports-patients-filter-insurance">
-                <i class="icon-arrow_drop_down"></i>
-            </div>
-        </div>
+
+        {{> reportsPatientsCompany }}
+
+        {{> reportsPatientsInsurance }}
+
     </div>
 
     <div>
@@ -33,6 +28,52 @@
 
     </div>
 
+</template>
+
+<template name="reportsPatientsCompany">
+    <div class="reports-patients-filter-group">
+        <label for="reports-patients-filter-company" class="reports-patients-filter-label">Sort by company</label><br>
+        <div class="reports-patients-filter-input-group">
+            <input type="text" placeholder="Show all companies" class="reports-patients-filter-input" id="reports-patients-filter-company">
+            <i class="icon-arrow_drop_down"></i>
+            <ul class="reports-patients-filter-results">
+                {{#if searching}}
+                    Loading...
+                {{else}}
+                    <li class="reports-filter-search-result mod-reports-filter-search-result-reset js-reports-filter-company-all">Reset: Show all</li>
+                    <li class="reports-filter-search-result js-reports-filter-company-private" data-id="private">Private</li>
+                    {{#each companies}}
+                        <li class="reports-filter-search-result js-reports-filter-company" data-id="{{ _id }}">{{ company_name }}</li>
+                    {{else}}
+                        <p class="reports-filter-search-result-none">{{ query }} not found</p>
+                    {{/each}}
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+</template>
+
+<template name="reportsPatientsInsurance">
+    <div class="reports-patients-filter-group">
+        <label for="reports-patients-filter-insurance" class="reports-patients-filter-label">Sort by insurance</label><br>
+        <div class="reports-patients-filter-input-group">
+            <input type="text" placeholder="Show all insurances" class="reports-patients-filter-input" id="reports-patients-filter-insurance">
+            <i class="icon-arrow_drop_down"></i>
+            <ul class="reports-patients-filter-results">
+                {{#if searching}}
+                    Loading...
+                {{else}}
+                    <li class="reports-filter-search-result mod-reports-filter-search-result-reset js-reports-filter-company-all">Reset: Show all</li>
+                    <li class="reports-filter-search-result js-reports-filter-company-private" data-id="private">Private</li>
+                    {{#each companies}}
+                        <li class="reports-filter-search-result js-reports-filter-company" data-id="{{ _id }}">{{ company_name }}</li>
+                    {{else}}
+                        <p class="reports-filter-search-result-none">{{ query }} not found</p>
+                    {{/each}}
+                {{/if}}
+            </ul>
+        </div>
+    </div>
 </template>
 
 <template name="reportsPatientsTable">

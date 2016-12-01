@@ -2451,6 +2451,7 @@ td, th {
   top: 47px;
 }
 
+.reports-patients-filter-results,
 .reports-filter-search-results {
   background-color: $ordinary-white;
   border: 1px solid $border-gray;
@@ -2521,11 +2522,26 @@ td, th {
   overflow-y: auto;
 }
 
+.reports-patients-filter-trigger span {
+  background-color: $lightest-gray;
+  border: 1px solid $border-gray;
+  border-radius: 3px;
+  color: $deepest-gray;
+  cursor: pointer;
+  display: inline-block;
+  font: {
+    size: 0.85em;
+    weight: 700;
+  }
+  padding: 10px;
+  text-transform: uppercase;
+}
+
 .reports-patients-filter {
   background-color: $lightest-gray;
   border: 1px solid $border-gray;
   display: inline-block;
-  margin: 20px auto;
+  margin: 5px auto;
   padding: 20px 25px;
 }
 
