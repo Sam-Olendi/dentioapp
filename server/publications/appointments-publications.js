@@ -72,13 +72,19 @@ Meteor.publish('appointments.day.patients', function () {
 
     var regex1 = moment().format('MMM YYYY');
     var regex2 = moment().subtract( 7, 'days' ).format('MMM YYYY'),
-        thisMonth;
+        thisMonth, sameMonth = true,
+        theMonth = moment().format('MMM YYYY');
 
     // loop through several days
     // find if they're from the same month as now
     // if not, should have the regex1|regex2 exp
+    for ( var i = 0; i < 7; i++ ) {
+        if ( moment().subtract( i, 'days' ).format('MMM YYYY') !== theMonth ) {
+            sameMonth = false;
+        }
+    }
 
-    if ( moment().startOf('month') ) {
+    if ( !sameMonth ) {
         thisMonth = new RegExp(regex1|regex2);
     } else {
         thisMonth = new RegExp(regex1);
