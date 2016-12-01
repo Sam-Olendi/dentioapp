@@ -500,41 +500,6 @@ Meteor.startup(function () {
             booked: true,
             date_created: "21st Nov 2016, 1:38 pm"
         });
-
-        //Appointments.insert({
-        //    patient_id: 'greg',
-        //    status: 'Completed',
-        //    booked: true,
-        //    date_created: "20th Nov 2016, 1:38 pm"
-        //});
-        //
-        //Appointments.insert({
-        //    patient_id: 'liz',
-        //    status: 'Completed',
-        //    booked: true,
-        //    date_created: "21st Oct 2016, 1:38 pm"
-        //});
-        //
-        //Appointments.insert({
-        //    patient_id: 'greg',
-        //    status: 'Completed',
-        //    booked: true,
-        //    date_created: "20th Sep 2016, 1:38 pm"
-        //});
-        //
-        //Appointments.insert({
-        //    patient_id: 'liz',
-        //    status: 'Completed',
-        //    booked: true,
-        //    date_created: "21st Jul 2016, 1:38 pm"
-        //});
-        //
-        //Appointments.insert({
-        //    patient_id: 'greg',
-        //    status: 'Completed',
-        //    booked: true,
-        //    date_created: "20th Jun 2016, 1:38 pm"
-        //});
     }
 
     if (Companies.find().count() == 0) {
@@ -794,32 +759,6 @@ Meteor.startup(function () {
             notes: 'For the same reason you should believe a hundred dollar bill is no more than a hundred pennies!',
             date_performed: moment().format("Do MMM YYYY, h:mm:ss a")
         });
-
-        //Treatments.insert({
-        //    _id: 'greg_treatment_2',
-        //    patient_id: 'greg',
-        //    appointment_id: 'greg_appt',
-        //    service_id: 'rcf',
-        //    amount: 3500,
-        //    tooth_number: 35,
-        //    tooth_part: 'Occlusal',
-        //    description: 'It\'s so watery',
-        //    notes: 'For the same reason you should believe a hundred dollar bill is no more than a hundred pennies!',
-        //    date_performed: moment().format("Do MMM YYYY, h:mm:ss a")
-        //});
-
-        //Treatments.insert({
-        //    _id: 'greg_treatment_3',
-        //    patient_id: 'greg',
-        //    appointment_id: 'greg_appt_2',
-        //    service_id: 'rcf',
-        //    amount: 3500,
-        //    tooth_number: 35,
-        //    tooth_part: 'Occlusal',
-        //    description: 'It\'s so watery',
-        //    notes: 'For the same reason you should believe a hundred dollar bill is no more than a hundred pennies!',
-        //    date_performed: '30th Aug 2016, 3:20:25 pm'
-        //});
 
     }
 
