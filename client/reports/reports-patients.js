@@ -52,6 +52,18 @@ Template.reportsPatientsCompany.events({
         if ( value === '' ) {
             template.searchCompany.set( value );
         }
+    },
+
+    'click .js-reports-filter-company': function ( event ) {
+        Session.set('selectedPatientCompany', $(event.target).attr('data-id'));
+        $('#reports-patients-filter-company').val($(event.target).text());
+        $(event.target).parent().hide();
+    },
+
+    'click .js-reports-filter-company-all': function ( event ) {
+        Session.set('selectedPatientCompany', null);
+        $('#reports-patients-filter-company').val('Show all companies');
+        $(event.target).parent().hide();
     }
 });
 
@@ -109,12 +121,31 @@ Template.reportsPatientsInsurance.events({
 
 
 Template.reportsPatientsTable.onCreated(function () {
-    this.subscribe('patients.reports');
+
+    var template = Template.instance();
+
+    Session.setDefault('selectedPatientCompany', null);
+
+    var data = {
+        company_id: Session.get('selectedPatientCompany')
+    };
+
+    template.autorun(function () {
+        template.subscribe('patients.reports', data);
+    });
+
 });
 
 Template.reportsPatientsTable.helpers({
     patients: function () {
-        return Patients.find();
+
+        var query = {};
+
+        if ( Session.get('selectedPatientCompany') ) query['company._id'] = Session.get('selectedPatientCompany');
+
+        //console.log(Patients.find( query ).fetch());
+
+        return Patients.find( query );
     }
 });
 

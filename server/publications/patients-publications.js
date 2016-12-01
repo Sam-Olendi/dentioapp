@@ -123,9 +123,19 @@ Meteor.publish('patients.single', function (patientId) {
     self.ready();
 });
 
-Meteor.publish('patients.reports', function () {
+Meteor.publish('patients.reports', function ( data ) {
+
+    check ( data, Object );
+
+    var query = {},
+        projection = { sort: { 'profile.surname': 1 } };
+
+    if ( data.company_id ) query['company._id'] = data.company_id;
+
+    console.log(query);
+
     var self = this;
-    var observer = Patients.find().observe({
+    var observer = Patients.find( query, projection ).observe({
         added: function (document) {
             self.added('patients', document._id, transformPatients (document));
         },
