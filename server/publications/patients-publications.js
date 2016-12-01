@@ -132,7 +132,7 @@ Meteor.publish('patients.reports', function ( data ) {
 
     if ( data.company_id ) query['company._id'] = data.company_id;
     if ( data.insurance_id ) query['insurance.insurance_id'] = data.insurance_id;
-    
+
     var self = this;
     var observer = Patients.find( query, projection ).observe({
         added: function (document) {

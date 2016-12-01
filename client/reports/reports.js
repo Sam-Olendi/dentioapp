@@ -38,7 +38,7 @@ Template.reportsContent.events({
         if ( !$(event.target).hasClass('reports-filter-input') && !$(event.target).hasClass('reports-filter-search-results') && !$(event.target).hasClass('icon-arrow_drop_down') && !$(event.target).hasClass('reports-patients-filter-input') ) {
             $('.reports-filter-search-results').hide();
             $('.reports-patients-filter-results').hide();
-            //event.stopPropagation();
+            $('.reports-cash-filter-results').hide();
         }
     }
 });
