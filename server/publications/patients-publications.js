@@ -24,6 +24,8 @@ Meteor.publish('patients.appointments.search', function (search) {
 Meteor.publish('patients.search', function (search) {
     check(search, Match.OneOf(String, null, undefined));
 
+    console.log(search);
+
     var query = {},
         projection = { limit: 10, sort: { 'profile.surname': 1 } };
 
@@ -140,6 +142,34 @@ Meteor.publish('patients.reports', function () {
     });
 
     self.ready();
+});
+
+Meteor.publish('patients.reports.search', function ( search ) {
+
+    check( search, Match.OneOf( String, null, undefined ) );
+
+    var query = {},
+        projection = { limit: 10, sort: { 'profile.surname': 1 } };
+
+    if ( search ) {
+
+        var regex = new RegExp( search, 'i' );
+
+        query = {
+            $or: [
+                { 'profile.first_name': regex },
+                { 'profile.middle_name': regex },
+                { 'profile.surname': regex }
+            ]
+        };
+
+        projection.limit = 100;
+
+    }
+
+
+    return Patients.find( query, projection );
+
 });
 
 function transformPatients (doc) {

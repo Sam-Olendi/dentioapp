@@ -223,16 +223,18 @@ Template.reportsInvoicesDate.events({
 
 Template.reportsInvoicesPatients.onCreated(function () {
     var template = Template.instance();
+
     template.patientSearch = new ReactiveVar();
     template.searchingPatient = new ReactiveVar( false );
-
+    
     template.autorun(function () {
-        template.subscribe( 'patients.search', template.patientSearch.get(), function () {
-            setTimeout(function () {
-                template.searchingPatient.set( false );
-            }, 300);
-        } )
-    } );
+        template.subscribe('patients.reports.search', template.patientSearch.get(), function () {
+           setTimeout(function () {
+               template.searchingPatient.set( false );
+           }, 300);
+        });
+    });
+    
 });
 
 Template.reportsInvoicesPatients.helpers({
@@ -245,7 +247,27 @@ Template.reportsInvoicesPatients.helpers({
     },
 
     patients: function () {
-        return Patients.find();
+
+        var query = {},
+            projection = { limit: 10, sort: { 'profile.surname': 1 } };
+
+        if ( Template.instance().patientSearch.get() ) {
+
+            var regex = new RegExp( Template.instance().patientSearch.get(), 'i' );
+
+            query = {
+                $or: [
+                    { 'profile.first_name': regex },
+                    { 'profile.middle_name': regex },
+                    { 'profile.surname': regex }
+                ]
+            };
+
+            projection.limit = 100;
+
+        }
+
+        return Patients.find( query, projection );
     }
 });
 
