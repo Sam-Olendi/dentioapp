@@ -1,19 +1,27 @@
 <template name="reportsCash">
 
-    <div class="reports-patients-filter">
-        <div class="reports-patients-filter-group">
-            <label for="reports-patients-filter-company" class="reports-patients-filter-label">Sort by company</label>
-            <div class="reports-patients-filter-input-group">
-                <input type="text" placeholder="Show all companies" class="reports-patients-filter-input" id="reports-patients-filter-company">
-                <i class="icon-arrow_drop_down"></i>
-            </div>
+    <div class="reports-filter-section">
+        <div class="reports-filter-group">
+            <label class="reports-filter-label">Sort by company</label><br>
+            <input type="search" placeholder="Show all companies" class="reports-filter-input" id="reports-filter-company">
+            <i class="icon-arrow_drop_down"></i>
         </div>
-        <div class="reports-patients-filter-group">
-            <label for="reports-patients-filter-insurance" class="reports-patients-filter-label">Sort by insurance</label>
-            <div class="reports-patients-filter-input-group">
-                <input type="text" placeholder="Show all insurances" class="reports-patients-filter-input" id="reports-patients-filter-insurance">
-                <i class="icon-arrow_drop_down"></i>
-            </div>
+        <div class="reports-filter-group">
+            <label class="reports-filter-label">Sort by insurance</label><br>
+            <input type="search" placeholder="Show all insurances" class="reports-filter-input" id="reports-filter-insurance">
+            <i class="icon-arrow_drop_down"></i>
+        </div>
+        <div class="reports-filter-group">
+            <label class="reports-filter-label">Sort by date range</label><br>
+            <input type="text" placeholder="From date..." class="reports-filter-input" id="reports-filter-date">
+            <i class="icon-arrow_drop_down"></i>
+            <input type="text" placeholder="To date..." class="reports-filter-input" id="reports-filter-date-to">
+            <i class="icon-arrow_drop_down"></i>
+        </div>
+        <div class="reports-filter-group">
+            <label class="reports-filter-label">Sort by patient</label><br>
+            <input type="text" placeholder="Show all patients" class="reports-filter-input" id="reports-filter-patients">
+            <i class="icon-arrow_drop_down"></i>
         </div>
     </div>
 

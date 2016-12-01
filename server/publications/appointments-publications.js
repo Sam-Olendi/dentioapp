@@ -70,7 +70,19 @@ Meteor.publish('appointments.check', function () {
 
 Meteor.publish('appointments.day.patients', function () {
 
-    var thisMonth = new RegExp(moment().format('MMM YYYY'));
+    var regex1 = moment().format('MMM YYYY');
+    var regex2 = moment().subtract( 7, 'days' ).format('MMM YYYY'),
+        thisMonth;
+
+    // loop through several days
+    // find if they're from the same month as now
+    // if not, should have the regex1|regex2 exp
+
+    if ( moment().startOf('month') ) {
+        thisMonth = new RegExp(regex1|regex2);
+    } else {
+        thisMonth = new RegExp(regex1);
+    }
 
     return Appointments.find({
         date_created: { $regex: thisMonth }

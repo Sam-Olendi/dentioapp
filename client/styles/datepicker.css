@@ -103,3 +103,28 @@
     border-radius: 2px;
     color: hsl(194, 16%, 16%);
 }
+
+.ui-datepicker .ui-datepicker-title select {
+    color: #333333;
+    font-size: 0.75em;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+}
+
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
+    top: 10px;
+}
+
+.ui-datepicker-prev span {
+    background-image: url('/img/left-arrow.svg') !important;
+    background-position: 0px 0px !important;
+}
+
+.ui-datepicker-next span {
+    background-image: url('/img/right-arrow.svg') !important;
+    background-position: 0px 0px !important;
+}
+
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+    border-color: hsl(0, 0%, 85%);
+}
