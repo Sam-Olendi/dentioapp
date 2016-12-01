@@ -128,12 +128,11 @@ Meteor.publish('patients.reports', function ( data ) {
     check ( data, Object );
 
     var query = {},
-        projection = { sort: { 'profile.surname': 1 } };
+        projection = { sort: { 'profile.surname': 1 }, fields: { profile: 1, insurance: 1, work: 1, contacts: 1 } };
 
     if ( data.company_id ) query['company._id'] = data.company_id;
-
-    console.log(query);
-
+    if ( data.insurance_id ) query['insurance.insurance_id'] = data.insurance_id;
+    
     var self = this;
     var observer = Patients.find( query, projection ).observe({
         added: function (document) {

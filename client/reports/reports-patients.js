@@ -115,6 +115,18 @@ Template.reportsPatientsInsurance.events({
         if ( value === '' ) {
             template.searchInsurance.set( value );
         }
+    },
+
+    'click .js-reports-filter-insurance': function ( event ) {
+        Session.set('selectedPatientInsurance', $(event.target).attr('data-id'));
+        $('#reports-patients-filter-insurance').val($(event.target).text());
+        $(event.target).parent().hide();
+    },
+
+    'click .js-reports-filter-insurance-all': function ( event ) {
+        Session.set('selectedPatientInsurance', null);
+        $('#reports-patients-filter-insurance').val('Show all insurances');
+        $(event.target).parent().hide();
     }
 });
 
@@ -125,9 +137,11 @@ Template.reportsPatientsTable.onCreated(function () {
     var template = Template.instance();
 
     Session.setDefault('selectedPatientCompany', null);
+    Session.setDefault('selectedPatientInsurance', null);
 
     var data = {
-        company_id: Session.get('selectedPatientCompany')
+        company_id: Session.get('selectedPatientCompany'),
+        insurance_id: Session.get('selectedPatientInsurance')
     };
 
     template.autorun(function () {
@@ -142,8 +156,9 @@ Template.reportsPatientsTable.helpers({
         var query = {};
 
         if ( Session.get('selectedPatientCompany') ) query['company._id'] = Session.get('selectedPatientCompany');
+        if ( Session.get('selectedPatientInsurance') ) query['insurance.insurance_id'] = Session.get('selectedPatientInsurance');
 
-        //console.log(Patients.find( query ).fetch());
+        //console.log(Patients.find().fetch());
 
         return Patients.find( query );
     }

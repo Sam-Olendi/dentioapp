@@ -63,10 +63,10 @@
                 {{#if searching}}
                     Loading...
                 {{else}}
-                    <li class="reports-filter-search-result mod-reports-filter-search-result-reset js-reports-filter-company-all">Reset: Show all</li>
+                    <li class="reports-filter-search-result mod-reports-filter-search-result-reset js-reports-filter-insurance-all">Reset: Show all</li>
                     <li class="reports-filter-search-result js-reports-filter-company-private" data-id="private">Private</li>
                     {{#each insurances}}
-                        <li class="reports-filter-search-result js-reports-filter-company" data-id="{{ _id }}">{{ insurance_name }}</li>
+                        <li class="reports-filter-search-result js-reports-filter-insurance" data-id="{{ _id }}">{{ insurance_name }}</li>
                     {{else}}
                         <p class="reports-filter-search-result-none">{{ query }} not found</p>
                     {{/each}}
