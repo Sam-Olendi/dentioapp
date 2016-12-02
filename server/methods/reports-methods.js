@@ -37,7 +37,7 @@ Meteor.methods({
         if ( data.company_id && data.insurance_id ) {
             console.log('has a company & insurance');
         } else if ( data.company_id && !data.insurance_id ) {
-            
+
             for ( var b = 0; b < query.length; b++ ) {
                 invoice = Invoices.findOne({ appointment_id: query[b]._id.appointment_id });
 
@@ -55,7 +55,23 @@ Meteor.methods({
             }
 
         } else if ( !data.company_id && data.insurance_id ) {
-            console.log('has no company but an insurance');
+
+            for ( var c = 0; c < query.length; c++ ) {
+                invoice = Invoices.findOne({ appointment_id: query[c]._id.appointment_id });
+
+                if ( invoice.insurance_id == data.insurance_id ) {
+                    treatments.push({
+                        patient: Patients.findOne({_id: query[c]._id.patient_id}, { fields: { 'profile.first_name': 1, 'profile.middle_name': 1, 'profile.surname': 1 } }),
+                        date_performed: query[c]._id.date_performed,
+                        total: query[c].total,
+                        invoice_no: Invoices.findOne({ appointment_id: query[c]._id.appointment_id }, { fields: { invoice_no: 1 } }),
+                        company: Companies.findOne(invoice.company_id).company_name,
+                        insurance: Insurances.findOne(invoice.insurance_id).insurance_name
+                    });
+                }
+
+            }
+
         } else if ( !data.company_id && !data.insurance_id ) {
 
             for ( var d = 0; d < query.length; d++ ) {

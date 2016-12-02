@@ -108,6 +108,12 @@ Template.reportsCashInsurance.events({
         Session.set('selectedCashInsurance', $( event.target ).attr('data-id'));
         $('#reports-cash-filter-insurance').val( $( event.target ).text() );
         $( event.target ).parent().hide();
+    },
+
+    'click .js-reports-filter-insurance-all': function (event) {
+        Session.set('selectedCashInsurance', null);
+        $('#reports-cash-filter-insurance').val('Show all insurances');
+        $( event.target ).parent().hide();
     }
 });
 
