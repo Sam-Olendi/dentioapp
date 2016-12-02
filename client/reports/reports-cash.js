@@ -163,6 +163,18 @@ Template.reportsCashPatient.events({
         if ( value === '' ) {
             template.searchPatient.set( value );
         }
+    },
+
+    'click .js-reports-filter-patient': function () {
+        Session.set('selectedCashPatient', $( event.target ).attr('data-id'));
+        $('#reports-cash-filter-patients').val( $( event.target ).text() );
+        $( event.target ).parent().hide();
+    },
+
+    'click .js-reports-filter-patient-all': function (event) {
+        Session.set('selectedCashPatient', null);
+        $('#reports-cash-filter-patient').val('Show all patients');
+        $( event.target ).parent().hide();
     }
 });
 
@@ -172,6 +184,7 @@ Template.reportsCashTable.onCreated(function () {
 
     Session.setDefault('selectedCashCompany', null);
     Session.setDefault('selectedCashInsurance', null);
+    Session.setDefault('selectedCashPatient', null);
 
     template.autorun(function () {
         template.subscribe('treatments.reports');
@@ -183,14 +196,14 @@ Template.reportsCashTable.helpers({
 
         var data = {
             company_id: Session.get('selectedCashCompany'),
-            insurance_id: Session.get('selectedCashInsurance')
+            insurance_id: Session.get('selectedCashInsurance'),
+            patient_id: Session.get('selectedCashPatient')
         };
 
         Meteor.call('getTreatments', data, function (error, response) {
             if ( error ) {
                 alert( error.reason )
             } else {
-                console.log(response);
                 Session.set('getTreatments', response);
             }
         });

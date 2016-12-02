@@ -88,10 +88,10 @@
             {{#if searching}}
                 Loading...
             {{else}}
-                <li class="reports-filter-search-result mod-reports-filter-search-result-reset js-reports-filter-insurance-all">Reset: Show all</li>
+                <li class="reports-filter-search-result mod-reports-filter-search-result-reset js-reports-filter-patient-all">Reset: Show all</li>
                 <li class="reports-filter-search-result js-reports-filter-company-private" data-id="private">Private</li>
                 {{#each results}}
-                    <li class="reports-filter-search-result js-reports-filter-insurance" data-id="{{ _id }}">{{ profile.surname }}, {{ profile.first_name }} {{ profile.middle_name }}</li>
+                    <li class="reports-filter-search-result js-reports-filter-patient" data-id="{{ _id }}">{{ profile.surname }}, {{ profile.first_name }} {{ profile.middle_name }}</li>
                 {{else}}
                     <p class="reports-filter-search-result-none">{{ query }} not found</p>
                 {{/each}}

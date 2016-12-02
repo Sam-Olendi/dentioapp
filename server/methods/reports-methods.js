@@ -34,12 +34,12 @@ Meteor.methods({
 
         var treatments = [], invoice;
 
-        if ( data.company_id && data.insurance_id ) {
+        if ( data.company_id && data.insurance_id && data.patient_id ) {
 
             for ( var a = 0; a < query.length; a++) {
                 invoice = Invoices.findOne({ appointment_id: query[a]._id.appointment_id });
 
-                if ( invoice.company_id == data.company_id && invoice.insurance_id == data.insurance_id ) {
+                if ( invoice.company_id == data.company_id && invoice.insurance_id == data.insurance_id && invoice.patient_id == data.patient_id ) {
                     treatments.push({
                         patient: Patients.findOne({_id: query[a]._id.patient_id}, { fields: { 'profile.first_name': 1, 'profile.middle_name': 1, 'profile.surname': 1 } }),
                         date_performed: query[a]._id.date_performed,
@@ -52,7 +52,7 @@ Meteor.methods({
 
             }
 
-        } else if ( data.company_id && !data.insurance_id ) {
+        } else if ( data.company_id && !data.insurance_id && !data.patient_id ) {
 
             for ( var b = 0; b < query.length; b++ ) {
                 invoice = Invoices.findOne({ appointment_id: query[b]._id.appointment_id });
@@ -70,12 +70,12 @@ Meteor.methods({
 
             }
 
-        } else if ( !data.company_id && data.insurance_id ) {
+        } else if ( data.company_id && data.insurance_id && !data.patient_id ) {
 
             for ( var c = 0; c < query.length; c++ ) {
                 invoice = Invoices.findOne({ appointment_id: query[c]._id.appointment_id });
 
-                if ( invoice.insurance_id == data.insurance_id ) {
+                if (invoice.company_id == data.company_id && invoice.insurance_id == data.insurance_id) {
                     treatments.push({
                         patient: Patients.findOne({_id: query[c]._id.patient_id}, { fields: { 'profile.first_name': 1, 'profile.middle_name': 1, 'profile.surname': 1 } }),
                         date_performed: query[c]._id.date_performed,
@@ -88,12 +88,12 @@ Meteor.methods({
 
             }
 
-        } else if ( !data.company_id && !data.insurance_id ) {
+        } else if ( !data.company_id && data.insurance_id && !data.patient_id ) {
 
             for ( var d = 0; d < query.length; d++ ) {
                 invoice = Invoices.findOne({ appointment_id: query[d]._id.appointment_id });
 
-                if ( invoice.company_id ) {
+                if ( invoice.insurance_id == data.insurance_id ) {
                     treatments.push({
                         patient: Patients.findOne({_id: query[d]._id.patient_id}, { fields: { 'profile.first_name': 1, 'profile.middle_name': 1, 'profile.surname': 1 } }),
                         date_performed: query[d]._id.date_performed,
@@ -102,22 +102,93 @@ Meteor.methods({
                         company: Companies.findOne(invoice.company_id).company_name,
                         insurance: Insurances.findOne(invoice.insurance_id).insurance_name
                     });
+                }
+
+            }
+
+        } else if ( !data.company_id && data.insurance_id && data.patient_id ) {
+
+            for ( var e = 0; e < query.length; e++ ) {
+                invoice = Invoices.findOne({ appointment_id: query[e]._id.appointment_id });
+
+                if (invoice.insurance_id == data.insurance_id && invoice.patient_id == data.patient_id) {
+                    treatments.push({
+                        patient: Patients.findOne({_id: query[e]._id.patient_id}, { fields: { 'profile.first_name': 1, 'profile.middle_name': 1, 'profile.surname': 1 } }),
+                        date_performed: query[e]._id.date_performed,
+                        total: query[e].total,
+                        invoice_no: Invoices.findOne({ appointment_id: query[e]._id.appointment_id }, { fields: { invoice_no: 1 } }),
+                        company: Companies.findOne(invoice.company_id).company_name,
+                        insurance: Insurances.findOne(invoice.insurance_id).insurance_name
+                    });
+                }
+
+            }
+
+        } else if ( !data.company_id && !data.insurance_id && data.patient_id ) {
+
+            for ( var f = 0; f < query.length; f++ ) {
+                invoice = Invoices.findOne({ appointment_id: query[f]._id.appointment_id });
+
+                if ( invoice.patient_id == data.patient_id ) {
+                    treatments.push({
+                        patient: Patients.findOne({_id: query[f]._id.patient_id}, { fields: { 'profile.first_name': 1, 'profile.middle_name': 1, 'profile.surname': 1 } }),
+                        date_performed: query[f]._id.date_performed,
+                        total: query[f].total,
+                        invoice_no: Invoices.findOne({ appointment_id: query[f]._id.appointment_id }, { fields: { invoice_no: 1 } }),
+                        company: Companies.findOne(invoice.company_id).company_name,
+                        insurance: Insurances.findOne(invoice.insurance_id).insurance_name
+                    });
+                }
+
+            }
+
+        } else if ( data.company_id && !data.insurance_id && data.patient_id ) {
+
+            console.log('has a patient and company but no insurance!');
+
+            for ( var g = 0; g < query.length; g++ ) {
+                invoice = Invoices.findOne({ appointment_id: query[g]._id.appointment_id });
+
+                if ( invoice.patient_id == data.patient_id && invoice.company_id == data.company_id ) {
+                    treatments.push({
+                        patient: Patients.findOne({_id: query[g]._id.patient_id}, { fields: { 'profile.first_name': 1, 'profile.middle_name': 1, 'profile.surname': 1 } }),
+                        date_performed: query[g]._id.date_performed,
+                        total: query[g].total,
+                        invoice_no: Invoices.findOne({ appointment_id: query[g]._id.appointment_id }, { fields: { invoice_no: 1 } }),
+                        company: Companies.findOne(invoice.company_id).company_name,
+                        insurance: Insurances.findOne(invoice.insurance_id).insurance_name
+                    });
+                }
+
+            }
+
+        } else if ( !data.company_id && !data.insurance_id && !data.patient_id ) {
+
+            for ( var h = 0; h < query.length; h++ ) {
+                invoice = Invoices.findOne({ appointment_id: query[h]._id.appointment_id });
+
+                if ( invoice.company_id ) {
+                    treatments.push({
+                        patient: Patients.findOne({_id: query[h]._id.patient_id}, { fields: { 'profile.first_name': 1, 'profile.middle_name': 1, 'profile.surname': 1 } }),
+                        date_performed: query[h]._id.date_performed,
+                        total: query[h].total,
+                        invoice_no: Invoices.findOne({ appointment_id: query[h]._id.appointment_id }, { fields: { invoice_no: 1 } }),
+                        company: Companies.findOne(invoice.company_id).company_name,
+                        insurance: Insurances.findOne(invoice.insurance_id).insurance_name
+                    });
                 } else {
                     treatments.push({
-                        patient: Patients.findOne({_id: query[d]._id.patient_id}, { fields: { 'profile.first_name': 1, 'profile.middle_name': 1, 'profile.surname': 1 } }),
-                        date_performed: query[d]._id.date_performed,
-                        total: query[d].total,
-                        invoice_no: Invoices.findOne({ appointment_id: query[d]._id.appointment_id }, { fields: { invoice_no: 1 } }),
+                        patient: Patients.findOne({_id: query[h]._id.patient_id}, { fields: { 'profile.first_name': 1, 'profile.middle_name': 1, 'profile.surname': 1 } }),
+                        date_performed: query[h]._id.date_performed,
+                        total: query[h].total,
+                        invoice_no: Invoices.findOne({ appointment_id: query[h]._id.appointment_id }, { fields: { invoice_no: 1 } }),
                         insurance: Insurances.findOne(invoice.insurance_id).insurance_name
                     });
                 }
             }
 
-        } else {
-            console.log(data);
         }
 
-        //console.log(treatments);
         return treatments;
 
     }
