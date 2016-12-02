@@ -48,6 +48,12 @@ Template.reportsCashCompany.events({
         Session.set('selectedCashCompany', $( event.target ).attr( 'data-id' ));
         $('#reports-cash-filter-company').val( $( event.target ).text() );
         $( event.target ).parent().hide();
+    },
+
+    'click .js-reports-filter-company-all': function (event) {
+        Session.set('selectedCashCompany', null);
+        $('#reports-cash-filter-company').val('Show all companies');
+        $( event.target ).parent().hide();
     }
 });
 
@@ -96,6 +102,12 @@ Template.reportsCashInsurance.events({
         if ( value === '' ) {
             template.searchInsurance.set( value );
         }
+    },
+
+    'click .js-reports-filter-insurance': function () {
+        Session.set('selectedCashInsurance', $( event.target ).attr('data-id'));
+        $('#reports-cash-filter-insurance').val( $( event.target ).text() );
+        $( event.target ).parent().hide();
     }
 });
 
@@ -153,6 +165,7 @@ Template.reportsCashTable.onCreated(function () {
     var template = Template.instance();
 
     Session.setDefault('selectedCashCompany', null);
+    Session.setDefault('selectedCashInsurance', null);
 
     template.autorun(function () {
         template.subscribe('treatments.reports');
@@ -163,13 +176,15 @@ Template.reportsCashTable.helpers({
     treatments: function () {
 
         var data = {
-            company_id: Session.get('selectedCashCompany')
+            company_id: Session.get('selectedCashCompany'),
+            insurance_id: Session.get('selectedCashInsurance')
         };
 
         Meteor.call('getTreatments', data, function (error, response) {
             if ( error ) {
                 alert( error.reason )
             } else {
+                console.log(response);
                 Session.set('getTreatments', response);
             }
         });
