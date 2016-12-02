@@ -42,6 +42,12 @@ Template.reportsCashCompany.events({
         if ( value === '' ) {
             template.searchCompany.set( value );
         }
+    },
+
+    'click .js-reports-filter-company': function ( event ) {
+        Session.set('selectedCashCompany', $( event.target ).attr( 'data-id' ));
+        $('#reports-cash-filter-company').val( $( event.target ).text() );
+        $( event.target ).parent().hide();
     }
 });
 
@@ -144,13 +150,23 @@ Template.reportsCashPatient.events({
 
 
 Template.reportsCashTable.onCreated(function () {
-    this.subscribe('treatments.reports');
+    var template = Template.instance();
+
+    Session.setDefault('selectedCashCompany', null);
+
+    template.autorun(function () {
+        template.subscribe('treatments.reports');
+    });
 });
 
 Template.reportsCashTable.helpers({
     treatments: function () {
 
-        Meteor.call('getTreatments', function (error, response) {
+        var data = {
+            company_id: Session.get('selectedCashCompany')
+        };
+
+        Meteor.call('getTreatments', data, function (error, response) {
             if ( error ) {
                 alert( error.reason )
             } else {
