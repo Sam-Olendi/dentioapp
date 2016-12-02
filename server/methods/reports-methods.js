@@ -35,7 +35,23 @@ Meteor.methods({
         var treatments = [], invoice;
 
         if ( data.company_id && data.insurance_id ) {
-            console.log('has a company & insurance');
+
+            for ( var a = 0; a < query.length; a++) {
+                invoice = Invoices.findOne({ appointment_id: query[a]._id.appointment_id });
+
+                if ( invoice.company_id == data.company_id && invoice.insurance_id == data.insurance_id ) {
+                    treatments.push({
+                        patient: Patients.findOne({_id: query[a]._id.patient_id}, { fields: { 'profile.first_name': 1, 'profile.middle_name': 1, 'profile.surname': 1 } }),
+                        date_performed: query[a]._id.date_performed,
+                        total: query[a].total,
+                        invoice_no: Invoices.findOne({ appointment_id: query[a]._id.appointment_id }, { fields: { invoice_no: 1 } }),
+                        company: Companies.findOne(invoice.company_id).company_name,
+                        insurance: Insurances.findOne(invoice.insurance_id).insurance_name
+                    });
+                }
+
+            }
+
         } else if ( data.company_id && !data.insurance_id ) {
 
             for ( var b = 0; b < query.length; b++ ) {
