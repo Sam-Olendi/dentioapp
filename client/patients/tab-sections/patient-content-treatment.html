@@ -601,14 +601,9 @@
                     <div class="patient-findings-form-group">
                         <select title="patient-findings-form-select" class="patient-findings-form-select" id="patient-findings-form-select-0" data-id="0">
                             <option value="None" class="patient-findings-form-option" selected>-- Select a finding --</option>
-                            <option value="Preventive" class="patient-findings-form-option">Preventive</option>
-                            <option value="Extractions" class="patient-findings-form-option">Extractions</option>
-                            <option value="Restorations" class="patient-findings-form-option">Restorations</option>
-                            <option value="Dentures" class="patient-findings-form-option">Dentures</option>
-                            <option value="Crowns and Bridges" class="patient-findings-form-option">Crowns and Bridges</option>
-                            <option value="Orthodontics" class="patient-findings-form-option">Orthodontics</option>
-                            <option value="Surgical Extractions" class="patient-findings-form-option">Surgical Extractions</option>
-                            <option value="Others" class="patient-findings-form-option">Others</option>
+                            {{#each discoveries}}
+                                <option value="{{ _id }}" class="patient-findings-form-option">{{ discovery_name }}</option>
+                            {{/each}}
                         </select>
                         <input type="text" placeholder="Description" class="patient-findings-form-description" id="patient-findings-form-description-0" data-id="0">
                     </div>

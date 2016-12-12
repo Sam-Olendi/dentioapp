@@ -51,6 +51,7 @@ iron:url@1.0.11
 jcbernack:reactive-aggregate@0.7.0
 johnantoni:meteor-normalize@0.0.1
 jquery@1.11.10
+kburts:randomcolor@0.2.1
 launch-screen@1.0.12
 livedata@1.0.18
 localstorage@1.0.12
