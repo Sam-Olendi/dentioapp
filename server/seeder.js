@@ -561,42 +561,48 @@ Meteor.startup(function () {
             _id: 'consultation',
             service_name: 'Consultation',
             service_description: 'They don\'t allow you to have bees in here.',
-            service_price: 3500
+            service_price: 3500,
+            service_color: '#fff000'
         });
 
         Services.insert({
             _id: 'composite',
             service_name: 'All White Composite Filling',
             service_description: 'I like to look in the mirror.',
-            service_price: 12000
+            service_price: 12000,
+            service_color: '#c00000'
         });
 
         Services.insert({
             _id: 'scaling',
             service_name: 'Full Mouth Scaling and Polishing',
             service_description: 'Excuse me, do these effectively hide my thunder?',
-            service_price: 3500
+            service_price: 3500,
+            service_color: '#333333'
         });
 
         Services.insert({
             _id: 'rct',
             service_name: 'Root Canal Therapy',
             service_description: 'We never had the chance to.',
-            service_price: 12000
+            service_price: 12000,
+            service_color: '#443554'
         });
 
         Services.insert({
             _id: 'rcf',
             service_name: 'Root Canal Finishing',
             service_description: 'Yeah. Mom\'s awesome. Tobias is Queen Mary.',
-            service_price: 3500
+            service_price: 3500,
+            service_color: '#cc4233'
         });
 
         Services.insert({
             _id: 'filling',
             service_name: 'Temporary Filling',
             service_description: 'Cup-A-Soup…baby, I got a stew goin\'',
-            service_price: 12000
+            service_price: 12000,
+            service_color: '#f23000'
         });
     }
 
@@ -686,7 +692,7 @@ Meteor.startup(function () {
             _id: 'andy_treatment_3',
             patient_id: 'andy',
             appointment_id: 'andy_appt',
-            service_id: 'rcf',
+            service_id: 'filling',
             amount: 3500,
             tooth_number: 44,
             tooth_part: 'Mesial',
@@ -699,7 +705,7 @@ Meteor.startup(function () {
             _id: 'andy_treatment_4',
             patient_id: 'andy',
             appointment_id: 'andy_appt',
-            service_id: 'rct',
+            service_id: 'composite',
             amount: 12000,
             tooth_number: 14,
             tooth_part: 'Buccal',

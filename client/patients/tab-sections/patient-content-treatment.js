@@ -73,15 +73,35 @@ Template.patientContentTreatment.helpers({
          */
 
         var completedTeeth = $('.svg-tooth-completed > .tooth'),
-            currentNumber, currentPart;
+            currentNumber, currentPart, currentService;
+
+        var treatmentsList = [],
+            servicesColorCode = [];
+
 
         Tracker.autorun(function () {
+
+            treatmentsList = Treatments.find( { patient_id: Session.get('currentPatient') } ).fetch();
+
+            for (var counter = 0; counter < treatmentsList.length; counter++) {
+                servicesColorCode.push({ service_id: treatmentsList[counter].service._id,
+                service_color: treatmentsList[counter].service.service_color});
+            }
+
+            var result;
+
             for ( var i = 0; i < completedTeeth.length; i++ ) {
                 currentNumber = $(completedTeeth[i]).closest('.svg-tooth-completed').data('id');
                 currentPart = $(completedTeeth[i]).data('title');
 
+                // Search through an array of objects
+                // http://stackoverflow.com/questions/7364150/find-object-by-id-in-an-array-of-javascript-objects
+
                 if ( Treatments.find({ patient_id: Session.get('currentPatient'), tooth_number: currentNumber, tooth_part: currentPart }).fetch().length ) {
-                    $(completedTeeth[i]).css({'fill': '#54a6f8', 'fillOpacity': .8});
+                    currentService = Treatments.find({ patient_id: Session.get('currentPatient'), tooth_number: currentNumber, tooth_part: currentPart }).fetch()[0].service._id;
+                    result = $.grep( servicesColorCode, function (e) { return e.service_id === currentService } );
+
+                    $(completedTeeth[i]).css({'fill': result[0].service_color, 'fillOpacity': .8});
                 }
             }
         });
