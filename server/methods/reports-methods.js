@@ -144,8 +144,6 @@ Meteor.methods({
 
         } else if ( data.company_id && !data.insurance_id && data.patient_id ) {
 
-            console.log('has a patient and company but no insurance!');
-
             for ( var g = 0; g < query.length; g++ ) {
                 invoice = Invoices.findOne({ appointment_id: query[g]._id.appointment_id });
 
@@ -189,7 +187,13 @@ Meteor.methods({
 
         }
 
-        return treatments;
+        // Sort an array of objects
+        // http://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value-in-javascript
+        return treatments.sort(function ( a, b) {
+            if ( a.date_performed > b.date_performed ) return -1;
+            if ( a.date_performed < b.date_performed ) return 1;
+            return 0;
+        } );
 
     }
 });

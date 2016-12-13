@@ -20,7 +20,7 @@
     <nav class="reports-navigation">
         <ul class="reports-tabs">
             <li class="reports-tabs-tab">
-                <a href="#" class="reports-tabs-link" data-content="summary">Summary</a>
+                <a href="#" class="reports-tabs-link reports-tabs-link-is-selected" data-content="summary">Summary</a>
             </li>
             <li class="reports-tabs-tab">
                 <a href="#" class="reports-tabs-link" data-content="invoices">Invoices</a>
@@ -29,13 +29,13 @@
                 <a href="#" class="reports-tabs-link" data-content="patients">Patients</a>
             </li>
             <li class="reports-tabs-tab">
-                <a href="#" class="reports-tabs-link reports-tabs-link-is-selected" data-content="cash">Cash Flow</a>
+                <a href="#" class="reports-tabs-link" data-content="cash">Cash Flow</a>
             </li>
         </ul>
     </nav>
 
     <ul class="reports-tabs-content">
-        <li class="reports-tabs-content-section" data-content="summary">
+        <li class="reports-tabs-content-section reports-tabs-content-section-is-selected" data-content="summary">
             <div class="reports-tabs-content-wrapper">
                 {{> reportsSummary }}
             </div>
@@ -50,7 +50,7 @@
                 {{> reportsPatients }}
             </div>
         </li>
-        <li class="reports-tabs-content-section reports-tabs-content-section-is-selected" data-content="cash">
+        <li class="reports-tabs-content-section" data-content="cash">
             <div class="reports-tabs-content-wrapper">
                 {{> reportsCash }}
             </div>
