@@ -475,6 +475,14 @@ Template.patientContentTreatmentModal.events({
         }
     },
 
+    'change .patient-treatments-form-select': function ( event ) {
+        var service = Services.findOne({_id: event.target.value});
+
+        if ( service ) {
+            $(event.target).parent().find('.patient-treatments-form-description').val( service.service_description );
+        }
+    },
+
     'click .patient-treatments-form-select-remove': function () {
         // delete the newly-generated select box row
         $(event.target).parent().siblings().remove();
