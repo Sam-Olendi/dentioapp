@@ -87,7 +87,7 @@ Template.patientContentTreatment.helpers({
                 findingsCursor = Findings.find({patient_id: Session.get('currentPatient'), tooth_number: currentNumber, tooth_part: currentPart}).fetch();
 
                 if( findingsCursor.length ) {
-                    currentDiscovery = findingsCursor[0].finding_type;
+                    currentDiscovery = findingsCursor[findingsCursor.length - 1].finding_type;
                     discoveryResult = $.grep( discoveriesList, function (e) { return e.discovery_name == currentDiscovery } );
 
                     if( discoveryResult ) {
@@ -138,8 +138,6 @@ Template.patientContentTreatment.helpers({
                 if ( treatmentsCursor.length ) {
                     currentService = treatmentsCursor[treatmentsCursor.length - 1].service._id;
                     treatmentsResult = $.grep( servicesColorCode, function (e) { return e.service_id === currentService } );
-
-                    //console.log(treatmentsResult);
 
                     $(completedTeeth[i]).css({'fill': treatmentsResult[0].service_color, 'fillOpacity': .8});
                 }
