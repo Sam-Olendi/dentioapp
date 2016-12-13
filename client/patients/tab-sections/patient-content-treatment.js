@@ -130,12 +130,16 @@ Template.patientContentTreatment.helpers({
                 currentNumber = $(completedTeeth[i]).closest('.svg-tooth-completed').data('id');
                 currentPart = $(completedTeeth[i]).data('title');
 
+                var treatmentsCursor = Treatments.find({ patient_id: Session.get('currentPatient'), tooth_number: currentNumber, tooth_part: currentPart }).fetch();
+
                 // Search through an array of objects
                 // http://stackoverflow.com/questions/7364150/find-object-by-id-in-an-array-of-javascript-objects
 
-                if ( Treatments.find({ patient_id: Session.get('currentPatient'), tooth_number: currentNumber, tooth_part: currentPart }).fetch().length ) {
-                    currentService = Treatments.find({ patient_id: Session.get('currentPatient'), tooth_number: currentNumber, tooth_part: currentPart }).fetch()[0].service._id;
+                if ( treatmentsCursor.length ) {
+                    currentService = treatmentsCursor[treatmentsCursor.length - 1].service._id;
                     treatmentsResult = $.grep( servicesColorCode, function (e) { return e.service_id === currentService } );
+
+                    //console.log(treatmentsResult);
 
                     $(completedTeeth[i]).css({'fill': treatmentsResult[0].service_color, 'fillOpacity': .8});
                 }
