@@ -303,145 +303,145 @@ Meteor.startup(function () {
             }
         });
 
-        Patients.insert({
-            _id: 'vanessa',
-
-            profile: {
-                first_name: 'Vanessa',
-                middle_name: 'Alexis',
-                surname: 'Carlton',
-                date_added: moment().format("Do MMM YYYY, h:mm:ss a")
-            },
-            contacts: {
-
-            }
-        });
-
-        Patients.insert({
-            _id: 'brooke',
-
-            profile: {
-                first_name: 'Brooke',
-                middle_name: '',
-                surname: 'Waggoner',
-                date_added: moment().format("Do MMM YYYY, h:mm:ss a")
-            },
-            contacts: {
-
-            }
-        });
-
-        Patients.insert({
-            _id: 'regina',
-
-            profile: {
-                first_name: 'Regina',
-                middle_name: 'Stamtomovic',
-                surname: 'Spektor',
-                date_added: moment().format("Do MMM YYYY, h:mm:ss a")
-            },
-            contacts: {
-
-            }
-        });
-
-        Patients.insert({
-            _id: 'sophia',
-
-            profile: {
-                first_name: 'Sophia',
-                middle_name: 'Penelope',
-                surname: 'Bush',
-                date_added: moment().format("Do MMM YYYY, h:mm:ss a")
-            },
-            contacts: {
-
-            }
-        });
-
-        Patients.insert({
-            _id: 'hilarie',
-
-            profile: {
-                first_name: 'Hilarie',
-                middle_name: 'Scott',
-                surname: 'Burton',
-                date_added: moment().format("Do MMM YYYY, h:mm:ss a")
-            },
-            contacts: {
-
-            }
-        });
-
-        Patients.insert({
-            _id: 'bethany',
-
-            profile: {
-                first_name: 'Bethany',
-                middle_name: 'Joy',
-                surname: 'Lenz',
-                date_added: moment().format("Do MMM YYYY, h:mm:ss a")
-            },
-            contacts: {
-
-            }
-        });
-
-        Patients.insert({
-            _id: 'alexis',
-
-            profile: {
-                first_name: 'Alexis',
-                middle_name: 'Gilmore',
-                surname: 'Bledel',
-                date_added: moment().format("Do MMM YYYY, h:mm:ss a")
-            },
-            contacts: {
-
-            }
-        });
-
-        Patients.insert({
-            _id: 'lauren',
-
-            profile: {
-                first_name: 'Lauren',
-                middle_name: 'Danes',
-                surname: 'Graham',
-                date_added: moment().format("Do MMM YYYY, h:mm:ss a")
-            },
-            contacts: {
-
-            }
-        });
-
-        Patients.insert({
-            _id: 'scott',
-
-            profile: {
-                first_name: 'Scott',
-                middle_name: 'Lucas',
-                surname: 'Patterson',
-                date_added: moment().format("Do MMM YYYY, h:mm:ss a")
-            },
-            contacts: {
-
-            }
-        });
-
-        Patients.insert({
-            _id: 'timmy',
-
-            profile: {
-                first_name: 'Timothy',
-                middle_name: 'Gregory',
-                surname: 'Smith',
-                date_added: moment().format("Do MMM YYYY, h:mm:ss a")
-            },
-            contacts: {
-
-            }
-        });
+        //Patients.insert({
+        //    _id: 'vanessa',
+        //
+        //    profile: {
+        //        first_name: 'Vanessa',
+        //        middle_name: 'Alexis',
+        //        surname: 'Carlton',
+        //        date_added: moment().format("Do MMM YYYY, h:mm:ss a")
+        //    },
+        //    contacts: {
+        //
+        //    }
+        //});
+        //
+        //Patients.insert({
+        //    _id: 'brooke',
+        //
+        //    profile: {
+        //        first_name: 'Brooke',
+        //        middle_name: '',
+        //        surname: 'Waggoner',
+        //        date_added: moment().format("Do MMM YYYY, h:mm:ss a")
+        //    },
+        //    contacts: {
+        //
+        //    }
+        //});
+        //
+        //Patients.insert({
+        //    _id: 'regina',
+        //
+        //    profile: {
+        //        first_name: 'Regina',
+        //        middle_name: 'Stamtomovic',
+        //        surname: 'Spektor',
+        //        date_added: moment().format("Do MMM YYYY, h:mm:ss a")
+        //    },
+        //    contacts: {
+        //
+        //    }
+        //});
+        //
+        //Patients.insert({
+        //    _id: 'sophia',
+        //
+        //    profile: {
+        //        first_name: 'Sophia',
+        //        middle_name: 'Penelope',
+        //        surname: 'Bush',
+        //        date_added: moment().format("Do MMM YYYY, h:mm:ss a")
+        //    },
+        //    contacts: {
+        //
+        //    }
+        //});
+        //
+        //Patients.insert({
+        //    _id: 'hilarie',
+        //
+        //    profile: {
+        //        first_name: 'Hilarie',
+        //        middle_name: 'Scott',
+        //        surname: 'Burton',
+        //        date_added: moment().format("Do MMM YYYY, h:mm:ss a")
+        //    },
+        //    contacts: {
+        //
+        //    }
+        //});
+        //
+        //Patients.insert({
+        //    _id: 'bethany',
+        //
+        //    profile: {
+        //        first_name: 'Bethany',
+        //        middle_name: 'Joy',
+        //        surname: 'Lenz',
+        //        date_added: moment().format("Do MMM YYYY, h:mm:ss a")
+        //    },
+        //    contacts: {
+        //
+        //    }
+        //});
+        //
+        //Patients.insert({
+        //    _id: 'alexis',
+        //
+        //    profile: {
+        //        first_name: 'Alexis',
+        //        middle_name: 'Gilmore',
+        //        surname: 'Bledel',
+        //        date_added: moment().format("Do MMM YYYY, h:mm:ss a")
+        //    },
+        //    contacts: {
+        //
+        //    }
+        //});
+        //
+        //Patients.insert({
+        //    _id: 'lauren',
+        //
+        //    profile: {
+        //        first_name: 'Lauren',
+        //        middle_name: 'Danes',
+        //        surname: 'Graham',
+        //        date_added: moment().format("Do MMM YYYY, h:mm:ss a")
+        //    },
+        //    contacts: {
+        //
+        //    }
+        //});
+        //
+        //Patients.insert({
+        //    _id: 'scott',
+        //
+        //    profile: {
+        //        first_name: 'Scott',
+        //        middle_name: 'Lucas',
+        //        surname: 'Patterson',
+        //        date_added: moment().format("Do MMM YYYY, h:mm:ss a")
+        //    },
+        //    contacts: {
+        //
+        //    }
+        //});
+        //
+        //Patients.insert({
+        //    _id: 'timmy',
+        //
+        //    profile: {
+        //        first_name: 'Timothy',
+        //        middle_name: 'Gregory',
+        //        surname: 'Smith',
+        //        date_added: moment().format("Do MMM YYYY, h:mm:ss a")
+        //    },
+        //    contacts: {
+        //
+        //    }
+        //});
 
     }
 
