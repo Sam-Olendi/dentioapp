@@ -560,49 +560,49 @@ Meteor.startup(function () {
         Discoveries.insert({
             _id: 'preventive',
             discovery_name: 'Preventive',
-            discovery_color: randomColor()
+            discovery_color: randomColor({luminosity: 'light'})
         });
 
         Discoveries.insert({
             _id: 'extractions',
             discovery_name: 'Extractions',
-            discovery_color: randomColor()
+            discovery_color: randomColor({luminosity: 'light'})
         });
 
         Discoveries.insert({
             _id: 'restorations',
             discovery_name: 'Restorations',
-            discovery_color: randomColor()
+            discovery_color: randomColor({luminosity: 'light'})
         });
 
         Discoveries.insert({
             _id: 'dentures',
             discovery_name: 'Dentures',
-            discovery_color: randomColor()
+            discovery_color: randomColor({luminosity: 'light'})
         });
 
         Discoveries.insert({
             _id: 'crowns',
             discovery_name: 'Crowns and Bridges',
-            discovery_color: randomColor()
+            discovery_color: randomColor({luminosity: 'light'})
         });
 
         Discoveries.insert({
             _id: 'orthodontics',
             discovery_name: 'Orthodontics',
-            discovery_color: randomColor()
+            discovery_color: randomColor({luminosity: 'light'})
         });
 
         Discoveries.insert({
             _id: 'surgical',
             discovery_name: 'Surgical Extractions',
-            discovery_color: randomColor()
+            discovery_color: randomColor({luminosity: 'light'})
         });
 
         Discoveries.insert({
             _id: 'others',
             discovery_name: 'Others',
-            discovery_color: randomColor()
+            discovery_color: randomColor({luminosity: 'light'})
         });
     }
 
