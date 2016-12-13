@@ -335,6 +335,59 @@ Template.patientContentFindingsModal.events({
 });
 
 
+/*==========================================
+  Findings Modal - Upload files
+ ==========================================*/
+
+Template.patientContentFindingsUpload.onCreated(function () {
+    this.currentFindingsUpload = new ReactiveVar(false);
+});
+
+Template.patientContentFindingsUpload.helpers({
+    currentUpload: function () {
+        return Template.instance().currentFindingsUpload.get();
+    }
+});
+
+Template.patientContentFindingsUpload.events({
+    'change #patients-findings-upload-file': function (event, template) {
+
+        var file = event.currentTarget.files;
+
+        if ( file && file[0] ) {
+
+            var upload = Images.insert({
+                file: file[0],
+                meta: {
+                    patient_id: Session.get('currentPatient'),
+                    tooth_number: Session.get('currentToothNumber'),
+                    tooth_part: Session.get('currentToothPart'),
+                    date_uploaded: new Date().toISOString()
+                },
+                streams: 'dynamic'
+            }, false);
+
+            upload.on('start', function () {
+                template.currentFindingsUpload.set(this);
+            });
+
+            upload.on('end', function (error, fileObj) {
+                if (error) {
+                    $('.modal-content-uploading-text-error').text(error);
+                    $('.modal-content-error').show().delay(7000).fadeOut();
+                } else {
+                    $('.modal-content-uploading-text-success').html('<span class="modal-content-uploading-filename">' + fileObj.name + '</span> has successfully been uploaded');
+                    $('.modal-content-success').show().delay(5000).fadeOut();
+                }
+                template.currentFindingsUpload.set(false);
+            });
+
+            upload.start();
+        }
+    }
+});
+
+
 
 /*==========================================
  Treatments Modal
@@ -476,5 +529,164 @@ Template.patientContentTreatmentModal.events({
         }
 
 
+    }
+});
+
+
+/*==========================================
+ Treatments Modal - Upload files
+ ==========================================*/
+
+Template.patientContentTreatmentsUpload.onCreated(function () {
+    this.currentTreatmentsUpload = new ReactiveVar(false);
+});
+
+Template.patientContentTreatmentsUpload.helpers({
+    currentUpload: function () {
+        return Template.instance().currentTreatmentsUpload.get();
+    }
+});
+
+Template.patientContentTreatmentsUpload.events({
+    'change #patients-treatment-upload-file': function (event, template) {
+
+        var file = event.currentTarget.files;
+
+        if ( file && file[0] ) {
+
+            var upload = Images.insert({
+                file: file[0],
+                meta: {
+                    patient_id: Session.get('currentPatient'),
+                    tooth_number: Session.get('currentToothNumber'),
+                    tooth_part: Session.get('currentToothPart'),
+                    date_uploaded: new Date().toISOString()
+                },
+                streams: 'dynamic'
+            }, false);
+
+            upload.on('start', function () {
+                template.currentTreatmentsUpload.set(this);
+            });
+
+            upload.on('end', function (error, fileObj) {
+                if (error) {
+                    $('.modal-content-uploading-text-error').text(error);
+                    $('.modal-content-error').show().delay(7000).fadeOut();
+                } else {
+                    $('.modal-content-uploading-text-success').html('<span class="modal-content-uploading-filename">'+ fileObj.name +'</span> has successfully been uploaded');
+                    $('.modal-content-success').show().delay(5000).fadeOut();
+                }
+                template.currentTreatmentsUpload.set(false);
+            });
+
+            upload.start();
+
+        }
+    }
+});
+
+
+/*==========================================
+ Complete appointment
+ ==========================================*/
+
+Template.patientContentCompleteAppointment.onCreated(function () {
+    this.subscribe('appointments.check');
+});
+
+Template.patientContentCompleteAppointment.helpers({
+    appointmentExists: function () {
+        var regex = new RegExp(moment().format('Do MMM YYYY'));
+        return Appointments.find({
+                patient_id: Session.get('currentPatient'),
+                status: { $regex: /(Waiting)|(In-Session)/ },
+                date_created: { $regex: regex }},
+            { fields: { patient_id: 1, status: 1, date_created: 1 } }).fetch().length; // check if appointment exists in the day's appointments
+    }
+});
+
+Template.patientContentCompleteAppointment.events({
+    'click .js-complete-appointment': function () {
+        openCloseModal('.complete-appointment-modal', '.complete-appointment-modal-content', '.js-cancel-complete-appointment');
+    }
+});
+
+Template.patientContentCompleteAppointmentModal.events({
+    'click .js-complete-appointment-confirmation': function () {
+        closeModal('.complete-appointment-modal', '.complete-appointment-modal-content');
+        openCloseModal('.confirm-invoice-modal', '.confirm-invoice-modal-content', '.js-cancel-confirm-invoice');
+    }
+});
+
+
+/*==========================================
+ Confirm invoice
+ ==========================================*/
+
+Template.patientContentConfirmInvoiceModal.onCreated(function () {
+    this.subscribe('services.list');
+    this.subscribe('invoices.check');
+});
+
+Template.patientContentConfirmInvoiceModal.helpers({
+    treatments: function () {
+        var regex = new RegExp(moment().format('Do MMM YYYY')),
+            appointmentId = Appointments.find({patient_id: Session.get('currentPatient'), status: { $regex: /(Waiting)|(In-Session)/ }, date_created: { $regex: regex }}).fetch()[0]._id;
+        return Treatments.find({appointment_id: appointmentId});
+    },
+
+    services: function () {
+        return Services.find({'service_name': {$ne: 'Consultation'}}, {sort: {service_name: 1}});
+    }
+});
+
+Template.patientContentConfirmInvoiceModal.events({
+    'click .js-confirm-invoice-edit': function () {
+        $(event.target).parent().parent().find('.confirm-invoice-text').hide();
+        $(event.target).parent().parent().find('.confirm-invoice-input').show();
+        $(event.target).siblings().show();
+        $(event.target).hide();
+    },
+
+    'click .js-confirm-invoice-save': function () {
+        // enter save treatment code here
+        var formWrapper = $(event.target).parent().parent();
+
+        var serviceId = formWrapper.find('.confirm-invoice-select').val(),
+            description = formWrapper.find('.confirm-invoice-description').val(),
+            amount = parseInt(formWrapper.find('.confirm-invoice-amount').val(), 10),
+            treatmentId = this._id
+
+
+        if (serviceId === 'None') {
+            alert('You have not selected a new service');
+        } else {
+            Meteor.call('UpdateTreatment', {
+                _id: treatmentId,
+                patient_id: Session.get('currentPatient'),
+                service_id: serviceId,
+                amount: amount,
+                description: description
+            });
+
+            $(event.target).parent().parent().find('.confirm-invoice-input').hide();
+            $(event.target).parent().parent().find('.confirm-invoice-text').show();
+            $(event.target).siblings().show();
+            $(event.target).hide();
+        }
+    },
+
+    'change .confirm-invoice-select': function () {
+        var newServiceId = $(event.target).val();
+        var oldServiceAmount = $(event.target).parent().parent().find('.confirm-invoice-amount');
+        var newServiceAmount = Services.find({_id: newServiceId}).fetch()[0].service_price;
+
+        oldServiceAmount.val(newServiceAmount);
+    },
+
+    'click .js-confirm-invoice': function () {
+        Meteor.call('SaveInvoice', Session.get('currentPatient'));
+        Router.go('/');
     }
 });
