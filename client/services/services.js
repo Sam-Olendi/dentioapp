@@ -49,31 +49,66 @@ Template.servicesNewButton.events({
 });
 
 
+Template.servicesNewModal.onRendered(function () {
+
+    Template.instance().randomColourCode = new ReactiveVar( randomColor({luminosity: 'random', format: 'hex'}) );
+
+    $('#service-new-form-colour').spectrum({
+        allowEmpty: true,
+        color: Template.instance().randomColourCode.get(),
+        showPaletteOnly: true,
+        togglePaletteOnly: true,
+        togglePaletteMoreText: 'more',
+        togglePaletteLessText: 'less',
+        clickoutFiresChange: true,
+        showInitial: true,
+        showInput: true,
+        preferredFormat: "hex",
+        palette: [
+            randomColor({hue: 'random', luminosity: 'dark', count: 8, format: 'hex'}),
+            randomColor({hue: 'random', luminosity: 'dark', count: 8, format: 'hex'}),
+            randomColor({hue: 'random', luminosity: 'dark', count: 8, format: 'hex'}),
+            randomColor({hue: 'random', luminosity: 'dark', count: 8, format: 'hex'}),
+            randomColor({hue: 'random', luminosity: 'light', count: 8, format: 'hex'}),
+            randomColor({hue: 'random', luminosity: 'light', count: 8, format: 'hex'}),
+            randomColor({hue: 'random', luminosity: 'light', count: 8, format: 'hex'}),
+            randomColor({hue: 'random', luminosity: 'light', count: 8, format: 'hex'})
+        ]
+    });
+});
 
 Template.servicesNewModal.events({
-   'submit #services-new-modal': function (event) {
-       event.preventDefault();
+    'submit #services-new-modal': function (event) {
+        event.preventDefault();
 
-       var nameRegex = /[A-Za-z]+/gm,
-           priceRegex = /(?:\d*\.)?\d+/g,
-           validateName = validateRequired('#service-new-form-name', nameRegex,'.js-error-service-name', 'Please enter a name for your service'),
-           validatePrice = validateRequired('#service-new-form-price', priceRegex,'.js-error-service-price', 'Please enter a price for your service');
+        var nameRegex = /[A-Za-z]+/gm,
+            priceRegex = /(?:\d*\.)?\d+/g,
+            validateName = validateRequired('#service-new-form-name', nameRegex,'.js-error-service-name', 'Please enter a name for your service'),
+            validatePrice = validateRequired('#service-new-form-price', priceRegex,'.js-error-service-price', 'Please enter a price for your service'),
+            serviceColour;
 
-       if ( validateName && validatePrice ) {
+        if ( !$('#service-new-form-colour').val() ){
+            serviceColour = Template.instance().randomColourCode.get();
+        } else {
+            serviceColour = $('#service-new-form-colour').val();
+        }
 
-           Meteor.call('AddService', {
-               service_name: $('#service-new-form-name').val().trim(),
-               service_description: $('#service-new-form-description').val().trim(),
-               service_price: parseInt($('#service-new-form-price').val().trim(), 10)
-           });
+        if ( validateName && validatePrice ) {
 
-           closeModal('.services-new-modal', '.services-new-modal-content');
+            Meteor.call('AddService', {
+                service_name: $('#service-new-form-name').val().trim(),
+                service_description: $('#service-new-form-description').val().trim(),
+                service_price: parseInt($('#service-new-form-price').val().trim(), 10),
+                service_color: serviceColour
+            });
 
-       } else {
-           alert('Oh no. Seems like your form isn\'t filled correctly. Please correct the errors');
-       }
+            closeModal('.services-new-modal', '.services-new-modal-content');
 
-   }
+        } else {
+            alert('Oh no. Seems like your form isn\'t filled correctly. Please correct the errors');
+        }
+
+    }
 });
 
 

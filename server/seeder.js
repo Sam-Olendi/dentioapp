@@ -612,7 +612,7 @@ Meteor.startup(function () {
             service_name: 'Consultation',
             service_description: 'They don\'t allow you to have bees in here.',
             service_price: 3500,
-            service_color: '#fff000'
+            service_color: randomColor({luminosity: 'light'})
         });
 
         Services.insert({
@@ -620,7 +620,7 @@ Meteor.startup(function () {
             service_name: 'All White Composite Filling',
             service_description: 'I like to look in the mirror.',
             service_price: 12000,
-            service_color: '#c00000'
+            service_color: randomColor({luminosity: 'light'})
         });
 
         Services.insert({
@@ -628,7 +628,7 @@ Meteor.startup(function () {
             service_name: 'Full Mouth Scaling and Polishing',
             service_description: 'Excuse me, do these effectively hide my thunder?',
             service_price: 3500,
-            service_color: '#333333'
+            service_color: randomColor({luminosity: 'light'})
         });
 
         Services.insert({
@@ -636,7 +636,7 @@ Meteor.startup(function () {
             service_name: 'Root Canal Therapy',
             service_description: 'We never had the chance to.',
             service_price: 12000,
-            service_color: '#443554'
+            service_color: randomColor({luminosity: 'light'})
         });
 
         Services.insert({
@@ -644,7 +644,7 @@ Meteor.startup(function () {
             service_name: 'Root Canal Finishing',
             service_description: 'Yeah. Mom\'s awesome. Tobias is Queen Mary.',
             service_price: 3500,
-            service_color: '#cc4233'
+            service_color: randomColor({luminosity: 'light'})
         });
 
         Services.insert({
@@ -652,7 +652,7 @@ Meteor.startup(function () {
             service_name: 'Temporary Filling',
             service_description: 'Cup-A-Soup…baby, I got a stew goin\'',
             service_price: 12000,
-            service_color: '#f23000'
+            service_color: randomColor({luminosity: 'light'})
         });
     }
 

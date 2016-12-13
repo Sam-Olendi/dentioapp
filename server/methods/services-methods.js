@@ -3,7 +3,8 @@ Meteor.methods({
         check (data, {
             service_name: String,
             service_description: String,
-            service_price: Number
+            service_price: Number,
+            service_color: String
         });
 
         return Services.insert(data);
