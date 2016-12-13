@@ -28,10 +28,24 @@ Template.reportsPatientsCompany.helpers({
         return Template.instance().searchCompany.get();
     },
     companies() {
-        var companies = Companies.find();
-        if ( companies ) {
-            return companies;
+        var query = {},
+            projection = { limit: 10, sort: { company_name: 1 } };
+
+        if ( Template.instance().searchCompany.get() ) {
+
+            var regex = new RegExp( Template.instance().searchCompany.get(), 'i' );
+
+            query = {
+                $or: [
+                    { company_name: regex }
+                ]
+            };
+
+            projection.limit = 15;
         }
+
+        var companies = Companies.find( query, projection );
+        if ( companies ) return companies;
     }
 });
 
@@ -91,7 +105,25 @@ Template.reportsPatientsInsurance.helpers({
         return Template.instance().searchInsurance.get();
     },
     insurances: function () {
-        var insurances = Insurances.find();
+
+        var query = {},
+            projection = { limit: 10, sort: { insurance_name: 1 } };
+
+        if ( Template.instance().searchInsurance.get() ) {
+
+            var regex = new RegExp( Template.instance().searchInsurance.get(), 'i' );
+
+            query = {
+                $or: [
+                    { insurance_name: regex }
+                ]
+            };
+
+            projection.limit = 15;
+        }
+
+        var insurances = Insurances.find( query, projection );
+
         if ( insurances ) {
             return insurances;
         }

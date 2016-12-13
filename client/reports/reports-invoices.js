@@ -33,7 +33,24 @@ Template.reportsInvoicesCompany.helpers({
     },
 
     companies: function () {
-        var companies = Companies.find();
+
+        var query = {},
+            projection = { limit: 10, sort: { company_name: 1 } };
+
+        if ( Template.instance().companySearch.get() ) {
+
+            var regex = new RegExp( Template.instance().companySearch.get(), 'i' );
+
+            query = {
+                $or: [
+                    { company_name: regex }
+                ]
+            };
+
+            projection.limit = 15;
+        }
+
+        var companies = Companies.find( query, projection );
         if ( companies ) return companies;
     }
 });
@@ -103,7 +120,23 @@ Template.reportsInvoicesInsurance.helpers({
     },
 
     insurances: function () {
-        return Insurances.find();
+        var query = {},
+            projection = { limit: 10, sort: { insurance_name: 1 } };
+
+        if ( Template.instance().insuranceSearch.get() ) {
+
+            var regex = new RegExp( Template.instance().insuranceSearch.get(), 'i' );
+
+            query = {
+                $or: [
+                    { insurance_name: regex }
+                ]
+            };
+
+            projection.limit = 15;
+        }
+
+        return Insurances.find( query, projection );
     }
 });
 
