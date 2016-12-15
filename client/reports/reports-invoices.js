@@ -174,36 +174,43 @@ Template.reportsInvoicesInsurance.events({
 
 
 
-Template.reportsInvoicesDate.rendered = function () {
-    //$('#reports-filter-date').datepicker({
-    //    dateFormat: 'yy mm dd',
-    //    maxDate: 0,
-    //    changeMonth: true,
-    //    changeYear: true
-    //});
-
+Template.reportsInvoicesDate.onRendered(function () {
     var dateFormat = "mm/dd/yy",
-        from = $( "#reports-filter-date" )
+        from = $( "#reports-filter-date-from" )
             .datepicker({
                 //defaultDate: "+1w",
-                dateFormat: 'yy mm dd',
+                dateFormat: 'yy-mm-dd',
                 changeMonth: true,
                 changeYear: true,
                 maxDate: 0
             }),
         to = $( "#reports-filter-date-to" ).datepicker({
-            dateFormat: 'yy mm dd',
+            dateFormat: 'yy-mm-dd',
             changeMonth: true,
             changeYear: true,
             maxDate: 0
         });
-};
+});
 
 Template.reportsInvoicesDate.events({
-    'change #reports-filter-date': function (event) {
-        var selectedDay = moment(new Date(event.target.value).toISOString()).format('Do MMM YYYY');
-        Session.set('selectedDate', selectedDay);
-        event.target.value = selectedDay;
+    'change #reports-filter-date-from': function (event) {
+
+        var fromDate = new Date(event.target.value);
+        //fromDate.setHours(0,0,0,0);
+        Session.set('startDate', fromDate.toISOString());
+
+        event.target.value = moment( new Date( event.target.value ).toISOString() ).format( 'Do MMM YYYY' );
+
+    },
+
+    'change #reports-filter-date-to': function (event) {
+
+        var toDate = new Date( event.target.value );
+        toDate.setHours(23,59,59,999);
+        Session.set('endDate', toDate.toISOString());
+
+        event.target.value = moment( toDate.toISOString() ).format( 'Do MMM YYYY' );
+
     }
 });
 
@@ -292,9 +299,20 @@ Template.reportsInvoicesPatients.events({
 
 
 Template.reportsInvoicesTable.onCreated(function () {
+
+    //
+    //var selectedDay = new Date('2016-12-13');
+    //selectedDay.setHours(0,0,0,0);
+    //Session.set('selectedDate', selectedDay.toISOString());
+    //
+    //console.log(Session.get('selectedDate'));
+    //
+
     Session.setDefault('selectedCompany', null);
     Session.setDefault('selectedInsurance', null);
     Session.setDefault('selectedDate', null);
+    Session.setDefault('startDate', null);
+    Session.setDefault('endDate', null);
     Session.setDefault('selectedPatient', null);
 
     var template = Template.instance();
@@ -320,6 +338,14 @@ Template.reportsInvoicesTable.helpers({
         if ( Session.get('selectedInsurance') ) query[ 'insurance_id' ] = Session.get('selectedInsurance');
         if ( Session.get('selectedDate') ) query[ 'date_issued' ] = Session.get('selectedDate');
         if ( Session.get('selectedPatient') ) query[ 'patient_id' ] = Session.get('selectedPatient');
+
+        if ( Session.get('startDate') && !Session.get('endDate') ) {
+            query.timestamp = { $gte: Session.get('startDate'), $lte: new Date().toISOString() };
+        } else if ( !Session.get('startDate') && Session.get('endDate') ) {
+            query.timestamp = { $lte: Session.get('endDate') }
+        } else if ( Session.get('startDate') && Session.get('endDate') ) {
+            query.timestamp = { $gte: Session.get('startDate'), $lte: Session.get('endDate') };
+        }
 
         return Invoices.find( query, { sort: { invoice_no: -1 } } );
     }

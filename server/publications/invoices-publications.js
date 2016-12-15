@@ -71,6 +71,11 @@ Meteor.publish( 'invoices.reports.all', function (data) {
         patient_id: Match.OneOf( String, null, undefined )
     });
 
+    var selectedDay = new Date('2016-12-13');
+    selectedDay.setHours(0,0,0,0);
+
+    //console.log( Invoices.find({ timestamp: { $gt: selectedDay.toISOString() } }).fetch() );
+
     var query = {},
         projection = { sort: { invoice_no: 1 } };
 
@@ -81,8 +86,10 @@ Meteor.publish( 'invoices.reports.all', function (data) {
     }
 
     if ( data.insurance_id ) query[ 'insurance_id' ] = data.insurance_id;
-    if ( data.date_issued ) query[ 'date_issued' ] = data.date_issued;
+    if ( data.date_issued ) query[ 'timestamp' ] =  { $gt: selectedDay.toISOString() };
     if ( data.patient_id ) query[ 'patient_id' ] = data.patient_id;
+
+    //console.log( Invoices.find() );
 
     var self = this;
     var observer = Invoices.find( query, projection ).observe({

@@ -58,7 +58,8 @@ Meteor.methods({
             insurance_id: insuranceId,
             company_id: companyId,
             amount: amount,
-            date_issued: moment().format('Do MMM YYYY')
+            date_issued: moment().format('Do MMM YYYY'),
+            timestamp: new Date().toISOString()
         });
 
         return Generations.insert({
